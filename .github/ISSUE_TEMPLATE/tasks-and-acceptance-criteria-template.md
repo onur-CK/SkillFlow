@@ -7,7 +7,8 @@ assignees: ''
 
 ---
 
-As a  **role**, I can **capability** so that **received benefit**.
+#### [US-1.4] 
+As a **user**, I can **create and edit my profile** so that **others can learn about my skills and expertise**.
 
 **Acceptance Criteria:**
 - 
