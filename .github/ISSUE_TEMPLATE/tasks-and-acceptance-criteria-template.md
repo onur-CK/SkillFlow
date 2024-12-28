@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-#### [US-1.4] 
+#### [US-] 
 As a **user**, I can **create and edit my profile** so that **others can learn about my skills and expertise**.
 
 **Acceptance Criteria:**
