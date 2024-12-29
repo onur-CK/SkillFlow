@@ -4,8 +4,8 @@
 
 ## Epics and User Stories
 
-### Epic 1: [User Management]
-#### User Story: [User Story Title - US-1.1]
+### Epic 1: User Management
+#### User Story: User Story Title - 1.1
 As a **user**, I can **register to the system** so that **I can access the platform's features**.
 
 - **Acceptance Criteria:**
