@@ -2,11 +2,11 @@
 
 ## Overview
 
-Link to live project
+--- Link to live project
 
-Link to repo
+--- Link to repo
 
-Tecnologies used with "colorful buttons"
+--- Tecnologies used with "colorful buttons"
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
