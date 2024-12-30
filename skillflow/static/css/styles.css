@@ -13,3 +13,13 @@ body {
 .custom-text {
     color: #00beef;
 }
+
+.custom-navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-btn {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
