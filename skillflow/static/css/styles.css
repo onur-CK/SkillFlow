@@ -6,20 +6,58 @@ body {
     background-color: rgb(20, 30, 40);
 }
 
-.custom-bg {
-    background-color: rgb(20, 30, 40);
-}
-
 .custom-text {
     color: #00beef;
 }
 
 .custom-navbar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Adds a subtle border at the bottom of the navbar */
+    background-color: rgb(20, 30, 40);
 }
 
 .login-btn {
     background-color: white;
     color: black;
     font-weight: bold;
+}
+
+.custom-navbar {
+    background-color: rgb(20, 30, 40); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+
+.custom-navbar .navbar-brand {
+    color: orangered; 
+    transition: transform 0.2s ease; /* Smooth transition for the scaling effect */
+}
+
+.custom-navbar .navbar-brand:hover {
+    transform: scale(1.05); /* Slightly enlarges the title when hovered */
+    color: orangered; 
+}
+
+
+.custom-navbar .nav-link {
+    color: #00beef; 
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth color and scaling transitions */
+}
+
+.custom-navbar .nav-link:hover {
+    color: #00d1f7; 
+    transform: scale(1.05); /* Slightly enlarges the link when hovered */
+}
+
+
+.custom-navbar .btn-primary {
+    background-color: white; 
+    color: black; 
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    border: 1px solid #ccc; /* Adds a subtle border around the button */
+}
+
+.custom-navbar .btn-primary:hover {
+    background-color: black; 
+    color: white; 
 }
