@@ -84,3 +84,10 @@
 
 
 
+##django-documentation
+* Django installation: pip install django
+* Django version control: python -m django --version
+* Creating the project structure: django-admin startproject skillflow .
+
+
+
