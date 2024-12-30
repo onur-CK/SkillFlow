@@ -90,7 +90,12 @@
 - Creating the project structure: django-admin startproject skillflow .
 
 
-##resolved-issues (bugs and fixes)
-- 
+##resolved-issues (bugs ,causes and fixes)
+- Bug: When the hamburger menu was opened on smaller screens, the "Login" button appeared misaligned, remaining at the bottom right corner of the screen instead of being centrally aligned beneath the dropdown menu.
+- Cause: The "Login" button was placed in a separate <li> element, which caused it to behave independently of the dropdown menu. This structure prevented the button from dynamically aligning with the dropdown when it was opened.
+- Fix: To resolve the issue, the HTML structure was modified to place the "Login" button as a sibling of the dropdown menu within the same parent container.
+
+
+
 
 
