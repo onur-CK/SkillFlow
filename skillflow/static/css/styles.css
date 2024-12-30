@@ -2,3 +2,14 @@
     margin-bottom: 5px;
 }
 
+body {
+    background-color: rgb(20, 30, 40);
+}
+
+.custom-bg {
+    background-color: rgb(20, 30, 40);
+}
+
+.custom-text {
+    color: #00beef;
+}
