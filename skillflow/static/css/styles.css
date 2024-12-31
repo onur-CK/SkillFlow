@@ -163,3 +163,9 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
 }
+
+.service-title {
+    color: white;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
