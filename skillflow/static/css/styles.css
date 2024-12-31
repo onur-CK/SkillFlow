@@ -137,3 +137,10 @@ body {
 
 /* ----------------------------------------------------------------------- Cards */
 
+.service-cards-section {
+    padding: 2rem 0;
+}
+
+.service-card {
+    background-color: rgb(20, 30, 40); /* Same color with navbar */
+}
