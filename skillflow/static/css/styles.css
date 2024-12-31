@@ -149,3 +149,10 @@ body {
     height: 100%;
 }
 
+.service-card-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+
