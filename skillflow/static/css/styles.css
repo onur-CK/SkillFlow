@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: rgb(20, 30, 40);
+    background-color: #0D1014;
 }
 
 .custom-text {
@@ -21,7 +21,7 @@ body {
 /* ---------------------------------------------------------------------------------------------- Navbar */
 
 .custom-navbar {
-    background-color: rgb(20, 30, 40); 
+    background-color: #0D1014; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
@@ -92,7 +92,7 @@ body {
 /* -------------------------------------------------------------------------------------------- Category Section */
 
 .category-section {
-    background-color: rgb(25, 35, 45); /* Slightly lighter background color than body. */
+    background-color: #0D1014; 
     padding: 2rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
     margin-bottom: 2rem;
@@ -143,7 +143,7 @@ body {
 
 .service-card {
     /* Styles individual service cards with a dark background and rounded corners */
-    background-color: rgb(20, 30, 40);  /* Same color as the navbar */
+    background-color: #161b22;  
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
