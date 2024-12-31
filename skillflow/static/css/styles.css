@@ -27,7 +27,7 @@ body {
 
 
 .custom-navbar .navbar-brand {
-    color: orangered; 
+    color: white; 
     transition: transform 0.2s ease; /* Smooth transition for the scaling effect */
 }
 
@@ -92,7 +92,7 @@ body {
 /* -------------------------------------------------------------------------------------------- Category Section */
 
 .category-section {
-    background-color: #0D1014; 
+    background-color: #161B22; 
     padding: 2rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
     margin-bottom: 2rem;
