@@ -293,6 +293,10 @@ body {
     margin-top: 0.5rem; /* Adds space above the form text */
 }
 
-
+.toggle-text {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+}
 
 
