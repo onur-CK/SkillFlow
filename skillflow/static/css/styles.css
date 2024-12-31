@@ -75,3 +75,15 @@ body {
 .navbar-toggler:hover {
     border-color: orangered; /* Change the border color to orangered when hovering over the hamburger menu */
 }
+
+.nav-link.dropdown-toggle.custom-text {
+    color: #00beef; 
+}
+
+.nav-link.dropdown-toggle.custom-text:focus,
+.nav-link.dropdown-toggle.custom-text:active {
+    color: #00beef !important; 
+    background-color: transparent; 
+    text-decoration: none; 
+    box-shadow: none; 
+}
