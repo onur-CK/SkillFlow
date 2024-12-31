@@ -92,47 +92,47 @@
         </div>   
     </section>
 
-    <!-- Job listing cards... -->
-
-    <main class="service-cards-section">
+    <main class="signup-section">
         <div class="container">
-            <div class="row g-4">
-                <!-- Example Card 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-card-header">
-                            <span class="service-price">€40/hr</span>
-                        </div>
-                        <h5 class="service-title">Meditation Coaching</h5>
-                        <p class="service-description">
-                            Learn the art of mindfulness and relaxation through guided meditation sessions. Suitable for all levels, focusing on stress relief and inner balance.
-                        </p>
-                        <div class="service-footer">
-                            <div class="service-provider">Alan Watts</div>
-                            <div class="service-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.8</span>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-card">
+                        <h4 class="form-title">Create Account</h4>
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control custom-input" id="username" required />
+                                <div class="form-text">This will be your display name for services</div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Example Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-card-header">
-                            <span class="service-price">€25/hr</span>
-                        </div>
-                        <h5 class="service-title">English Tutoring</h5>
-                        <p class="service-description">
-                            Personalized English tutoring for learners at levels B1 to C1. Specializing in grammar, vocabulary, and conversational fluency.
-                        </p>
-                        <div class="service-footer">
-                            <div class="service-provider">James D.</div>
-                            <div class="service-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.8</span>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control custom-input" id="password" required />
+                                </div>
                             </div>
-                        </div>
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control custom-input" id="confirm-password"
+                                    required />
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="requirements-title">Password Requirements:</h6>
+                                <ul class="requirements-list">
+                                    <li>At least 8 characters long</li>
+                                    <li>Must contain at least one uppercase letter</li>
+                                    <li>Must contain at least one lowercase letter</li>
+                                    <li>Must contain at least one number</li>
+                                    <li>Must contain at least one special character</li>
+                                </ul>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary custom-submit w-100">Create Account</button>
+
+                            <div class="text-center mt-3">
+                                <p class="toggle-text">Already have an account? <a href="#" class="custom-link">Login</a></p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
