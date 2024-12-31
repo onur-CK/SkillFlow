@@ -309,3 +309,11 @@ body {
 .custom-link:hover {
     color: orangered;
 }
+
+/* -------------------------------------------------------------------- Service Listing Form  */
+
+.form-card .custom-input::placeholder,
+.form-card .form-control::placeholder {
+    color: #666 !important;
+    opacity: 1;
+}
