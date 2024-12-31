@@ -102,8 +102,15 @@
                         <h4 class="form-title">Create Account</h4>
                         <form>
                             <div class="mb-3">
-                                <label for="username" class="form-label">Category</label>
-                                <input type="text" class="form-control custom-input" id="username" required />
+                                <label for="category" class="form-label">Category</label>
+                                <select class="form-control custom-input" id="category" required>
+                                    <option value="" selected disabled>Select a category</option>
+                                    <option value="home-care">Home Care</option>
+                                    <option value="education">Education</option>
+                                    <option value="creative">Creative</option>
+                                    <option value="health">Health</option>
+                                    <option value="events">Events</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Area of Expertise</label>
