@@ -109,11 +109,16 @@ body {
 }
 
 .category-icon i {
-    font-size: 2rem;
+    font-size: 2rem; /* Makes icons larger */
     margin-bottom: 0.75rem;
 }
 
 .category-icon span {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Slightly smaller text */
     transition: color 0.3s ease;
+}
+
+.category-icon:hover {
+    transform: translateY(-5px); /* Slight upward movement */
+    color: #ce3df3;
 }
