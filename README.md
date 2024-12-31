@@ -105,6 +105,22 @@ With additional features like profile pages to track both services offered and r
 - Cause: The "Login" button was placed in a separate <li> element, which caused it to behave independently of the dropdown menu. This structure prevented the button from dynamically aligning with the dropdown when it was opened.
 - Fix: To resolve the issue, the HTML structure was modified to place the "Login" button as a sibling of the dropdown menu within the same parent container.
 
+- Bug: Directory listing shown instead of index.html. When launching the project using Live Server, the browser displayed a "Listing Directory" page with all project files instead of automatically loading index.html.
+- Cause: This issue occurred because multiple .html files(to work on later) existed in the root directory. Although index.html was present, Live Server may have been unable to correctly prioritize it due to one or more of the following factors:
+
+File Priority Conflict: The presence of other .html files might have confused Live Server, especially if their names were similar to index.html or were empty files.
+
+Directory Scanning: Live Server may have scanned all files and, in the absence of a clear default, displayed the directory listing.
+
+Accidental Launch: An unintended file might have been selected(by live server) when starting Live Server, causing it to serve the directory or an unrelated file.
+- Fix: Remove unnecessary HTML files, ensure correct file namings, restart live server, have a simple file structure.
+[https://www.reddit.com/r/vscode/comments/x4y1l7/live_server_showing_listing_directory_with_a/]
+
+
+
+
+
+
 
 
 ##Modular Code Architecture -------------------------- Check the topic name

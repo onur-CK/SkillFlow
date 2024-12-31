@@ -253,3 +253,8 @@ body {
     margin-bottom: 0.75rem;
 }
 
+.requirements-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
