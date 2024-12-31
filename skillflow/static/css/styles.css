@@ -197,3 +197,7 @@ body {
     color: #ffd700; /* Rating star color */
     font-size: 0.9rem;
 }
+
+.service-rating span {
+    color: white;
+}
