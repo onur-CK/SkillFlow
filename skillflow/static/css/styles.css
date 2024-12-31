@@ -120,7 +120,7 @@ body {
 
 .category-icon:hover {
     transform: translateY(-5px); /* Slight upward movement */
-    color: #ce3df3;
+    color: orangered;
 }
 
 .category-icon:hover i {
@@ -142,23 +142,27 @@ body {
 }
 
 .service-card {
-    background-color: rgb(20, 30, 40); /* Same color with navbar */
+    /* Styles individual service cards with a dark background and rounded corners */
+    background-color: rgb(20, 30, 40);  /* Same color as the navbar */
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
     height: 100%;
+    min-height: 300px;  /* Ensures a minimum card height */
 }
 
 .service-card-header {
+    /* Aligns the price to the right and adds spacing below the header */
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
+    justify-content: flex-end; /* Align to the right */
+    margin-bottom: 2rem; 
 }
 
 .service-price {
+    /* Styles the price tag with a colored background and rounded shape */
     background-color: rgba(0, 190, 239, 0.1);
     color: #00beef;
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 1rem;  
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
@@ -166,15 +170,16 @@ body {
 
 .service-title {
     color: white;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;  
     font-size: 1.25rem;
 }
 
 .service-description {
+    /* Styles the description text with white color and improved readability */
     color: white;
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 2.5rem; 
+    line-height: 1.8;  
 }
 
 .service-footer {
@@ -194,7 +199,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    color: #ffd700; /* Rating star color */
+    color: #ffd700;  /* Gold color for stars */
     font-size: 0.9rem;
 }
 
