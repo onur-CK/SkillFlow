@@ -10,16 +10,15 @@ body {
     color: #00beef;
 }
 
-.custom-navbar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Adds a subtle border at the bottom of the navbar */
-    background-color: rgb(20, 30, 40);
-}
+/* -------------------------------------------------------------------------------------------- Buttons */
 
 .login-btn {
     background-color: white;
     color: black;
     font-weight: bold;
 }
+
+/* ---------------------------------------------------------------------------------------------- Navbar */
 
 .custom-navbar {
     background-color: rgb(20, 30, 40); 
@@ -82,8 +81,8 @@ body {
 
 .nav-link.dropdown-toggle.custom-text:focus,
 .nav-link.dropdown-toggle.custom-text:active {
-    color: #00beef !important; 
-    background-color: transparent; 
-    text-decoration: none; 
-    box-shadow: none; 
+    color: #00beef !important; /* Sets the text color to a turquoise blue when the link is in focus or active */
+    background-color: transparent; /* Ensures the background remains transparent */
+    text-decoration: none; /* Removes any text decoration (like underline) from the active/focused state */
+    box-shadow: none; /* Removes any box shadow from the link when it is focused or active */
 }
