@@ -211,12 +211,12 @@ body {
 /* -------------------------------------------------------------------------------- Sign Up Form */
 
 .signup-section {
-    padding: 2rem 0;
+    padding: 2rem 0; /* Adds 2rem padding to the top and bottom of the signup section */
 }
 
 .form-card {
     background-color: #161b22;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Adds a subtle border around the form card */
     border-radius: 12px;
     padding: 2rem;
 }
@@ -224,8 +224,8 @@ body {
 .form-title {
     color: white;
     text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 600;
+    margin-bottom: 2rem; /* Adds space below the title */
+    font-weight: 600; /* Makes the title text bold */
 }
 
 .form-label {
@@ -236,33 +236,40 @@ body {
 .custom-input {
     background-color: #0d1014;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 0.75rem 1rem;
+    color: white; /* Sets the text color inside input fields to white */
+    padding: 0.75rem 1rem; /* Adds padding inside the input fields */
 }
 
 .custom-input:focus {
     background-color: #0d1014;
-    border-color: #00beef;
-    box-shadow: 0 0 0 0.2rem rgba(0, 190, 239, 025);
+    border-color: #00beef;  /* Changes the border color when the input is focused */
+    box-shadow: 0 0 0 0.2rem rgba(0, 190, 239, 025); /* Adds a glowing effect around the input when focused */
     color: white;
 }
 
 .requirements-title {
     color: white;
     font-size: 0.9rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem; /* Adds space below the requirements title */
 }
 
 .requirements-list {
-    list-style-type: none;
-    padding-left: 0;
+    list-style-type: none; /* Removes default list bullet points */
+    padding-left: 0; /* Removes padding on the left of the list */
     margin-bottom: 0;
 }
 
 .requirements-list li {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem; /* Adds space below each list item */
     padding-left: 1.5rem;
-    position: relative;
+    position: relative; /* Positions the bullet point relative to the list item */
+}
+
+.requirements-list li:before {
+    content: "•"; /* Adds a bullet point before each list item */
+    color: #00beef;
+    position: absolute;
+    left: 0; /* Aligns the bullet point to the left of the list item */
 }
