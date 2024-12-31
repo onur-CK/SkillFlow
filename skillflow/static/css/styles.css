@@ -89,12 +89,13 @@ body {
 
 
 
-/* ---------------------------------------------------------------------------------------------- Category */
+/* -------------------------------------------------------------------------------------------- Category Section */
 
 .category-section {
-    background-color: rgb(25, 35, 45);
+    background-color: rgb(25, 35, 45); /* Slightly lighter background color than body. */
     padding: 2rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    margin-bottom: 2rem;
 }
 
 .category-icon {
@@ -102,6 +103,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    padding: 2rem;
+    text-decoration: none; /* Removes underline from links */
+    padding: 1rem;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
