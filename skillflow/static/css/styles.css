@@ -107,3 +107,13 @@ body {
     padding: 1rem;
     transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
+
+.category-icon i {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.category-icon span {
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
