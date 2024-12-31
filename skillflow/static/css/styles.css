@@ -211,7 +211,7 @@ body {
 /* -------------------------------------------------------------------------------- Sign Up Form */
 
 .signup-section {
-    padding: 2rem 0; /* Adds 2rem padding to the top and bottom of the signup section */
+    padding: 2rem 0; /* Adds padding to the top and bottom of the signup section */
 }
 
 .form-card {
@@ -273,3 +273,14 @@ body {
     position: absolute;
     left: 0; /* Aligns the bullet point to the left of the list item */
 }
+
+.custom-submit {
+    background-color: #00beef;
+    border: none; /* Removes the border around the button */
+    padding: 0.75rem; 
+    font-weight: 500; /* Makes the button text slightly bold */
+    transition: all 0.3s ease; /* Adds a smooth transition effect for all properties */
+}
+
+
+
