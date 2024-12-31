@@ -282,5 +282,12 @@ body {
     transition: all 0.3s ease; /* Adds a smooth transition effect for all properties */
 }
 
+.custom-submit:hover {
+    background-color: #00a5d1;
+    transform: translateY(-1px);
+}
+
+
+
 
 
