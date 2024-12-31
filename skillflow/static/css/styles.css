@@ -283,10 +283,15 @@ body {
 }
 
 .custom-submit:hover {
-    background-color: #00a5d1;
-    transform: translateY(-1px);
+    background-color: #00a5d1; /* Changes the button background color when hovered */
+    transform: translateY(-1px); /* Slightly lifts the button when hovered */
 }
 
+.form-text {
+    color: rgba(255, 255, 255, 0.5); /* Sets a light white color with opacity for the form text */
+    font-size: 0.85rem;
+    margin-top: 0.5rem; /* Adds space above the form text */
+}
 
 
 
