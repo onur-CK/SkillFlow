@@ -87,3 +87,15 @@ body {
     box-shadow: none; /* Removes any box shadow from the link when it is focused or active */
 }
 
+
+
+/* ---------------------------------------------------------------------------------------------- Category */
+
+.category-section {
+    background-color: rgb(25, 35, 45);
+    padding: 2rem 0;
+}
+
+.category-icon {
+    color: #00beef;
+}
