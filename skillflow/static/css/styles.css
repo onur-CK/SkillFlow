@@ -333,9 +333,9 @@ body {
     transition: transform 0.2s ease; /* Adds a smooth transformation effect */
 }
 
-/* Hover efekti */
+
 .form-card select.custom-input:hover {
     transform: scale(1.02); /* Slightly enlarges the dropdown element on hover */
 } 
-
+/* ----------------------------------------------------------------------------------------------------- My Profile */
 
