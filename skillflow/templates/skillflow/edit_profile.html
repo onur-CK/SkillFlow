@@ -8,7 +8,7 @@
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
     crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="../../static/css/styles.css" rel="stylesheet">
 </head>
 <body>
     
@@ -32,7 +32,7 @@
                           Profile
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Manage account</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -92,52 +92,49 @@
         </div>   
     </section>
 
-    <!-- Service Listing Form ... -->
+    <!-- Profile -->
 
     <main class="signup-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="form-card">
-                        <h4 class="form-title">Create Service Listing</h4>
+                        <h4 class="form-title">Account Information</h4>
                         <form>
                             <div class="mb-3">
-                                <label for="category" class="form-label">Category</label>
-                                <select class="form-control custom-input" id="category" required>
-                                    <option value="" selected disabled>Select a category</option>
-                                    <option value="home-care">Home Care</option>
-                                    <option value="education">Education</option>
-                                    <option value="creative">Creative</option>
-                                    <option value="health">Health</option>
-                                    <option value="events">Events</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="title" class="form-label">Service title</label>
+                                <label for="firstName" class="form-label">First Name</label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control custom-input" id="title" placeholder="e.g., Professional Math Tutoring"/>
+                                    <input type="text" class="form-control custom-input" id="firstName"/>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="hourlyRate" class="form-label">Hourly Rate (€)</label>
-                                <input type="number" class="form-control custom-input" id="hourlyRate"
-                                placeholder="Enter your hourly rate" min="1" required/>
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control custom-input" id="lastName"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Username</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control custom-input" id="userName"/>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <div class="input-group">
+                                    <input type="email" class="form-control custom-input" id="email"/>
+                                </div>
                             </div>
                             <div class="mb-4">
-                                <label for="description" class="form-label">Service Description</label>`
-                                <textarea class="form-control custom-input" id="description" rows="4"
-                                placeholder="Describe your service, experience, and expertise..." maxlength="500" requried></textarea>
-                            
-                            <div class="form-text text-end" id="charCount">0/500 characters</div>
+                                <label for="bio" class="form-label">Bio</label>
+                                <textarea class="form-control custom-input" id="bio" rows="4" maxlength="200"></textarea>
+                                <div class="form-text text-end" id="charCount">0/200 characters</div>
                             </div>
-                            <button type="submit" class="btn btn-primary custom-submit w-100">Create Listing</button>
+                            <button type="submit" class="btn btn-primary custom-submit w-100">Edit Profile</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

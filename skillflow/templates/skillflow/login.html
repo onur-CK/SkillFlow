@@ -8,7 +8,7 @@
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
     crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="../../static/css/styles.css" rel="stylesheet">
 </head>
 <body>
     
@@ -32,7 +32,7 @@
                           Profile
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Manage account</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -92,47 +92,34 @@
         </div>   
     </section>
 
-    <!-- Job listing cards... -->
+    <!-- Login Form -->
 
-    <main class="service-cards-section">
+    <main class="signup-section">
         <div class="container">
-            <div class="row g-4">
-                <!-- Example Card 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-card-header">
-                            <span class="service-price">€40/hr</span>
-                        </div>
-                        <h5 class="service-title">Meditation Coaching</h5>
-                        <p class="service-description">
-                            Learn the art of mindfulness and relaxation through guided meditation sessions. Suitable for all levels, focusing on stress relief and inner balance.
-                        </p>
-                        <div class="service-footer">
-                            <div class="service-provider">Alan Watts</div>
-                            <div class="service-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.8</span>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-card">
+                        <h4 class="form-title">Login to SkillFlow</h4>
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control custom-input" id="username" required />
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Example Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-card-header">
-                            <span class="service-price">€25/hr</span>
-                        </div>
-                        <h5 class="service-title">English Tutoring</h5>
-                        <p class="service-description">
-                            Personalized English tutoring for learners at levels B1 to C1. Specializing in grammar, vocabulary, and conversational fluency.
-                        </p>
-                        <div class="service-footer">
-                            <div class="service-provider">James D.</div>
-                            <div class="service-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.8</span>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control custom-input" id="password" required />
+                                </div>
                             </div>
-                        </div>
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label text-white" for="rememberMe">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary custom-submit w-100 mb-3">Login</button>
+                            <div class="text-center">
+                                <p class="toggle-text">Don't have an account?<a href="#" class="custom-link"> Sign-up</a></p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
