@@ -392,3 +392,17 @@ h1 {
 .custom-category-icon {
     color: #00beef;
 }
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.category-item {
+    padding: 1.5rem;
+    background-color: rgba(0, 190, 239, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
