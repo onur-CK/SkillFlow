@@ -381,3 +381,8 @@ h1 {
     transition: all 0.3s ease;
     border: none;
 }
+
+.highlight {
+    color: #00beef;
+    font-weight: 500;
+}
