@@ -348,3 +348,16 @@ body {
     justify-content: center;
 }
 
+.about-content {
+    max-width: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    background-color: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 4rem;
+}
+
+
+
