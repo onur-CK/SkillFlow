@@ -413,3 +413,8 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.category-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
