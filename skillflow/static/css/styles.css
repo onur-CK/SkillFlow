@@ -379,5 +379,5 @@ h1 {
     font-size: 1.25rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    border: solid;
+    border: none;
 }
