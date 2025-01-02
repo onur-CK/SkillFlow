@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('edit-profile/', views.edit_profile, name='edit_profile'),
     path('', views.index, name='index'),
+    
 ]
