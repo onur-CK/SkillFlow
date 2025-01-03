@@ -105,6 +105,8 @@ With additional features like profile pages to track both services offered and r
 - Cause: The "Login" button was placed in a separate <li> element, which caused it to behave independently of the dropdown menu. This structure prevented the button from dynamically aligning with the dropdown when it was opened.
 - Fix: To resolve the issue, the HTML structure was modified to place the "Login" button as a sibling of the dropdown menu within the same parent container.
 
+
+
 - Bug: Directory listing shown instead of index.html. When launching the project using Live Server, the browser displayed a "Listing Directory" page with all project files instead of automatically loading index.html.
 - Cause: This issue occurred because multiple .html files(to work on later) existed in the root directory. Although index.html was present, Live Server may have been unable to correctly prioritize it due to one or more of the following factors:
 
@@ -116,6 +118,11 @@ Accidental Launch: An unintended file might have been selected(by live server) w
 - Fix: Remove unnecessary HTML files, ensure correct file namings, restart live server, have a simple file structure.
 [https://www.reddit.com/r/vscode/comments/x4y1l7/live_server_showing_listing_directory_with_a/]
 
+
+
+- Bug: When launching the website, index.html was displaying as the homepage instead of the intended about_us.html landing page.
+- Cause: The URL pattern configuration had the index view mapped to the root URL ('/'), while about_us.html was not accessible through any URL pattern.
+- Fix: Modified urls.py to map the root URL ('/') to the about_us view and moved the index view to '/home/' and '/index/' paths. Additionally, added the necessary about_us view function in views.py to properly render the landing page.
 
 
 
