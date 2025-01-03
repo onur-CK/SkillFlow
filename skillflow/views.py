@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .models import UserProfile
+
 
 def edit_profile(request):
     return render(request, 'skillflow/edit_profile.html')
@@ -17,8 +22,10 @@ def about_us(request):
 
 def sign_up(request):
     # Check if the request is a POST request (form submitted by the user).
-    if request.metod == 'POST': 
-        form = SignUpForm(request.POST)
+    
+        
+
+
         
 
 
