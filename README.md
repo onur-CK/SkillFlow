@@ -92,12 +92,23 @@ With additional features like profile pages to track both services offered and r
     - [Acknowledgments](#acknowledgments)
 
 
+#wireframes
+
+![Create account wireframe](https://github.com/user-attachments/assets/97a923fa-d13f-4e3a-8b93-e2145cb527f6)
+![My Profile wireframe](https://github.com/user-attachments/assets/4985c489-6445-4da8-a343-e8f94227c715)
+![MainPage wireframe](https://github.com/user-attachments/assets/dcd055c7-eb1c-41be-a5fd-d5eac3ee774a)
+![login page wireframe](https://github.com/user-attachments/assets/ea3ab44b-2cfa-4149-a580-668de25ed0fc)
+![Create Service Listing wireframe](https://github.com/user-attachments/assets/e2dda422-5a1e-427d-8e4f-b1d46f75885e)
+
+
 
 
 ##django-documentation
 - Django installation: pip install django
 - Django version control: python -m django --version
 - Creating the project structure: django-admin startproject skillflow .
+
+
 
 
 ##resolved-issues (bugs ,causes and fixes)
@@ -231,3 +242,11 @@ Conclusion
 • This approach to building the login form demonstrates the power of modular development and component reusability
 • By leveraging existing styles and Bootstrap classes, we created a consistent, maintainable, and efficient component that aligns perfectly with our application's design system
 • The success of this implementation reinforces our "building blocks" approach to development, showing how well-structured initial components can speed up future development while maintaining high quality and consistency
+
+
+
+
+
+
+Kanban board image
+![Kanban Board ](https://github.com/user-attachments/assets/042f91f3-e415-41fe-8b0d-47476ee6a6a2)
