@@ -34,6 +34,7 @@ def sign_up(request):
             return redirect('sign up')
         
         
+        
 
 
         
