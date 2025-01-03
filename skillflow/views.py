@@ -38,6 +38,8 @@ def sign_up(request):
         # Create a UserProfile instance for the newly created user.
         UserProfile.objects.create(user=user)
         
+    return render(request, 'skillflow/sign_up.html') 
+    
         
         
 
