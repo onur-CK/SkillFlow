@@ -35,6 +35,8 @@ def sign_up(request):
     
         # Create a new user with the given username and password.
         user = User.objects.create_user(username=username, password=password)
+        # Create a UserProfile instance for the newly created user.
+        UserProfile.objects.create(user=user)
         
         
         
