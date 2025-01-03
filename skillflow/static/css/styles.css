@@ -378,19 +378,6 @@ h1 {
     margin: 3rem 0;
 }
 
-.signup-btn {
-    background-color: #00beef;
-    color: white;
-    padding: 1rem 4rem;
-    border-radius: 30px;
-    font-size: 1.25rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
-    margin-top: 2rem;
-    display: inline-block;
-}
-
 .highlight {
     color: #00beef;
     font-weight: 500;
