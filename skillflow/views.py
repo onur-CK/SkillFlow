@@ -14,3 +14,6 @@ def service(request):
 
 def sign_up(request):
     return render(request, 'skillflow/sign_up.html')
+
+def about_us(request):
+    return render(request, 'skillflow/about_us.html')
