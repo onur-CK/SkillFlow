@@ -18,5 +18,7 @@ def about_us(request):
 def sign_up(request):
     # Check if the request is a POST request (form submitted by the user).
     if request.metod == 'POST': 
+        form = SignUpForm(request.POST)
+        
 
 
