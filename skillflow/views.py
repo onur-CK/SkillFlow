@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.contrib.auth import login
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import UserProfile
@@ -38,6 +38,7 @@ def sign_up(request):
         # Create a UserProfile instance for the newly created user.
         UserProfile.objects.create(user=user)
         login(request, user)
+        return redirect('index')
         
     return render(request, 'skillflow/sign_up.html') 
     
