@@ -37,6 +37,7 @@ def sign_up(request):
         user = User.objects.create_user(username=username, password=password)
         # Create a UserProfile instance for the newly created user.
         UserProfile.objects.create(user=user)
+        login(request, user)
         
     return render(request, 'skillflow/sign_up.html') 
     
