@@ -12,8 +12,11 @@ def login(request):
 def service(request):
     return render(request, 'skillflow/service.html')
 
-def sign_up(request):
-    return render(request, 'skillflow/sign_up.html')
-
 def about_us(request):
     return render(request, 'skillflow/about_us.html')
+
+def sign_up(request):
+    # Check if the request is a POST request (form submitted by the user).
+    if request.metod == 'POST': 
+
+
