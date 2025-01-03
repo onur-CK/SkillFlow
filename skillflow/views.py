@@ -32,6 +32,9 @@ def sign_up(request):
         
         if User.objects.filter(username=username).exists():
             return redirect('sign up')
+    
+        # Create a new user with the given username and password.
+        user = User.objects.create_user(username=username, password=password)
         
         
         
