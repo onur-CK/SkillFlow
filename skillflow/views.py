@@ -22,7 +22,12 @@ def about_us(request):
 
 def sign_up(request):
     # Check if the request is a POST request (form submitted by the user).
-    
+    if request.method == 'POST': 
+        username = request.POST['username']
+        password = request.POST['password']
+        password_confirm = request.POST['confirm-password']
+        
+        
         
 
 
