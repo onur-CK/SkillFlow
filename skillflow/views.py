@@ -27,6 +27,11 @@ def sign_up(request):
         password = request.POST['password']
         password_confirm = request.POST['confirm-password']
         
+        if password != password_confirm:
+            return redirect('sign_up')
+        
+        if User.objects.filter(username=username).exists():
+            return redirect('sign up')
         
         
 
