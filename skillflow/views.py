@@ -31,7 +31,7 @@ def sign_up(request):
             return redirect('sign_up')
         
         if User.objects.filter(username=username).exists():
-            return redirect('sign up')
+            return redirect('sign_up')
     
         # Create a new user with the given username and password.
         user = User.objects.create_user(username=username, password=password)
@@ -46,7 +46,13 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password'] 
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')
         
+    return render(request, 'skillflow/login.html')  
 
 
         
