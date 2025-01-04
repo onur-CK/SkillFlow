@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from .models import UserProfile
+from .forms import SignUpForm
 
 
 def edit_profile(request):
@@ -55,6 +54,17 @@ def user_login(request):
     return render(request, 'skillflow/login.html')  
 
 
-        
 
+@login_required
+def index(request):
+    return render(request, 'skillflow/index.html')
+
+def about_us(request):
+    return render(request, 'skillflow/about_us.html')
+
+def service(request):
+    return render(request, 'skillflow/service.html')
+
+def edit_profile(request):
+    return render(request, 'skillflow/edit_profile.html')
 
