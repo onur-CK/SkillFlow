@@ -100,7 +100,7 @@
                 <div class="col-md-6">
                     <div class="form-card">
                         <h4 class="form-title">Login to SkillFlow</h4>
-                        <form>
+                        <form method="POST" action="{% url 'login' %}">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control custom-input" id="username" required />
