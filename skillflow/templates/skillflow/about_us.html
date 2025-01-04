@@ -16,8 +16,12 @@
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand custom-text" href="{% url 'index' %}">SkillFlow</a>
-            <!-- Login Button -->
-            <a class="btn btn-primary login-btn" href="{% url 'sign_up' %}">Sign Up</a>
+            <!-- Buttons -->
+            <div>
+                <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-primary login-btn" href="{% url 'sign_up' %}">Sign Up</a>
+            </div>
+            
         </div>
     </nav>
 
