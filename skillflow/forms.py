@@ -13,3 +13,8 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ['bio']
 
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Service
+        fields = ['title', 'description', 'category', 'hourly_rate']
+
