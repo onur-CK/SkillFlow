@@ -109,16 +109,18 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="form-card">
-                        <h4 class="form-title">Signout Confirmation</h4>
+                        <h4 class="form-title">Delete Account Confirmation</h4>
                         <div class="text-center mb-4">
-                            <i class="fas fa-sign-out-alt fa-2x mb-5 text-white"></i>
-                            <p class="text-white mb-4">Are you sure you want to sign out? You will be redirected to the home page.</p>
+                            <i class="fas fa-trash-alt fa-2x mb-5 text-white"></i>
+                            <p class="text-white mb-4">
+                                Are you sure you want to delete your account? This action is permanent and cannot be undone.
+                            </p>
                         </div>
-                        <form method="POST" action="{% url 'logout' %}">
+                        <form method="POST" action="{% url 'delete_account' %}">
                             {% csrf_token %}
                             <div class="d-grid gap-3">
-                                <button type="submit" class="btn btn-primary custom-submit">Yes, Sign Out</button>
-                                <a href="{% url 'index' %}" class="btn btn-outline-light w-100">No, Stay Logged In</a>
+                                <button type="submit" class="btn btn-danger custom-submit">Yes, Delete My Account</button>
+                                <a href="{% url 'profile' %}" class="btn btn-outline-light w-100">No, Keep My Account</a>
                             </div>
                         </form>
                     </div>
