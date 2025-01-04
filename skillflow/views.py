@@ -20,9 +20,7 @@ def sign_up(request):
         form = SignUpForm()
     return render(request, 'skillflow/sign_up.html', {'form': form})
         
-    return render(request, 'skillflow/sign_up.html') 
     
-  
 @login_required
 def index(request):
     return render(request, 'skillflow/index.html')
