@@ -145,6 +145,27 @@ Accidental Launch: An unintended file might have been selected(by live server) w
 
 
 
+- Bug: User signup process was not redirecting to index.html after successful registration, and initially it was unclear whether the issue was with account creation or page redirection.
+- Cause: Multiple issues diagnosed after debugging:
+  - Form validation errors weren't visible to users, making it impossible to determine if accounts were being created
+  - Redundant return statement in signup view
+  - Missing authentication handling in login view
+  - Incorrect form submission handling
+- Fix: Implemented several solutions:
+  - Added error display functionality to show validation messages, which revealed form submission issues
+  - Updated views.py to properly handle authentication
+  - Added POST request handling for login functionality
+  - Configured correct login and redirect URLs in settings.py
+  - Removed redundant code from signup view
+  - Added proper form debugging and logging to track the user creation process
+
+
+
+
+
+
+
+
 
 ##Modular Code Architecture -------------------------- Check the topic name
 Modular Code Design for 'SkillFlow'
