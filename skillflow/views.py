@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm
 
@@ -9,23 +9,29 @@ def about_us(request):
 def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        print("Form submitted:", request.POST)  # Debug print
         if form.is_valid():
+            print("Form is valid")  # Debug print
             user = form.save()
-            auth_login(request, user)  # Automatically log in user after signup
-            return redirect('index')  # Redirect to index page after successful signup
+            auth_login(request, user)
+            return redirect('index')
+        else:
+            print("Form errors:", form.errors)  # Debug print
     else:
         form = SignUpForm()
     return render(request, 'skillflow/sign_up.html', {'form': form})
-        
+
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            return redirect('index')
+    return render(request, 'skillflow/login.html')
+
         
-    
-    return render(request, 'skillflow/login.html')    
-
-
 @login_required
 def index(request):
     return render(request, 'skillflow/index.html')
