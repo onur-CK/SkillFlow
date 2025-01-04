@@ -42,7 +42,10 @@ def sign_up(request):
         
     return render(request, 'skillflow/sign_up.html') 
     
-        
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password'] 
         
 
 
