@@ -102,7 +102,7 @@
         </div>
     </section>
 
-    <!-- Logout Form -->
+    <!-- Delete Account Form -->
 
     <main class="signup-section">
         <div class="container">
@@ -120,7 +120,7 @@
                             {% csrf_token %}
                             <div class="d-grid gap-3">
                                 <button type="submit" class="btn btn-danger custom-submit">Yes, Delete My Account</button>
-                                <a href="{% url 'profile' %}" class="btn btn-outline-light w-100">No, Keep My Account</a>
+                                <a href="{% url 'index' %}" class="btn btn-outline-light w-100">No, Keep My Account</a>
                             </div>
                         </form>
                     </div>
