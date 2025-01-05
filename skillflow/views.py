@@ -15,6 +15,8 @@ def sign_up(request):
         if form.is_valid():
             print("Form is valid")  # Debug print
             user = form.save()
+            # Create UserProfile for the new user
+            UserProfile.objects.create(user=user)
             auth_login(request, user)
             return redirect('index')
         else:
