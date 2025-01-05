@@ -25,7 +25,10 @@ urlpatterns = [
     path('home/', views.index, name='index'),
     path('index/', views.index, name='index'),
     path('service/', views.service, name='service'),
-    path('sign_up/', views.sign_up, name='sign_up'),
-    path('login/', views.login, name='login'),
     path('', views.about_us, name='about_us'),
+
+    # Authentication URLs
+    path('sign-up/', views.sign_up, name='sign_up'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', LogoutView.as_view(next_page='about_us'), name='logout'),
 ]
