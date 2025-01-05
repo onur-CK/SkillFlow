@@ -45,14 +45,14 @@
                                 <hr class="dropdown-divider" />
                             </li>
                             <li><a class="dropdown-item" href="#">Appointments</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="#">Log-out</a></li>
                         </ul>
                     </li>
                     <!-- Login Button -->
-                    <a class="btn btn-primary login-btn" href="#">Login</a>
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-primary login-btn" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                    <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
+                    {% endif %}
                 </ul>
             </div>
         </div>
