@@ -33,6 +33,7 @@ urlpatterns = [
     # Profile Management URLs
     path('profile/edit/', views.edit_profile, name='edit_profile'),
     path('profile/manage/', views.manage_account, name='manage_account'),
+    path('profile/delete/', views.delete_account, name='delete_account'),
 
     # Service URLs
     path('service/', views.service, name='service'),
