@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, UserProfileForm
-from. forms import UserProfile
+from .models import UserProfile
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
 
@@ -60,7 +60,7 @@ def edit_profile(request):
         'form': form,
         'profile': profile
     })
-
+    
 @login_required
 def manage_account(request):
     return render(request, 'skillflow/manage_account.html')\
