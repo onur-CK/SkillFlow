@@ -24,77 +24,36 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link custom-text" href="{% url 'index' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-text" href="{% url 'service' %}">+New Post</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle custom-text" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Profile
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="{% url 'manage_account' %}">Manage account</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="#">Appointments</a></li>
-                        </ul>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link custom-text" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-text" href="{% url 'service' %}">+New Post</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle custom-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'manage_account' %}">Manage account</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Appointments</a></li>
+                            </ul>
+                        </li>
+                        <a class="btn btn-primary login-btn" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <div>
+                            <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
+                            <a class="btn btn-primary login-btn" href="{% url 'sign_up' %}">Sign Up</a>
+                        </div>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- Category -->
-
-    <section class="category-section">
-        <div class="container">
-            <div class="row justify-content-center text-center g-4">
-                <div class="col">
-                    <a href="#" class="category-icon">
-                        <i class="fas fa-home">
-                            <span>Home Care</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" class="category-icon">
-                        <i class="fas fa-book">
-                            <span>Education</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" class="category-icon">
-                        <i class="fas fa-paint-brush">
-                            <span>Creative</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" class="category-icon">
-                        <i class="fas fa-heart">
-                            <span>Health</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" class="category-icon">
-                        <i class="fas fa-calendar">
-                            <span>Events</span>
-                        </i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Sign Up Form -->
 
