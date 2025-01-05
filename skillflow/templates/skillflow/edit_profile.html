@@ -114,6 +114,24 @@
                 <div class="col-md-6">
                     <div class="form-card">
                         <h4 class="form-title">Account Information</h4>
+                        
+                        {% if profile.first_name or profile.last_name or profile.email or profile.bio %}
+                            <div class="current-info mb-4">
+                                <div class="text-white mb-3">
+                                    <strong>Name:</strong> 
+                                    {{ profile.first_name }} {{ profile.last_name|default:"Not set" }}
+                                </div>
+                                <div class="text-white mb-3">
+                                    <strong>Email:</strong> 
+                                    {{ profile.email|default:"Not set" }}
+                                </div>
+                                <div class="text-white mb-3">
+                                    <strong>Bio:</strong><br>
+                                    {{ profile.bio|default:"No bio added yet" }}
+                                </div>
+                            </div>
+                        {% endif %}
+
                         <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" class="{% if not profile.first_name %}show{% else %}d-none{% endif %}">
                             {% csrf_token %}
                             <div class="mb-3">
