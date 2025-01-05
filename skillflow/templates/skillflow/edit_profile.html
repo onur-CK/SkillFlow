@@ -186,7 +186,13 @@
                 editButton.classList.add('d-none');
             });
         }
-    })
+
+        if (bioTextArea) {
+            bioTextArea.addEventListener('input', function () {
+                charCount.textContent = this.value.length;
+            });
+        }
+    });
     </script>
 </body>
 
