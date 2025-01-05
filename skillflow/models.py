@@ -5,6 +5,9 @@ from django.contrib.auth.models import User # Import the User model for authenti
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) # Link to the User model 
     bio = models.TextField(max_length=200, blank=True)  # Optional bio field with a max length of 200 characters
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=30, blank=True)
+    email = models.EmailField(blank=True)
     
     def __str__(self):
         # Returns the username of the associated User instance as a string representation of the model.
