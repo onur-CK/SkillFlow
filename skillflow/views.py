@@ -69,3 +69,8 @@ def delete_account(request):
         return redirect('about_us')
     return redirect('manage_account')
 
+def logout_view(request):
+    if request.method == 'POST':
+        auth_logout(request)
+        return redirect('about_us')
+    return render(request, 'skillflow/logout.html')
