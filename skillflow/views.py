@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, UserProfileForm, ServiceForm
 from. forms import UserProfile, Service
+from django.contrib.auth import logout as auth_logout
 
 
 def about_us(request):
