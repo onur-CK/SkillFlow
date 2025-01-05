@@ -179,7 +179,13 @@
         const profileForm = document.getElementById('profileForm');
         const bioTextarea = document.getElementById('bio');
         const charCount = document.getElementById('currentCount');
-
+        
+        if (editButton) {
+            editButton.addEventListener('click', function () {
+                profileForm.classList.remove('d-none');
+                editButton.classList.add('d-none');
+            });
+        }
     })
     </script>
 </body>
