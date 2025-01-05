@@ -11,7 +11,10 @@ class SignUpForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio']
+        fields = ['first_name', 'last_name', 'email', 'bio']
+        widget = {
+            'bio': forms.Textarea(attrs={'rows': 4, 'maxlength': 200}),
+        }
 
 class ServiceForm(forms.ModelForm):
     class Meta:
