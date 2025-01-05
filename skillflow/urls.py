@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.index, name='index'),
     path('index/', views.index, name='index'),
-    path('service/', views.service, name='service'),
     path('', views.about_us, name='about_us'),
 
     # Authentication URLs
@@ -34,4 +33,7 @@ urlpatterns = [
     # Profile Management URLs
     path('profile/edit/', views.edit_profile, name='edit_profile'),
     path('profile/manage/', views.manage_account, name='manage_account'),
+
+    # Service URLs
+    path('service/', views.service, name='service'),
 ]
