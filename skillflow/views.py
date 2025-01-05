@@ -53,3 +53,6 @@ def edit_profile(request):
         form = UserProfileForm(instance=profile)
     return render(request, 'skillflow/edit_profile.html', {'form': form})
 
+@login_required
+def manage_account(request):
+    return render(request, 'manage_account.html')
