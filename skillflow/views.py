@@ -46,7 +46,7 @@ def service(request):
 @login_required
 def edit_profile(request):
     # Get the profile
-    profile = UserProfile.objects.get(user=request.user)
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
