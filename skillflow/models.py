@@ -10,3 +10,8 @@ class UserProfile(models.Model):
         # Returns the username of the associated User instance as a string representation of the model.
         return self.user.username
     
+class Service(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    category = 
+    hourly_rate = models.DecimalField(max_digits=4, decimal_places=2)
