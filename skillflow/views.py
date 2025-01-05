@@ -58,12 +58,13 @@ def edit_profile(request):
 
 @login_required
 def manage_account(request):
-    return render(request, 'manage_account.html')\
+    return render(request, 'skillflow/manage_account.html')\
 
 @login_required
 def delete_account(request):
-    if reuqest.method == 'POST':
+    if request.method == 'POST':
         user = request.user
         user.delete()
         return redirect('about_us')
     return redirect('manage_account')
+
