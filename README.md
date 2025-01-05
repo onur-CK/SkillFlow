@@ -161,6 +161,25 @@ Accidental Launch: An unintended file might have been selected(by live server) w
 
 
 
+(Django model with choices for field.)[https://stackoverflow.com/questions/18676156/how-to-properly-use-the-choices-field-option-in-django]
+- Bug: Initial confusion about why the Service model required two seemingly redundant category-related code blocks:
+CATEGORY_CHOICES = [
+    ('home-care', 'Home Care'),
+    ('education', 'Education'),
+    ('creative', 'Creative'),
+    ('health', 'Health'),
+    ('events', 'Events'),
+]
+category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+- Cause: The apparent redundancy is actually a required Django model pattern where each part serves a distinct purpose:
+   - CATEGORY_CHOICES defines the available options and their display labels for the dropdown menu
+   - category field creates the actual database column and constrains input to valid choices
+- Fix: No changes were needed as this is the correct implementation. The dual declaration enables:
+   - Form dropdown population with predefined options
+   - Database-level validation of category values
+   - Proper display of human-readable category names in templates
+   - Data consistency throughout the application
+
 
 
 
