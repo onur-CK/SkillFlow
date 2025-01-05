@@ -13,5 +13,12 @@ class UserProfile(models.Model):
 class Service(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    category = 
+    CATEGORY_CHOICES = [
+        ('home-care', 'Home Care'),
+        ('education', 'Education'),
+        ('creative', 'Creative'),
+        ('health', 'Health'),
+        ('events', 'Events'),
+    ]
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     hourly_rate = models.DecimalField(max_digits=4, decimal_places=2)

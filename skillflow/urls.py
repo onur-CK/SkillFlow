@@ -27,7 +27,7 @@ urlpatterns = [
 
     # Authentication URLs
     path('sign-up/', views.sign_up, name='sign_up'),
-    path('login/', views.login_view, name='login'),
+    path('login/', views.login, name='login'),
     path('logout/', LogoutView.as_view(next_page='about_us'), name='logout'),
 
     # Profile Management URLs
