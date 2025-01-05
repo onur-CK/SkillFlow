@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm, UserProfileForm, ServiceForm
-from. forms import UserProfile, Service
+from .forms import SignUpForm, UserProfileForm
+from. forms import UserProfile
 from django.contrib.auth import logout as auth_logout
-
+from django.contrib import messages
 
 def about_us(request):
     return render(request, 'skillflow/about_us.html')
@@ -52,10 +52,14 @@ def edit_profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Profile updated successfully!')
             return redirect('edit_profile')
     else:
         form = UserProfileForm(instance=profile)
-    return render(request, 'skillflow/edit_profile.html', {'form': form})
+    return render(request, 'skillflow/edit_profile.html', {
+        'form': form,
+        'profile': profile
+    })
 
 @login_required
 def manage_account(request):
