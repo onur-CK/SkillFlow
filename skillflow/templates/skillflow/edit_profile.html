@@ -106,7 +106,7 @@
         </div>
     </section>
 
-    <!-- Profile -->
+    <!-- Profile(edit) -->
 
     <main class="signup-section">
         <div class="container">
@@ -114,39 +114,36 @@
                 <div class="col-md-6">
                     <div class="form-card">
                         <h4 class="form-title">Account Information</h4>
-                        <form action="{% url 'edit_profile' %}">
+                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" class="{% if not profile.first_name %}show{% else %}d-none{% endif %}">
+                            {% csrf_token %}
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control custom-input" id="firstName" />
-                                </div>
+                                <input type="text" class="form-control custom-input" 
+                                       id="firstName" name="first_name" 
+                                       value="{{ profile.first_name }}">
                             </div>
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control custom-input" id="lastName" />
+                                <input type="text" class="form-control custom-input" 
+                                       id="lastName" name="last_name" 
+                                       value="{{ profile.last_name }}">
                             </div>
                             <div class="mb-3">
-                                <label for="userName" class="form-label">Username</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control custom-input" id="userName" />
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">E-mail</label>
-                                <div class="input-group">
-                                    <input type="email" class="form-control custom-input" id="email" />
-                                </div>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control custom-input" 
+                                       id="email" name="email" 
+                                       value="{{ profile.email }}">
                             </div>
                             <div class="mb-4">
                                 <label for="bio" class="form-label">Bio</label>
-                                <textarea class="form-control custom-input" id="bio" rows="4"
-                                    maxlength="200"></textarea>
+                                <textarea class="form-control custom-input" id="bio" 
+                                          name="bio" rows="4" maxlength="200">{{ profile.bio }}</textarea>
                                 <div class="form-text text-end" id="charCount">
-                                    0/200 characters
+                                    <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary custom-submit w-100">
-                                Edit Profile
+                                Save Changes
                             </button>
                         </form>
                     </div>
