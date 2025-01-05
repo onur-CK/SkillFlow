@@ -15,7 +15,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand custom-text" href="{% url 'index' %}">SkillFlow</a>
+            <a class="navbar-brand custom-text" href="{% url 'home' %}">SkillFlow</a>
             <a class="nav-link custom-text ms-3" href="{% url 'about_us' %}">
                 <i class="fas fa-info-circle"></i> About Us
             </a>
@@ -109,7 +109,7 @@
                             <button type="submit" class="btn btn-primary custom-submit w-100">Create Account</button>
 
                             <div class="text-center mt-3">
-                                <p class="toggle-text">Already have an account? <a href="#" class="custom-link">Login</a></p>
+                                <p class="toggle-text">Already have an account? <a href="{% url 'login' %}" class="custom-link">Login</a></p>
                             </div>
                         </form>
                     </div>

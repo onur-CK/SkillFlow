@@ -74,3 +74,8 @@ def logout_view(request):
         auth_logout(request)
         return redirect('about_us')
     return render(request, 'skillflow/logout.html')
+
+def home(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+    return render(request, 'skillflow/about_us.html')
