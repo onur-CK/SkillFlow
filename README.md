@@ -191,6 +191,33 @@ category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
 
 
 
+- Bug: Authentication-based navigation inconsistency. When clicking the SkillFlow logo in the navigation bar, non-authenticated users were incorrectly being directed to the login form instead of seeing the welcome content. This created a disjointed user experience and prevented potential users from learning about the platform before signing up.
+- Cause: The root URL pattern ('') was not properly handling authentication states, and the navigation logic did not differentiate between authenticated and non-authenticated users. This occurred due to:
+  1. Missing conditional routing in the URL configuration
+  2. Absence of a dedicated home view to handle authentication status checks
+  3. Direct routing to index view which had @login_required decorator
+  4. Inconsistent navigation patterns across templates
+- Fix: Implemented a comprehensive solution through several coordinated changes:
+  1. Added a new 'home' view in views.py that checks authentication status:
+
+     def home(request):
+         if request.user.is_authenticated:
+             return redirect('index')
+         return render(request, 'skillflow/about_us.html')
+
+  2. Updated the root URL pattern in urls.py to use this new view:
+
+     path('', views.home, name='home')
+
+  3. Modified template navigation to consistently use the 'home' URL
+  4. Maintained the @login_required decorator on the index view for security
+
+Impact: This fix ensures that:
+- Non-authenticated users see the welcoming "About Us" content when first visiting the site
+- Authenticated users are properly directed to their personalized dashboard with service cards
+- Navigation flow aligns with user expectations and improves overall UX
+- Security is maintained through proper authentication checks
+
 
 
 ##Modular Code Architecture -------------------------- Check the topic name
