@@ -16,12 +16,42 @@
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand custom-text" href="{% url 'index' %}">SkillFlow</a>
-            <!-- Buttons -->
-            <div>
-                <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
-                <a class="btn btn-primary login-btn" href="{% url 'sign_up' %}">Sign Up</a>
+            <a class="nav-link custom-text ms-3" href="{% url 'about_us' %}">
+                <i class="fas fa-info-circle"></i> About Us
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link custom-text" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-text" href="{% url 'service' %}">+New Post</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle custom-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'manage_account' %}">Manage account</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Appointments</a></li>
+                            </ul>
+                        </li>
+                        <a class="btn btn-primary login-btn" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <div>
+                            <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
+                            <a class="btn btn-primary login-btn" href="{% url 'sign_up' %}">Sign Up</a>
+                        </div>
+                    {% endif %}
+                </ul>
             </div>
-            
         </div>
     </nav>
 
