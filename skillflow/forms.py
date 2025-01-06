@@ -25,5 +25,11 @@ class ServiceForm(forms.ModelForm):
                 'class': 'form-control custom-input',
                 'placeholder': 'e.g, Professional Math Tutoring'
             }),
+            'description': forms.Textarea(attrs={
+                'class': 'form-control custom-input',
+                'rows': 4,
+                'maxlength': 500,
+                'placeholder': 'Describe your service, experience, and expertise...'
+            })
         }
 
