@@ -20,4 +20,10 @@ class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
         fields = ['title', 'description', 'category', 'hourly_rate']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control custom-input',
+                'placeholder': 'e.g, Professional Math Tutoring'
+            }),
+        }
 
