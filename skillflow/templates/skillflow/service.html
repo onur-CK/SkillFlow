@@ -125,7 +125,7 @@
 
                             <div class="mb-3">
                                 <label for="{{ form.category.id_for_label }}" class="form-label">Category</label>
-                                {{ form.category|add_class:"form-control custom-input" }}
+                                {{ form.category }}
                                 <select class="form-control custom-input" id="category" required>
                                     <option value="" selected disabled>Select a category</option>
                                     <option value="home-care">Home Care</option>
@@ -137,7 +137,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="{{ form.title.id_for_label }}" class="form-label">Service Title</label>
-                                {{ form.title|add_class:"form-control custom-input" }}
+                                {{ form.title }}
                                 <div class="input-group">
                                     <input type="password" class="form-control custom-input" id="title"
                                         placeholder="e.g., Professional Math Tutoring" />
@@ -145,13 +145,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="{{ form.hourly_rate.id_for_label }}" class="form-label">Hourly Rate (€)</label>
-                                 {{ form.hourly_rate|add_class:"form-control custom-input" }}
+                                {{ form.hourly_rate }}
                                 <input type="number" class="form-control custom-input" id="hourlyRate"
                                     placeholder="Enter your hourly rate" min="1" required />
                             </div>
                             <div class="mb-4">
                                 <label for="{{ form.description.id_for_label }}" class="form-label">Service Description</label>
-                                {{ form.description|add_class:"form-control custom-input" }}
+                                {{ form.description }}
                                 <textarea class="form-control custom-input" id="description" rows="4"
                                     placeholder="Describe your service, experience, and expertise..." maxlength="500"
                                     requried></textarea>
