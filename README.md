@@ -254,6 +254,43 @@ Impact: Users can now seamlessly toggle between viewing and editing their profil
 
 
 
+- Bug: Form fields retained unsaved changes after canceling edit mode. When users made changes to their profile information and clicked "Cancel" instead of "Save Changes", the modified data persisted in the form fields when reopening the edit form, rather than showing the last saved values.
+- Cause: The form lacked state management for handling user input. The JavaScript implementation didn't maintain a reference to the original/saved values, so when the form was toggled between display and edit modes, it retained whatever values were last entered in the input fields. This occurred because:
+  1. The form fields were simply being hidden and shown without resetting their values
+  2. No mechanism existed to store and restore the original values
+  3. The form state was tied only to DOM visibility, not to data persistence
+- Fix: Implemented a comprehensive state management solution:
+  1. Added an `originalValues` object to store the initial form state:
+    
+     let originalValues = {
+         firstName: '',
+         lastName: '',
+         email: '',
+         bio: ''
+     };
+ 
+  2. Captured original values when the page loads:
+     
+     document.addEventListener('DOMContentLoaded', function() {
+         originalValues.firstName = document.getElementById('firstName').value;
+         // other field values
+     });
+   
+  3. Modified the `hideEditForm` function to reset fields to their original values:
+  
+     function hideEditForm() {
+         // Reset form fields to original values
+         document.getElementById('firstName').value = originalValues.firstName;
+         // ... reset other fields
+         // Update UI state
+         document.getElementById('profileForm').style.display = 'none';
+         document.getElementById('infoDisplay').style.display = 'block';
+     }
+    
+This solution ensures that canceling edit mode properly restores the last saved state of the profile, maintaining data integrity and improving user experience by clearly distinguishing between saved and unsaved changes.
+
+
+
 ##Modular Code Architecture -------------------------- Check the topic name
 Modular Code Design for 'SkillFlow'
 At SkillFlow, we employ a modular code structure, akin to building with LEGO blocks, to ensure flexibility, maintainability, and efficiency throughout our development process. Each part of our system is designed to function independently while integrating seamlessly into the larger framework. This approach enables us to:
