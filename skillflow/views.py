@@ -42,7 +42,8 @@ def login(request):
         
 @login_required
 def index(request):
-    return render(request, 'skillflow/index.html')
+    services = Service.objects.all().order_by('created_at')
+    return render(request, 'skillflow/index.html', {'services': services})
 
 def service(request):
     return render(request, 'skillflow/service.html')
