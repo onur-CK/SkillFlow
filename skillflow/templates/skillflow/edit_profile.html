@@ -178,6 +178,13 @@
 
 <!-- Add your JavaScript code in a separate script tag -->
     <script>
+        let originalValues = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            bio: ''
+        };
+        
         function showEditForm() {
             document.getElementById('profileForm').style.display = 'block';
             document.getElementById('infoDisplay').style.display = 'none';
