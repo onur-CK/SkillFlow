@@ -132,9 +132,8 @@
                         </div>
                         {% endif %}
 
-
-                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm"
-                            class="{% if not profile.first_name %}show{% else %}d-none{% endif %}">
+                        <button id="editButton" class="btn btn-primary custom-submit w-100 mb-3">Edit Profile</button>
+                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" class="d-none">
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -179,12 +178,16 @@
                 const bioTextarea = document.getElementById('bio');
                 const charCount = document.getElementById('currentCount');
 
-                // Update character count on load
                 if (bioTextarea) {
                     charCount.textContent = bioTextarea.value.length;
+
+                    // Update character count while typing
+                    bioTextarea.addEventListener('input', function () {
+                        charCount.textContent = this.value.length;
+                    });
                 }
 
-                // Edit button click handler
+                // Show edit form when edit button is clicked
                 if (editButton) {
                     editButton.addEventListener('click', function () {
                         profileForm.classList.remove('d-none');
@@ -192,18 +195,11 @@
                     });
                 }
 
-                // Cancel button click handler
+                // Hide form and show edit button when cancel is clicked
                 if (cancelButton) {
                     cancelButton.addEventListener('click', function () {
                         profileForm.classList.add('d-none');
                         editButton.classList.remove('d-none');
-                    });
-                }
-
-                // Bio textarea input handler
-                if (bioTextarea) {
-                    bioTextarea.addEventListener('input', function () {
-                        charCount.textContent = this.value.length;
                     });
                 }
             });
