@@ -103,17 +103,18 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
                         <div class="service-card-header">
-                            <span class="service-price">€40/hr</span>
+                            <span class="service-category">{{ service.get_category_display }}</span>
+                            <span class="service-price">€{{ service.hourly_rate }}/hr</span>
                         </div>
-                        <h5 class="service-title">Meditation Coaching</h5>
+                        <h5 class="service-title">{{ service.title }}</h5>
                         <p class="service-description">
-                            Learn the art of mindfulness and relaxation through guided meditation sessions. Suitable for all levels, focusing on stress relief and inner balance.
+                            {{ service.description }}
                         </p>
                         <div class="service-footer">
-                            <div class="service-provider">Alan Watts</div>
+                            <div class="service-provider">{{ service.provider.username }}</div>
                             <div class="service-rating">
                                 <i class="fas fa-star"></i>
-                                <span>4.8</span>
+                                <span>New?</span>
                             </div>
                         </div>
                     </div>
