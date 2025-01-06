@@ -106,6 +106,17 @@
                     <div class="form-card">
                         <h4 class="form-title">Create Service Listing</h4>
                         <form action="{% url 'service' %}">
+                            {% csrf_token %}
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
                             <div class="mb-3">
                                 <label for="category" class="form-label">Category</label>
                                 <select class="form-control custom-input" id="category" required>
