@@ -96,3 +96,6 @@ def service(request):
             service.save()
             messages.success(request, 'Service listed successfully!')
             return redirect('index')
+    else:
+        form = ServiceForm()
+    return render(request, 'skillflow/service.html', {'form': form})
