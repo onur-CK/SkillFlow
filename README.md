@@ -227,6 +227,32 @@ Impact: This fix ensures that:
 
 
 
+- Bug: The "Edit Profile" button was non-responsive despite correct HTML structure and styling. Users were unable to access the profile editing form after their initial profile setup.
+- Cause: The JavaScript functionality was incorrectly embedded within the `integrity` attribute of the Bootstrap script tag. This meant that the JavaScript code responsible for handling the form visibility toggle was never executed. This occurred because:
+  1. All custom JavaScript code was inadvertently placed inside the Bootstrap script's integrity attribute
+  2. The script was treated as a hash value rather than executable code
+  3. No error was thrown, making the issue harder to diagnose
+- Fix: The solution involved properly separating the scripts:
+  1. Maintained the Bootstrap script with its integrity hash:
+     
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+         crossorigin="anonymous"></script>
+     
+  2. Added custom JavaScript in a separate script tag:
+     
+     <script>
+         function showEditForm() {
+             document.getElementById('profileForm').style.display = 'block';
+             document.getElementById('infoDisplay').style.display = 'none';
+         }
+     </script>
+    
+This separation ensured proper execution of both the Bootstrap framework and the custom form handling code, restoring the edit profile functionality.
+Impact: Users can now seamlessly toggle between viewing and editing their profile information, improving the overall user experience and functionality of the profile management system.
+
+
+
 
 ##Modular Code Architecture -------------------------- Check the topic name
 Modular Code Design for 'SkillFlow'
