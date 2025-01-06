@@ -30,6 +30,9 @@ class ServiceForm(forms.ModelForm):
                 'rows': 4,
                 'maxlength': 500,
                 'placeholder': 'Describe your service, experience, and expertise...'
-            })
+            }),
+            'category': forms.Select(attrs={
+                'class': 'form-control custom-input'
+            }),
         }
 
