@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm, UserProfileForm
+from .forms import SignUpForm, UserProfileForm, ServiceForm
 from .models import UserProfile
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
@@ -86,3 +86,13 @@ def home(request):
     if request.user.is_authenticated:
         return redirect('index')
     return render(request, 'skillflow/about_us.html')
+
+@login_required
+def service(request):
+    if request.method == 'POST':
+        form = ServiceForm(request.POST)
+        if form.is_valid():
+            service = form.save(commit=False)
+            service.save()
+            messages.success(request, 'Service listed successfully!')
+            return redirect('index')
