@@ -5,6 +5,9 @@ from .forms import SignUpForm, UserProfileForm
 from .models import UserProfile
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
+import logging
+
+logger = logging.getLogger(__name__)
 
 def about_us(request):
     return render(request, 'skillflow/about_us.html')

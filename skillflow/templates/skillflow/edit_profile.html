@@ -133,7 +133,6 @@
                         {% endif %}
 
 
-
                         <form method="POST" action="{% url 'edit_profile' %}" id="profileForm"
                             class="{% if not profile.first_name %}show{% else %}d-none{% endif %}">
                             {% csrf_token %}
@@ -176,9 +175,16 @@
             document.addEventListener('DOMContentLoaded', function () {
                 const editButton = document.getElementById('editButton');
                 const profileForm = document.getElementById('profileForm');
+                const cancelButton = document.getElementById('cancelButton');
                 const bioTextarea = document.getElementById('bio');
                 const charCount = document.getElementById('currentCount');
 
+                // Update character count on load
+                if (bioTextarea) {
+                    charCount.textContent = bioTextarea.value.length;
+                }
+
+                // Edit button click handler
                 if (editButton) {
                     editButton.addEventListener('click', function () {
                         profileForm.classList.remove('d-none');
@@ -186,8 +192,17 @@
                     });
                 }
 
-                if (bioTextArea) {
-                    bioTextArea.addEventListener('input', function () {
+                // Cancel button click handler
+                if (cancelButton) {
+                    cancelButton.addEventListener('click', function () {
+                        profileForm.classList.add('d-none');
+                        editButton.classList.remove('d-none');
+                    });
+                }
+
+                // Bio textarea input handler
+                if (bioTextarea) {
+                    bioTextarea.addEventListener('input', function () {
                         charCount.textContent = this.value.length;
                     });
                 }
