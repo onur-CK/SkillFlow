@@ -191,12 +191,10 @@
             originalValues.email = document.getElementById('email').value;
             originalValues.bio = document.getElementById('bio').value;
             
-            
-            
             const bioTextarea = document.getElementById('bio');
             const charCount = document.getElementById('currentCount');
 
-            if (bioTextarea) {
+            if (bioTextarea && charCount) {
                 charCount.textContent = bioTextarea.value.length;
 
                 // Update character count while typing
@@ -206,15 +204,22 @@
             }
         });
 
-
-
-
         function showEditForm() {
             document.getElementById('profileForm').style.display = 'block';
             document.getElementById('infoDisplay').style.display = 'none';
         }
 
         function hideEditForm() {
+            document.getElementById('firstName').value = originalValues.firstName;
+            document.getElementById('lastName').value = originalValues.lastName;
+            document.getElementById('email').value = originalValues.email;
+            document.getElementById('bio').value = originalValues.bio;
+            
+            const charCount = document.getElementById('currentCount');
+            if (charCount) {
+                 charCount.textContent = originalValues.bio.length;
+            }
+
             document.getElementById('profileForm').style.display = 'none';
             document.getElementById('infoDisplay').style.display = 'block';
         }
