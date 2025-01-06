@@ -1,5 +1,6 @@
 from django.db import models # Import the models module for creating database models
 from django.contrib.auth.models import User # Import the User model for authentication
+from django.utils import timezone
 
 # Define the UserProfile model, extending the built-in User model with additional fields
 class UserProfile(models.Model):
@@ -26,7 +27,7 @@ class Service(models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     hourly_rate = models.DecimalField(max_digits=4, decimal_places=2)
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title

@@ -137,6 +137,15 @@ body {
 
 /* ----------------------------------------------------------------------- Cards */
 
+.service-category {
+    background-color: rgba(255, 69, 0, 0.1); /* orangered with opacity */
+    color: orangered;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
 .service-cards-section {
     padding: 2rem 0;
 }
