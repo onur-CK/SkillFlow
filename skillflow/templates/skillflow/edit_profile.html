@@ -116,7 +116,7 @@
                         <h4 class="form-title">Account Information</h4>
 
                         {% if profile.first_name or profile.last_name or profile.email or profile.bio %}
-                        <div class="current-info mb-4">
+                        <div id="infoDisplay" class="current-info mb-4">
                             <div class="text-white mb-3">
                                 <strong>Name:</strong>
                                 {{ profile.first_name }} {{ profile.last_name|default:"Not set" }}
@@ -129,11 +129,14 @@
                                 <strong>Bio:</strong><br>
                                 {{ profile.bio|default:"No bio added yet" }}
                             </div>
+                            <button type="button" onclick="showEditForm()" class="btn btn-primary custom-submit w-100">
+                                Edit Profile
+                            </button>
                         </div>
                         {% endif %}
 
-                        <button id="editButton" class="btn btn-primary custom-submit w-100 mb-3">Edit Profile</button>
-                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" class="d-none">
+                        
+                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" style="display: none;">
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -158,9 +161,10 @@
                                     <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary custom-submit w-100">
-                                Save Changes
-                            </button>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
+                                <button type="button" onclick="hideEditForm()" class="btn btn-outline-light">Cancel</button>
+                            </div>
                         </form>
                     </div>
                 </div>
