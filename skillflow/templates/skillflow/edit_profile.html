@@ -173,41 +173,35 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+    crossorigin="anonymous"></script>
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const editButton = document.getElementById('editButton');
-                const profileForm = document.getElementById('profileForm');
-                const cancelButton = document.getElementById('cancelButton');
-                const bioTextarea = document.getElementById('bio');
-                const charCount = document.getElementById('currentCount');
+<!-- Add your JavaScript code in a separate script tag -->
+    <script>
+        function showEditForm() {
+            document.getElementById('profileForm').style.display = 'block';
+            document.getElementById('infoDisplay').style.display = 'none';
+        }
 
-                if (bioTextarea) {
-                    charCount.textContent = bioTextarea.value.length;
+        function hideEditForm() {
+            document.getElementById('profileForm').style.display = 'none';
+            document.getElementById('infoDisplay').style.display = 'block';
+        }
 
-                    // Update character count while typing
-                    bioTextarea.addEventListener('input', function () {
-                        charCount.textContent = this.value.length;
-                    });
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            const bioTextarea = document.getElementById('bio');
+            const charCount = document.getElementById('currentCount');
 
-                // Show edit form when edit button is clicked
-                if (editButton) {
-                    editButton.addEventListener('click', function () {
-                        profileForm.classList.remove('d-none');
-                        editButton.classList.add('d-none');
-                    });
-                }
+            if (bioTextarea) {
+                charCount.textContent = bioTextarea.value.length;
 
-                // Hide form and show edit button when cancel is clicked
-                if (cancelButton) {
-                    cancelButton.addEventListener('click', function () {
-                        profileForm.classList.add('d-none');
-                        editButton.classList.remove('d-none');
-                    });
-                }
-            });
-        </script>
+                // Update character count while typing
+                bioTextarea.addEventListener('input', function () {
+                    charCount.textContent = this.value.length;
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
