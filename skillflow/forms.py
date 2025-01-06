@@ -34,5 +34,10 @@ class ServiceForm(forms.ModelForm):
             'category': forms.Select(attrs={
                 'class': 'form-control custom-input'
             }),
+            'hourly_rate': forms.NumberInput(attrs={
+                'class': 'form-control custom-input',
+                'placeholder': 'Enter your hourly rate',
+                'min': '1'
+            })
         }
 
