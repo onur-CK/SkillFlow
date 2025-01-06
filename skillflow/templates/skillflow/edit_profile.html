@@ -185,17 +185,14 @@
             bio: ''
         };
         
-        function showEditForm() {
-            document.getElementById('profileForm').style.display = 'block';
-            document.getElementById('infoDisplay').style.display = 'none';
-        }
-
-        function hideEditForm() {
-            document.getElementById('profileForm').style.display = 'none';
-            document.getElementById('infoDisplay').style.display = 'block';
-        }
-
         document.addEventListener('DOMContentLoaded', function () {
+            originalValues.firstName = document.getElementById('firstName').value;
+            originalValues.lastName = document.getElementById('lastName').value;
+            originalValues.email = document.getElementById('email').value;
+            originalValues.bio = document.getElementById('bio').value;
+            
+            
+            
             const bioTextarea = document.getElementById('bio');
             const charCount = document.getElementById('currentCount');
 
@@ -208,6 +205,19 @@
                 });
             }
         });
+
+
+
+
+        function showEditForm() {
+            document.getElementById('profileForm').style.display = 'block';
+            document.getElementById('infoDisplay').style.display = 'none';
+        }
+
+        function hideEditForm() {
+            document.getElementById('profileForm').style.display = 'none';
+            document.getElementById('infoDisplay').style.display = 'block';
+        }
     </script>
 </body>
 
