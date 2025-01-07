@@ -331,6 +331,31 @@ Kept the display toggle functionality simple without unnecessary JavaScript comp
 
 
 
+[Django Documentation Static Files](https://docs.djangoproject.com/en/5.0/howto/static-files/)
+- Bug: Static files (specifically styles.css) were not being served properly, resulting in a 404 error when accessing deeper URL paths like `/service/<id>/edit/`. The error appeared in the console as "GET /service/static/css/styles.css HTTP/1.1" 404 4352.
+- Cause: The issue arose from two compounding factors:
+  1. Using relative paths (`../../static/css/styles.css`) for static files, which broke when accessing URLs at different directory depths
+  2. Improper Django static files configuration - missing proper static file settings and directory structure
+- Fix: Implemented a comprehensive solution to properly configure static files in Django:
+  1. Updated settings.py to include proper static file configurations:
+     -->>
+     STATIC_URL = 'static/'
+     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+     STATICFILES_DIRS = [
+         os.path.join(BASE_DIR, 'static'),
+     ]
+      
+  2. Modified templates to use Django's static template tags instead of relative paths:
+     -->>
+     {% load static %}
+     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+     
+  3. Ran `python manage.py collectstatic` to collect all static files into the static root directory
+
+This solution ensures static files are served correctly regardless of URL depth and follows Django's recommended practices for static file handling.
+
+
+
 
 ##Modular Code Architecture -------------------------- Check the topic name
 Modular Code Design for 'SkillFlow'
