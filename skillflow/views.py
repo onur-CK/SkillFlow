@@ -131,4 +131,11 @@ def edit_service(request, service_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Service updated successfully!')
-            return redirect('index')
+            return redirect('index')   
+    else:
+        form = ServiceForm(instance=service)
+
+    return render(request, 'skillflow/edit_service.html', {
+        'form': form,
+        'service': service
+    })
