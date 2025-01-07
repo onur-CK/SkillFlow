@@ -291,6 +291,34 @@ This solution ensures that canceling edit mode properly restores the last saved 
 
 
 
+- Bug: Service creation failed with two sequential errors: first a TemplateSyntaxError for an invalid 'add_class' filter, followed by an IntegrityError regarding a NULL constraint on the provider_id field. This created a chain of issues where the form couldn't be properly rendered and, when finally submitted, failed to associate with a user.
+- Cause: Multiple issues were identified:
+The template attempted to use an add_class filter ({{ form.category|add_class:"form-control custom-input" }}), which isn't a built-in Django template filter
+This led to duplicate form field definitions in an attempt to style the form
+The service creation view wasn't associating the new service with the logged-in user before saving
+- Fix: Implemented a two-part solution:
+
+Modified the ServiceForm in forms.py to include Bootstrap classes directly in the widget definitions:
+[Django HTML Attributes](https://www.geeksforgeeks.org/how-to-add-html-attributes-to-input-fields-in-django-forms/)
+    class ServiceForm(forms.ModelForm):
+        class Meta:
+            widgets = {
+                'category': forms.Select(attrs={
+                    'class': 'form-control custom-input'
+                }),
+                ... other fields
+            }
+
+Updated the service view to properly associate the new service with the current user:
+    if form.is_valid():
+        service = form.save(commit=False)
+        service.provider = request.user  ---> Associate with current user
+        service.save()
+
+This fix ensured proper form rendering with correct styling and maintained data integrity by properly associating new services with their providers.
+
+
+
 ##Modular Code Architecture -------------------------- Check the topic name
 Modular Code Design for 'SkillFlow'
 At SkillFlow, we employ a modular code structure, akin to building with LEGO blocks, to ensure flexibility, maintainability, and efficiency throughout our development process. Each part of our system is designed to function independently while integrating seamlessly into the larger framework. This approach enables us to:

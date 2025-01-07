@@ -20,11 +20,13 @@ class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
         fields = ['title', 'description', 'category', 'hourly_rate']
+        # Django Html Attr Source: https://www.geeksforgeeks.org/how-to-add-html-attributes-to-input-fields-in-django-forms/
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': 'form-control custom-input',
                 'placeholder': 'e.g, Professional Math Tutoring'
             }),
+            # Django Text-area Html Attr Source: https://stackoverflow.com/questions/66707030/django-textarea-form
             'description': forms.Textarea(attrs={
                 'class': 'form-control custom-input',
                 'rows': 4,
@@ -34,6 +36,7 @@ class ServiceForm(forms.ModelForm):
             'category': forms.Select(attrs={
                 'class': 'form-control custom-input'
             }),
+            # Min Attr Source: https://stackoverflow.com/questions/37024650/specify-max-and-min-in-numberinput-widget
             'hourly_rate': forms.NumberInput(attrs={
                 'class': 'form-control custom-input',
                 'placeholder': 'Enter your hourly rate',
