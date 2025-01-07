@@ -61,7 +61,7 @@
         <div class="container">
             <div class="row justify-content-center text-center g-4">
                 <div class="col">
-                    <a href="#" class="category-icon">
+                    <a href="{% url 'index' %}?category=home-care" class="category-icon {% if active_category == 'home-care' %}active{% endif %}">
                         <i class="fas fa-home">
                             <span>Home Care</span>
                         </i>
