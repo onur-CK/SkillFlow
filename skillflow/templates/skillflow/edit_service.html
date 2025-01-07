@@ -112,7 +112,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="form-card">
-                        <h4 class="form-title">Create Service Listing</h4>
+                        <h4 class="form-title">Edit Service Listing</h4>
                         <form method="POST" action="{% url 'service' %}">
                             {% csrf_token %}
                             {% if form.errors %}
@@ -146,7 +146,7 @@
                                 <div class="form-text text-end" id="charCount">0/500 characters</div>
                             </div>
                         
-                            <button type="submit" class="btn btn-primary custom-submit w-100">Create Listing</button>
+                            <button type="submit" class="btn btn-primary custom-submit w-100">Save</button>
                         </form>
                     </div>
                 </div>
