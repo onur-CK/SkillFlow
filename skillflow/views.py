@@ -121,7 +121,7 @@ def category_services(request, category):
 @login_required
 def edit_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
-
+    
     # Check if the current user is the service provider
     if service.provider != request.user:
         raise PermissionDenied
@@ -131,7 +131,7 @@ def edit_service(request, service_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Service updated successfully!')
-            return redirect('index')   
+            return redirect('index')
     else:
         form = ServiceForm(instance=service)
 
@@ -139,3 +139,4 @@ def edit_service(request, service_id):
         'form': form,
         'service': service
     })
+
