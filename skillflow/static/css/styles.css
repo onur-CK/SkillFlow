@@ -134,6 +134,15 @@ body {
     100% { transform: scale(1); }
 }
 
+.category-icon.active {
+    color: orangered;
+    transform: translateY(-5px);
+}
+
+.category-icon.active i {
+    animation: pulse 1s infinite;
+}
+
 
 /* ----------------------------------------------------------------------- Cards */
 

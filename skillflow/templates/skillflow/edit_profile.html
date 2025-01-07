@@ -136,8 +136,7 @@
                         {% endif %}
 
 
-                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name
-                            or profile.last_name or profile.email or profile.bio %}style="display: none;" {% endif %}>
+                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name or profile.last_name or profile.email or profile.bio %}style="display: none;"{% endif %}>
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
