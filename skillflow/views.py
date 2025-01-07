@@ -94,6 +94,7 @@ def service(request):
         form = ServiceForm(request.POST)
         if form.is_valid():
             service = form.save(commit=False)
+            service.provider = request.user
             service.save()
             messages.success(request, 'Service listed successfully!')
             return redirect('index')
