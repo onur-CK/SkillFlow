@@ -162,6 +162,22 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const descriptionField = document.getElementById('{{ form.description.id_for_label }}');
+                const charCount = document.getElementById('currentCount');
+                
+                if (descriptionField && charCount) {
+                    // Update initial count
+                    charCount.textContent = descriptionField.value.length;
+                    
+                    // Update count while typing
+                    descriptionField.addEventListener('input', function() {
+                        charCount.textContent = this.value.length;
+                    });
+                }
+            });
+        </script>
 </body>
 
 </html>
