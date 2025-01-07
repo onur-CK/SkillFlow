@@ -135,8 +135,9 @@
                         </div>
                         {% endif %}
 
-                        
-                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" style="display: none;">
+
+                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name
+                            or profile.last_name or profile.email or profile.bio %}style="display: none;" {% endif %}>
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -163,7 +164,8 @@
                             </div>
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
-                                <button type="button" onclick="hideEditForm()" class="btn btn-outline-light">Cancel</button>
+                                <button type="button" onclick="hideEditForm()"
+                                    class="btn btn-outline-light">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -173,10 +175,10 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
-    crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
-<!-- Add your JavaScript code in a separate script tag -->
+    <!-- Add your JavaScript code in a separate script tag -->
     <script>
         let originalValues = {
             firstName: '',
@@ -184,13 +186,13 @@
             email: '',
             bio: ''
         };
-        
+
         document.addEventListener('DOMContentLoaded', function () {
             originalValues.firstName = document.getElementById('firstName').value;
             originalValues.lastName = document.getElementById('lastName').value;
             originalValues.email = document.getElementById('email').value;
             originalValues.bio = document.getElementById('bio').value;
-            
+
             const bioTextarea = document.getElementById('bio');
             const charCount = document.getElementById('currentCount');
 
@@ -214,10 +216,10 @@
             document.getElementById('lastName').value = originalValues.lastName;
             document.getElementById('email').value = originalValues.email;
             document.getElementById('bio').value = originalValues.bio;
-            
+
             const charCount = document.getElementById('currentCount');
             if (charCount) {
-                 charCount.textContent = originalValues.bio.length;
+                charCount.textContent = originalValues.bio.length;
             }
 
             document.getElementById('profileForm').style.display = 'none';
