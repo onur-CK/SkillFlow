@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LogoutView
+from .models import Service
+from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,4 +39,6 @@ urlpatterns = [
 
     # Service URLs
     path('service/', views.service, name='service'),
+
+    path('category/<str:category>/', views.category_services, name='category_services'),
 ]
