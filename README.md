@@ -213,12 +213,12 @@ category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
   4. Maintained the @login_required decorator on the index view for security
 
 Impact: This fix ensures that:
-- Non-authenticated users see the welcoming "About Us" content when first visiting the site
-- Authenticated users are properly directed to their personalized dashboard with service cards
-- Navigation flow aligns with user expectations and improves overall UX
-- Security is maintained through proper authentication checks
+1. Non-authenticated users see the welcoming "About Us" content when first visiting the site
+2. Authenticated users are properly directed to their personalized dashboard with service cards
+3. Navigation flow aligns with user expectations and improves overall UX
+4. Security is maintained through proper authentication checks
 
-
+ 
 
 - Bug: When accessing the edit profile page, users encountered a "OperationalError: no such column: skillflow_userprofile.first_name" error, preventing them from viewing or editing their profile information. This critical error occurred despite the UserProfile model being properly defined in the codebase.
 - Cause: The database schema was out of sync with the model definitions. While the UserProfile model included fields for first_name, last_name, email, and bio, these columns were not properly created in the database because migrations were either missing or not applied. This discrepancy between the model definition and the actual database structure led to the operational error when attempting to access these non-existent columns.
@@ -273,16 +273,16 @@ Impact: Users can now seamlessly toggle between viewing and editing their profil
      
      document.addEventListener('DOMContentLoaded', function() {
          originalValues.firstName = document.getElementById('firstName').value;
-         // other field values
+         --> other field values
      });
    
   3. Modified the `hideEditForm` function to reset fields to their original values:
   
      function hideEditForm() {
-         // Reset form fields to original values
+         --> Reset form fields to original values
          document.getElementById('firstName').value = originalValues.firstName;
-         // ... reset other fields
-         // Update UI state
+         --> ... reset other fields
+         --> Update UI state
          document.getElementById('profileForm').style.display = 'none';
          document.getElementById('infoDisplay').style.display = 'block';
      }
@@ -318,6 +318,17 @@ Updated the service view to properly associate the new service with the current 
         service.save()
 
 This fix ensured proper form rendering with correct styling and maintained data integrity by properly associating new services with their providers.
+
+
+
+- Bug: The Edit Profile form was not displaying properly when users clicked the "Edit Profile" button. The page would only show the "Account Information" header without revealing the form fields, preventing users from updating their profile information.
+- Cause: The form visibility was controlled by an overly restrictive conditional statement in the template. The code {% if profile.first_name or profile.last_name or profile.email or profile.bio %} was wrapping both the display and form sections, which meant that for new users with no profile data, neither the information display nor the edit form would be rendered.
+- Fix: Restructured the template logic to ensure the form is always accessible:
+
+Separated the conditional logic for the display section from the form section
+Modified the template to show the form by default for new users
+Kept the display toggle functionality simple without unnecessary JavaScript complications 
+
 
 
 

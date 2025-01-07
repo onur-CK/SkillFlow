@@ -42,8 +42,15 @@ def login(request):
         
 @login_required
 def index(request):
-    services = Service.objects.all().order_by('created_at')
-    return render(request, 'skillflow/index.html', {'services': services})
+    category = request.GET.get('category')
+    if category:
+        services = Service.objects.filter(category=category).order_by('created_at')
+    else:
+        services = Service.objects.all().order_by('created_at')
+    return render(request, 'skillflow/index.html', {
+        'services': services,
+        'active_category': category
+    })
 
 def service(request):
     return render(request, 'skillflow/service.html')
