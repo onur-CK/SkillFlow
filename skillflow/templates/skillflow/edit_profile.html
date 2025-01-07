@@ -136,8 +136,7 @@
                         {% endif %}
 
 
-                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name
-                            or profile.last_name or profile.email or profile.bio %}style="display: none;" {% endif %}>
+                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name or profile.last_name or profile.email or profile.bio %}style="display: none;"{% endif %}>
                             {% csrf_token %}
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -164,8 +163,7 @@
                             </div>
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
-                                <button type="button" onclick="hideEditForm()"
-                                    class="btn btn-outline-light">Cancel</button>
+                                <button type="button" onclick="hideEditForm()" class="btn btn-outline-light">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -188,23 +186,27 @@
         };
 
         document.addEventListener('DOMContentLoaded', function () {
-            originalValues.firstName = document.getElementById('firstName').value;
-            originalValues.lastName = document.getElementById('lastName').value;
-            originalValues.email = document.getElementById('email').value;
-            originalValues.bio = document.getElementById('bio').value;
+            const form = document.getElementById('profileForm');
+            const infoDisplay = document.getElementById('infoDisplay');
+            
+            if (form) {
+                originalValues.firstName = document.getElementById('firstName')?.value || '';
+                originalValues.lastName = document.getElementById('lastName')?.value || '';
+                originalValues.email = document.getElementById('email')?.value || '';
+                originalValues.bio = document.getElementById('bio')?.value || '';
 
-            const bioTextarea = document.getElementById('bio');
-            const charCount = document.getElementById('currentCount');
+                const bioTextarea = document.getElementById('bio');
+                const charCount = document.getElementById('currentCount');
 
-            if (bioTextarea && charCount) {
-                charCount.textContent = bioTextarea.value.length;
+                if (bioTextarea && charCount) {
+                 charCount.textContent = bioTextarea.value.length;
 
-                // Update character count while typing
-                bioTextarea.addEventListener('input', function () {
-                    charCount.textContent = this.value.length;
-                });
-            }
-        });
+                    // Update character count while typing
+                    bioTextarea.addEventListener('input', function () {
+                     charCount.textContent = this.value.length;
+                 });
+             }
+            });
 
         function showEditForm() {
             document.getElementById('profileForm').style.display = 'block';
