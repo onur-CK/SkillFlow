@@ -136,36 +136,38 @@
                         {% endif %}
 
 
-                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name or profile.last_name or profile.email or profile.bio %}style="display: none;"{% endif %}>
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control custom-input" id="firstName" name="first_name"
-                value="{{ profile.first_name }}">
-        </div>
-        <div class="mb-3">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control custom-input" id="lastName" name="last_name"
-                value="{{ profile.last_name }}">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control custom-input" id="email" name="email"
-                value="{{ profile.email }}">
-        </div>
-        <div class="mb-4">
-            <label for="bio" class="form-label">Bio</label>
-            <textarea class="form-control custom-input" id="bio" name="bio" rows="4"
-                maxlength="200">{{ profile.bio }}</textarea>
-            <div class="form-text text-end" id="charCount">
-                <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
-            </div>
-        </div>
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
-            <button type="button" onclick="hideEditForm()" class="btn btn-outline-light">Cancel</button>
-        </div>
-    </form>
+                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name
+                            or profile.last_name or profile.email or profile.bio %}style="display: none;" {% endif %}>
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control custom-input" id="firstName" name="first_name"
+                                    value="{{ profile.first_name }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control custom-input" id="lastName" name="last_name"
+                                    value="{{ profile.last_name }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control custom-input" id="email" name="email"
+                                    value="{{ profile.email }}">
+                            </div>
+                            <div class="mb-4">
+                                <label for="bio" class="form-label">Bio</label>
+                                <textarea class="form-control custom-input" id="bio" name="bio" rows="4"
+                                    maxlength="200">{{ profile.bio }}</textarea>
+                                <div class="form-text text-end" id="charCount">
+                                    <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
+                                <button type="button" onclick="hideEditForm()"
+                                    class="btn btn-outline-light">Cancel</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
