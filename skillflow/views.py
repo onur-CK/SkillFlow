@@ -101,3 +101,10 @@ def service(request):
     else:
         form = ServiceForm()
     return render(request, 'skillflow/service.html', {'form': form})
+
+def category_services(request, category):
+    services = Service.objects.filter(category=category).order_by('created_at')
+    return render(request, 'skillflow/index.html', {
+        'services': services,
+        'active_category': category
+    })
