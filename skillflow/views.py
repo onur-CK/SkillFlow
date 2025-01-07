@@ -121,4 +121,9 @@ def category_services(request, category):
 @login_required
 def edit_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
+
+    # Check if the current user is the service provider
+    if service.provider != request.user:
+        raise PermissionDenied
+    
     
