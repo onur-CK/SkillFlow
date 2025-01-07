@@ -146,7 +146,10 @@
                                 <div class="form-text text-end" id="charCount">0/500 characters</div>
                             </div>
                         
-                            <button type="submit" class="btn btn-primary custom-submit w-100">Save</button>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
+                                <a href="{% url 'index' %}" class="btn btn-outline-light">Cancel</a>
+                            </div>
                         </form>
                     </div>
                 </div>
