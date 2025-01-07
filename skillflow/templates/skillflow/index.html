@@ -117,9 +117,16 @@
                         </p>
                         <div class="service-footer">
                             <div class="service-provider">{{ service.provider.username }}</div>
-                            <div class="service-rating">
-                                <i class="fas fa-star"></i>
-                                <span>New?</span>
+                            <div class="d-flex align-items-center gap-3">
+                                {% if user == service.provider %}
+                                <a href="{% url 'edit_service' service.id %}" class="btn btn-sm btn-outline-light">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                {% endif %}
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>New?</span>
+                                </div>
                             </div>
                         </div>
                     </div>
