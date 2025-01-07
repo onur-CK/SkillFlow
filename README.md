@@ -300,6 +300,8 @@ The service creation view wasn't associating the new service with the logged-in 
 
 Modified the ServiceForm in forms.py to include Bootstrap classes directly in the widget definitions:
 [Django HTML Attributes](https://www.geeksforgeeks.org/how-to-add-html-attributes-to-input-fields-in-django-forms/)
+[Django Text-area Form Attr](https://stackoverflow.com/questions/66707030/django-textarea-form)    
+[Django Min-max Digit Value](https://stackoverflow.com/questions/37024650/specify-max-and-min-in-numberinput-widget)
     class ServiceForm(forms.ModelForm):
         class Meta:
             widgets = {
