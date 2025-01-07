@@ -6,6 +6,8 @@ from .models import UserProfile, Service
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
 import logging
+from django.shortcuts import get_object_or_404
+from django.core.exceptions import PermissionDenied
 
 logger = logging.getLogger(__name__)
 
@@ -115,3 +117,8 @@ def category_services(request, category):
         'services': services,
         'active_category': category
     })
+
+@login_required
+def edit_service(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    
