@@ -126,4 +126,9 @@ def edit_service(request, service_id):
     if service.provider != request.user:
         raise PermissionDenied
     
-    
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, instance=service)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Service updated successfully!')
+            return redirect('index')
