@@ -157,7 +157,9 @@ def delete_service(request, service_id):
 @login_required
 def my_services(request):
     # Django date query from newest to oldest link source: https://stackoverflow.com/questions/30314741/django-date-query-from-newest-to-oldest
-    user_services = Service.objects.filter(provider=reuqest.user).order_by('-created_at')
-    
+    user_services = Service.objects.filter(provider=request.user).order_by('-created_at')
+    return render(request, 'skillflow/my_services.html', {
+        'user-services': user_services
+    })
 
 
