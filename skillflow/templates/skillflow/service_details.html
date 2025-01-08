@@ -59,51 +59,7 @@
             </div>
         </div>
     </nav>
-
-    <!-- Category -->
-
-    <section class="category-section">
-        <div class="container">
-            <div class="row justify-content-center text-center g-4">
-                <div class="col">
-                    <a href="{% url 'index' %}?category=home-care" class="category-icon {% if active_category == 'home-care' %}active{% endif %}">
-                        <i class="fas fa-home">
-                            <span>Home Care</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{% url 'index' %}?category=education" class="category-icon {% if active_category == 'education' %}active{% endif %}">
-                        <i class="fas fa-book">
-                            <span>Education</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{% url 'index' %}?category=creative" class="category-icon {% if active_category == 'creative' %}active{% endif %}">
-                        <i class="fas fa-paint-brush">
-                            <span>Creative</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{% url 'index' %}?category=health" class="category-icon {% if active_category == 'health' %}active{% endif %}">
-                        <i class="fas fa-heart">
-                            <span>Health</span>
-                        </i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{% url 'index' %}?category=events" class="category-icon {% if active_category == 'events' %}active{% endif %}">
-                        <i class="fas fa-calendar">
-                            <span>Events</span>
-                        </i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Job listing cards... -->
 
     <main class="service-cards-section">
