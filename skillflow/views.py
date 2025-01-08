@@ -150,7 +150,7 @@ def delete_service(request, service_id):
     if request.method == 'POST':
         service.delete()
         messages.success(request, 'Service deleted successfully!')
-        return redirect('index')
+        return redirect('my_services')
     
     return render(request, 'skillflow/delete_service.html', {'service': service})
     
