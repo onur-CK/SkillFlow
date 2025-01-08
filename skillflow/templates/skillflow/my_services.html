@@ -78,8 +78,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
                         <div class="service-card-header">
-                            <span class="service-category"></span>
-                            <span class="service-price"></span>
+                            <span class="service-category">{{ service.get_category_display }}</span>
+                            <span class="service-price">€{{ service.hourly_rate }}/hr</span>
                         </div>
                     </div>
                 </div>
