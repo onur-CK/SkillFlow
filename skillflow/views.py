@@ -147,7 +147,14 @@ def delete_service(request, servce_id):
     if service.provider != request.user:
         raise PermissionDenied
     
+    if request.method == 'POST':
+        service.delete()
+        messages.success(request, 'Service deleted successfully!')
+        return redirect('index')
     
+    return render(request, 'skillflow/delete_service.html', {'service': service})
+    
+
     
 
 
