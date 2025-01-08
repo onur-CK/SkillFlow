@@ -37,17 +37,17 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
                             <li>
-                                <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a>
+                                <hr class="dropdown-divider">
                             </li>
+                            <li><a class="dropdown-item" href="{% url 'my_services' %}">My Services</a></li>
                             <li>
-                                <hr class="dropdown-divider" />
+                                <hr class="dropdown-divider">
                             </li>
+                            <li><a class="dropdown-item" href="{% url 'manage_account' %}">Manage account</a></li>
                             <li>
-                                <a class="dropdown-item" href="{% url 'manage_account' %}">Manage account</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
+                                <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="#">Appointments</a></li>
                         </ul>
