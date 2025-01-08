@@ -40,6 +40,7 @@ urlpatterns = [
     # Service URLs
     path('service/', views.service, name='service'),
     path('service/<int:service_id>/edit/', views.edit_service, name='edit_service'),
+    path('service/<int:service_id>/delete/', views.delete_service, name='delete_service'),
 
     path('category/<str:category>/', views.category_services, name='category_services'),
 ]
