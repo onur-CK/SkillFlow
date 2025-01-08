@@ -141,7 +141,7 @@ def edit_service(request, service_id):
     })
 
 @login_required
-def delete_service(request, servce_id):
+def delete_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
 
     if service.provider != request.user:
