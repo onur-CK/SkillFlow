@@ -162,4 +162,11 @@ def my_services(request):
         'user_services': user_services
     })
 
+@login_required 
+def provider_availibility(request, service_id):
 
+@login_required
+def book_appointment(request, service_id):
+
+@login_required
+def view_appointments(request):
