@@ -56,8 +56,8 @@ class Appointments(models.Model):
     ]
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
 
-    def __str__(self)
-        return
+    def __str__(self):
+        return f"{self.client.username} with {self.availability.provider.username}"
     
 
     
