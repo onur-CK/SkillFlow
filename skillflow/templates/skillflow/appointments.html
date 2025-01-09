@@ -80,8 +80,15 @@
                         </div>
                     </div>
                     {% endif %}
+
+                    {% if not provider_appointments and not client_appointments %}
+                    <div class="text-center text-white">
+                        <p>You don't have any appointments yet.</p>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </main>
+{% endblock %}
