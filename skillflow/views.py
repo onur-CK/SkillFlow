@@ -216,3 +216,6 @@ def book_appointment(request, service_id):
 
 @login_required
 def view_appointments(request):
+    provider_appointments = Appointment.objects.filter(
+        availability__provider=request.user
+    ).order_by('availability__date', 'availability__start_time')
