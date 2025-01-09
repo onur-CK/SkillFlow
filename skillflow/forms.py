@@ -48,9 +48,26 @@ class AvailabilityForm(forms.ModelForm):
     class Meta:
         model = Availability
         fields = ['date', 'start_time', 'end_time', 'location']
-        widgets = 
+        widgets = {
+            'date': forms.DateInput(attrs={
+                'class': 'form-control custom-input',
+                'type': 'date'
+            }),
+            'start_time': forms.TimeInput(attrs={
+                'class': 'form-control custom-input',
+                'type': 'time'
+            }),
+            'end_time': forms.TimeInput(attrs={
+                'class': 'form-control custom-input',
+                'type': 'time'
+            }),
+            'location': forms.TextInput(attrs={
+                'class': 'form-control custom-input',
+                'placeholder': 'Enter meeting location'
+            })
+        } 
 
-class AppointmentsForm(forms.ModelForm):
+class AppointmentForm(forms.ModelForm):
     class Meta:
-        model 
-        fields 
+        model = Appointment
+        fields = ['availability']
