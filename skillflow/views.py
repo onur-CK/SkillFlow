@@ -200,7 +200,12 @@ def book_appointment(request, service_id):
     if request.method == 'POST':
         availability_id = request.POST.get('availability')
         availability = get_object_or_404(Availability, id=availability_id)
-
+        appointment = Appointment.objects.create(
+            availability=availability,
+            client=request.user
+        )
+        availability.is_booked = True
+        availability.save()
 
 @login_required
 def view_appointments(request):
