@@ -48,8 +48,13 @@ class Availability(models.Model):
 class Appointments(models.Model):
     availability = models.OneToOneField(Availability, on_delete=models.CASCADE)
     client = models.ForeignKey(User, on_delete=models.CASCADE)
-    status 
-    created_at 
+    created_at = models.DateTimeField(auto_now_add=True)
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('confirmed', 'Confirmed'),
+        ('cancelled', 'Cancelled')
+    ]
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self)
         return
