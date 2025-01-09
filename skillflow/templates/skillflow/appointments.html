@@ -52,16 +52,34 @@
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
+                                        <th>Service</th>
+                                        <th>Provider</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    {% for appointment in client_appointments %}
+                                    <tr>
+                                        <td>{{ appointment.availability.service.title }}</td>
+                                        <td>{{ appointment.availability.provider.username }}</td>
+                                        <td>{{ appointment.availability.date }}</td>
+                                        <td>{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
+                                        <td>{{ appointment.availability.location }}</td>
+                                        <td>
+                                            <span class="badge {% if appointment.status == 'confirmed' %}bg-success{% elif appointment.status == 'cancelled' %}bg-danger{% else %}bg-warning{% endif %}">
+                                                {{ appointment.get_status_display }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
                             </table>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
