@@ -44,3 +44,9 @@ class ServiceForm(forms.ModelForm):
             })
         }
 
+class AvailabilityForm(forms.ModelForm):
+    class Meta:
+        model 
+        fields ?????
+        widgets 
+
