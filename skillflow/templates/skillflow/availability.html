@@ -39,6 +39,15 @@
                                     <th>Status</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                {% for slot in availabilities %}
+                                <tr>
+                                    <td>{{ slot.date }}</td>
+                                    <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
+                                    <td>{{ slot.location }}</td>
+                                    <td>{% if slot.is_booked %}Booked{% else %}Available{% endif %}</td>
+                                </tr>
+                            </tbody>
                         </table>
                       </div>
                       

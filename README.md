@@ -473,3 +473,4 @@ Kanban board image
 
 
 [Bootstrap Table] (https://getbootstrap.com/docs/4.0/content/tables/)
+[table] freecodecamp link !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
