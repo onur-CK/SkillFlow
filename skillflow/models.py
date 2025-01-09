@@ -32,4 +32,12 @@ class Service(models.Model):
     def __str__(self):
         return self.title
     
-    
+class Availibility(models.Model):
+    provider
+    service 
+    date 
+    location
+
+    def __str__(self)
+        return 
+
