@@ -47,6 +47,11 @@
                                     <td>{{ slot.location }}</td>
                                     <td>{% if slot.is_booked %}Booked{% else %}Available{% endif %}</td>
                                 </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center">No availabilities set</td>
+                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                       </div>
