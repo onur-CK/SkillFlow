@@ -175,7 +175,18 @@ def provider_availability(request, service_id):
             return redirect('manage_availability', service_id=service_id)
     else:
         form = AvailabilityForm()
-
+    
+    availabilities = Availability.objects.filter(
+        provider=request.user,
+        service=service,
+        is_booked=False
+    ).order_by('date', 'start_time')
+    
+    return render(request, 'skillflow/availability.html', {
+        'form': form,
+        'service': service,
+        'availabilities': availabilities
+    })
 
 
 @login_required
