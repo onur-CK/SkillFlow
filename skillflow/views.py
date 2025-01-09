@@ -197,6 +197,10 @@ def book_appointment(request, service_id):
         is_booked=False
     ).order_by('date', 'start_time')
 
+    if request.method == 'POST':
+        availability_id = request.POST.get('availability')
+        availability = get_object_or_404(Availability, id=availability_id)
+
 
 @login_required
 def view_appointments(request):
