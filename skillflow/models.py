@@ -41,3 +41,15 @@ class Availibility(models.Model):
     def __str__(self)
         return 
 
+class Appointments(models.Model):
+    availibility 
+    client 
+    status 
+    created_at 
+
+    def __str__(self)
+        return
+    
+
+    
+
