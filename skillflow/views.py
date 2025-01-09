@@ -207,5 +207,12 @@ def book_appointment(request, service_id):
         availability.is_booked = True
         availability.save()
 
+        return redirect('view_appointments')
+        
+    return render(request, 'skillflow/book_appointment.html', {
+        'service': service,
+        'availabilities': availabilities
+    })
+
 @login_required
 def view_appointments(request):
