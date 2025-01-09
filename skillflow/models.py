@@ -37,9 +37,10 @@ class Availibility(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date = models.DataField()
     location = models.CharField(max_length=200)
-    start_time
-    end_time
-    booked
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    #  https://docs.djangoproject.com/en/5.1/ref/models/fields/
+    is_booked = models.BooleanField(default=False)
 
     def __str__(self)
         return 
