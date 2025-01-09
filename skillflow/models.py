@@ -32,7 +32,7 @@ class Service(models.Model):
     def __str__(self):
         return self.title
     
-class Availibility(models.Model):
+class Availability(models.Model):
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date = models.DataField()
@@ -46,8 +46,8 @@ class Availibility(models.Model):
         return f"{self.provider.username} - {self.date} ({self.start_time}-{self.end_time})"
 
 class Appointments(models.Model):
-    availibility 
-    client 
+    availability = models.OneToOneField(Availability, on_delete=models.CASCADE)
+    client = models.ForeignKey(User, on_delete=models.CASCADE)
     status 
     created_at 
 
