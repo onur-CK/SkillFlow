@@ -45,7 +45,7 @@ class Availability(models.Model):
     def __str__(self):
         return f"{self.provider.username} - {self.date} ({self.start_time}-{self.end_time})"
 
-class Appointments(models.Model):
+class Appointment(models.Model):
     availability = models.OneToOneField(Availability, on_delete=models.CASCADE)
     client = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -65,7 +65,7 @@ class AvailabilityForm(forms.ModelForm):
                 'class': 'form-control custom-input',
                 'placeholder': 'Enter meeting location'
             })
-        } 
+        }
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
