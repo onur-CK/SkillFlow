@@ -33,10 +33,13 @@ class Service(models.Model):
         return self.title
     
 class Availibility(models.Model):
-    provider
-    service 
-    date 
-    location
+    provider = models.ForeignKey(User, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    date = models.DataField()
+    location = models.CharField(max_length=200)
+    start_time
+    end_time
+    booked
 
     def __str__(self)
         return 
