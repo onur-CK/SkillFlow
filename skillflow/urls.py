@@ -44,4 +44,10 @@ urlpatterns = [
     path('profile-services', views.my_services, name='my_services'),
     
     path('category/<str:category>/', views.category_services, name='category_services'),
+
+    # Availability and Appointments
+    path('service/<int:service_id>availability/', views.provider_availability, name='provider_availability'),
+    path('service/<int:service_id>book/', views.book_appointment, name='book_appointment'),
+    path('appointment/', views.view_appointments, name='view_appointments'),
+    
 ]
