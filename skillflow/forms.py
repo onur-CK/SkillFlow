@@ -46,7 +46,11 @@ class ServiceForm(forms.ModelForm):
 
 class AvailabilityForm(forms.ModelForm):
     class Meta:
-        model 
-        fields ?????
-        widgets 
+        model = Availability
+        fields = ['date', 'start_time', 'end_time', 'location']
+        widgets = 
 
+class AppointmentsForm(forms.ModelForm):
+    class Meta:
+        model 
+        fields 
