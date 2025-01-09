@@ -191,6 +191,11 @@ def provider_availability(request, service_id):
 
 @login_required
 def book_appointment(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    availabilities = Availability.objects.filter(
+        service=service,
+        is_booked=False
+    ).order_by('date', 'start_time')
 
 
 @login_required
