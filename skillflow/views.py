@@ -216,6 +216,18 @@ def book_appointment(request, service_id):
 
 @login_required
 def view_appointments(request):
+    # Providers
     provider_appointments = Appointment.objects.filter(
         availability__provider=request.user
     ).order_by('availability__date', 'availability__start_time')
+
+    # Clients
+    client_appointments = Appointment.objects.filter(
+        client=request.user
+    ).order_by('availability__date', 'availability__start_time')
+    
+    
+    return render(request, 'skillflow/appointments.html', {
+        'provider_appointments': provider_appointments,
+        'client_appointments': client_appointments
+    })
