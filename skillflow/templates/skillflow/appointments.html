@@ -23,10 +23,26 @@
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                
+                                <tbody>
+                                    {% for appointment in provider_appointments %}
+                                    <tr>
+                                        <td>{{ appointment.availability.service.title }}</td>
+                                        <td>{{ appointment.client.username }}</td>
+                                        <td>{{ appointment.availability.date }}</td>
+                                        <td>{{ appointment.availability.start.time }}</td>
+                                        <td>{{ appointment.availability.location }}</td>
+                                        <td>
+                                            <span class="badge {% if appointment.status == 'confirmed' %}bg-success{% elif appointment.status == 'cancelled' %}bg-danger{% else %}bg-warning{% endif %}">
+                                                {{ appointment.get_status_display }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
                             </table>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
