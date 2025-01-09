@@ -164,9 +164,15 @@ def my_services(request):
 
 @login_required 
 def provider_availibility(request, service_id):
+    service = get_object_or_404(Service, id=service_iod)
+    if request.method == 'POST':
+        form = AvailabilityForm(request.POST)
+        if form.is_valid():
+
 
 @login_required
 def book_appointment(request, service_id):
+
 
 @login_required
 def view_appointments(request):
