@@ -35,7 +35,7 @@ class Service(models.Model):
 class Availability(models.Model):
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    date = models.DataField()
+    date = models.DateField()
     location = models.CharField(max_length=200)
     start_time = models.TimeField()
     end_time = models.TimeField()
