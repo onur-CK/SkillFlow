@@ -164,10 +164,17 @@ def my_services(request):
 
 @login_required 
 def provider_availibility(request, service_id):
-    service = get_object_or_404(Service, id=service_iod)
+    service = get_object_or_404(Service, id=service_id)
     if request.method == 'POST':
         form = AvailabilityForm(request.POST)
         if form.is_valid():
+            availability = form.save(commit=False)
+            availability.provider = request.user
+            availability.service = service
+            availability.save()
+            return redirect('manage_availability', service_id=service_id)
+    else:
+        form = AvailabilityForm()
 
 
 @login_required
