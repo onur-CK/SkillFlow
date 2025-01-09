@@ -39,11 +39,11 @@ class Availibility(models.Model):
     location = models.CharField(max_length=200)
     start_time = models.TimeField()
     end_time = models.TimeField()
-    #  https://docs.djangoproject.com/en/5.1/ref/models/fields/
+    # Boolean Field Source Code Link: https://docs.djangoproject.com/en/5.1/ref/models/fields/
     is_booked = models.BooleanField(default=False)
 
-    def __str__(self)
-        return 
+    def __str__(self):
+        return f"{self.provider.username} - {self.date} ({self.start_time}-{self.end_time})"
 
 class Appointments(models.Model):
     availibility 
