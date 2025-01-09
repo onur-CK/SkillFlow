@@ -470,3 +470,6 @@ Kanban board image
 
 
 [Django date query from newest to oldest] (https://stackoverflow.com/questions/30314741/django-date-query-from-newest-to-oldest)
+
+
+[Bootstrap Table] (https://getbootstrap.com/docs/4.0/content/tables/)
