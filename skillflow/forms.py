@@ -48,6 +48,8 @@ class AvailabilityForm(forms.ModelForm):
     class Meta:
         model = Availability
         fields = ['date', 'start_time', 'end_time', 'location']
+       
+        # Django Input widget format source link: https://stackoverflow.com/questions/71334172/django-dateinput-widget-format
         widgets = {
             'date': forms.DateInput(attrs={
                 'class': 'form-control custom-input',
@@ -71,3 +73,23 @@ class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
         fields = ['availability']
+
+
+class WeeklyScheduleForm(forms.ModelForm):
+    class Meta:
+        model = WeeklySchedule
+        fields = ['day_of_week', 'start_time', 'end_time', 'location']
+        widgets = {
+            'start_time': forms.TimeInput(attrs={
+                'type': 'time',
+                'class': 'form-control custom-input'
+            }),
+            'end_time': forms.TimeInput(attrs={
+                'type': 'time',
+                'class': 'form-control custom-input'
+            }),
+            'location': forms.TextInput(attrs={
+                'class': 'form-control custom-input',
+                'placeholder': 'Enter meeting location'
+            })
+        }
