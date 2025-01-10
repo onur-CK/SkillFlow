@@ -38,8 +38,13 @@
                                                 <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
                                                 <td>{{ slot.location }}</td>
                                             </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
+                                </div>
+                                <div class="d-grid gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary custom-submit">Book Appointment</button>
+                                    <a href="{% url 'index' %}" class="btn btn-outline-light">Cancel</a>
                                 </div>
                             </form>
                         </div>
