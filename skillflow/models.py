@@ -73,3 +73,9 @@ class WeeklySchedule(models.Model):
         (5, 'Saturday'),
         (6, 'Sunday'),
     ]
+
+    day_of_week = models.IntegerField(choices=DAYS_OF_WEEK)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    location = models.CharField(max_length=200)
+    is_active = models.BooleanField(default=True)
