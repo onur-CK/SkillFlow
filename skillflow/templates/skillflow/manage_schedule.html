@@ -71,3 +71,19 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Weekly Calendar View -->
+                    <h5 class="text-white mb-4">Calendar View</h5>
+                    <div class="row g-3 mb-5">
+                        {% for day in "0123456"|make_list %}
+                        <div class="col">
+                            <div class="card bg-dark text-white h-100">
+                                <div class="card-header text-center">
+                                    {% if day == "0" %}Monday
+                                    {% elif day == "1" %}Tuesday
+                                    {% elif day == "2" %}Wednesday
+                                    {% elif day == "3" %}Thursday
+                                    {% elif day == "4" %}Friday
+                                    {% elif day == "5" %}Saturday
+                                    {% else %}Sunday{% endif %}
+                                </div>
