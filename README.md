@@ -404,6 +404,22 @@ This fix ensures that:
 
 
 
+- Bug: When attempting to delete a weekly schedule slot, users encountered a "NoReverseMatch" error with the message "Reverse for 'delete_schedule' with arguments '(2,)' not found". This prevented users from removing unwanted time slots from their service schedules.
+
+- Cause: The URL pattern mismatch occurred due to multiple factors:
+  1. The URL pattern in urls.py expected two parameters (service_id and schedule_id): 
+     `path('service/<int:service_id>/schedule/delete/<int:schedule_id>/')`
+  2. The template was only providing one parameter (schedule_id):
+     `{% url 'delete_schedule' schedule.id %}`
+  3. This created a parameter count mismatch between the URL pattern definition and the template's URL generation attempt
+
+- Fix: Modified the template's form action to include both required parameters in the correct order:
+  
+  <form method="POST" action="{% url 'delete_schedule' service.id schedule.id %}"
+        class="d-inline" onsubmit="return confirm('Delete this time slot?');">
+  
+  This ensures the URL is generated with both the service_id and schedule_id parameters, matching the URL pattern definition and allowing the delete functionality to work as intended.
+
 
 
 ##Modular Code Architecture -------------------------- Check the topic name
