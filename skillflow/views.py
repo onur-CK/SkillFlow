@@ -192,27 +192,24 @@ def provider_availability(request, service_id):
 @login_required
 def book_appointment(request, service_id):
     service = get_object_or_404(Service, id=service_id)
-    availabilities = Availability.objects.filter(
-        service=service,
-        is_booked=False
-    ).order_by('date', 'start_time')
-
+    
     if request.method == 'POST':
         availability_id = request.POST.get('availability')
         availability = get_object_or_404(Availability, id=availability_id)
-        appointment = Appointment.objects.create(
-            availability=availability,
-            client=request.user
-        )
-        availability.is_booked = True
-        availability.save()
 
-        return redirect('view_appointments')
+        # Check if the availability is already booked
+        if availability.is_booked:
+            messages.error(request, 'Sorry, this time slot has already been booked.')
+            return redirect('book_appointment', service_id=service_id)
         
-    return render(request, 'skillflow/book_appointment.html', {
-        'service': service,
-        'availabilities': availabilities
-    })
+        # Check if trying to book own service
+        if service.provider == request.user:
+            messages.error(request, 'You cannot book your own service.')
+            return redirect('book_appointment', service_id=service_id)
+    
+        
+    
+    
 
 @login_required
 def view_appointments(request):
