@@ -48,6 +48,12 @@
                                 </div>
                             </form>
                         </div>
+                    {% else %}
+                        <div class="text-center text-white">
+                            <p>No available time slots for this service.</p>
+                            <a href="{% url 'index' %}" class="btn btn-outline-light mt-3">Back to Services</a>
+                        </div>
+                    {% endif %}
                     </div>
                 </div>
             </div>
