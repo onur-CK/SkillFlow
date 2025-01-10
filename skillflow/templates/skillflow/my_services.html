@@ -86,7 +86,7 @@
                         <div class="service-footer">
                             <div class="service-provider">Created: {{ service.created_at|date:"M d, Y" }}</div>
                             <div class="d-flex gap-2">
-                                <a href="{% url 'provider_availability' service.id %}" class="btn btn-sm btn-outline-light">
+                                <a href="{% url 'manage_schedule' service.id %}" class="btn btn-sm btn-outline-light">
                                     <i class="fas fa-clock"></i> Set Times
                                 </a>
                                 <a href="{% url 'edit_service' service.id %}" class="btn btn-sm btn-outline-light">
