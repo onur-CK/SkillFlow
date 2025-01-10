@@ -357,6 +357,55 @@ This solution ensures static files are served correctly regardless of URL depth 
 
 
 
+- Bug: When multiple users attempted to book the same service time slot, the system would raise a "UNIQUE constraint failed: skillflow_appointment.availability_id" error. This created a race condition where two users could try to book the same availability slot simultaneously, resulting in a broken booking experience.
+
+- Cause: The issue arose due to multiple factors:
+  1. The Appointment model had a OneToOneField relationship with Availability, meaning each availability slot could only have one appointment
+  2. The booking process lacked proper validation to check if an availability slot was already booked
+  3. No database transaction management was in place to handle concurrent booking attempts
+  4. The system wasn't properly updating the `is_booked` status of availability slots
+
+- Fix: Implemented a comprehensive solution through several coordinated changes:
+  1. Added proper validation checks in the booking view:
+     
+     if availability.is_booked:
+         messages.error(request, 'Sorry, this time slot has already been booked.')
+         return redirect('book_appointment', service_id=service_id)
+     
+  [Database Transaction](https://www.geeksforgeeks.org/transaction-atomic-with-django/)
+  [Database Transaction](https://docs.djangoproject.com/en/5.1/topics/db/transactions/)
+  2. Implemented database transaction management to ensure data consistency:
+     
+     with transaction.atomic():
+         appointment = Appointment.objects.create(
+             availability=availability,
+             client=request.user
+         )
+         availability.is_booked = True
+         availability.save()
+     
+  3. Added error handling with user feedback through Django messages
+  4. Updated the availability queryset to only show unbooked slots:
+     
+     availabilities = Availability.objects.filter(
+         service=service,
+         is_booked=False,
+         [date__gte](https://forum.djangoproject.com/t/timezone-warning-from-date-filtering-via-the-orm/11776)
+         [date__gte](https://www.w3schools.com/django/ref_lookups_gte.php)
+         date__gte=timezone.now().date()
+     ).order_by('date', 'start_time')
+     
+
+This fix ensures that:
+1. Users can't double-book availability slots
+2. The booking process is atomic and handles concurrent attempts properly
+3. Users receive clear feedback when a slot is no longer available
+4. Only available future time slots are displayed for booking
+
+
+
+
+
 ##Modular Code Architecture -------------------------- Check the topic name
 Modular Code Design for 'SkillFlow'
 At SkillFlow, we employ a modular code structure, akin to building with LEGO blocks, to ensure flexibility, maintainability, and efficiency throughout our development process. Each part of our system is designed to function independently while integrating seamlessly into the larger framework. This approach enables us to:
