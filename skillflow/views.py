@@ -190,7 +190,8 @@ def book_appointment(request, service_id):
             with transaction.atomic():
                 appointment = Appointment.objects.create(
                     availability=availability,
-                    client=request.user
+                    client=request.user,
+                    default='pending'
                 )
                 availability.is_booked = True
                 availability.save()
@@ -275,3 +276,11 @@ def delete_schedule(request, service_id, schedule_id):
         schedule.delete()
         messages.success(request, 'Schedule deleted successfully.')
     return redirect('manage_schedule', service_id=service_id)
+
+@login_required
+def update_appointment_status(request, appointment_id):
+    appointment = get_object_or_404(Appointment, id=appointment_id)
+    new_status = request.POST.get('status')
+    if new_status in ['confirmed', 'cancelled']:
+        appointment.status = new_status
+        appointment.save()
