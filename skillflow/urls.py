@@ -46,7 +46,7 @@ urlpatterns = [
     path('category/<str:category>/', views.category_services, name='category_services'),
 
     # Availability and Appointments
-    path('appointment/', views.view_appointments, name='appointments'),
-    path('service/<int:service_id>/availability/', views.provider_availability, name='provider_availability'),
-    path('service/<int:service_id>/book/', views.book_appointment, name='book_appointment'),
+    path('service/<int:service_id>/schedule/', views.manage_schedule, name='manage_schedule'),
+    path('service/<int:service_id>/schedule/delete/<int:schedule_id>/', views.delete_schedule, name='delete_schedule'),
+    path('appointments/', views.view_appointments, name='appointments'),
 ]
