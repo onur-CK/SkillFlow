@@ -258,3 +258,16 @@ def view_appointments(request):
         'provider_appointments': provider_appointments,
         'client_appointments': client_appointments
     })
+
+@login_required
+def manage_schedule(request, service_id):
+    service = get_object_or_404(Service, id=service_id, provider=request.user)
+    schedules = WeeklySchedule.objects.filter(service=service)
+    
+    if request.method == 'POST':
+        form = WeeklyScheduleForm(request.POST)
+        if form.is_valid():
+            schedule = form.save(commit=False)
+            schedule.provider = request.user
+            schedule.service = service
+            schedule.save()
