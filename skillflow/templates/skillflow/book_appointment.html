@@ -19,7 +19,17 @@
                             <form method="POST">
                                 {% csrf_token %}
                                 <div class="table-responsive">
-                                    <table class="table table-dark"></table>
+                                    <table class="table table-dark">
+                                        <thead>
+                                            <tr>
+                                                <th>Select</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Location</th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
                                 </div>
                             </form>
                         </div>
