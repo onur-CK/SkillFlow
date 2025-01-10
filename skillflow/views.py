@@ -9,6 +9,7 @@ import logging
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 from django.utils import timezone
+from django.db import transaction
 
 logger = logging.getLogger(__name__)
 
@@ -280,7 +281,32 @@ def delete_schedule(request, service_id, schedule_id):
 @login_required
 def update_appointment_status(request, appointment_id):
     appointment = get_object_or_404(Appointment, id=appointment_id)
+
+    is_provider = appointment.availability.provider == request.user
+    is_client = appointment.client == request.user
+
+    if not (is_provider or is_client):
+        raise PermissionDenied
+
+    if request.method == 'POST':
+        new_status = request.POST.get('status')
+        if new_status in ['confirmed', 'canceled']:
+            with transaction.atomic():
+                appointment.status = new_status
+                appointment.save()
+
     new_status = request.POST.get('status')
     if new_status in ['confirmed', 'cancelled']:
         appointment.status = new_status
         appointment.save()
+
+        # If canceled, make the availability slot free
+        if new_status == 'canceled':
+            availability = appointment.availability
+            availability.is_booked = False
+            availability.save()
+
+        messages.success(request, f'Appointment {new_status} successfully.')
+    
+    return redirect('appointments')
+
