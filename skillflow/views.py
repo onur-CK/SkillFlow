@@ -209,6 +209,8 @@ def book_appointment(request, service_id):
     
         try:
             # Use transaction.atomic() to ensure database consistency
+            # Transaction source links: https://www.geeksforgeeks.org/transaction-atomic-with-django/
+            # https://docs.djangoproject.com/en/5.1/topics/db/transactions/
             from django.db import transaction
             with transaction.atomic():
                 appointment = Appointment.objects.create(
@@ -223,7 +225,19 @@ def book_appointment(request, service_id):
             messages.error(request, 'There was an error booking the appointment. Please try again.')
             return redirect('book_appointment', service_id=service_id)
 
+    # GET request handling
+    availabilities = Availability.objects.filter(
+        service=service,
+        is_booked=False,
+        # date__gte source links: https://forum.djangoproject.com/t/timezone-warning-from-date-filtering-via-the-orm/11776
+        # https://www.w3schools.com/django/ref_lookups_gte.php
+        date__gte=timezone.now().date()  # Only show future dates
+    ).order_by('date', 'start_time')
     
+    return render(request, 'skillflow/book_appointment.html', {
+        'service': service,
+        'availabilities': availabilities
+    })
     
 
 @login_required
