@@ -60,5 +60,16 @@ class Appointment(models.Model):
         return f"{self.client.username} with {self.availability.provider.username}"
     
 
-    
+class WeeklySchedule(models.Model):
+    provider = models.ForeignKey(User, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
 
+    DAYS_OF_WEEK = [
+        (0, 'Monday'),
+        (1, 'Tuesday'),
+        (2, 'Wednesday'),
+        (3, 'Thursday'),
+        (4, 'Friday'),
+        (5, 'Saturday'),
+        (6, 'Sunday'),
+    ]
