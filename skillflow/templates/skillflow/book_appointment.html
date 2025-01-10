@@ -6,7 +6,7 @@
             <div class="col-md-10">
                 <div class="form-card">
                     <h4 class="form-title">Book Appointment</h4>
-                    
+
                     <!-- Service Info -->
                     <div class="mb-4">
                         <h5 class="text-white mb-3">Service Details</h5>
@@ -28,49 +28,50 @@
                         </div>
                     </div>
 
-                        {% if availabilities %}
-                            <h5 class="text-white mb-3">Available Time Slots</h5>
-                            <form method="POST">
-                                {% csrf_token %}
-                                <div class="table-responsive">
-                                    <table class="table table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th>Select</th>
-                                                <th>Date</th>
-                                                <th>Time</th>
-                                                <th>Location</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for slot in availabilities %}
-                                            <tr>
-                                                <td>
-                                                    <input type="radio" name="availability" value="{{ slot.id }}" class="form-check-input" required>
-                                                </td>
-                                                <td>{{ slot.date }}</td>
-                                                <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
-                                                <td>{{ slot.location }}</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="d-grid gap-2 mt-4">
-                                    <button type="submit" class="btn btn-primary custom-submit">Book Appointment</button>
-                                    <a href="{% url 'index' %}" class="btn btn-outline-light">Cancel</a>
-                                </div>
-                            </form>
+                    {% if availabilities %}
+                    <h5 class="text-white mb-3">Available Time Slots</h5>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="table-responsive">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for slot in availabilities %}
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="availability" value="{{ slot.id }}"
+                                                class="form-check-input" required>
+                                        </td>
+                                        <td>{{ slot.date }}</td>
+                                        <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
+                                        <td>{{ slot.location }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
-                    {% else %}
-                        <div class="text-center text-white">
-                            <p>No available time slots for this service.</p>
-                            <a href="{% url 'index' %}" class="btn btn-outline-light mt-3">Back to Services</a>
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary custom-submit">Book Appointment</button>
+                            <a href="{% url 'index' %}" class="btn btn-outline-light">Cancel</a>
                         </div>
-                    {% endif %}
-                    </div>
+                    </form>
                 </div>
+                {% else %}
+                <div class="text-center text-white">
+                    <p>No available time slots for this service.</p>
+                    <a href="{% url 'index' %}" class="btn btn-outline-light mt-3">Back to Services</a>
+                </div>
+                {% endif %}
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </main>
