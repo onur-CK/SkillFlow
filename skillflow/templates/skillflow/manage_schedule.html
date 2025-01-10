@@ -54,7 +54,7 @@
                                     <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
                                     <td>{{ schedule.location }}</td>
                                     <td>
-                                        <form method="POST" action="{% url 'delete_schedule' schedule.id %}" 
+                                        <form method="POST" action="{% url 'delete_schedule' service.id schedule.id %}" 
                                               class="d-inline" onsubmit="return confirm('Delete this time slot?');">
                                             {% csrf_token %}
                                             <button type="submit" class="btn btn-sm btn-outline-danger">
@@ -72,6 +72,8 @@
                         </table>
                     </div>
 
+                    <!-- Rest of the template remains the same -->
+                    
                     <!-- Weekly Calendar View -->
                     <h5 class="text-white mb-4">Calendar View</h5>
                     <div class="row g-3 mb-5">
@@ -101,6 +103,7 @@
                         </div>
                         {% endfor %}
                     </div>
+
                     <!-- Upcoming Appointments -->
                     <h5 class="text-white mb-4">Upcoming Appointments</h5>
                     <div class="table-responsive">

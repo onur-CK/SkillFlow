@@ -88,7 +88,7 @@ class WeeklySchedule(models.Model):
     def __str__(self):
         return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
     
-    def create_availibilities(self, weeks_ahead=4):
+    def create_availabilities(self, weeks_ahead=4):
         # Creates individual availability slots for the next few weeks based on this schedule
         # Source link of time units creation : https://medium.com/django-unleashed/python-timedelta-with-examples-and-use-cases-81def9140880
         from datetime import datetime, timedelta
