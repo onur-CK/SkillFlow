@@ -292,3 +292,12 @@ def manage_schedule(request, service_id):
         'schedules': schedules,
         'appointments': appointments
     })
+
+
+@login_required
+def delete_schedule(request, service_id, schedule_id):
+    schedule = get_object_or_404(WeeklySchedule, id=schedule_id, service__id=service_id, provider=request.user)
+    if request.method == 'POST':
+        schedule.delete()
+        messages.success(request, 'Schedule deleted successfully.')
+    return redirect('manage_schedule', service_id=service_id)
