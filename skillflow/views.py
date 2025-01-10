@@ -163,32 +163,6 @@ def my_services(request):
         'user_services': user_services
     })
 
-@login_required 
-def provider_availability(request, service_id):
-    service = get_object_or_404(Service, id=service_id)
-    if request.method == 'POST':
-        form = AvailabilityForm(request.POST)
-        if form.is_valid():
-            availability = form.save(commit=False)
-            availability.provider = request.user
-            availability.service = service
-            availability.save()
-            return redirect('manage_availability', service_id=service_id)
-    else:
-        form = AvailabilityForm()
-    
-    availabilities = Availability.objects.filter(
-        provider=request.user,
-        service=service,
-        is_booked=False
-    ).order_by('date', 'start_time')
-    
-    return render(request, 'skillflow/availability.html', {
-        'form': form,
-        'service': service,
-        'availabilities': availabilities
-    })
-
 
 @login_required
 def book_appointment(request, service_id):
