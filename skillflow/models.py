@@ -79,3 +79,11 @@ class WeeklySchedule(models.Model):
     end_time = models.TimeField()
     location = models.CharField(max_length=200)
     is_active = models.BooleanField(default=True)
+
+    class Meta:
+        # Meta options source link: https://docs.djangoproject.com/en/5.1/ref/models/options/
+        unique_together = ['provider', 'service', 'day_of_week']  # One time slot per day per service
+        ordering = ['day_of_week', 'start_time']
+
+    def __str__(self):
+        return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
