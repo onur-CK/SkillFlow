@@ -271,3 +271,11 @@ def manage_schedule(request, service_id):
             schedule.provider = request.user
             schedule.service = service
             schedule.save()
+
+            # Generate availabilities for the next few weeks
+            schedule.create_availabilities()
+            
+            messages.success(request, 'Weekly schedule updated successfully!')
+            return redirect('manage_schedule', service_id=service_id)
+    else:
+        form = WeeklyScheduleForm()
