@@ -127,13 +127,10 @@
                                     <i class="fas fa-star"></i>
                                     <span>New?</span>
                                 </div>
-                                <a href="{% url 'book_appointment' service.id %}" class="btn btn-sm btn-outline-light me-2">
-                                    <i class="fas fa-calendar-plus"></i> Book
-                                </a>
-                                {% if user == service.provider %}
-                                <a href="{% url 'provider_availability' service.id %}" class="btn btn-sm btn-outline-light">
-                                    <i class="fas fa-clock"></i> Set Times
-                                </a>
+                                {% if user != service.provider %}
+                                    <a href="{% url 'book_appointment' service.id %}" class="btn btn-sm btn-outline-light me-2">
+                                        <i class="fas fa-calendar-plus"></i> Book
+                                    </a>
                                 {% endif %}
                             </div>
                         </div>
