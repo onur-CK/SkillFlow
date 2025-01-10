@@ -100,5 +100,19 @@ class WeeklySchedule(models.Model):
             if days_ahead <= 0:  # Target day already happened this week
                 days_ahead += 7
             days_ahead += week * 7
+
+            # Calculate the target date for the next occurrence of the specified weekday, considering the current date and week offset.
+            target_date = today + timedelta(days=days_ahead)
+            
+            # Create availability if it doesn't exist
+            Availability.objects.get_or_create(
+                provider=self.provider,
+                service=self.service,
+                date=target_date,
+                start_time=self.start_time,
+                end_time=self.end_time,
+                location=self.location,
+                defaults={'is_booked': False}
+            )
             
             
