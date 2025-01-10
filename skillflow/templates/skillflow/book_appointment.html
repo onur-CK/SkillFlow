@@ -8,6 +8,12 @@
                     <h4 class="form-card">Book Appointment</h4>
                     <div class="mb-4">
                         <h5 class="service-info mb-4">Service Details</h5>
+                        <div class="service-info mb-4">
+                            <p class="text-white"><strong>Service:</strong> {{ service.title }}</p>
+                            <p class="text-white"><strong>Provider:</strong> {{ service.provider.username }}</p>
+                            <p class="text-white"><strong>Rate:</strong> €{{ service.hourly_rate }}/hr</p>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
