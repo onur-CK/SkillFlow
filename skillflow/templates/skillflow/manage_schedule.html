@@ -87,3 +87,17 @@
                                     {% elif day == "5" %}Saturday
                                     {% else %}Sunday{% endif %}
                                 </div>
+                                <div class="card-body">
+                                    {% for schedule in schedules %}
+                                    {% if schedule.day_of_week == day|add:"0" %}
+                                    <div class="p-2 mb-2 bg-secondary rounded">
+                                        <small class="d-block">{{ schedule.start_time }} - {{ schedule.end_time }}</small>
+                                        <small class="d-block text-light">{{ schedule.location }}</small>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
