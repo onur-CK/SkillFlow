@@ -50,4 +50,5 @@ urlpatterns = [
     path('service/<int:service_id>/schedule/delete/<int:schedule_id>/', views.delete_schedule, name='delete_schedule'),
     path('appointments/', views.view_appointments, name='appointments'),
     path('service/<int:service_id>/book/', views.book_appointment, name='book_appointment'),
+    path('appointment/<int:appointment_id>/update', views.update_appointment_status, name='update_appointment_status'),
 ]
