@@ -13,6 +13,15 @@
                             <p class="text-white"><strong>Provider:</strong> {{ service.provider.username }}</p>
                             <p class="text-white"><strong>Rate:</strong> €{{ service.hourly_rate }}/hr</p>
                         </div>
+
+                        {% if availabilities %}
+                            <h5 class="text-white mb-3">Available Time Slots</h5>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="table-responsive">
+                                    <table class="table table-dark"></table>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
