@@ -207,7 +207,22 @@ def book_appointment(request, service_id):
             messages.error(request, 'You cannot book your own service.')
             return redirect('book_appointment', service_id=service_id)
     
-        
+        try:
+            # Use transaction.atomic() to ensure database consistency
+            from django.db import transaction
+            with transaction.atomic():
+                appointment = Appointment.objects.create(
+                    availability=availability,
+                    client=request.user
+                )
+                availability.is_booked = True
+                availability.save()
+            messages.success(request, 'Appointment booked successfully!')
+            return redirect('view_appointments')
+        except Exception as e:
+            messages.error(request, 'There was an error booking the appointment. Please try again.')
+            return redirect('book_appointment', service_id=service_id)
+
     
     
 
