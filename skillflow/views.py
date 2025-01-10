@@ -192,7 +192,7 @@ def book_appointment(request, service_id):
                 appointment = Appointment.objects.create(
                     availability=availability,
                     client=request.user,
-                    default='pending'
+                    status='pending'
                 )
                 availability.is_booked = True
                 availability.save()
