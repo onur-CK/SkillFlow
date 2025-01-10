@@ -1,18 +1,32 @@
 {% extends 'skillflow/base.html' %}
 {% block content %}
-<main class="signup-section">
+<main class="sign-up section">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="form-card">
-                    <h4 class="form-card">Book Appointment</h4>
+                    <h4 class="form-title">Book Appointment</h4>
+                    
+                    <!-- Service Info -->
                     <div class="mb-4">
-                        <h5 class="service-info mb-4">Service Details</h5>
-                        <div class="service-info mb-4">
-                            <p class="text-white"><strong>Service:</strong> {{ service.title }}</p>
-                            <p class="text-white"><strong>Provider:</strong> {{ service.provider.username }}</p>
-                            <p class="text-white"><strong>Rate:</strong> €{{ service.hourly_rate }}/hr</p>
+                        <h5 class="text-white mb-3">Service Details</h5>
+                        <div class="table-responsive">
+                            <table class="table table-dark">
+                                <tr>
+                                    <th>Service</th>
+                                    <td>{{ service.title }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Provider</th>
+                                    <td>{{ service.provider.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Rate</th>
+                                    <td>€{{ service.hourly_rate }}/hr</td>
+                                </tr>
+                            </table>
                         </div>
+                    </div>
 
                         {% if availabilities %}
                             <h5 class="text-white mb-3">Available Time Slots</h5>
