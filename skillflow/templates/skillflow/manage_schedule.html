@@ -47,3 +47,27 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                {% for schedule in schedules %}
+                                <tr>
+                                    <td>{{ schedule.get_day_of_week_display }}</td>
+                                    <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
+                                    <td>{{ schedule.location }}</td>
+                                    <td>
+                                        <form method="POST" action="{% url 'delete_schedule' schedule.id %}" 
+                                              class="d-inline" onsubmit="return confirm('Delete this time slot?');">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center">No recurring schedules set</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
