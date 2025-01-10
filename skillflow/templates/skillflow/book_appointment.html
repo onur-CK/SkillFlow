@@ -28,7 +28,17 @@
                                                 <th>Location</th>
                                             </tr>
                                         </thead>
-
+                                        <tbody>
+                                            {% for slot in availabilities %}
+                                            <tr>
+                                                <td>
+                                                    <input type="radio" name="availability" value="{{ slot.id }}" class="form-check-input" required>
+                                                </td>
+                                                <td>{{ slot.date }}</td>
+                                                <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
+                                                <td>{{ slot.location }}</td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
                             </form>
