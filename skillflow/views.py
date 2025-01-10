@@ -279,3 +279,16 @@ def manage_schedule(request, service_id):
             return redirect('manage_schedule', service_id=service_id)
     else:
         form = WeeklyScheduleForm()
+    
+    # Get upcoming appointments
+    appointments = Appointment.objects.filter(
+        availability__service=service,
+        availability__date__gte=timezone.now().date()
+    ).order_by('availability__date', 'availability__start_time')
+    
+    return render(request, 'skillflow/manage_schedule.html', {
+        'form': form,
+        'service': service,
+        'schedules': schedules,
+        'appointments': appointments
+    })
