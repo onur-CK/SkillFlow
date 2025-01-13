@@ -193,11 +193,15 @@ body {
 }
 
 .service-description {
-    /* Styles the description text with white color and improved readability */
     color: white;
     font-size: 0.9rem;
-    margin-bottom: 2.5rem; 
-    line-height: 1.8;  
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limit to 4 lines */
+    -webkit-box-orient: vertical;
+    flex: 1;  /* Allow it to flex within card */
 }
 
 .service-footer {
