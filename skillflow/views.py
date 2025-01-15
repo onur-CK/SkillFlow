@@ -10,6 +10,8 @@ from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 from django.utils import timezone
 from django.db import transaction
+from django.db import IntegrityError
+
 
 logger = logging.getLogger(__name__)
 
