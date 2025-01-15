@@ -112,15 +112,13 @@
                 {% for service in services %}
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
-                        <div class="service-card-content">
-                            <div class="service-card-header">
-                                <span class="service-category">{{ service.get_category_display }}</span>
-                                <span class="service-price">€{{ service.hourly_rate }}/hr</span>
-                            </div>
+                        <div class="service-card-header">
+                            <span class="service-category">{{ service.get_category_display }}</span>
+                            <span class="service-price">€{{ service.hourly_rate }}/hr</span>
+                        </div>
+                        <div class="service-content">
                             <h5 class="service-title">{{ service.title }}</h5>
-                            <p class="service-description">
-                                {{ service.description }}
-                            </p>
+                            <p class="service-description">{{ service.description }}</p>
                         </div>
                         <div class="service-footer">
                             <div class="service-provider">{{ service.provider.username }}</div>
