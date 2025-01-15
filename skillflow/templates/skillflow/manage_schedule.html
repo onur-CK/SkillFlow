@@ -5,21 +5,38 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="form-card">
-                    <h4 class="form-title">Weekly Schedule - {{ service.title }}</h4>
+                    <h4 class="form-title">Schedule Management - {{ service.title }}</h4>
 
-                    <!-- Schedule Creation Form -->
+                    <!-- Messages Section -->
+                    {% if messages %}
+                    <div class="mb-4">
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <!-- Enhanced Schedule Creation Form -->
                     <form method="POST" class="mb-5">
                         {% csrf_token %}
                         <div class="row g-3">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="form-label text-white">Day of Week</label>
                                 {{ form.day_of_week }}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-white">Date</label>
+                                <input type="date" name="specific_date" class="form-control custom-input" 
+                                       min="{{ current_date|date:'Y-m-d' }}">
+                            </div>
+                            <div class="col-md-6">
                                 <label class="form-label text-white">Start Time</label>
                                 {{ form.start_time }}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <label class="form-label text-white">End Time</label>
                                 {{ form.end_time }}
                             </div>
@@ -27,118 +44,107 @@
                                 <label class="form-label text-white">Location</label>
                                 {{ form.location }}
                             </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary custom-submit w-100">
-                                    <i class="fas fa-plus me-2"></i>Add Time Slot
+                            <div class="col-12 d-flex gap-2">
+                                <button type="submit" name="add_recurring" class="btn btn-primary custom-submit flex-grow-1">
+                                    <i class="fas fa-calendar-plus me-2"></i>Add Recurring Schedule
+                                </button>
+                                <button type="submit" name="add_single" class="btn btn-outline-light flex-grow-1">
+                                    <i class="fas fa-plus me-2"></i>Add Single Time Slot
                                 </button>
                             </div>
                         </div>
                     </form>
 
-                    <!-- Weekly Schedule Display -->
-                    <h5 class="text-white mb-4">Current Schedule</h5>
-                    <div class="table-responsive mb-5">
-                        <table class="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th>Day</th>
-                                    <th>Time</th>
-                                    <th>Location</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for schedule in schedules %}
-                                <tr>
-                                    <td>{{ schedule.get_day_of_week_display }}</td>
-                                    <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
-                                    <td>{{ schedule.location }}</td>
-                                    <td>
-                                        <form method="POST" action="{% url 'delete_schedule' service.id schedule.id %}" 
-                                              class="d-inline" onsubmit="return confirm('Delete this time slot?');">
-                                            {% csrf_token %}
-                                            <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                {% empty %}
-                                <tr>
-                                    <td colspan="4" class="text-center">No recurring schedules set</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Rest of the template remains the same -->
-                    
-                    <!-- Weekly Calendar View -->
-                    <h5 class="text-white mb-4">Calendar View</h5>
-                    <div class="row g-3 mb-5">
-                        {% for day in "0123456"|make_list %}
-                        <div class="col">
-                            <div class="card bg-dark text-white h-100">
-                                <div class="card-header text-center">
-                                    {% if day == "0" %}Monday
-                                    {% elif day == "1" %}Tuesday
-                                    {% elif day == "2" %}Wednesday
-                                    {% elif day == "3" %}Thursday
-                                    {% elif day == "4" %}Friday
-                                    {% elif day == "5" %}Saturday
-                                    {% else %}Sunday{% endif %}
-                                </div>
-                                <div class="card-body">
+                    <!-- Improved Schedule Display -->
+                    <div class="mb-4">
+                        <h5 class="text-white mb-3">Current Schedule</h5>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Day/Date</th>
+                                        <th>Time</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     {% for schedule in schedules %}
-                                    {% if schedule.day_of_week == day|add:"0" %}
-                                    <div class="p-2 mb-2 bg-secondary rounded">
-                                        <small class="d-block">{{ schedule.start_time }} - {{ schedule.end_time }}</small>
-                                        <small class="d-block text-light">{{ schedule.location }}</small>
-                                    </div>
-                                    {% endif %}
+                                    <tr>
+                                        <td>
+                                            <span class="badge bg-info">Recurring</span>
+                                        </td>
+                                        <td>{{ schedule.get_day_of_week_display }}</td>
+                                        <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
+                                        <td>{{ schedule.location }}</td>
+                                        <td>
+                                            {% if schedule.is_active %}
+                                            <span class="badge bg-success">Active</span>
+                                            {% else %}
+                                            <span class="badge bg-secondary">Inactive</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <form method="POST" action="{% url 'delete_schedule' service.id schedule.id %}" 
+                                                      class="d-inline" onsubmit="return confirm('Delete this time slot?');">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="6" class="text-center">No schedules set</td>
+                                    </tr>
                                     {% endfor %}
-                                </div>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
-                        {% endfor %}
                     </div>
 
-                    <!-- Upcoming Appointments -->
-                    <h5 class="text-white mb-4">Upcoming Appointments</h5>
-                    <div class="table-responsive">
-                        <table class="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Client</th>
-                                    <th>Location</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for appointment in appointments %}
-                                <tr>
-                                    <td>{{ appointment.availability.date }}</td>
-                                    <td>{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
-                                    <td>{{ appointment.client.username }}</td>
-                                    <td>{{ appointment.availability.location }}</td>
-                                    <td>
-                                        <span class="badge {% if appointment.status == 'confirmed' %}bg-success
+                    <!-- Upcoming Appointments Section -->
+                    <div>
+                        <h5 class="text-white mb-3">Upcoming Appointments</h5>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Client</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for appointment in appointments %}
+                                    <tr>
+                                        <td>{{ appointment.availability.date }}</td>
+                                        <td>{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
+                                        <td>{{ appointment.client.username }}</td>
+                                        <td>{{ appointment.availability.location }}</td>
+                                        <td>
+                                            <span class="badge {% if appointment.status == 'confirmed' %}bg-success
                                                          {% elif appointment.status == 'cancelled' %}bg-danger
                                                          {% else %}bg-warning{% endif %}">
-                                            {{ appointment.get_status_display }}
-                                        </span>
-                                    </td>
-                                </tr>
-                                {% empty %}
-                                <tr>
-                                    <td colspan="5" class="text-center">No upcoming appointments</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                                                {{ appointment.get_status_display }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="5" class="text-center">No upcoming appointments</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

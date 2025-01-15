@@ -238,36 +238,44 @@ def view_appointments(request):
 @login_required
 def manage_schedule(request, service_id):
     service = get_object_or_404(Service, id=service_id, provider=request.user)
-    schedules = WeeklySchedule.objects.filter(service=service)
     
     if request.method == 'POST':
         form = WeeklyScheduleForm(request.POST)
         if form.is_valid():
-            schedule = form.save(commit=False)
-            schedule.provider = request.user
-            schedule.service = service
-            schedule.save()
-
-            # Generate availabilities for the next few weeks
-            schedule.create_availabilities()
-            
-            messages.success(request, 'Weekly schedule updated successfully!')
+            try:
+                schedule = form.save(commit=False)
+                schedule.provider = request.user
+                schedule.service = service
+                schedule.save()
+                
+                # Generate availabilities for the next few weeks
+                schedule.create_availabilities()
+                messages.success(request, 'Schedule added successfully!')
+                
+            except IntegrityError:
+                messages.error(request, 'This time slot already exists for this day.')
+            except Exception as e:
+                messages.error(request, f'An error occurred: {str(e)}')
+                
             return redirect('manage_schedule', service_id=service_id)
     else:
         form = WeeklyScheduleForm()
     
-    # Get upcoming appointments
+    schedules = WeeklySchedule.objects.filter(service=service).order_by('day_of_week', 'start_time')
     appointments = Appointment.objects.filter(
         availability__service=service,
         availability__date__gte=timezone.now().date()
     ).order_by('availability__date', 'availability__start_time')
     
-    return render(request, 'skillflow/manage_schedule.html', {
+    context = {
         'form': form,
         'service': service,
         'schedules': schedules,
-        'appointments': appointments
-    })
+        'appointments': appointments,
+        'current_date': timezone.now().date()
+    }
+    
+    return render(request, 'skillflow/manage_schedule.html', context)
 
 
 @login_required
