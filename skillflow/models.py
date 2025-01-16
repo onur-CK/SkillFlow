@@ -93,12 +93,7 @@ class WeeklySchedule(models.Model):
     def __str__(self):
         return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
     
-
-
-def __str__(self):
-        return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
-
-def create_availabilities(self):
+    def create_availabilities(self):
         """
         Creates availability slots for the next 4 weeks based on the weekly schedule.
         """
