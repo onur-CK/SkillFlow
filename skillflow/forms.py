@@ -56,6 +56,9 @@ class WeeklyScheduleForm(forms.ModelForm):
         model = WeeklySchedule
         fields = ['day_of_week', 'start_time', 'end_time', 'location']
         widgets = {
+            'day_of_week': forms.Select(attrs={
+                'class': 'form-control custom-input'
+            }),
             'start_time': forms.TimeInput(attrs={
                 'type': 'time',
                 'class': 'form-control custom-input'
