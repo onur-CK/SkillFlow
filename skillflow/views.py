@@ -263,7 +263,10 @@ def manage_schedule(request, service_id):
     else:
         form = WeeklyScheduleForm()
     
-    schedules = WeeklySchedule.objects.filter(service=service).order_by('day_of_week', 'start_time')
+    schedules = WeeklySchedule.objects.filter(
+        service=service
+    ).order_by('day_of_week', 'start_time')
+    
     appointments = Appointment.objects.filter(
         availability__service=service,
         availability__date__gte=timezone.now().date()
