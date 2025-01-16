@@ -24,9 +24,8 @@
                         {% csrf_token %}
                         <div class="row g-3 align-items-end">
                             <div class="col-md-3">
-                                <label class="form-label text-white">Date</label>
-                                <input type="date" name="date" class="form-control custom-input" 
-                                       min="{{ current_date|date:'Y-m-d' }}" required>
+                                <label class="form-label text-white">Day of Week</label>
+                                {{ form.day_of_week }}
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label text-white">Start Time</label>
@@ -42,10 +41,11 @@
                             </div>
                             <div class="col-md-2">
                                 <button type="submit" class="btn btn-primary custom-submit w-100">
-                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-plus"></i> Add
                                 </button>
                             </div>
                         </div>
+                    </form>
 
                     <!-- Schedule Display -->
                     <div class="mb-4">
