@@ -248,14 +248,26 @@ def manage_schedule(request, service_id):
                 schedule = form.save(commit=False)
                 schedule.provider = request.user
                 schedule.service = service
-                schedule.save()
                 
-                # Generate availabilities for the next few weeks
+                # Validate time slots don't overlap
+                existing_slots = WeeklySchedule.objects.filter(
+                    provider=request.user,
+                    service=service,
+                    day_of_week=schedule.day_of_week
+                )
+                
+                for slot in existing_slots:
+                    if (schedule.start_time <= slot.end_time and 
+                        schedule.end_time >= slot.start_time):
+                        messages.error(request, 'This time slot overlaps with an existing schedule.')
+                        return redirect('manage_schedule', service_id=service_id)
+                
+                schedule.save()
                 schedule.create_availabilities()
                 messages.success(request, 'Schedule added successfully!')
                 
             except IntegrityError:
-                messages.error(request, 'This time slot already exists for this day.')
+                messages.error(request, 'This exact time slot already exists for this day.')
             except Exception as e:
                 messages.error(request, f'An error occurred: {str(e)}')
                 
@@ -263,6 +275,7 @@ def manage_schedule(request, service_id):
     else:
         form = WeeklyScheduleForm()
     
+    # Get schedules grouped by day
     schedules = WeeklySchedule.objects.filter(
         service=service
     ).order_by('day_of_week', 'start_time')

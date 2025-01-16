@@ -71,7 +71,6 @@ class Appointment(models.Model):
 class WeeklySchedule(models.Model):
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-
     DAYS_OF_WEEK = [
         (0, 'Monday'),
         (1, 'Tuesday'),
@@ -81,7 +80,6 @@ class WeeklySchedule(models.Model):
         (5, 'Saturday'),
         (6, 'Sunday'),
     ]
-
     day_of_week = models.IntegerField(choices=DAYS_OF_WEEK)
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -89,38 +87,10 @@ class WeeklySchedule(models.Model):
     is_active = models.BooleanField(default=True)
 
     class Meta:
-        # Meta options source link: https://docs.djangoproject.com/en/5.1/ref/models/options/
-        unique_together = ['provider', 'service', 'day_of_week', 'start_time', 'end_time']
+        unique_together = ['provider', 'service', 'day_of_week', 'start_time']
         ordering = ['day_of_week', 'start_time']
 
     def __str__(self):
         return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
-    
-    def create_availabilities(self, weeks_ahead=4):
-        # Creates individual availability slots for the next few weeks based on this schedule
-        # Source link of time units creation : https://medium.com/django-unleashed/python-timedelta-with-examples-and-use-cases-81def9140880
-        from datetime import datetime, timedelta
-        
-        today = datetime.now().date()
-        for week in range(weeks_ahead):
-            # Calculate the next occurrence of this weekday
-            days_ahead = self.day_of_week - today.weekday()
-            if days_ahead <= 0:  # Target day already happened this week
-                days_ahead += 7
-            days_ahead += week * 7
-
-            # Calculate the target date for the next occurrence of the specified weekday, considering the current date and week offset.
-            target_date = today + timedelta(days=days_ahead)
-            
-            # Create availability if it doesn't exist
-            Availability.objects.get_or_create(
-                provider=self.provider,
-                service=self.service,
-                date=target_date,
-                start_time=self.start_time,
-                end_time=self.end_time,
-                location=self.location,
-                defaults={'is_booked': False}
-            )
             
             
