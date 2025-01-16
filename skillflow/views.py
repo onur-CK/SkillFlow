@@ -253,7 +253,8 @@ def manage_schedule(request, service_id):
                 existing_slots = WeeklySchedule.objects.filter(
                     provider=request.user,
                     service=service,
-                    day_of_week=schedule.day_of_week
+                    day_of_week=schedule.day_of_week,
+                    is_active=True
                 )
                 
                 for slot in existing_slots:
@@ -263,9 +264,15 @@ def manage_schedule(request, service_id):
                         return redirect('manage_schedule', service_id=service_id)
                 
                 schedule.save()
-                schedule.create_availabilities()
-                messages.success(request, 'Schedule added successfully!')
                 
+                # Create availability slots
+                try:
+                    schedule.create_availabilities()
+                    messages.success(request, 'Schedule added successfully!')
+                except Exception as e:
+                    messages.error(request, f'Error creating availability slots: {str(e)}')
+                    schedule.delete()  # Rollback the schedule creation
+                    
             except IntegrityError:
                 messages.error(request, 'This exact time slot already exists for this day.')
             except Exception as e:
@@ -275,10 +282,14 @@ def manage_schedule(request, service_id):
     else:
         form = WeeklyScheduleForm()
     
-    # Get schedules grouped by day
+    # Get active schedules
     schedules = WeeklySchedule.objects.filter(
-        service=service
+        service=service,
+        is_active=True
     ).order_by('day_of_week', 'start_time')
+    
+    # Debug print
+    print(f"Found {schedules.count()} active schedules for service {service.id}")
     
     appointments = Appointment.objects.filter(
         availability__service=service,
