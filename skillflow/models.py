@@ -92,5 +92,41 @@ class WeeklySchedule(models.Model):
 
     def __str__(self):
         return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
+    
+
+
+def __str__(self):
+        return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
+
+def create_availabilities(self):
+        """
+        Creates availability slots for the next 4 weeks based on the weekly schedule.
+        """
+        from datetime import date, timedelta
+        
+        # Get today's date
+        today = date.today()
+        
+        # Find the next occurrence of this weekday
+        days_ahead = self.day_of_week - today.weekday()
+        if days_ahead <= 0:  # Target day already happened this week
+            days_ahead += 7
+        next_date = today + timedelta(days=days_ahead)
+        
+        # Create availabilities for the next 4 weeks
+        for week in range(4):
+            availability_date = next_date + timedelta(weeks=week)
             
+            # Create the availability slot
+            Availability.objects.create(
+                provider=self.provider,
+                service=self.service,
+                date=availability_date,
+                start_time=self.start_time,
+                end_time=self.end_time,
+                location=self.location,
+                is_booked=False
+            )
+
+        
             
