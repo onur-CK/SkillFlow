@@ -52,7 +52,7 @@
                             <li><a class="dropdown-item" href="{% url 'appointments' %}">Appointments</a></li>
                         </ul>
                     </li>
-                    <!-- Login Button -->
+                    <!-- Login/out Buttons -->
                     {% if user.is_authenticated %}
                     <a class="btn btn-primary login-btn" href="{% url 'logout' %}">Logout</a>
                     {% else %}
@@ -134,7 +134,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- Add your JavaScript code in a separate script tag -->
+    <!-- Object to store the original form values for resetting when user cancels edit -->
     <script>
         let originalValues = {
             firstName: '',
@@ -142,42 +142,61 @@
             email: '',
             bio: ''
         };
-
+        
+        // Initialize event handlers and capture original form values when the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', function () {
+            // Store initial form values to enable form reset functionality
             originalValues.firstName = document.getElementById('firstName').value;
             originalValues.lastName = document.getElementById('lastName').value;
             originalValues.email = document.getElementById('email').value;
             originalValues.bio = document.getElementById('bio').value;
 
+            // Get references to the bio textarea and character count display elements
             const bioTextarea = document.getElementById('bio');
             const charCount = document.getElementById('currentCount');
 
+            // Set up character counter for bio field if both elements exist
             if (bioTextarea && charCount) {
+                // Initialize character count display with current bio length
                 charCount.textContent = bioTextarea.value.length;
 
-                // Update character count while typing
+                // Add real-time character count update while user types in bio field
                 bioTextarea.addEventListener('input', function () {
                     charCount.textContent = this.value.length;
                 });
             }
         });
 
+        /**
+         * Shows the edit form and hides the proflie information display
+         * Used when user clicks "Edit Profile" button
+        */
         function showEditForm() {
             document.getElementById('profileForm').style.display = 'block';
             document.getElementById('infoDisplay').style.display = 'none';
         }
 
+        /**
+         * Handles the cancellation of profile editing: 
+         * Resets all form fields to their originals values
+         * Updates character count display
+         * Hides the form and shows the profile information display
+         * Used when user clicks "Cancel" button
+        */
         function hideEditForm() {
+            // Reset all form fields to their original values 
             document.getElementById('firstName').value = originalValues.firstName;
             document.getElementById('lastName').value = originalValues.lastName;
             document.getElementById('email').value = originalValues.email;
             document.getElementById('bio').value = originalValues.bio;
 
+            // Update character count display to match the original bio length
             const charCount = document.getElementById('currentCount');
             if (charCount) {
                 charCount.textContent = originalValues.bio.length;
             }
 
+            // Switch visibility back to display mode
             document.getElementById('profileForm').style.display = 'none';
             document.getElementById('infoDisplay').style.display = 'block';
         }
