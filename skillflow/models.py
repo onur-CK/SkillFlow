@@ -90,7 +90,7 @@ class WeeklySchedule(models.Model):
 
     class Meta:
         # Meta options source link: https://docs.djangoproject.com/en/5.1/ref/models/options/
-        unique_together = ['provider', 'service', 'day_of_week']  # One time slot per day per service
+        unique_together = ['provider', 'service', 'day_of_week', 'start_time', 'end_time']
         ordering = ['day_of_week', 'start_time']
 
     def __str__(self):
