@@ -124,16 +124,20 @@
         crossorigin="anonymous"></script>
 
         <script>
+            // Wait for the DOM to be fully loaded before executing any JavaScript
             document.addEventListener('DOMContentLoaded', function() {
+                // Get references to the description textarea and character counter elements
                 const descriptionField = document.getElementById('{{ form.description.id_for_label }}');
                 const charCount = document.getElementById('currentCount');
                 
+                // Only proceed if both elements exist in the DOM to prevent errors
                 if (descriptionField && charCount) {
-                    // Update initial count
+                    // Set the initial character count when the page loads
                     charCount.textContent = descriptionField.value.length;
                     
-                    // Update count while typing
+                    // Add a real-time character counter that updates as the user types
                     descriptionField.addEventListener('input', function() {
+                        // Update the character count display with the current length of the description
                         charCount.textContent = this.value.length;
                     });
                 }
