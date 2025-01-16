@@ -71,15 +71,7 @@ class Appointment(models.Model):
 class WeeklySchedule(models.Model):
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    SCHEDULE_TYPES = [
-        ('recurring', 'Recurring'),
-        ('single', 'Single')
-    ]
-    schedule_type = models.CharField(
-        max_length=10,
-        choices=SCHEDULE_TYPES,
-        default='recurring'
-    )
+
     DAYS_OF_WEEK = [
         (0, 'Monday'),
         (1, 'Tuesday'),
@@ -95,7 +87,6 @@ class WeeklySchedule(models.Model):
     end_time = models.TimeField()
     location = models.CharField(max_length=200)
     is_active = models.BooleanField(default=True)
-    specific_date = models.DateField(null=True, blank=True) # Single time block slot 
 
     class Meta:
         # Meta options source link: https://docs.djangoproject.com/en/5.1/ref/models/options/
