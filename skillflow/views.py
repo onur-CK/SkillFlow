@@ -249,6 +249,17 @@ def manage_schedule(request, service_id):
                 availability.provider = request.user
                 availability.service = service
 
+                # Check for overlapping time slots
+                overlapping_slots = Availability.objects.filter(
+                    provider=request.user,
+                    service=service,
+                    date=availability.date,
+                    is_booked=False
+                ).filter(
+                    models.Q(start_time__lt=availability.end_time) &
+                    models.Q(end_time__gt=availability.start_time)
+                )
+
 
 @login_required
 def delete_availability(request, service_id, availability_id):
