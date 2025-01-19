@@ -19,13 +19,13 @@
                     </div>
                     {% endif %}
 
-                    <!-- Schedule Creation Form -->
+                    <!-- Time Slot Creation Form -->
                     <form method="POST" class="mb-5">
                         {% csrf_token %}
                         <div class="row g-3 align-items-end">
                             <div class="col-md-3">
-                                <label class="form-label text-white">Day of Week</label>
-                                {{ form.day_of_week }}
+                                <label class="form-label text-white">Date</label>
+                                {{ form.date }}
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label text-white">Start Time</label>
@@ -47,14 +47,14 @@
                         </div>
                     </form>
 
-                    <!-- Schedule Display -->
+                    <!-- Available Time Slots Display -->
                     <div class="mb-4">
-                        <h5 class="text-white text-center mb-3 mt-3">Weekly Schedule</h5>
+                        <h5 class="text-white text-center mb-3 mt-3">Available Time Slots</h5>
                         <div class="table-responsive">
                             <table class="table table-dark table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Day</th>
+                                        <th>Date</th>
                                         <th>Time</th>
                                         <th>Location</th>
                                         <th>Status</th>
@@ -62,21 +62,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for schedule in schedules %}
+                                    {% for slots in availabilities %}
                                     <tr>
-                                        <td>{{ schedule.get_day_of_week_display }}</td>
-                                        <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
-                                        <td>{{ schedule.location }}</td>
+                                        <td>{{ slot.date|date:"D, M d, Y" }}</td>
+                                        <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
+                                        <td>{{ slot.location }}</td>
                                         <td>
-                                            {% if schedule.is_active %}
-                                            <span class="badge bg-success">Active</span>
+                                            {% if slot.is_booked %}
+                                            <span class="badge bg-warning">Booked</span>
                                             {% else %}
-                                            <span class="badge bg-secondary">Inactive</span>
+                                            <span class="badge bg-success">Available</span>
                                             {% endif %}
                                         </td>
                                         <td>
+                                            {% if not slot.is_booked %}
                                             <div class="btn-group">
-                                                <form method="POST" action="{% url 'delete_schedule' service.id schedule.id %}" 
+                                                <form method="POST" action="{% url 'delete_availability' service.id slot.id %}" 
                                                       class="d-inline" onsubmit="return confirm('Delete this time slot?');">
                                                     {% csrf_token %}
                                                     <button type="submit" class="btn btn-sm btn-outline-danger">
