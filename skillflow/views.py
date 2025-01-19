@@ -256,9 +256,26 @@ def manage_schedule(request, service_id):
                     date=availability.date,
                     is_booked=False
                 ).filter(
+                    # Source Code: https://stackoverflow.com/questions/69015339/how-to-check-two-time-period-for-overlap-in-django
                     models.Q(start_time__lt=availability.end_time) &
                     models.Q(end_time__gt=availability.start_time)
                 )
+
+                if overlapping_slots.exists():
+                    messages.error(request, 'This time slot overlaps with an existing schedule.')
+                    return redirect('manage_schedule', service_id=service_id)
+                
+                availability.save()
+                messages.success(request, 'Time slot added successfully!')
+                    
+            except IntegrityError:
+                messages.error(request, 'This exact time slot already exists.')
+            except Exception as e:
+                messages.error(request, f'An error occurred: {str(e)}')
+                
+            return redirect('manage_schedule', service_id=service_id)
+    else:
+        form = AvailabilityForm()
 
 
 @login_required
