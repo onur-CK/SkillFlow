@@ -76,6 +76,24 @@ class AvailabilityForm(forms.ModelForm):
         })
     )
 
+    class Meta:
+        model = Availability
+        fields = ['date', 'start_time', 'end_time', 'location']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date = cleaned_data.get('date')
+        start_time = cleaned_data.get('start_time')
+        end_time = cleaned_data.get('end_time')
+
+        if date and date < timezone.now().date():
+            raise forms.ValidationError("Cannot create availability for past dates")
+
+        if start_time and end_time and start_time >= end_time:
+            raise forms.ValidationError("End time must be after start time")
+
+        return cleaned_data
+
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
