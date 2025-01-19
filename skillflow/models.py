@@ -36,14 +36,21 @@ class Availability(models.Model):
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date = models.DateField()
-    location = models.CharField(max_length=200)
     start_time = models.TimeField()
     end_time = models.TimeField()
+    location = models.CharField(max_length=200)
     # Boolean Field Source Code Link: https://docs.djangoproject.com/en/5.1/ref/models/fields/
     is_booked = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.provider.username} - {self.date} ({self.start_time}-{self.end_time})"
+    class Meta:
+        ordering = ['date', 'start_time']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['provider', 'service', 'date', 'start_time'],
+                name='unique_availability'
+            )
+        ]
 
 class Appointment(models.Model):
     availability = models.OneToOneField(Availability, on_delete=models.CASCADE)
