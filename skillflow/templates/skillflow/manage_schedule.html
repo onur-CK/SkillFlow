@@ -62,35 +62,36 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for slots in availabilities %}
-                                    <tr>
-                                        <td>{{ slot.date|date:"D, M d, Y" }}</td>
-                                        <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
-                                        <td>{{ slot.location }}</td>
-                                        <td>
-                                            {% if slot.is_booked %}
-                                            <span class="badge bg-warning">Booked</span>
-                                            {% else %}
-                                            <span class="badge bg-success">Available</span>
-                                            {% endif %}
-                                        </td>
-                                        <td>
-                                            {% if not slot.is_booked %}
-                                            <div class="btn-group">
-                                                <form method="POST" action="{% url 'delete_availability' service.id slot.id %}" 
-                                                      class="d-inline" onsubmit="return confirm('Delete this time slot?');">
-                                                    {% csrf_token %}
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    {% for slot in availabilities %}
+                                        <tr>
+                                            <td>{{ slot.date|date:"D, M d, Y" }}</td>
+                                            <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
+                                            <td>{{ slot.location }}</td>
+                                            <td>
+                                                {% if slot.is_booked %}
+                                                    <span class="badge bg-warning">Booked</span>
+                                                {% else %}
+                                                    <span class="badge bg-success">Available</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if not slot.is_booked %}
+                                                    <div class="btn-group">
+                                                        <form method="POST" action="{% url 'delete_availability' service.id slot.id %}" 
+                                                              class="d-inline" onsubmit="return confirm('Delete this time slot?');">
+                                                            {% csrf_token %}
+                                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
                                     {% empty %}
-                                    <tr>
-                                        <td colspan="5" class="text-center">No schedules set</td>
-                                    </tr>
+                                        <tr>
+                                            <td colspan="5" class="text-center">No schedules set</td>
+                                        </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
