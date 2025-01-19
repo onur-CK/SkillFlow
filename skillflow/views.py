@@ -277,6 +277,27 @@ def manage_schedule(request, service_id):
     else:
         form = AvailabilityForm()
 
+    # Get active availabilities
+    availabilities = Availability.objects.filter(
+        service=service,
+        date__gte=timezone.now().date()
+    ).order_by('date', 'start_time')
+    
+    appointments = Appointment.objects.filter(
+        availability__service=service,
+        availability__date__gte=timezone.now().date()
+    ).order_by('availability__date', 'availability__start_time')
+    
+    context = {
+        'form': form,
+        'service': service,
+        'availabilities': availabilities,
+        'appointments': appointments,
+        'current_date': timezone.now().date()
+    }
+    
+    return render(request, 'skillflow/manage_schedule.html', context)
+
 
 @login_required
 def delete_availability(request, service_id, availability_id):
