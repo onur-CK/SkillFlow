@@ -43,14 +43,30 @@ class Availability(models.Model):
     is_booked = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    # Ordering and Constraints Source Link: https://docs.djangoproject.com/en/5.1/ref/models/options/
     class Meta:
         ordering = ['date', 'start_time']
+        # Ensure no overlapping time slots for the same provider and service
         constraints = [
             models.UniqueConstraint(
                 fields=['provider', 'service', 'date', 'start_time'],
                 name='unique_availability'
             )
         ]
+
+    def __str__(self):
+        return f"{self.service.title} - {self.date} ({self.start_time}-{self.end_time})"
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        # Ensure date is not in the past
+        if self.date < timezone.now().date():
+            raise ValidationError('Cannot create availability for past dates')
+        
+        # Ensure end_time is after start_time
+        if self.end_time <= self.start_time:
+            raise ValidationError('End time must be after start time')
+    
 
 class Appointment(models.Model):
     availability = models.OneToOneField(Availability, on_delete=models.CASCADE)
