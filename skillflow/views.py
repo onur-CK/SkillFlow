@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm, UserProfileForm, ServiceForm, WeeklyScheduleForm
+from .forms import SignUpForm, UserProfileForm, ServiceForm, WeeklyScheduleForm, AvailabilityForm
 from .models import UserProfile, Service, Availability, Appointment
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
@@ -9,7 +9,7 @@ import logging
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 from django.utils import timezone
-from django.db import transaction
+from django.db import transaction, models
 from django.db import IntegrityError
 
 
