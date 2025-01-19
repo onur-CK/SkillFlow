@@ -51,4 +51,6 @@ urlpatterns = [
     path('appointments/', views.view_appointments, name='appointments'),
     path('service/<int:service_id>/book/', views.book_appointment, name='book_appointment'),
     path('appointment/<int:appointment_id>/update', views.update_appointment_status, name='update_appointment_status'),
+
+    path('service/<int:service_id>/detail/', views.service_detail, name='service_detail'),
 ]
