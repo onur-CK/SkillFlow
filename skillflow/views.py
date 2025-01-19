@@ -280,6 +280,9 @@ def manage_schedule(request, service_id):
     # Get active availabilities
     availabilities = Availability.objects.filter(
         service=service,
+        # Source Link: 
+        # Source Links: https://www.w3schools.com/django/ref_lookups_gte.php
+        # https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
         date__gte=timezone.now().date()
     ).order_by('date', 'start_time')
     
