@@ -240,6 +240,14 @@ def view_appointments(request):
 @login_required
 def manage_schedule(request, service_id):
     service = get_object_or_404(Service, id=service_id, provider=request.user)
+    
+    if request.method == 'POST':
+        form = AvailabilityForm(request.POST)
+        if form.is_valid():
+            try:
+                availability = form.save(commit=False)
+                availability.provider = request.user
+                availability.service = service
 
 
 @login_required
