@@ -47,6 +47,7 @@ class Availability(models.Model):
     class Meta:
         ordering = ['date', 'start_time']
         # Ensure no overlapping time slots for the same provider and service
+        # Source Link: https://docs.djangoproject.com/en/5.1/ref/models/constraints/
         constraints = [
             models.UniqueConstraint(
                 fields=['provider', 'service', 'date', 'start_time'],

@@ -80,12 +80,14 @@ class AvailabilityForm(forms.ModelForm):
         model = Availability
         fields = ['date', 'start_time', 'end_time', 'location']
 
+    # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
     def clean(self):
         cleaned_data = super().clean()
         date = cleaned_data.get('date')
         start_time = cleaned_data.get('start_time')
         end_time = cleaned_data.get('end_time')
 
+        # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
         if date and date < timezone.now().date():
             raise forms.ValidationError("Cannot create availability for past dates")
 
