@@ -160,7 +160,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+        // Wait for the DOM to be fully loaded before executing any JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get references to the description textarea and character counter elements
+            const descriptionField = document.getElementById('{{ form.description.id_for_label }}');
+            const charCount = document.getElementById('charCount');
+            
+            // Only proceed if both elements exist in the DOM to prevent errors
+            if (descriptionField && charCount) {
+                // Set the initial character count when the page loads
+                charCount.textContent = descriptionField.value.length + '/500 characters';
+                
+                // Add a real-time character counter that updates as the user types
+                descriptionField.addEventListener('input', function() {
+                    // Update the character count display with the current length of the description
+                    charCount.textContent = this.value.length + '/500 characters';
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
