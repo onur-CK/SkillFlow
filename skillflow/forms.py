@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import UserProfile, Service, Availability, Appointment, WeeklySchedule
+from django.utils import timezone
 
 class SignUpForm(UserCreationForm):
     class Meta:
@@ -43,6 +44,37 @@ class ServiceForm(forms.ModelForm):
                 'min': '1'
             })
         }
+
+class AvailabilityForm(forms.ModelForm):
+    date = forms.DateField(
+        widget=forms.DateInput(attrs={
+            'type': 'date',
+            'class': 'form-control custom-input',
+            # Timezone Source Code: https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
+            'min': timezone.now().date().isoformat()
+        })
+    )
+    
+    start_time = forms.TimeField(
+        widget=forms.TimeInput(attrs={
+            'type': 'time',
+            'class': 'form-control custom-input'
+        })
+    )
+    
+    end_time = forms.TimeField(
+        widget=forms.TimeInput(attrs={
+            'type': 'time',
+            'class': 'form-control custom-input'
+        })
+    )
+    
+    location = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control custom-input',
+            'placeholder': 'Enter meeting location'
+        })
+    )
 
 
 class AppointmentForm(forms.ModelForm):
