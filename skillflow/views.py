@@ -307,6 +307,15 @@ def delete_availability(request, service_id, availability_id):
         service__id=service_id, 
         provider=request.user
     )
+    
+    if request.method == 'POST':
+        if availability.is_booked:
+            messages.error(request, 'Cannot delete a booked time slot.')
+        else:
+            availability.delete()
+            messages.success(request, 'Time slot deleted successfully.')
+    
+    return redirect('manage_schedule', service_id=service_id)
 
 @login_required
 def update_appointment_status(request, appointment_id):
