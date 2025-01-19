@@ -301,6 +301,12 @@ def manage_schedule(request, service_id):
 
 @login_required
 def delete_availability(request, service_id, availability_id):
+    availability = get_object_or_404(
+        Availability, 
+        id=availability_id, 
+        service__id=service_id, 
+        provider=request.user
+    )
 
 @login_required
 def update_appointment_status(request, appointment_id):
