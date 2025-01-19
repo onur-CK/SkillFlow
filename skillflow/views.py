@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, UserProfileForm, ServiceForm, WeeklyScheduleForm
-from .models import UserProfile, Service, Availability, Appointment, WeeklySchedule
+from .models import UserProfile, Service, Availability, Appointment
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
 import logging
@@ -240,80 +240,10 @@ def view_appointments(request):
 @login_required
 def manage_schedule(request, service_id):
     service = get_object_or_404(Service, id=service_id, provider=request.user)
-    
-    if request.method == 'POST':
-        form = WeeklyScheduleForm(request.POST)
-        if form.is_valid():
-            try:
-                schedule = form.save(commit=False)
-                schedule.provider = request.user
-                schedule.service = service
-                
-                # Validate time slots don't overlap
-                existing_slots = WeeklySchedule.objects.filter(
-                    provider=request.user,
-                    service=service,
-                    day_of_week=schedule.day_of_week,
-                    is_active=True
-                )
-                
-                for slot in existing_slots:
-                    if (schedule.start_time <= slot.end_time and 
-                        schedule.end_time >= slot.start_time):
-                        messages.error(request, 'This time slot overlaps with an existing schedule.')
-                        return redirect('manage_schedule', service_id=service_id)
-                
-                schedule.save()
-                
-                # Create availability slots
-                try:
-                    schedule.create_availabilities()
-                    messages.success(request, 'Schedule added successfully!')
-                except Exception as e:
-                    messages.error(request, f'Error creating availability slots: {str(e)}')
-                    schedule.delete()  # Rollback the schedule creation
-                    
-            except IntegrityError:
-                messages.error(request, 'This exact time slot already exists for this day.')
-            except Exception as e:
-                messages.error(request, f'An error occurred: {str(e)}')
-                
-            return redirect('manage_schedule', service_id=service_id)
-    else:
-        form = WeeklyScheduleForm()
-    
-    # Get active schedules
-    schedules = WeeklySchedule.objects.filter(
-        service=service,
-        is_active=True
-    ).order_by('day_of_week', 'start_time')
-    
-    # Debug print
-    print(f"Found {schedules.count()} active schedules for service {service.id}")
-    
-    appointments = Appointment.objects.filter(
-        availability__service=service,
-        availability__date__gte=timezone.now().date()
-    ).order_by('availability__date', 'availability__start_time')
-    
-    context = {
-        'form': form,
-        'service': service,
-        'schedules': schedules,
-        'appointments': appointments,
-        'current_date': timezone.now().date()
-    }
-    
-    return render(request, 'skillflow/manage_schedule.html', context)
 
 
 @login_required
-def delete_schedule(request, service_id, schedule_id):
-    schedule = get_object_or_404(WeeklySchedule, id=schedule_id, service__id=service_id, provider=request.user)
-    if request.method == 'POST':
-        schedule.delete()
-        messages.success(request, 'Schedule deleted successfully.')
-    return redirect('manage_schedule', service_id=service_id)
+def delete_availability(request, service_id, availability_id):
 
 @login_required
 def update_appointment_status(request, appointment_id):
