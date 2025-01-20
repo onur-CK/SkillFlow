@@ -353,24 +353,25 @@ def update_appointment_status(request, appointment_id):
 
     if request.method == 'POST':
         new_status = request.POST.get('status')
-        if new_status in ['confirmed', 'canceled']:
+        if new_status in ['confirmed', 'cancelled']:
             with transaction.atomic():
+                old_status = appointment.status
                 appointment.status = new_status
                 appointment.save()
 
-    new_status = request.POST.get('status')
-    if new_status in ['confirmed', 'cancelled']:
-        appointment.status = new_status
-        appointment.save()
+                # If appointment is cancelled, make the time slot available again
+                if new_status == 'cancelled':
+                    availability = appointment.availability
+                    availability.is_booked = False
+                    availability.save()
 
-        # If canceled, make the availability slot free
-        if new_status == 'canceled':
-            availability = appointment.availability
-            availability.is_booked = False
-            availability.save()
+                # Prepare appropriate message
+                if new_status == 'cancelled':
+                    msg = 'Appointment cancelled successfully.'
+                else:
+                    msg = 'Appointment confirmed successfully.'
+                messages.success(request, msg)
 
-        messages.success(request, f'Appointment {new_status} successfully.')
-    
     return redirect('appointments')
 
 def service_detail(request, service_id):

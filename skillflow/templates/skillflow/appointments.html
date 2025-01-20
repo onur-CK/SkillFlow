@@ -13,6 +13,7 @@
                     {% if provider_appointments %}
                     <div class="mb-4">
                         <h5 class="text-white mb-3">Appointments for Your Services</h5>
+                        
                         <!-- Table Container -->
                         <div class="table-responsive">
                             <table class="table table-dark">
@@ -35,7 +36,7 @@
                                         <td class="d-none d-md-table-cell">{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
                                         <td class="d-none d-md-table-cell">{{ appointment.availability.location }}</td>
                                         <td>
-                                            <!-- Mobile-only details -->
+                                            <!-- Mobile-only -->
                                             <div class="d-md-none mb-2">
                                                 <small class="text-muted">
                                                     Time: {{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}<br>
@@ -44,31 +45,39 @@
                                             </div>
                                             
                                             {% if appointment.status == 'pending' %}
-                                                <div class="d-flex gap-2">
-                                                    <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="status" value="confirmed">
-                                                        <button type="submit" class="btn btn-sm btn-success">
-                                                            <i class="fas fa-check sm"></i> Confirm
-                                                        </button>
-                                                    </form>
-                                                    <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
-                                                          class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="status" value="cancelled">
-                                                        <button type="submit" class="btn btn-sm btn-danger">
-                                                            <i class="fas fa-times"></i> Cancel
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            {% else %}
-                                                <span class="badge {% if appointment.status == 'confirmed' %}bg-success
-                                                               {% elif appointment.status == 'cancelled' %}bg-danger
-                                                               {% else %}bg-warning{% endif %}">
-                                                    {{ appointment.get_status_display }}
-                                                </span>
-                                            {% endif %}
-                                        </td>
+                                            <div class="d-flex gap-2">
+                                                <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="status" value="confirmed">
+                                                    <button type="submit" class="btn btn-sm btn-success">
+                                                        <i class="fas fa-check sm"></i> Confirm
+                                                    </button>
+                                                </form>
+                                                <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
+                                                    class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="status" value="cancelled">
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="fas fa-times"></i> Cancel
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        {% elif appointment.status == 'confirmed' %}
+                                            <div class="d-flex gap-2 align-items-center">
+                                                <span class="badge bg-success">Confirmed</span>
+                                                <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
+                                                    class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this confirmed appointment?');">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="status" value="cancelled">
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                        <i class="fas fa-times"></i> Cancel
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        {% else %}
+                                            <span class="badge bg-danger">{{ appointment.get_status_display }}</span>
+                                        {% endif %}
+                                    </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -102,7 +111,7 @@
                                         <td class="d-none d-md-table-cell">{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
                                         <td class="d-none d-md-table-cell">{{ appointment.availability.location }}</td>
                                         <td>
-                                            <!-- Mobile-only details -->
+                                            <!-- Mobile-only -->
                                             <div class="d-md-none mb-2">
                                                 <small class="text-muted">
                                                     Time: {{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}<br>
@@ -110,23 +119,24 @@
                                                 </small>
                                             </div>
 
-                                            {% if appointment.status == 'pending' %}
+                                            {% if appointment.status == 'pending' or appointment.status == 'confirmed' %}
+                                            <div class="d-flex gap-2 align-items-center">
+                                                <span class="badge {% if appointment.status == 'confirmed' %}bg-success{% else %}bg-warning{% endif %}">
+                                                    {{ appointment.get_status_display }}
+                                                </span>
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
                                                       class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
                                                     {% csrf_token %}
                                                     <input type="hidden" name="status" value="cancelled">
-                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
                                                         <i class="fas fa-times"></i> Cancel
                                                     </button>
                                                 </form>
-                                            {% else %}
-                                                <span class="badge {% if appointment.status == 'confirmed' %}bg-success
-                                                               {% elif appointment.status == 'cancelled' %}bg-danger
-                                                               {% else %}bg-warning{% endif %}">
-                                                    {{ appointment.get_status_display }}
-                                                </span>
-                                            {% endif %}
-                                        </td>
+                                            </div>
+                                        {% else %}
+                                            <span class="badge bg-danger">{{ appointment.get_status_display }}</span>
+                                        {% endif %}
+                                    </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
