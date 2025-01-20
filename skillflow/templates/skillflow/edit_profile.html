@@ -1,221 +1,147 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+<!-- Main content section for profile(edit) -->
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Profile information -->
+                <div class="form-card">
+                    <h4 class="form-title">Account Information</h4>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkillFlow</title>
-    <!-- External CSS dependencies: Bootstrap, Font Awesome icons, and custom styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-</head>
-
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm sticky-top">
-        <div class="container">
-            <!-- Website name/logo and About Us link -->
-            <a class="navbar-brand custom-text" href="{% url 'home' %}">SkillFlow</a>
-            <a class="nav-link custom-text ms-3" href="{% url 'about_us' %}">
-                <i class="fas fa-info-circle"></i> About Us
-            </a>
-            <!-- Hamburger menu for mobile view -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navigation menu items -->
-            <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
-                <!-- Navigation links list -->
-                <ul class="navbar-nav">
-                    <!-- Standard navigation items -->
-                    <li class="nav-item">
-                        <a class="nav-link custom-text" href="{% url 'index' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-text" href="{% url 'service' %}">+New Post</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle custom-text" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Profile
-                        </a>
-                        <!-- Profile dropdown menu -->
-                        <ul class="dropdown-menu">
-                            <!-- Dropdown menu items for profile management -->
-                            <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{% url 'my_services' %}">My Services</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{% url 'manage_account' %}">Manage account</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{% url 'appointments' %}">Appointments</a></li>
-                        </ul>
-                    </li>
-                    <!-- Logout button for authenticated users -->
-                    {% if user.is_authenticated %}
-                    <a class="btn btn-primary login-btn" href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                    <!-- If the user is not authenticated, show the Login button -->
-                    <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main content section for profile(edit) -->
-    <main class="signup-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <!-- Profile information -->
-                    <div class="form-card">
-                        <h4 class="form-title">Account Information</h4>
-
-                        <!-- Display current profile information if it exists -->
-                        {% if profile.first_name or profile.last_name or profile.email or profile.bio %}
-                        <div id="infoDisplay" class="current-info mb-4">
-                            <div class="text-white mb-3">
-                                <strong>Name:</strong>
-                                {{ profile.first_name }} {{ profile.last_name|default:"Not set" }}
-                            </div>
-                            <div class="text-white mb-3">
-                                <strong>Email:</strong>
-                                {{ profile.email|default:"Not set" }}
-                            </div>
-                            <div class="text-white mb-3">
-                                <strong>Bio:</strong><br>
-                                {{ profile.bio|default:"No bio added yet" }}
-                            </div>
-                            <!-- Edit profile button -->
-                            <button type="button" onclick="showEditForm()" class="btn btn-primary custom-submit w-100">
-                                Edit Profile
-                            </button>
+                    <!-- Display current profile information if it exists -->
+                    {% if profile.first_name or profile.last_name or profile.email or profile.bio %}
+                    <div id="infoDisplay" class="current-info mb-4">
+                        <div class="text-white mb-3">
+                            <strong>Name:</strong>
+                            {{ profile.first_name }} {{ profile.last_name|default:"Not set" }}
                         </div>
-                        {% endif %}
-
-                        <!-- Profile editing form - hidden by default if profile info exists -->
-                        <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name or profile.last_name or profile.email or profile.bio %}style="display: none;"{% endif %}>
-                            {% csrf_token %}
-                            <!-- Form input fields for profile information -->
-                            <div class="mb-3">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control custom-input" id="firstName" name="first_name"
-                                    value="{{ profile.first_name }}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control custom-input" id="lastName" name="last_name"
-                                    value="{{ profile.last_name }}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control custom-input" id="email" name="email"
-                                    value="{{ profile.email }}">
-                            </div>
-                            <!-- Bio text area with character counter -->
-                            <div class="mb-4">
-                                <label for="bio" class="form-label">Bio</label>
-                                <textarea class="form-control custom-input" id="bio" name="bio" rows="4"
-                                    maxlength="200">{{ profile.bio }}</textarea>
-                                <div class="form-text text-end" id="charCount">
-                                    <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
-                                </div>
-                            </div>
-                            <!-- Form action buttons: Save/Cancel -->
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
-                                <button type="button" onclick="hideEditForm()"
-                                    class="btn btn-outline-light">Cancel</button>
-                            </div>
-                        </form>
+                        <div class="text-white mb-3">
+                            <strong>Email:</strong>
+                            {{ profile.email|default:"Not set" }}
+                        </div>
+                        <div class="text-white mb-3">
+                            <strong>Bio:</strong><br>
+                            {{ profile.bio|default:"No bio added yet" }}
+                        </div>
+                        <!-- Edit profile button -->
+                        <button type="button" onclick="showEditForm()" class="btn btn-primary custom-submit w-100">
+                            Edit Profile
+                        </button>
                     </div>
+                    {% endif %}
+
+                    <!-- Profile editing form - hidden by default if profile info exists -->
+                    <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name or
+                        profile.last_name or profile.email or profile.bio %}style="display: none;" {% endif %}>
+                        {% csrf_token %}
+                        <!-- Form input fields for profile information -->
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control custom-input" id="firstName" name="first_name"
+                                value="{{ profile.first_name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control custom-input" id="lastName" name="last_name"
+                                value="{{ profile.last_name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control custom-input" id="email" name="email"
+                                value="{{ profile.email }}">
+                        </div>
+                        <!-- Bio text area with character counter -->
+                        <div class="mb-4">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control custom-input" id="bio" name="bio" rows="4"
+                                maxlength="200">{{ profile.bio }}</textarea>
+                            <div class="form-text text-end" id="charCount">
+                                <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
+                            </div>
+                        </div>
+                        <!-- Form action buttons: Save/Cancel -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
+                            <button type="button" onclick="hideEditForm()" class="btn btn-outline-light">Cancel</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <!-- Bootstrap JavaScript bundle for interactive components -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+<!-- Bootstrap JavaScript bundle for interactive components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
-    <!-- Object to store the original form values for resetting when user cancels edit -->
-    <script>
-        let originalValues = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            bio: ''
-        };
-        
-        // Initialize event handlers and capture original form values when the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', function () {
-            // Store initial form values to enable form reset functionality
-            originalValues.firstName = document.getElementById('firstName').value;
-            originalValues.lastName = document.getElementById('lastName').value;
-            originalValues.email = document.getElementById('email').value;
-            originalValues.bio = document.getElementById('bio').value;
+<!-- Object to store the original form values for resetting when user cancels edit -->
+<script>
+    let originalValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        bio: ''
+    };
 
-            // Get references to the bio textarea and character count display elements
-            const bioTextarea = document.getElementById('bio');
-            const charCount = document.getElementById('currentCount');
+    // Initialize event handlers and capture original form values when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Store initial form values to enable form reset functionality
+        originalValues.firstName = document.getElementById('firstName').value;
+        originalValues.lastName = document.getElementById('lastName').value;
+        originalValues.email = document.getElementById('email').value;
+        originalValues.bio = document.getElementById('bio').value;
 
-            // Set up character counter for bio field if both elements exist
-            if (bioTextarea && charCount) {
-                // Initialize character count display with current bio length
-                charCount.textContent = bioTextarea.value.length;
+        // Get references to the bio textarea and character count display elements
+        const bioTextarea = document.getElementById('bio');
+        const charCount = document.getElementById('currentCount');
 
-                // Add real-time character count update while user types in bio field
-                bioTextarea.addEventListener('input', function () {
-                    charCount.textContent = this.value.length;
-                });
-            }
-        });
+        // Set up character counter for bio field if both elements exist
+        if (bioTextarea && charCount) {
+            // Initialize character count display with current bio length
+            charCount.textContent = bioTextarea.value.length;
 
-        /**
-         * Shows the edit form and hides the proflie information display
-         * Used when user clicks "Edit Profile" button
-        */
-        function showEditForm() {
-            document.getElementById('profileForm').style.display = 'block';
-            document.getElementById('infoDisplay').style.display = 'none';
+            // Add real-time character count update while user types in bio field
+            bioTextarea.addEventListener('input', function () {
+                charCount.textContent = this.value.length;
+            });
+        }
+    });
+
+    /**
+     * Shows the edit form and hides the proflie information display
+     * Used when user clicks "Edit Profile" button
+    */
+    function showEditForm() {
+        document.getElementById('profileForm').style.display = 'block';
+        document.getElementById('infoDisplay').style.display = 'none';
+    }
+
+    /**
+     * Handles the cancellation of profile editing: 
+     * Resets all form fields to their originals values
+     * Updates character count display
+     * Hides the form and shows the profile information display
+     * Used when user clicks "Cancel" button. -> 'onclick="hideEditForm()'
+    */
+    function hideEditForm() {
+        // Reset all form fields to their original values 
+        document.getElementById('firstName').value = originalValues.firstName;
+        document.getElementById('lastName').value = originalValues.lastName;
+        document.getElementById('email').value = originalValues.email;
+        document.getElementById('bio').value = originalValues.bio;
+
+        // Update character count display to match the original bio length
+        const charCount = document.getElementById('currentCount');
+        if (charCount) {
+            charCount.textContent = originalValues.bio.length;
         }
 
-        /**
-         * Handles the cancellation of profile editing: 
-         * Resets all form fields to their originals values
-         * Updates character count display
-         * Hides the form and shows the profile information display
-         * Used when user clicks "Cancel" button. -> 'onclick="hideEditForm()'
-        */
-        function hideEditForm() {
-            // Reset all form fields to their original values 
-            document.getElementById('firstName').value = originalValues.firstName;
-            document.getElementById('lastName').value = originalValues.lastName;
-            document.getElementById('email').value = originalValues.email;
-            document.getElementById('bio').value = originalValues.bio;
-
-            // Update character count display to match the original bio length
-            const charCount = document.getElementById('currentCount');
-            if (charCount) {
-                charCount.textContent = originalValues.bio.length;
-            }
-
-            // Switch visibility back to display mode
-            document.getElementById('profileForm').style.display = 'none';
-            document.getElementById('infoDisplay').style.display = 'block';
-        }
-    </script>
-</body>
-
-</html>
+        // Switch visibility back to display mode
+        document.getElementById('profileForm').style.display = 'none';
+        document.getElementById('infoDisplay').style.display = 'block';
+    }
+</script>
+{% endblock %}
