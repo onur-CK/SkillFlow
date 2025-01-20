@@ -1,0 +1,55 @@
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-card">
+                    <h4 class="form-title">Cancellation Policies</h4>
+                    
+                    <!-- For Clients -->
+                    <section class="mb-5">
+                        <h5 class="text-white mb-3">For Clients</h5>
+                        <div class="text-white">
+                            <ul class="requirements-list">
+                                <li>You can cancel a booking up to 24 hours in advance without affecting your account status.</li>
+                                <li>Cancellations made within 24 hours may result in limited booking privileges.</li>
+                                <li>Repeated no-shows may lead to restrictions on future bookings.</li>
+                                <li>Exceptional cases (e.g., emergencies) will be considered individually.</li>
+                                <li>Frequent cancellations may reduce your credibility within the community.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- For Service Providers -->
+                    <section class="mb-5">
+                        <h5 class="text-white mb-3">For Service Providers</h5>
+                        <div class="text-white">
+                            <ul class="requirements-list">
+                                <li>Provide at least 24 hours notice when canceling a booking.</li>
+                                <li>If canceling within 24 hours, make an effort to reschedule with the client directly.</li>
+                                <li>Frequent cancellations may result in account review or suspension.</li>
+                                <li>Maintain a reliable booking rate to build trust with clients.</li>
+                                <li>Communicate and document emergencies that require last-minute cancellations.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Dispute Resolution -->
+                    <section>
+                        <h5 class="text-white mb-3">Dispute Resolution</h5>
+                        <div class="text-white">
+                            <ul class="requirements-list">
+                                <li>All disputes will be reviewed within 48 hours</li>
+                                <li>Both parties must provide documentation when requested</li>
+                                <li>SkillFlow's decision on disputes is final and binding</li>
+                                <li>Any resolutions involving monetary matters must be handled directly between the client and the service provider.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
