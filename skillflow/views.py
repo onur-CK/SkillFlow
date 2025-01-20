@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm, UserProfileForm, ServiceForm, WeeklyScheduleForm, AvailabilityForm
+from .forms import SignUpForm, UserProfileForm, ServiceForm, AvailabilityForm
 from .models import UserProfile, Service, Availability, Appointment
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
@@ -354,7 +354,10 @@ def update_appointment_status(request, appointment_id):
 
 def service_detail(request, service_id):
     service = get_object_or_404(Service, id=service_id)
+    # Get the provider's service and profile
+    provider_profile = UserProfile.objects.get(user=service.provider)
     return render(request, 'skillflow/service_detail.html', {
-        'service': service
+        'service': service,
+        'provider_profile': provider_profile
     })
 

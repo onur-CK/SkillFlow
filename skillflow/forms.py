@@ -124,3 +124,4 @@ class WeeklyScheduleForm(forms.ModelForm):
                 'placeholder': 'Enter meeting location'
             })
         }
+
