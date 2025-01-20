@@ -392,6 +392,6 @@ def how_it_works(request):
 def help_center(request):
     return render(request, 'skillflow/help_center.html')
 
-def terms_and_privacy(request):
-    return render(request, 'skillflow/terms_and_privacy.html')
+def legal(request):
+    return render(request, 'skillflow/legal.html')
 
