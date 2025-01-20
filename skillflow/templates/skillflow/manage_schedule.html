@@ -7,18 +7,7 @@
                 <div class="form-card">
                     <h4 class="form-title">Schedule Management - {{ service.title }}</h4>
 
-                    <!-- Messages Section -->
-                    {% if messages %}
-                    <div class="mb-4">
-                        {% for message in messages %}
-                            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-
+                    
                     <!-- Time Slot Creation Form -->
                     <form method="POST" class="mb-5">
                         {% csrf_token %}

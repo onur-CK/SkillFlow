@@ -21,16 +21,13 @@ def about_us(request):
 def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        print("Form submitted:", request.POST)  # Debug print
         if form.is_valid():
-            print("Form is valid")  # Debug print
             user = form.save()
             # Create UserProfile for the new user
             UserProfile.objects.create(user=user)
             auth_login(request, user)
+            messages.success(request, f'Welcome, {user.username}! It`s great to have you here.')
             return redirect('index')
-        else:
-            print("Form errors:", form.errors)  # Debug print
     else:
         form = SignUpForm()
     return render(request, 'skillflow/sign_up.html', {'form': form})
