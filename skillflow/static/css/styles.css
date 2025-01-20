@@ -439,3 +439,37 @@ h1 {
 }
 
 
+/* --------------------------------------------------------------------------- Toast Container */
+
+.toast {
+    background-color: #1a1e24;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+}
+
+.toast .toast-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast .bg-success {
+    background-color: #28a745 !important;
+}
+
+.toast .bg-danger,
+.toast .bg-error {
+    background-color: #dc3545 !important;
+}
+
+.toast .bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.toast .bg-info {
+    background-color: #17a2b8 !important;
+}
+
+.toast .toast-body {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+}
