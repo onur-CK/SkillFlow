@@ -160,16 +160,14 @@ def edit_service(request, service_id):
 @login_required
 def delete_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
-
     if service.provider != request.user:
-        raise PermissionDenied
+        messages.error(request, 'You do not have permission to delete this service.')
+        return redirect('my_services')
     
     if request.method == 'POST':
         service.delete()
-        messages.success(request, 'Service deleted successfully!')
+        messages.success(request, 'Service deleted successfully.')
         return redirect('my_services')
-    
-    return render(request, 'skillflow/delete_service.html', {'service': service})
     
 @login_required
 def my_services(request):
