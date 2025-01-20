@@ -4,25 +4,36 @@ from django.contrib.auth.models import User
 from .models import UserProfile, Service, Availability, Appointment, WeeklySchedule
 from django.utils import timezone
 
+# This module contains all form classes used in the SkillFlow application.
+# Forms handle data validation and provide HTML rendering of form fields.
+
 class SignUpForm(UserCreationForm):
+    # Form for user registration.
+    # Inherits from Django's UserCreationForm to handle user creation with password validation.
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
         
 class UserProfileForm(forms.ModelForm):
+    # Form for managing user profile information.
+    # Allows users to update their personal information including name, email, and bio.
     class Meta:
         model = UserProfile
         fields = ['first_name', 'last_name', 'email', 'bio']
         widget = {
+            # Configures the bio field as a textarea with specific attributes
             'bio': forms.Textarea(attrs={'rows': 4, 'maxlength': 200}),
         }
 
 class ServiceForm(forms.ModelForm):
+    # Form for creating and editing service listings.
+    # Includes custom widget configurations for improved user experience.
     class Meta:
         model = Service
         fields = ['title', 'description', 'category', 'hourly_rate']
         # Django Html Attr Source: https://www.geeksforgeeks.org/how-to-add-html-attributes-to-input-fields-in-django-forms/
         widgets = {
+            # Custom styling and placeholders for each field
             'title': forms.TextInput(attrs={
                 'class': 'form-control custom-input',
                 'placeholder': 'e.g, Professional Math Tutoring'
@@ -46,11 +57,16 @@ class ServiceForm(forms.ModelForm):
         }
 
 class AvailabilityForm(forms.ModelForm):
+    # Form for managing service provider availability.
+    # Includes custom field definitions and validation logic for dates and times.
+    
+    # Custom field definitions with specific widget configurations
     date = forms.DateField(
         widget=forms.DateInput(attrs={
             'type': 'date',
             'class': 'form-control custom-input',
             # Timezone Source Code: https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
+            # Prevents past dates
             'min': timezone.now().date().isoformat()
         })
     )
@@ -82,6 +98,9 @@ class AvailabilityForm(forms.ModelForm):
 
     # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
     def clean(self):
+        # Custom validation method to ensure:
+        # 1. Date is not in the past
+        # 2. End time is after start time
         cleaned_data = super().clean()
         date = cleaned_data.get('date')
         start_time = cleaned_data.get('start_time')
