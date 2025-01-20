@@ -2,7 +2,7 @@
 {% block content %}
 <!-- Main Container for Appointments Page -->
 <main class="sign-up section">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <!-- Card Container for All Appointment Content -->
@@ -21,42 +21,47 @@
                                         <th>Service</th>
                                         <th>Client</th>
                                         <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Location</th>
+                                        <th class="d-none d-md-table-cell">Time</th>
+                                        <th class="d-none d-md-table-cell">Location</th>
                                         <th>Status/Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for appointment in provider_appointments %}
                                     <tr>
-                                        <!-- Display Service Details -->
                                         <td>{{ appointment.availability.service.title }}</td>
                                         <td>{{ appointment.client.username }}</td>
                                         <td>{{ appointment.availability.date }}</td>
-                                        <td>{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
-                                        <td>{{ appointment.availability.location }}</td>
+                                        <td class="d-none d-md-table-cell">{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
+                                        <td class="d-none d-md-table-cell">{{ appointment.availability.location }}</td>
                                         <td>
-                                            <!-- Dynamic Status Actions Based on Current Status -->
+                                            <!-- Mobile-only details -->
+                                            <div class="d-md-none mb-2">
+                                                <small class="text-muted">
+                                                    Time: {{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}<br>
+                                                    Location: {{ appointment.availability.location }}
+                                                </small>
+                                            </div>
+                                            
                                             {% if appointment.status == 'pending' %}
-                                                <!-- Form for Confirming Appointment -->
-                                                <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline">
-                                                    {% csrf_token %}
-                                                    <input type="hidden" name="status" value="confirmed">
-                                                    <button type="submit" class="btn btn-sm btn-success">
-                                                        <i class="fas fa-check"></i> Confirm
-                                                    </button>
-                                                </form>
-                                                <!-- Form for Cancelling Appointment -->
-                                                <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
-                                                      class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
-                                                    {% csrf_token %}
-                                                    <input type="hidden" name="status" value="cancelled">
-                                                    <button type="submit" class="btn btn-sm btn-danger">
-                                                        <i class="fas fa-times"></i> Cancel
-                                                    </button>
-                                                </form>
+                                                <div class="d-flex gap-2">
+                                                    <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="status" value="confirmed">
+                                                        <button type="submit" class="btn btn-sm btn-success">
+                                                            <i class="fas fa-check sm"></i> Confirm
+                                                        </button>
+                                                    </form>
+                                                    <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
+                                                          class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="status" value="cancelled">
+                                                        <button type="submit" class="btn btn-sm btn-danger">
+                                                            <i class="fas fa-times"></i> Cancel
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             {% else %}
-                                                <!-- Status Badge for Non-Pending Appointments -->
                                                 <span class="badge {% if appointment.status == 'confirmed' %}bg-success
                                                                {% elif appointment.status == 'cancelled' %}bg-danger
                                                                {% else %}bg-warning{% endif %}">
@@ -77,31 +82,35 @@
                     <div>
                         <h5 class="text-white mb-3">Your Booked Appointments</h5>
                         <div class="table-responsive">
-                            <!-- Table Container -->
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
                                         <th>Service</th>
                                         <th>Provider</th>
                                         <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Location</th>
+                                        <th class="d-none d-md-table-cell">Time</th>
+                                        <th class="d-none d-md-table-cell">Location</th>
                                         <th>Status/Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for appointment in client_appointments %}
                                     <tr>
-                                        <!-- Display Appointment Details -->
                                         <td>{{ appointment.availability.service.title }}</td>
                                         <td>{{ appointment.availability.provider.username }}</td>
                                         <td>{{ appointment.availability.date }}</td>
-                                        <td>{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
-                                        <td>{{ appointment.availability.location }}</td>
+                                        <td class="d-none d-md-table-cell">{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
+                                        <td class="d-none d-md-table-cell">{{ appointment.availability.location }}</td>
                                         <td>
-                                            <!-- Client-side Status Actions -->
+                                            <!-- Mobile-only details -->
+                                            <div class="d-md-none mb-2">
+                                                <small class="text-muted">
+                                                    Time: {{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}<br>
+                                                    Location: {{ appointment.availability.location }}
+                                                </small>
+                                            </div>
+
                                             {% if appointment.status == 'pending' %}
-                                                <!-- Form for Client Cancellation -->
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
                                                       class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
                                                     {% csrf_token %}
@@ -111,7 +120,6 @@
                                                     </button>
                                                 </form>
                                             {% else %}
-                                                <!-- Status Badge for Client View -->
                                                 <span class="badge {% if appointment.status == 'confirmed' %}bg-success
                                                                {% elif appointment.status == 'cancelled' %}bg-danger
                                                                {% else %}bg-warning{% endif %}">
