@@ -41,10 +41,16 @@ def login(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            first_login = user.last_login is None  # Check if the user has logged in before
             auth_login(request, user)
+            if first_login:
+                messages.success(request, f'Welcome, {username}! It’s great to have you here.')
+            else:
+                messages.success(request, f'Welcome back, {username}!')
             return redirect('index')
+        else:
+            messages.error(request, 'Invalid username or password.')
     return render(request, 'skillflow/login.html')
-
         
 @login_required
 def index(request):
