@@ -352,3 +352,9 @@ def update_appointment_status(request, appointment_id):
     
     return redirect('appointments')
 
+def service_detail(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    return render(request, 'skillflow/service_detail.html', {
+        'service': service
+    })
+
