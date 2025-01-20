@@ -205,7 +205,6 @@ def book_appointment(request, service_id):
             # Use transaction.atomic() to ensure database consistency
             # Transaction source links: https://www.geeksforgeeks.org/transaction-atomic-with-django/
             # https://docs.djangoproject.com/en/5.1/topics/db/transactions/
-            from django.db import transaction
             with transaction.atomic():
                 appointment = Appointment.objects.create(
                     availability=availability,
@@ -214,19 +213,21 @@ def book_appointment(request, service_id):
                 )
                 availability.is_booked = True
                 availability.save()
-            messages.success(request, 'Appointment booked successfully!')
-            return redirect('view_appointments')
+                
+                # Store appointment success in session instead of using messages
+                request.session['appointment_success'] = True
+                request.session['appointment_service'] = service.title
+                
+            return redirect('appointments')
+            
         except Exception as e:
             messages.error(request, 'There was an error booking the appointment. Please try again.')
             return redirect('book_appointment', service_id=service_id)
 
-    # GET request handling
     availabilities = Availability.objects.filter(
         service=service,
         is_booked=False,
-        # date__gte source links: https://forum.djangoproject.com/t/timezone-warning-from-date-filtering-via-the-orm/11776
-        # https://www.w3schools.com/django/ref_lookups_gte.php
-        date__gte=timezone.now().date()  # Only show future dates
+        date__gte=timezone.now().date()
     ).order_by('date', 'start_time')
     
     return render(request, 'skillflow/book_appointment.html', {
@@ -237,16 +238,20 @@ def book_appointment(request, service_id):
 
 @login_required
 def view_appointments(request):
-    # Providers
+    # Check for appointment success message in session
+    if request.session.pop('appointment_success', False):
+        service_title = request.session.pop('appointment_service', '')
+        messages.success(request, f'Appointment for {service_title} booked successfully!')
+
+    # Get provider appointments
     provider_appointments = Appointment.objects.filter(
         availability__provider=request.user
     ).order_by('availability__date', 'availability__start_time')
 
-    # Clients
+    # Get client appointments
     client_appointments = Appointment.objects.filter(
         client=request.user
     ).order_by('availability__date', 'availability__start_time')
-    
     
     return render(request, 'skillflow/appointments.html', {
         'provider_appointments': provider_appointments,
