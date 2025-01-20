@@ -25,6 +25,17 @@
                         <h6 class="text-white-50 mb-2">Description</h6>
                         <p class="text-white" style="white-space: pre-wrap;">{{ service.description }}</p>
                     </div>
+                    
+                    <!-- Provider Email (if given by the provider at the account information page) -->
+                    {% if provider_profile.email %}
+                    <div class="mb-4">
+                        <h6 class="text-white-50 mb-2">Contact Email</h6>
+                        <p class="text-white">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:{{ provider_profile.email }}" class="custom-link">{{ provider_profile.email }}</a>
+                        </p>
+                    </div>
+                    {% endif %}
 
                     <!-- Creation Date -->
                     <div class="mb-4">
