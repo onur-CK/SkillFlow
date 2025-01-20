@@ -50,6 +50,7 @@ def login(request):
             return redirect('index')
         else:
             messages.error(request, 'Invalid username or password.')
+            return redirect('login')
     return render(request, 'skillflow/login.html')
         
 @login_required
@@ -112,7 +113,7 @@ def delete_account(request):
 def logout_view(request):
     if request.method == 'POST':
         auth_logout(request)
-        messages.info(request, 'You have been logged out successfully.')
+        messages.success(request, 'You have been logged out successfully.')
         return redirect('about_us')
     return render(request, 'skillflow/logout.html')
 

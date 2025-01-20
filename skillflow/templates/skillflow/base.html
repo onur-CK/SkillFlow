@@ -70,10 +70,10 @@
     </nav>
 
     <!-- Toast Container -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1050;">
         {% if messages %}
             {% for message in messages %}
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header {% if message.tags %}bg-{{ message.tags }}{% endif %} text-white">
                         <strong class="me-auto">
                             {% if message.tags == 'success' %}
@@ -108,11 +108,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var toastElList = [].slice.call(document.querySelectorAll('.toast'));
-            var toastList = toastElList.map(function(toastEl) {                    
-                return new bootstrap.Toast(toastEl);
+            // Initialize all toasts
+            var toastElList = document.querySelectorAll('.toast');
+            toastElList.forEach(function(toastEl) {
+                var toast = new bootstrap.Toast(toastEl, {
+                    autohide: true,
+                    delay: 3000
+                });
+                toast.show();
             });
-            toastList.forEach(toast => toast.show());
         });
     </script>
 </body>
