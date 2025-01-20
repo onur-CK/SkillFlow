@@ -54,4 +54,6 @@ urlpatterns = [
 
     path('service/<int:service_id>/detail/', views.service_detail, name='service_detail'),
     path('cancellation-policy/', views.cancellation_policy, name='cancellation_policy'),
+    path('how-it-works/', views.how_it_works, name='how_it_works'),
+    path('help-center/', views.help_center, name='help_center'),
 ]

@@ -386,3 +386,12 @@ def service_detail(request, service_id):
 def cancellation_policy(request):
     return render(request, 'skillflow/cancellation_policy.html')
 
+def how_it_works(request):
+    return render(request, 'skillflow/how_it_works.html')
+
+def help_center(request):
+    return render(request, 'skillflow/help_center.html')
+
+def terms_and_privacy(request):
+    return render(request, 'skillflow/terms_and_privacy.html')
+
