@@ -383,3 +383,6 @@ def service_detail(request, service_id):
         'provider_profile': provider_profile
     })
 
+def cancellation_policy(request):
+    return render(request, 'skillflow/cancellation_policy.html')
+
