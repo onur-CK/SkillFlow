@@ -112,6 +112,7 @@ def delete_account(request):
 def logout_view(request):
     if request.method == 'POST':
         auth_logout(request)
+        messages.info(request, 'You have been logged out successfully.')
         return redirect('about_us')
     return render(request, 'skillflow/logout.html')
 
