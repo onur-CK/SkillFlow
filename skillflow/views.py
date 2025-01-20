@@ -58,8 +58,21 @@ def index(request):
         'active_category': category
     })
 
+@login_required
 def service(request):
-    return render(request, 'skillflow/service.html')
+    if request.method == 'POST':
+        form = ServiceForm(request.POST)
+        if form.is_valid():
+            service = form.save(commit=False)
+            service.provider = request.user
+            service.save()
+            messages.success(request, 'Your service has been listed successfully!')
+            return redirect('index')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = ServiceForm()
+    return render(request, 'skillflow/service.html', {'form': form})
 
 @login_required
 def edit_profile(request):
