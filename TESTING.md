@@ -24,9 +24,11 @@
     * [Known Bugs](#known-bugs)
 
 
-
-
-
+Manual Testing
+Does the site work as intended? 
+Quality assurance: stpes taken to manually test the project, ensures it functions correctly, identifies potential bugs
+User exerperience assurance: ensures that the end-users have a smooth experience by addressing potential issues
+-- final manual testing and write up
 
 
 
