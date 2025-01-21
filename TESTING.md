@@ -1,3 +1,35 @@
+# Testing
+
+## Contents
+* [Code Validation](#code-validation)
+    * [HTML Validation](#html-validation)
+    * [CSS Validation](#css-validation)
+    * [JavaScript Validation](#javascript-validation)
+    * [Python Validation](#python-validation)
+* [Accessibility Testing](#accessibility-testing)
+    * [WAVE Tool Results](#wave-tool-results)
+    * [Lighthouse Reports](#lighthouse-reports)
+* [Browser Compatibility](#browser-compatibility)
+* [Device Compatibility](#device-compatibility)
+* [Manual Testing](#manual-testing)
+    * [User Story Testing](#user-story-testing)
+    * [Feature Testing](#feature-testing)
+    * [Form Testing](#form-testing)
+    * [Security Testing](#security-testing)
+* [Automated Testing](#automated-testing)
+    * [Python Unit Tests](#python-unit-tests)
+    * [Coverage Report](#coverage-report)
+* [Bugs](#bugs)
+    * [Fixed Bugs](#fixed-bugs)
+    * [Known Bugs](#known-bugs)
+
+
+
+
+
+
+
+
 ##resolved-issues (bugs ,causes and fixes)
 - Bug: When the hamburger menu was opened on smaller screens, the "Login" button appeared misaligned, remaining at the bottom right corner of the screen instead of being centrally aligned beneath the dropdown menu.
 - Cause: The "Login" button was placed in a separate <li> element, which caused it to behave independently of the dropdown menu. This structure prevented the button from dynamically aligning with the dropdown when it was opened.
