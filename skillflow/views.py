@@ -15,10 +15,16 @@ from django.db import IntegrityError
 
 logger = logging.getLogger(__name__)
 
+# This module contains all view functions for the SkillFlow application.
+# Views handle HTTP requests and return appropriate responses.
+
 def about_us(request):
+    # Renders the about page
     return render(request, 'skillflow/about_us.html')
 
 def sign_up(request):
+    # Handles user registration.
+    # Creates new user account and associated profile.
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -64,6 +70,8 @@ def index(request):
 
 @login_required
 def service(request):
+    # Handles creation of new service listings.
+    # Requires user authentication.
     if request.method == 'POST':
         form = ServiceForm(request.POST)
         if form.is_valid():
@@ -185,6 +193,8 @@ def my_services(request):
 
 @login_required
 def book_appointment(request, service_id):
+    # Handles appointment booking process.
+    # Includes validation and transaction management.
     service = get_object_or_404(Service, id=service_id)
     
     if request.method == 'POST':
@@ -206,6 +216,7 @@ def book_appointment(request, service_id):
             # Transaction source links: https://www.geeksforgeeks.org/transaction-atomic-with-django/
             # https://docs.djangoproject.com/en/5.1/topics/db/transactions/
             with transaction.atomic():
+                # Create appointment and mark availability as booked
                 appointment = Appointment.objects.create(
                     availability=availability,
                     client=request.user,
@@ -224,6 +235,7 @@ def book_appointment(request, service_id):
             messages.error(request, 'There was an error booking the appointment. Please try again.')
             return redirect('book_appointment', service_id=service_id)
 
+    # Get available time slots
     availabilities = Availability.objects.filter(
         service=service,
         is_booked=False,
