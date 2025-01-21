@@ -21,37 +21,45 @@ from django.contrib.auth.views import LogoutView
 from .models import Service
 from django.shortcuts import render
 
+# URL configuration for the SkillFlow project.
+# Defines URL patterns and maps them to corresponding views.
+
 urlpatterns = [
+    # Admin Interface URLs
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('index/', views.index, name='index'),
-    path('about-us', views.about_us, name='about_us'),
+    
+    # Core navigation URLs
+    path('', views.home, name='home'), # Landing page
+    path('index/', views.index, name='index'), # Main dashboard
+    path('about-us', views.about_us, name='about_us'), # About page
 
     # Authentication URLs
-    path('sign-up/', views.sign_up, name='sign_up'),
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout_view, name='logout'),
+    path('sign-up/', views.sign_up, name='sign_up'), # User registration
+    path('login/', views.login, name='login'), # Login page
+    path('logout/', views.logout_view, name='logout'),  # Logout handler
 
     # Profile Management URLs
-    path('profile/edit/', views.edit_profile, name='edit_profile'),
-    path('profile/manage/', views.manage_account, name='manage_account'),
-    path('profile/delete/', views.delete_account, name='delete_account'),
+    path('profile/edit/', views.edit_profile, name='edit_profile'), # Edit profile
+    path('profile/manage/', views.manage_account, name='manage_account'), # Account management
+    path('profile/delete/', views.delete_account, name='delete_account'), # Account deletion
 
-    # Service URLs
-    path('service/', views.service, name='service'),
-    path('service/<int:service_id>/edit/', views.edit_service, name='edit_service'),
-    path('service/<int:service_id>/delete/', views.delete_service, name='delete_service'),
-    path('profile-services', views.my_services, name='my_services'),
+    # Service Management URLs
+    path('service/', views.service, name='service'), # Create service
+    path('service/<int:service_id>/edit/', views.edit_service, name='edit_service'), # Edit service
+    path('service/<int:service_id>/delete/', views.delete_service, name='delete_service'), # Delete service
+    path('profile-services', views.my_services, name='my_services'), # List user's services
     
+    # Category filtering
     path('category/<str:category>/', views.category_services, name='category_services'),
 
-    # Availability and Appointments
+    # Scheduling and appointment URLs
     path('service/<int:service_id>/schedule/', views.manage_schedule, name='manage_schedule'),
     path('service/<int:service_id>/schedule/delete/<int:availability_id>/', views.delete_availability, name='delete_availability'),
     path('appointments/', views.view_appointments, name='appointments'),
     path('service/<int:service_id>/book/', views.book_appointment, name='book_appointment'),
     path('appointment/<int:appointment_id>/update', views.update_appointment_status, name='update_appointment_status'),
 
+    # Additional pages
     path('service/<int:service_id>/detail/', views.service_detail, name='service_detail'),
     path('cancellation-policy/', views.cancellation_policy, name='cancellation_policy'),
     path('how-it-works/', views.how_it_works, name='how_it_works'),
