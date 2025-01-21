@@ -2,8 +2,13 @@ from django.db import models # Import the models module for creating database mo
 from django.contrib.auth.models import User # Import the User model for authentication
 from django.utils import timezone
 
+# This module defines the database models for the SkillFlow application.
+# Each class represents a database table and includes field definitions and methods.
+
 # Define the UserProfile model, extending the built-in User model with additional fields
 class UserProfile(models.Model):
+    # Extended user profile model that adds additional fields to Django's built-in User model.
+    # Links to User model through a one-to-one relationship.
     user = models.OneToOneField(User, on_delete=models.CASCADE) # Link to the User model 
     bio = models.TextField(max_length=200, blank=True)  # Optional bio field with a max length of 200 characters
     first_name = models.CharField(max_length=30, blank=True)
@@ -15,8 +20,11 @@ class UserProfile(models.Model):
         return self.user.username
     
 class Service(models.Model):
+    # Model for service listings.
+    # Contains all information about services offered by providers.
     title = models.CharField(max_length=100)
     description = models.TextField()
+    # Categories for services
     CATEGORY_CHOICES = [
         ('home-care', 'Home Care'),
         ('education', 'Education'),
@@ -33,6 +41,8 @@ class Service(models.Model):
         return self.title
     
 class Availability(models.Model):
+    # Model for managing service provider availability slots.
+    # Includes validation and uniqueness constraints.
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date = models.DateField()
@@ -45,7 +55,9 @@ class Availability(models.Model):
 
     # Ordering and Constraints Source Link: https://docs.djangoproject.com/en/5.1/ref/models/options/
     class Meta:
+         # Orders availabilities by date and time
         ordering = ['date', 'start_time']
+        # Prevents duplicate time slots
         # Ensure no overlapping time slots for the same provider and service
         # Source Link: https://docs.djangoproject.com/en/5.1/ref/models/constraints/
         constraints = [
@@ -59,6 +71,9 @@ class Availability(models.Model):
         return f"{self.service.title} - {self.date} ({self.start_time}-{self.end_time})"
 
     def clean(self):
+        # Validates availability slots:
+        # -> Prevents past dates
+        # -> Ensures end time is after start time
         from django.core.exceptions import ValidationError
         # Ensure date is not in the past
         if self.date < timezone.now().date():
@@ -110,9 +125,8 @@ class WeeklySchedule(models.Model):
         return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
     
     def create_availabilities(self):
-        """
-        Creates availability slots for the next 4 weeks based on the weekly schedule.
-        """
+        
+        # Creates availability slots for the next 4 weeks based on the weekly schedule.
         from datetime import date, timedelta
         
         # Get today's date
