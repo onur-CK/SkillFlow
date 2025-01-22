@@ -7,3 +7,7 @@ ensures that the project is correctly set up and functional in a live environmen
 
 
 dotenv installation, django secret key into env than gitignore !!!!!!!!!!!!!!!!!!!!!!! ------------------------- check this one later
+
+
+
+
