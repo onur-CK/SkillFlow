@@ -153,32 +153,36 @@ SkillFlow is designed to be:
 The database is designed to efficiently manage user profiles, services, bookings, and interactions:
 
 ### Models
-1. User Model (Django's built-in auth.User)
-   - Username
-   - Email
-   - Password
+1. UserProfile Model
+   - One-to-One relationship with User
    - First Name
    - Last Name
+   - Email
+   - Bio (max 200 characters)
 
-2. UserProfile Model
-   - One-to-One relationship with User
-   - Bio
-   - Contact Information
-
-3. Service Model
-   - Title
+2. Service Model
+   - Title (max 100 characters)
    - Description
-   - Category
-   - Price
+   - Category (choices: home-care, education, creative, health, events)
+   - Hourly Rate
    - Provider (ForeignKey to User)
    - Created Date
 
-4. Booking Model
+3. Availability Model
+   - Provider (ForeignKey to User)
    - Service (ForeignKey to Service)
+   - Date
+   - Start Time
+   - End Time
+   - Location
+   - Is Booked Status
+   - Created Date
+
+4. Appointment Model
+   - Availability (OneToOneField)
    - Client (ForeignKey to User)
-   - Date and Time
-   - Status
-   - Notes
+   - Status (choices: pending, confirmed, cancelled)
+   - Created Date
 
 ## Design and Layout
 
@@ -237,10 +241,10 @@ The database is designed to efficiently manage user profiles, services, bookings
 ### Frameworks
 - Django 5.1.4
 - Bootstrap 5.3.3
+- Font Awesome 6.4.2
 
 ### Database Solutions
 - SQLite (Development)
-- PostgreSQL (Production)
 
 ### Media Management Tools
 - Cloudinary
@@ -374,7 +378,7 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 - Detailed service listings with title, description, hourly rate, and provider information and email if user has given
 - Interactive category filtering system with animated icons
 
-### Appointment System
+### Appointment/Booking System
 - Comprehensive booking management for both providers and clients
 - Availability slot creation and management for service providers
 - Real-time booking status tracking (pending, confirmed, cancelled)
@@ -443,6 +447,18 @@ A modular architecture provides the flexibility to expand or refactor the platfo
   - Contact email (if provided by the service provider)
   - Service creation date
   - Booking options (if not the service provider)
+
+### Navigation
+- Category-based filtering
+- Responsive design
+- Dynamic user menu
+- Toast notifications
+
+### Information Pages
+- About Us
+- Help Center
+- Legal Information
+- How It Works
 
 ### User Account Management
 
