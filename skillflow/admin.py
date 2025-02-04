@@ -23,7 +23,17 @@ class AppointmentAdmin(admin.ModelAdmin):
     list_display = ('get_service', 'get_provider', 'client', 'get_date', 'status', 'created_at')
     list_filter = ('status', 'created_at')
     search_fields = ('availability__service__title', 'client__username', 'availability__provider__username')
-    
 
+    def get_service(self, obj):
+        return obj.availability.service.title
+    get_service.short_description = 'Service'
+
+    def get_provider(self, obj):
+        return obj.availability.provider.username
+    get_provider.short_description = 'Provider'
+
+    def get_date(self, obj):
+        return obj.availability.date
+    get_date.short_description = 'Date'
 
     
