@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, Service, Availabiltiy, Appointment
+from .models import UserProfile, Service, Availability, Appointment
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
@@ -11,3 +11,6 @@ class ServiceAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'provider', 'hourly_rate', 'created_at')
     list_filter = ('category', 'created')
     search_fields = ('title', 'description', 'provider__username')
+
+@admin.register(Availability)
+    list_display = ('service', )
