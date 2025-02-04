@@ -13,4 +13,17 @@ class ServiceAdmin(admin.ModelAdmin):
     search_fields = ('title', 'description', 'provider__username')
 
 @admin.register(Availability)
-    list_display = ('service', )
+class AvailabilityAdmin(admin.ModelAdmin):    
+    list_display = ('service', 'provider', 'date', 'start_time', 'end_time', 'is_booked')
+    list_filter = ('is_booked', 'date')
+    search_fields = ('provider__username', 'service__title')
+
+@admin.register(Appointment)
+class AppointmentAdmin(admin.ModelAdmin):
+    list_display = ('get_service', 'get_provider', 'client', 'get_date', 'status', 'created_at')
+    list_filter = ('status', 'created_at')
+    search_fields = ('availability__service__title', 'client__username', 'availability__provider__username')
+    
+
+
+    
