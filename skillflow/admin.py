@@ -9,11 +9,11 @@ class UserProfileAdmin(admin.ModelAdmin):
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'provider', 'hourly_rate', 'created_at')
-    list_filter = ('category', 'created')
+    list_filter = ('category', 'created_at')
     search_fields = ('title', 'description', 'provider__username')
 
 @admin.register(Availability)
-class AvailabilityAdmin(admin.ModelAdmin):    
+class AvailabilityAdmin(admin.ModelAdmin):
     list_display = ('service', 'provider', 'date', 'start_time', 'end_time', 'is_booked')
     list_filter = ('is_booked', 'date')
     search_fields = ('provider__username', 'service__title')
