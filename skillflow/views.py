@@ -426,3 +426,10 @@ def help_center(request):
 def legal(request):
     return render(request, 'skillflow/legal.html')
 
+def user_info(request, provider_id):
+    provider = get_object_or_404(User, id=provider_id)
+    provider_profile = get_object_or_404(UserProfile, user=provider)
+    return render(request, 'skillflow/user_info.html', {
+        'provider_profile': provider_profile
+    })
+
