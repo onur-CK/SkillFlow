@@ -19,46 +19,46 @@
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
-                                        <th>Service</th>
-                                        <th>Client</th>
-                                        <th>Date</th>
-                                        <th class="d-none d-md-table-cell">Time</th>
-                                        <th class="d-none d-md-table-cell">Location</th>
+                                        <th>Service & Client</th>
+                                        <th>When & Where</th>
                                         <th>Status/Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for appointment in provider_appointments %}
                                     <tr>
-                                        <td>{{ appointment.availability.service.title }}</td>
-                                        <td>{{ appointment.client.username }}</td>
-                                        <td>{{ appointment.availability.date }}</td>
-                                        <td class="d-none d-md-table-cell">{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
-                                        <td class="d-none d-md-table-cell">{{ appointment.availability.location }}</td>
                                         <td>
-                                            <!-- Mobile-only -->
-                                            <div class="d-md-none mb-2">
-                                                <small class="text-muted">
-                                                    Time: {{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}<br>
-                                                    Location: {{ appointment.availability.location }}
-                                                </small>
+                                            <div class="d-flex flex-column">
+                                                <small class="text-white-50">{{ appointment.availability.service.title }}</small>
+                                                <small class="text-white-50">Client: {{ appointment.client.username }}</small>
                                             </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <small class="text-white-50">Date: {{ appointment.availability.date|date:"M d, Y" }}</small>
+                                                <small class="text-white-50">Time: {{ appointment.availability.start_time|time:"g:i A" }} - {{ appointment.availability.end_time|time:"g:i A" }}</small>
+                                                <small class="text-white-50">Location: {{ appointment.availability.location }}</small>
+                                            </div>
+                                        </td>
+                                        <td>
                                             
                                             {% if appointment.status == 'pending' %}
-                                            <div class="d-flex gap-2">
-                                                <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline">
+                                            <div class="d-flex flex-column flex-sm-row gap-1">
+                                                <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline w-100">
                                                     {% csrf_token %}
                                                     <input type="hidden" name="status" value="confirmed">
-                                                    <button type="submit" class="btn btn-sm btn-success">
-                                                        <i class="fas fa-check sm"></i> Confirm
+                                                    <button type="submit" class="btn btn-success w-100" style="font-size: 0.8rem; padding: 0.25rem 0.5rem;">
+                                                        <i class="fas fa-check"></i>
+                                                        <span class="d-none d-sm-inline">Confirm</span>
                                                     </button>
                                                 </form>
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
-                                                    class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
+                                                    class="d-inline w-100" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
                                                     {% csrf_token %}
                                                     <input type="hidden" name="status" value="cancelled">
-                                                    <button type="submit" class="btn btn-sm btn-danger">
-                                                        <i class="fas fa-times"></i> Cancel
+                                                    <button type="submit" class="btn btn-danger w-100" style="font-size: 0.8rem; padding: 0.25rem 0.5rem;">
+                                                        <i class="fas fa-times"></i>
+                                                        <span class="d-none d-sm-inline">Cancel</span>
                                                     </button>
                                                 </form>
                                             </div>
@@ -94,30 +94,28 @@
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
-                                        <th>Service</th>
-                                        <th>Provider</th>
-                                        <th>Date</th>
-                                        <th class="d-none d-md-table-cell">Time</th>
-                                        <th class="d-none d-md-table-cell">Location</th>
+                                        <th>Service & Client</th>
+                                        <th>When & Where</th>
                                         <th>Status/Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for appointment in client_appointments %}
                                     <tr>
-                                        <td>{{ appointment.availability.service.title }}</td>
-                                        <td>{{ appointment.availability.provider.username }}</td>
-                                        <td>{{ appointment.availability.date }}</td>
-                                        <td class="d-none d-md-table-cell">{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
-                                        <td class="d-none d-md-table-cell">{{ appointment.availability.location }}</td>
                                         <td>
-                                            <!-- Mobile-only -->
-                                            <div class="d-md-none mb-2">
-                                                <small class="text-muted">
-                                                    Time: {{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}<br>
-                                                    Location: {{ appointment.availability.location }}
-                                                </small>
+                                            <div class="d-flex flex-column">
+                                                <small class="text-white-50">{{ appointment.availability.service.title }}</small>
+                                                <small class="text-white-50">Provider: {{ appointment.availability.provider.username }}</small>
                                             </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <small class="text-white-50">Date: {{ appointment.availability.date|date:"M d, Y" }}</small>
+                                                <small class="text-white-50">Time: {{ appointment.availability.start_time|time:"g:i A" }} - {{ appointment.availability.end_time|time:"g:i A" }}</small>
+                                                <small class="text-white-50">Location: {{ appointment.availability.location }}</small>
+                                            </div>
+                                        </td>
+                                        <td>
 
                                             {% if appointment.status == 'pending' or appointment.status == 'confirmed' %}
                                             <div class="d-flex gap-2 align-items-center">
