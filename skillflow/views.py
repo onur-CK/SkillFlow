@@ -78,7 +78,7 @@ def service(request):
             service = form.save(commit=False)
             service.provider = request.user
             service.save()
-            messages.success(request, 'Your service has been listed successfully!')
+            messages.success(request, f'Your service "{service.title}" has been updated successfully.')
             return redirect('index')
         else:
             messages.error(request, 'Please correct the errors below.')
@@ -96,6 +96,8 @@ def edit_profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully!')
             return redirect('edit_profile')
+        else:
+            messages.error(request, 'Please check all required fields and try again.')
     else:
         form = UserProfileForm(instance=profile)
     return render(request, 'skillflow/edit_profile.html', {
@@ -137,6 +139,8 @@ def service(request):
             service.save()
             messages.success(request, 'Service listed successfully!')
             return redirect('index')
+        else:
+            messages.error(request, 'Please check all required fields and try again.')
     else:
         form = ServiceForm()
     return render(request, 'skillflow/service.html', {'form': form})
@@ -162,6 +166,8 @@ def edit_service(request, service_id):
             form.save()
             messages.success(request, 'Service updated successfully!')
             return redirect('index')
+        else:
+            messages.error(request, 'Please check all required fields and try again.')
     else:
         form = ServiceForm(instance=service)
 
@@ -200,6 +206,11 @@ def book_appointment(request, service_id):
     if request.method == 'POST':
         availability_id = request.POST.get('availability')
         availability = get_object_or_404(Availability, id=availability_id)
+
+        # Check if the date is a past date
+        if availability.date < timezone.now().date():
+            messages.error(request, 'Please select a future date.')
+            return redirect('book_appointment', service_id=service_id)
 
         # Check if the availability is already booked
         if availability.is_booked:
@@ -289,33 +300,32 @@ def manage_schedule(request, service_id):
                     date=availability.date,
                     is_booked=False
                 ).filter(
-                    # Source Code: https://stackoverflow.com/questions/69015339/how-to-check-two-time-period-for-overlap-in-django
                     models.Q(start_time__lt=availability.end_time) &
                     models.Q(end_time__gt=availability.start_time)
                 )
 
                 if overlapping_slots.exists():
                     messages.error(request, 'This time slot overlaps with an existing schedule.')
-                    return redirect('manage_schedule', service_id=service_id)
+                else:
+                    availability.save()
+                    messages.success(request, 'Time slot added successfully!')
                 
-                availability.save()
-                messages.success(request, 'Time slot added successfully!')
+                return redirect('manage_schedule', service_id=service_id)
                     
             except IntegrityError:
                 messages.error(request, 'This exact time slot already exists.')
             except Exception as e:
                 messages.error(request, f'An error occurred: {str(e)}')
-                
-            return redirect('manage_schedule', service_id=service_id)
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'{field}: {error}')
     else:
         form = AvailabilityForm()
 
     # Get active availabilities
     availabilities = Availability.objects.filter(
         service=service,
-        # Source Link: 
-        # Source Links: https://www.w3schools.com/django/ref_lookups_gte.php
-        # https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
         date__gte=timezone.now().date()
     ).order_by('date', 'start_time')
     
@@ -333,7 +343,6 @@ def manage_schedule(request, service_id):
     }
     
     return render(request, 'skillflow/manage_schedule.html', context)
-
 
 @login_required
 def delete_availability(request, service_id, availability_id):
@@ -366,6 +375,16 @@ def update_appointment_status(request, appointment_id):
     if request.method == 'POST':
         new_status = request.POST.get('status')
         if new_status in ['confirmed', 'cancelled']:
+            # Cancellation time window check
+            if new_status == 'cancelled':
+                time_until_appointment = appointment.availability.date - timezone.now().date()
+                if time_until_appointment.days < 1:
+                    messages.error(
+                        request, 
+                        'Appointments must be cancelled at least 24 hours in advance as per our cancellation policy.'
+                    )
+                    return redirect('appointments')
+
             with transaction.atomic():
                 old_status = appointment.status
                 appointment.status = new_status
