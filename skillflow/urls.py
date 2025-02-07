@@ -65,5 +65,5 @@ urlpatterns = [
     path('how-it-works/', views.how_it_works, name='how_it_works'),
     path('help-center/', views.help_center, name='help_center'),
     path('legal/', views.legal, name='legal'),
-    path('user/<int:provider_id>/info/', views.user_info, name='user_info'),
+    path('user/<int:service_id>/user-info/', views.user_info, name='user_info'),
 ]
