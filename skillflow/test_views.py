@@ -432,3 +432,4 @@ class AdditionalViewTests(TestCase):
             start_time='15:00',
             end_time='14:00'
         ).exists())
+
