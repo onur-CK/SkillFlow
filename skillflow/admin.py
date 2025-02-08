@@ -36,4 +36,6 @@ class AppointmentAdmin(admin.ModelAdmin):
         return obj.availability.date
     get_date.short_description = 'Date'
 
+
+
     

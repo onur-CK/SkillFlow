@@ -11,6 +11,7 @@ from django.core.exceptions import PermissionDenied
 from django.utils import timezone
 from django.db import transaction, models
 from django.db import IntegrityError
+from datetime import datetime
 
 
 logger = logging.getLogger(__name__)
@@ -377,8 +378,18 @@ def update_appointment_status(request, appointment_id):
         if new_status in ['confirmed', 'cancelled']:
             # Cancellation time window check
             if new_status == 'cancelled':
-                time_until_appointment = appointment.availability.date - timezone.now().date()
-                if time_until_appointment.days < 1:
+                # Calculate time until appointment
+                current_datetime = timezone.now()
+                appointment_datetime = timezone.make_aware(
+                    datetime.combine(
+                        appointment.availability.date,
+                        appointment.availability.start_time
+                    )
+                )
+                time_until_appointment = appointment_datetime - current_datetime
+                
+                # Check if less than 24 hours until appointment
+                if time_until_appointment.total_seconds() < 24 * 3600:  # 24 hours in seconds
                     messages.error(
                         request, 
                         'Appointments must be cancelled at least 24 hours in advance as per our cancellation policy.'
