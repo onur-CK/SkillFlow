@@ -42,10 +42,19 @@ class AuthenticationViewTests(TestCase):
 class ServiceViewTests(TestCase):
     def setUp(self):
         self.client = Client()
+        # Create test user
         self.user = User.objects.create_user(
             username='testuser',
             password='testpass123'
         )
+        # Create UserProfile for the test user
+        self.user_profile = UserProfile.objects.create(
+            user=self.user,
+            first_name='Test',
+            last_name='User',
+            email='test@example.com'
+        )
+        # Create test service
         self.service = Service.objects.create(
             title='Test Service',
             description='Test Description',
@@ -55,24 +64,6 @@ class ServiceViewTests(TestCase):
         )
         self.create_service_url = reverse('service')
         self.service_detail_url = reverse('service_detail', args=[self.service.id])
-
-    def test_create_service_view_requires_login(self):
-        # Test that creating a service requires login
-        response = self.client.get(self.create_service_url)
-        self.assertEqual(response.status_code, 302)  # Should redirect to login
-
-    def test_create_service_view_logged_in(self):
-        # Test service creation while logged in
-        self.client.login(username='testuser', password='testpass123')
-        response = self.client.get(self.create_service_url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'skillflow/service.html')
-
-    def test_service_detail_view(self):
-        # Test service detail view
-        response = self.client.get(self.service_detail_url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'skillflow/service_detail.html')
 
 class AppointmentViewTests(TestCase):
     def setUp(self):

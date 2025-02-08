@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import timedelta
 from .models import UserProfile, Service, Availability, Appointment
+from django.core.exceptions import ValidationError
 
 class UserProfileTests(TestCase):
     def setUp(self):
@@ -58,10 +59,12 @@ class ServiceTests(TestCase):
 
 class AvailabilityTests(TestCase):
     def setUp(self):
+        # Create test user
         self.user = User.objects.create_user(
             username='provider',
             password='testpass123'
         )
+        # Create test service
         self.service = Service.objects.create(
             title='Test Service',
             description='Test Description',
@@ -69,6 +72,7 @@ class AvailabilityTests(TestCase):
             hourly_rate=50.00,
             provider=self.user
         )
+        # Create test availability
         self.tomorrow = timezone.now().date() + timedelta(days=1)
         self.availability = Availability.objects.create(
             provider=self.user,
@@ -89,8 +93,8 @@ class AvailabilityTests(TestCase):
     def test_invalid_dates(self):
         # Test that past dates are not allowed
         yesterday = timezone.now().date() - timedelta(days=1)
-        with self.assertRaises(Exception):
-            Availability.objects.create(
+        with self.assertRaises(ValidationError):
+            availability = Availability.objects.create(
                 provider=self.user,
                 service=self.service,
                 date=yesterday,
@@ -98,6 +102,7 @@ class AvailabilityTests(TestCase):
                 end_time='11:00',
                 location='Test Location'
             )
+            availability.full_clean()  # This triggers the validation
 
 class AppointmentTests(TestCase):
     def setUp(self):

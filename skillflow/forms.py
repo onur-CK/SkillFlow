@@ -56,6 +56,12 @@ class ServiceForm(forms.ModelForm):
             })
         }
 
+    def clean_hourly_rate(self):
+        hourly_rate = self.cleaned_data.get('hourly_rate')
+        if hourly_rate and hourly_rate < 0:
+            raise forms.ValidationError("Hourly rate cannot be negative.")
+        return hourly_rate
+
 class AvailabilityForm(forms.ModelForm):
     # Form for managing service provider availability.
     # Includes custom field definitions and validation logic for dates and times.

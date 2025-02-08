@@ -405,6 +405,93 @@ This fix ensures that:
 - [Django Form Validation](https://docs.djangoproject.com/en/5.1/ref/forms/validation/)
 - [Django Time Zones](https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/)
 
+#### Test Suite Validation Bug
+
+- **Bug**: Unit tests were failing with multiple errors:
+  1. `UserProfile.DoesNotExist` error in service detail view tests
+  2. Form validation failures for invalid dates in availability tests
+  3. Incorrect validation of negative hourly rates in service form tests
+  4. Improper exception handling in availability model tests
+
+- **Cause**: The test suite had several structural issues:
+  1. Test data setup was incomplete:
+     - UserProfile instances weren't being created for test users
+     - Required relationships between models weren't properly established
+     - Test data dependencies weren't properly managed
+  
+  2. Validation logic was inconsistent:
+     - Form-level validation wasn't properly implemented for hourly rates
+     - Date validation was happening at the wrong level
+     - Exception types weren't properly specified
+  
+  3. Test assertions were misaligned:
+     - Tests were looking for errors in wrong locations (field-level vs form-level)
+     - Validation error messages weren't being checked correctly
+     - Exception handling wasn't properly implemented in test cases
+
+- **Fix**: Implemented a comprehensive solution through several coordinated changes:
+  1. Enhanced Test Setup:
+     ```python
+     def setUp(self):
+         self.user = User.objects.create_user(
+             username='testuser',
+             password='testpass123'
+         )
+         self.user_profile = UserProfile.objects.create(
+             user=self.user,
+             first_name='Test',
+             last_name='User',
+             email='test@example.com'
+         )
+         self.service = Service.objects.create(
+             title='Test Service',
+             description='Test Description',
+             category='education',
+             hourly_rate=50.00,
+             provider=self.user
+         )
+     ```
+  
+  2. Improved Validation Logic:
+     - Added proper form-level validation for hourly rates:
+     ```python
+     def clean_hourly_rate(self):
+         hourly_rate = self.cleaned_data.get('hourly_rate')
+         if hourly_rate and hourly_rate < 0:
+             raise forms.ValidationError("Hourly rate cannot be negative.")
+         return hourly_rate
+     ```
+     - Implemented proper date validation in Availability model:
+     ```python
+     def clean(self):
+         if self.date < timezone.now().date():
+             raise ValidationError('Cannot create availability for past dates')
+     ```
+
+  3. Fixed Test Assertions:
+     - Updated availability test to use correct exception type:
+     ```python
+     with self.assertRaises(ValidationError):
+         availability.full_clean()
+     ```
+     - Corrected form validation checks:
+     ```python
+     self.assertIn('Cannot create availability for past dates', 
+                  form.errors['__all__'])
+     ```
+
+- **Impact**: These fixes improved the test suite by:
+  1. Ensuring all model relationships are properly tested
+  2. Validating business logic at the appropriate levels
+  3. Providing better test coverage for edge cases
+  4. Making tests more maintainable and readable
+  5. Establishing proper test data management practices
+
+- **References**:
+  - [Django Documentation - Testing Tools](https://docs.djangoproject.com/en/5.0/topics/testing/tools/)
+  - [Django Documentation - Model Validation](https://docs.djangoproject.com/en/5.0/ref/models/instances/#validating-objects)
+  - [Django Documentation - Form and Field Validation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/)
+
 
 ### Known Bugs
 

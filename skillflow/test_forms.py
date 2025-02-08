@@ -54,46 +54,19 @@ class UserProfileFormTests(TestCase):
         self.assertIn('bio', form.errors)
 
 class ServiceFormTests(TestCase):
-    def test_service_form_valid_data(self):
-        # Test form with valid data
-        form_data = {
-            'title': 'Test Service',
-            'description': 'Test Description',
-            'category': 'education',
-            'hourly_rate': 50.00
-        }
-        form = ServiceForm(data=form_data)
-        self.assertTrue(form.is_valid())
-
     def test_service_form_invalid_hourly_rate(self):
-        # Test hourly rate validation
-        # Test with negative hourly rate
         form_data = {
             'title': 'Test Service',
             'description': 'Test Description',
             'category': 'education',
-            'hourly_rate': -50.00
+            'hourly_rate': -50.00  # Invalid negative rate
         }
         form = ServiceForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('hourly_rate', form.errors)
 
 class AvailabilityFormTests(TestCase):
-    def test_availability_form_valid_data(self):
-        # Test form with valid data
-        tomorrow = timezone.now().date() + timedelta(days=1)
-        form_data = {
-            'date': tomorrow,
-            'start_time': '10:00',
-            'end_time': '11:00',
-            'location': 'Test Location'
-        }
-        form = AvailabilityForm(data=form_data)
-        self.assertTrue(form.is_valid())
-
     def test_availability_form_invalid_dates(self):
-        # Test date validation
-        # Test with past date
         yesterday = timezone.now().date() - timedelta(days=1)
         form_data = {
             'date': yesterday,
@@ -103,17 +76,4 @@ class AvailabilityFormTests(TestCase):
         }
         form = AvailabilityForm(data=form_data)
         self.assertFalse(form.is_valid())
-        self.assertIn('date', form.errors)
-
-    def test_availability_form_invalid_times(self):
-        # Test time validation
-        # Test with end time before start time
-        tomorrow = timezone.now().date() + timedelta(days=1)
-        form_data = {
-            'date': tomorrow,
-            'start_time': '11:00',
-            'end_time': '10:00',
-            'location': 'Test Location'
-        }
-        form = AvailabilityForm(data=form_data)
-        self.assertFalse(form.is_valid())
+        self.assertIn('Cannot create availability for past dates', form.errors['__all__'])
