@@ -1,1 +1,1 @@
-web: waitress-serve --listen=0.0.0.0:5000 skillflow.wsgi:application
+web: gunicorn skillflow.wsgi
