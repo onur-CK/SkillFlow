@@ -1,0 +1,62 @@
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-card">
+                    <!-- Service Header with Category and Price -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="service-category">{{ service.get_category_display }}</span>
+                        <span class="service-price">€{{ service.hourly_rate }}/hr</span>
+                    </div>
+
+                    <!-- Service Title -->
+                    <h2 class="text-white mb-4">{{ service.title }}</h2>
+
+                    <!-- Service Provider Info -->
+                    <div class="mb-4">
+                        <h6 class="text-white-50 mb-2">Provider</h6>
+                        <p class="text-white">{{ service.provider.username }}</p>
+                    </div>
+
+                    <!-- Service Description -->
+                    <div class="mb-4">
+                        <h6 class="text-white-50 mb-2">Description</h6>
+                        <p class="text-white service-detail-description">{{ service.description }}</p>
+                    </div>
+                    
+                    <!-- Provider Email (if given by the provider at the account information page) -->
+                    {% if provider_profile.email %}
+                    <div class="mb-4">
+                        <h6 class="text-white-50 mb-2">Contact Email</h6>
+                        <p class="text-white">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:{{ provider_profile.email }}" class="custom-link">{{ provider_profile.email }}</a>
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    <!-- Creation Date -->
+                    <div class="mb-4">
+                        <h6 class="text-white-50 mb-2">Listed On</h6>
+                        <p class="text-white">{{ service.created_at|date:"F j, Y" }}</p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <a href="{% url 'index' %}" class="btn btn-outline-light">
+                            <i class="fas fa-arrow-left"></i> Back to Services
+                        </a>
+                        {% if user != service.provider %}
+                            <a href="{% url 'book_appointment' service.id %}" class="btn btn-primary custom-submit">
+                                <i class="fas fa-calendar-plus"></i> Book Service
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

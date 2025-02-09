@@ -1,0 +1,66 @@
+<!-- Main Content Section for information about the website -->
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <!-- Welcome header -->
+            <h1 class="wellcome-text">Welcome to SkillFlow</h1>
+            <!-- Introduction paragraph text -->
+            <p class="about-description">
+                At SkillFlow, we believe in the power of community and shared
+                expertise. Our platform connects talented individuals with those
+                seeking affordable, quality services. Whether you're looking to
+                share your skills or find expert help, SkillFlow makes it simple to
+                connect, learn, and grow together. Join our community today to start
+                <span class="highlight">sharing your expertise</span> or
+                <span class="highlight">discover the perfect service provider</span> for your needs.
+            </p>
+
+            <!-- Service Categories Grid -->
+            <!-- Each category is presented in a card with icon and description -->
+            <!-- Home Care Category -->
+            <div class="categories-grid">
+                <div class="category-item">
+                    <i class="fas fa-home custom-category-icon"></i>
+                    <h3>Home Care</h3>
+                    <p>From maintenance to organization, connect with local experts for your home service needs.</p>
+                </div>
+            </div>
+            <!-- Education Category -->
+            <div class="categories-grid">
+                <div class="category-item">
+                    <i class="fas fa-book custom-category-icon"></i>
+                    <h3>Education</h3>
+                    <p>Find tutors and mentors in various subjects, or share your knowledge with eager learners.</p>
+                </div>
+            </div>
+            <!-- Creative Category -->
+            <div class="categories-grid">
+                <div class="category-item">
+                    <i class="fas fa-paint-brush custom-category-icon"></i>
+                    <h3>Creative</h3>
+                    <p>Discover artists, designers, and creative professionals ready to bring your vision to life.
+                    </p>
+                </div>
+            </div>
+            <!-- Health Category -->
+            <div class="categories-grid">
+                <div class="category-item">
+                    <i class="fas fa-heart custom-category-icon"></i>
+                    <h3>Health</h3>
+                    <p>Connect with wellness coaches, fitness trainers, and health specialists.</p>
+                </div>
+            </div>
+            <!-- Events Category -->
+            <div class="categories-grid">
+                <div class="category-item">
+                    <i class="fas fa-calendar custom-category-icon"></i>
+                    <h3>Events</h3>
+                    <p>Find event planners, coordinators, and specialists to make your occasions memorable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

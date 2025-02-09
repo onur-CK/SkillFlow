@@ -1,0 +1,42 @@
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-card">
+                    <h4 class="form-title">Provider Information</h4>
+                    
+                    <!-- Provider Info Section -->
+                    <div class="mb-4">
+                        <div class="text-white mb-3">
+                            <h6 class="text-white-50 mb-2">Name</h6>
+                            {% if provider_profile.first_name or provider_profile.last_name %}
+                                {{ provider_profile.first_name }} {{ provider_profile.last_name }}
+                            {% else %}
+                                Not provided
+                            {% endif %}
+                        </div>
+                        
+                        <div class="text-white">
+                            <h6 class="text-white-50 mb-2">Bio</h6>
+                            {% if provider_profile.bio %}
+                                {{ provider_profile.bio }}
+                            {% else %}
+                                No bio provided
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Back Button -->
+                    <div class="d-grid">
+                        <a href="{% url 'index' %}" class="btn btn-outline-light">
+                            <i class="fas fa-arrow-left"></i> Back to Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

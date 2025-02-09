@@ -1,0 +1,58 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+*.db
+*.sqlite3
+*.log
+
+# Virtual Environment
+venv/
+.env/
+.env.bak/
+venv.bak/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+__pycache__
+db.sqlite3
+/static/
+media/
+
+# Whitenoise static files
+/staticfiles/
+
+# IDE/Editor
+.vscode/
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Other system files
+Desktop.ini
+
+# Optional, for custom files
+*.bak
+*.swp
+
+/static/
+/media/
+*.py[cod]
+env.py
+.github/
+

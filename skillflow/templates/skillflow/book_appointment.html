@@ -1,0 +1,92 @@
+{% extends 'skillflow/base.html' %}
+
+{% block content %}`
+<!-- Main booking section with responsive container -->
+<main class="sign-up section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <!-- Card container -->
+                <div class="form-card">
+                    <h4 class="form-title">Book Appointment</h4>
+
+                    <!-- Service Information -->
+                    <div class="mb-4">
+                        <h5 class="text-white mb-3">Service Details</h5>
+                        <!-- Table Section -->
+                        <div class="table-responsive">
+                            <table class="table table-dark">
+                                <tr>
+                                    <th>Service</th>
+                                    <td>{{ service.title }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Provider</th>
+                                    <td>{{ service.provider.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Rate</th>
+                                    <td>€{{ service.hourly_rate }}/hr</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Availability Selection Section - Only shown if time slots exist -->
+                    {% if availabilities %}
+                    <h5 class="text-white mb-3">Available Time Slots</h5>
+                    <!-- POST form for submitting booking selection -->
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="table-responsive">
+                            <!-- Table for available time slots -->
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through each available time slot -->
+                                    {% for slot in availabilities %}
+                                    <tr>
+                                        <td>
+                                            <!-- Radio button for slot selection -->
+                                            <input type="radio" name="availability" value="{{ slot.id }}"
+                                                class="form-check-input" required>
+                                        </td>
+                                        <td>{{ slot.date }}</td>
+                                        <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
+                                        <td>{{ slot.location }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Action buttons container -->
+                        <div class="d-grid gap-2 mt-4">
+                            <!-- Submit button for booking confirmation -->
+                            <button type="submit" class="btn btn-primary custom-submit">Book Appointment</button>
+                            <!-- Cancel button to return the service listings -->
+                            <a href="{% url 'index' %}" class="btn btn-outline-light">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+                {% else %}
+                <!-- No availability message -->
+                <div class="text-center text-white">
+                    <p>No available time slots for this service.</p>
+                    <!-- Back button -->
+                    <a href="{% url 'index' %}" class="btn btn-outline-light mt-3">Back to Services</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</main>
+{% endblock content %}

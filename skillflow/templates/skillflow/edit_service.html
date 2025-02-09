@@ -1,0 +1,82 @@
+<!-- Main Content Section for Service Edit Form -->
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Service edit form card -->
+                <div class="form-card">
+                    <h4 class="form-title">Edit Service Listing</h4>
+                    <!-- Form for editing service details -->
+                    <form method="POST" action="{% url 'edit_service' service.id %}">
+                        {% csrf_token %}
+                        <!-- Error messages display section -->
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            {% for field in form %}
+                            {% for error in field.errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <!-- Category selection field -->
+                        <div class="mb-3">
+                            <label for="{{ form.category.id_for_label }}" class="form-label">Category</label>
+                            {{ form.category }}
+                        </div>
+                        <!-- Service title field -->
+                        <div class="mb-3">
+                            <label for="{{ form.title.id_for_label }}" class="form-label">Service Title</label>
+                            {{ form.title }}
+                        </div>
+                        <!-- Hourly rate field -->
+                        <div class="mb-3">
+                            <label for="{{ form.hourly_rate.id_for_label }}" class="form-label">Hourly Rate (€)</label>
+                            {{ form.hourly_rate }}
+                        </div>
+                        <!-- Service description field with character counter -->
+                        <div class="mb-4">
+                            <label for="{{ form.description.id_for_label }}" class="form-label">Service
+                                Description</label>
+                            {{ form.description }}
+                            <div class="form-text text-end text-white-50" id="charCount">
+                                <span id="currentCount">{{ form.description.value|length|default:"0" }}</span>/500
+                                characters
+                            </div>
+                        </div>
+                        <!-- Form action buttons -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
+                            <a href="{% url 'my_services' %}" class="btn btn-outline-light">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Wait for the DOM to be fully loaded before executing any JavaScript
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get references to the description textarea and character counter elements
+        const descriptionField = document.getElementById('{{ form.description.id_for_label }}');
+        const charCount = document.getElementById('currentCount');
+
+        // Only proceed if both elements exist in the DOM to prevent errors
+        if (descriptionField && charCount) {
+            // Set the initial character count when the page loads
+            charCount.textContent = descriptionField.value.length;
+
+            // Add a real-time character counter that updates as the user types
+            descriptionField.addEventListener('input', function () {
+                // Update the character count display with the current length of the description
+                charCount.textContent = this.value.length;
+            });
+        }
+    });
+</script>
+{% endblock %}

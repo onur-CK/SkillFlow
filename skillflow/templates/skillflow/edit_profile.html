@@ -1,0 +1,141 @@
+<!-- Main content section for profile(edit) -->
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Profile information -->
+                <div class="form-card">
+                    <h4 class="form-title">Account Information</h4>
+
+                    <!-- Display current profile information if it exists -->
+                    {% if profile.first_name or profile.last_name or profile.email or profile.bio %}
+                    <div id="infoDisplay" class="current-info mb-4">
+                        <div class="text-white mb-3">
+                            <strong>Name:</strong>
+                            {{ profile.first_name }} {{ profile.last_name|default:"Not set" }}
+                        </div>
+                        <div class="text-white mb-3">
+                            <strong>Email:</strong>
+                            {{ profile.email|default:"Not set" }}
+                        </div>
+                        <div class="text-white mb-3">
+                            <strong>Bio:</strong><br>
+                            {{ profile.bio|default:"No bio added yet" }}
+                        </div>
+                        <!-- Edit profile button -->
+                        <button type="button" onclick="showEditForm()" class="btn btn-primary custom-submit w-100">
+                            Edit Profile
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Profile editing form - hidden by default if profile info exists -->
+                    <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name or profile.last_name or profile.email or profile.bio %}style="display: none;" {% endif %}>
+                        {% csrf_token %}
+                        <!-- Form input fields for profile information -->
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control custom-input" id="firstName" name="first_name"
+                                value="{{ profile.first_name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control custom-input" id="lastName" name="last_name"
+                                value="{{ profile.last_name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control custom-input" id="email" name="email"
+                                value="{{ profile.email }}">
+                        </div>
+                        <!-- Bio text area with character counter -->
+                        <div class="mb-4">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control custom-input" id="bio" name="bio" rows="4"
+                                maxlength="200">{{ profile.bio }}</textarea>
+                            <div class="form-text text-end" id="charCount">
+                                <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
+                            </div>
+                        </div>
+                        <!-- Form action buttons: Save/Cancel -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary custom-submit">Save Changes</button>
+                            <button type="button" onclick="hideEditForm()" class="btn btn-outline-light">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Object to store the original form values for resetting when user cancels edit -->
+<script>
+    let originalValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        bio: ''
+    };
+
+    // Initialize event handlers and capture original form values when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Store initial form values to enable form reset functionality
+        originalValues.firstName = document.getElementById('firstName').value;
+        originalValues.lastName = document.getElementById('lastName').value;
+        originalValues.email = document.getElementById('email').value;
+        originalValues.bio = document.getElementById('bio').value;
+
+        // Get references to the bio textarea and character count display elements
+        const bioTextarea = document.getElementById('bio');
+        const charCount = document.getElementById('currentCount');
+
+        // Set up character counter for bio field if both elements exist
+        if (bioTextarea && charCount) {
+            // Initialize character count display with current bio length
+            charCount.textContent = bioTextarea.value.length;
+
+            // Add real-time character count update while user types in bio field
+            bioTextarea.addEventListener('input', function () {
+                charCount.textContent = this.value.length;
+            });
+        }
+    });
+
+    /**
+     * Shows the edit form and hides the proflie information display
+     * Used when user clicks "Edit Profile" button
+    */
+    function showEditForm() {
+        document.getElementById('profileForm').style.display = 'block';
+        document.getElementById('infoDisplay').style.display = 'none';
+    }
+
+    /**
+     * Handles the cancellation of profile editing: 
+     * Resets all form fields to their originals values
+     * Updates character count display
+     * Hides the form and shows the profile information display
+     * Used when user clicks "Cancel" button. -> 'onclick="hideEditForm()'
+    */
+    function hideEditForm() {
+        // Reset all form fields to their original values 
+        document.getElementById('firstName').value = originalValues.firstName;
+        document.getElementById('lastName').value = originalValues.lastName;
+        document.getElementById('email').value = originalValues.email;
+        document.getElementById('bio').value = originalValues.bio;
+
+        // Update character count display to match the original bio length
+        const charCount = document.getElementById('currentCount');
+        if (charCount) {
+            charCount.textContent = originalValues.bio.length;
+        }
+
+        // Switch visibility back to display mode
+        document.getElementById('profileForm').style.display = 'none';
+        document.getElementById('infoDisplay').style.display = 'block';
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'skillflow/base.html' %}
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-card">
+                    <h4 class="form-title">Signout Confirmation</h4>
+                    <div class="text-center mb-4">
+                        <i class="fas fa-sign-out-alt fa-2x mb-5 text-white"></i>
+                        <p class="text-white mb-4">Are you sure you want to sign out? You will be redirected to the home page.</p>
+                    </div>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-primary custom-submit">Yes, Sign Out</button>
+                            <a href="{% url 'index' %}" class="btn btn-outline-light w-100">No, Stay Logged In</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
