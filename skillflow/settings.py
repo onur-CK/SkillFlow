@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['localhost', 'skillflow-community-django-7358f56ac457.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'skillflow-community-django-7358f56ac457.herokuapp.com', '.herokuapp.com']
 
 
 
@@ -156,3 +156,8 @@ SECURE_HSTS_PRELOAD = True
 SECURE_BROWSER_XSS_FILTER = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = 'DENY'
+CSRF_COOKIE_HTTPONLY = True
+SECURE_REFERER_POLICY = 'same-origin'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
