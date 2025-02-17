@@ -1,0 +1,545 @@
+.dropdown-menu {
+    margin-bottom: 5px;
+}
+
+body {
+    background-color: #0D1014;
+}
+
+.custom-text {
+    color: #00beef;
+}
+
+/* -------------------------------------------------------------------------------------------- Buttons */
+
+.login-btn {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+/* ---------------------------------------------------------------------------------------------- Navbar */
+
+.custom-navbar {
+    background-color: #0D1014; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+
+.custom-navbar .navbar-brand {
+    color: white; 
+    transition: transform 0.2s ease; /* Smooth transition for the scaling effect */
+}
+
+.custom-navbar .navbar-brand:hover {
+    transform: scale(1.05); /* Slightly enlarges the title when hovered */
+    color: orangered; 
+}
+
+
+.custom-navbar .nav-link {
+    color: #00beef; 
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth color and scaling transitions */
+}
+
+.custom-navbar .nav-link:hover {
+    color: #00d1f7; 
+    transform: scale(1.05); /* Slightly enlarges the link when hovered */
+}
+
+
+.custom-navbar .btn-primary {
+    background-color: white; 
+    color: black; 
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    border: 1px solid #ccc; /* Adds a subtle border around the button */
+}
+
+.custom-navbar .btn-primary:hover {
+    background-color: black; 
+    color: white; 
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"%3E%3Cpath fill="white" d="M0 5h30v3H0zM0 12h30v3H0zM0 19h30v3H0z"%3E%3C/path%3E%3C/svg%3E');
+}
+
+.navbar-toggler {
+    border: 2px solid white;  
+    transition: border-color 0.3s ease; /* Change the border color with a smooth transition */
+}
+
+
+.navbar-toggler:hover {
+    border-color: orangered; /* Change the border color to orangered when hovering over the hamburger menu */
+}
+
+.nav-link.dropdown-toggle.custom-text {
+    color: #00beef; 
+}
+
+.nav-link.dropdown-toggle.custom-text:focus,
+.nav-link.dropdown-toggle.custom-text:active {
+    color: #00beef !important; /* Sets the text color to a turquoise blue when the link is in focus or active */
+    background-color: transparent; /* Ensures the background remains transparent */
+    text-decoration: none; /* Removes any text decoration (like underline) from the active/focused state */
+    box-shadow: none; /* Removes any box shadow from the link when it is focused or active */
+}
+
+
+
+/* -------------------------------------------------------------------------------------------- Category Section */
+
+.category-section {
+    background-color: #161B22; 
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    margin-bottom: 2rem;
+}
+
+.category-icon {
+    color: #00beef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; /* Removes underline from links */
+    padding: 1rem;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.category-icon i {
+    font-size: 2rem; /* Makes icons larger */
+    margin-bottom: 0.75rem;
+}
+
+.category-icon span {
+    font-size: 0.9rem; /* Slightly smaller text */
+    transition: color 0.3s ease;
+}
+
+.category-icon:hover {
+    transform: translateY(-5px); /* Slight upward movement */
+    color: orangered;
+}
+
+.category-icon:hover i {
+    animation: pulse 1s infinite; /* Subtle pulse animation */
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.category-icon.active {
+    color: orangered;
+    transform: translateY(-5px);
+}
+
+.category-icon.active i {
+    animation: pulse 1s infinite;
+}
+
+
+/* ----------------------------------------------------------------------- Cards */
+
+.service-category {
+    background-color: rgba(255, 69, 0, 0.1); /* orangered with opacity */
+    color: orangered;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.service-cards-section {
+    padding: 2rem 0;
+}
+
+.service-card {
+    /* Styles individual service cards with a dark background and rounded corners */
+    background-color: #161b22;  
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    min-height: 300px;  /* Ensures a minimum card height */
+    display: flex;           
+    flex-direction: column;  
+}
+
+.service-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: auto;
+}
+
+.service-card-header {
+    /* Aligns the price to the right and adds spacing below the header */
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    margin-bottom: 2rem; 
+}
+
+.service-price {
+    /* Styles the price tag with a colored background and rounded shape */
+    background-color: rgba(0, 190, 239, 0.1);
+    color: #00beef;
+    padding: 0.5rem 1rem;  
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.service-title {
+    color: white;
+    margin-bottom: 1.5rem;  
+    font-size: 1.25rem;
+}
+
+.service-description {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limit to 4 lines */
+    -webkit-box-orient: vertical;
+    flex: 1;  /* Allow it to flex within card */
+}
+
+.service-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.service-provider {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.service-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #ffd700;  /* Gold color for stars */
+    font-size: 0.9rem;
+}
+
+.service-rating span {
+    color: white;
+}
+
+/* -------------------------------------------------------------------------------- Sign Up Form */
+
+.signup-section {
+    padding: 2rem 0; /* Adds padding to the top and bottom of the signup section */
+}
+
+.form-card {
+    background-color: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Adds a subtle border around the form card */
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.form-title {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem; /* Adds space below the title */
+    font-weight: 600; /* Makes the title text bold */
+}
+
+.form-label {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.custom-input {
+    background-color: #0d1014;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white; /* Sets the text color inside input fields to white */
+    padding: 0.75rem 1rem; /* Adds padding inside the input fields */
+}
+
+.custom-input:focus {
+    background-color: #0d1014;
+    border-color: #00beef;  /* Changes the border color when the input is focused */
+    box-shadow: 0 0 0 0.2rem rgba(0, 190, 239, 025); /* Adds a glowing effect around the input when focused */
+    color: white;
+}
+
+.requirements-title {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem; /* Adds space below the requirements title */
+}
+
+.requirements-list {
+    list-style-type: none; /* Removes default list bullet points */
+    padding-left: 0; /* Removes padding on the left of the list */
+    margin-bottom: 0;
+}
+
+.requirements-list li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem; /* Adds space below each list item */
+    padding-left: 1.5rem;
+    position: relative; /* Positions the bullet point relative to the list item */
+}
+
+.requirements-list li:before {
+    content: "•"; /* Adds a bullet point before each list item */
+    color: #00beef;
+    position: absolute;
+    left: 0; /* Aligns the bullet point to the left of the list item */
+}
+
+.custom-submit {
+    background-color: #00beef;
+    border: none; /* Removes the border around the button */
+    padding: 0.75rem; 
+    font-weight: 500; /* Makes the button text slightly bold */
+    transition: all 0.3s ease; /* Adds a smooth transition effect for all properties */
+}
+
+.custom-submit:hover {
+    background-color: #00a5d1; /* Changes the button background color when hovered */
+    transform: translateY(-1px); /* Slightly lifts the button when hovered */
+}
+
+.form-text {
+    color: rgba(255, 255, 255, 0.5); /* Sets a light white color with opacity for the form text */
+    font-size: 0.85rem;
+    margin-top: 0.5rem; /* Adds space above the form text */
+}
+
+.toggle-text {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0; /* Removes any margin around the toggle text */
+}
+
+
+.custom-link {
+    color: #00beef; 
+    text-decoration: none; /* Removes the underline from the link */
+    transition: color 0.3s ease; /* Adds a smooth color transition effect */
+}
+
+.custom-link:hover {
+    color: orangered;
+}
+
+
+
+/* -------------------------------------------------------------------- Service Listing Form  */
+
+
+/* Placeholder Styling for Input and Form Controls */
+.form-card .custom-input::placeholder, 
+.form-card .form-control::placeholder {
+    color: #666 !important; /* Sets the placeholder text color to a medium grey */
+}
+
+.form-card select.custom-input {
+    appearance: none; /* Removes the default browser styling for select dropdowns */
+    -webkit-appearance: none; /* Ensures compatibility with WebKit browsers */
+    -moz-appearance: none; /* Ensures compatibility with Mozilla browsers */
+    /* Adds a custom dropdown arrow icon */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: right 1rem center; /* Positions the dropdown arrow on the right */
+    background-size: 1em; /* Sets the size of the dropdown arrow */
+    padding-right: 2.5rem; /* Adds padding to the right for the dropdown arrow */
+    cursor: pointer; /* Changes the cursor to indicate interactivity */
+    transition: transform 0.2s ease; /* Adds a smooth transformation effect */
+}
+
+
+.form-card select.custom-input:hover {
+    transform: scale(1.02); /* Slightly enlarges the dropdown element on hover */
+} 
+
+/* ------------------------------------------------------------------------------ About Us */
+
+.about-section {
+    padding: 6rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    background-color: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 4rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #00beef;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.highlight {
+    color: #00beef;
+    font-weight: 500;
+}
+
+.custom-category-icon {
+    color: #00beef;
+}
+
+.category-item {
+    padding: 1.5rem;
+    background-color: rgba(0, 190, 239, 0.1);
+    border-radius: 15px;
+}
+
+.category-item h3 {
+    color: #00beef;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.category-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --------------------------------------------------------------------------- Toast Container */
+
+.toast {
+    background-color: #1a1e24;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+}
+
+.toast .toast-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast .bg-success {
+    background-color: #28a745 !important;
+}
+
+.toast .bg-danger,
+.toast .bg-error {
+    background-color: #dc3545 !important;
+}
+
+.toast .bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.toast .bg-info {
+    background-color: #17a2b8 !important;
+}
+
+.toast .toast-body {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #161B22;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h5 {
+    color: #00beef;
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-section ul li a:hover {
+    color: #00beef;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #00beef;
+}

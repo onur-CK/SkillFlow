@@ -1,0 +1,22 @@
+# My Virtual Environment - These folders contain Python packages specific to my local setup
+venv/
+env/
+.env/
+
+# Python's compiled files - Python makes these to run my code faster on my machine
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django's database and media files - These have my local data that I shouldn't share
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# My editor and system files - Created by my code editor or computer
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
