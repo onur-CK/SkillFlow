@@ -1,1 +1,1 @@
-web: gunicorn skillflow.wsgi
+web: gunicorn skillflow.wsgi:application

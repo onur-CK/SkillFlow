@@ -431,7 +431,7 @@ This fix ensures that:
 
 - **Fix**: Implemented a comprehensive solution through several coordinated changes:
   1. Enhanced Test Setup:
-     ```python
+     
      def setUp(self):
          self.user = User.objects.create_user(
              username='testuser',
@@ -450,35 +450,35 @@ This fix ensures that:
              hourly_rate=50.00,
              provider=self.user
          )
-     ```
+     
   
   2. Improved Validation Logic:
      - Added proper form-level validation for hourly rates:
-     ```python
+     
      def clean_hourly_rate(self):
          hourly_rate = self.cleaned_data.get('hourly_rate')
          if hourly_rate and hourly_rate < 0:
              raise forms.ValidationError("Hourly rate cannot be negative.")
          return hourly_rate
-     ```
+     
      - Implemented proper date validation in Availability model:
-     ```python
+     
      def clean(self):
          if self.date < timezone.now().date():
              raise ValidationError('Cannot create availability for past dates')
-     ```
+     
 
   3. Fixed Test Assertions:
      - Updated availability test to use correct exception type:
-     ```python
+     
      with self.assertRaises(ValidationError):
          availability.full_clean()
-     ```
+    
      - Corrected form validation checks:
-     ```python
+     
      self.assertIn('Cannot create availability for past dates', 
                   form.errors['__all__'])
-     ```
+    
 
 - **Impact**: These fixes improved the test suite by:
   1. Ensuring all model relationships are properly tested
@@ -492,6 +492,7 @@ This fix ensures that:
   - [Django Documentation - Model Validation](https://docs.djangoproject.com/en/5.0/ref/models/instances/#validating-objects)
   - [Django Documentation - Form and Field Validation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/)
 
+![manage py tests](https://github.com/user-attachments/assets/433f9b45-cfca-4fb4-ae84-0d5628bd80d4)
 
 ### Known Bugs
 

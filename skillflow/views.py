@@ -12,7 +12,22 @@ from django.utils import timezone
 from django.db import transaction, models
 from django.db import IntegrityError
 from datetime import datetime
+from django.http import JsonResponse
+from django.conf import settings
 
+def check_ssl_settings(request):
+    ssl_settings = {
+        'SECURE_SSL_REDIRECT': getattr(settings, 'SECURE_SSL_REDIRECT', False),
+        'SECURE_HSTS_SECONDS': getattr(settings, 'SECURE_HSTS_SECONDS', 0),
+        'SECURE_HSTS_INCLUDE_SUBDOMAINS': getattr(settings, 'SECURE_HSTS_INCLUDE_SUBDOMAINS', False),
+        'SECURE_HSTS_PRELOAD': getattr(settings, 'SECURE_HSTS_PRELOAD', False),
+        'SESSION_COOKIE_SECURE': getattr(settings, 'SESSION_COOKIE_SECURE', False),
+        'CSRF_COOKIE_SECURE': getattr(settings, 'CSRF_COOKIE_SECURE', False),
+        'SECURE_BROWSER_XSS_FILTER': getattr(settings, 'SECURE_BROWSER_XSS_FILTER', False),
+        'is_secure': request.is_secure(),
+        'protocol': request.META.get('HTTP_X_FORWARDED_PROTO', ''),
+    }
+    return JsonResponse(ssl_settings)
 
 logger = logging.getLogger(__name__)
 
