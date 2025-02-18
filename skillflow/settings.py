@@ -58,9 +58,6 @@ else:
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') == 'True'
-
 ALLOWED_HOSTS = ['localhost', 'skillflow-community-django-7358f56ac457.herokuapp.com', '.herokuapp.com']
 
 
@@ -166,8 +163,6 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
