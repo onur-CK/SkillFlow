@@ -15,6 +15,19 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.conf import settings
 
+def check_static_settings(request):
+   
+    # Debug view to check static files configuration
+   
+    config = {
+        'STATIC_URL': settings.STATIC_URL,
+        'STATIC_ROOT': settings.STATIC_ROOT,
+        'STATICFILES_DIRS': settings.STATICFILES_DIRS,
+        'DEBUG': settings.DEBUG,
+        'STATICFILES_STORAGE': settings.STATICFILES_STORAGE,
+    }
+    return JsonResponse(config)
+
 def check_ssl_settings(request):
     ssl_settings = {
         'SECURE_SSL_REDIRECT': getattr(settings, 'SECURE_SSL_REDIRECT', False),

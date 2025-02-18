@@ -66,5 +66,7 @@ urlpatterns = [
     path('help-center/', views.help_center, name='help_center'),
     path('legal/', views.legal, name='legal'),
     path('user/<int:service_id>/user-info/', views.user_info, name='user_info'),
+    
     path('check-ssl/', views.check_ssl_settings, name='check_ssl'),
+    path('check-static/', views.check_static_settings, name='check_static'),
 ]
