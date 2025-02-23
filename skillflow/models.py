@@ -49,13 +49,13 @@ class Availability(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
     location = models.CharField(max_length=200)
-    # Boolean Field Source Code Link: https://docs.djangoproject.com/en/5.1/ref/models/fields/
+    # Source Link for Boolean Field : https://docs.djangoproject.com/en/5.1/ref/models/fields/
     is_booked = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # Ordering and Constraints Source Link: https://docs.djangoproject.com/en/5.1/ref/models/options/
+    # Source Link of Ordering and Constraints: https://docs.djangoproject.com/en/5.1/ref/models/options/
     class Meta:
-         # Orders availabilities by date and time
+        # Orders availabilities by date and time
         ordering = ['date', 'start_time']
         # Prevents duplicate time slots
         # Ensure no overlapping time slots for the same provider and service
@@ -71,9 +71,11 @@ class Availability(models.Model):
         return f"{self.service.title} - {self.date} ({self.start_time}-{self.end_time})"
 
     def clean(self):
-        # Validates availability slots:
-        # -> Prevents past dates
-        # -> Ensures end time is after start time
+        """
+        Validates availability slots:
+        -> Prevents past dates
+        -> Ensures end time is after start time
+        """
         from django.core.exceptions import ValidationError
         # Ensure date is not in the past
         if self.date < timezone.now().date():

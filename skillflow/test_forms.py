@@ -32,8 +32,8 @@ class SignUpFormTests(TestCase):
         """
         Test that the signup form properly rejects invalid registration data.
         Specifically tests password mismatch scenario.
-        Source Link: https://stackoverflow.com/questions/21458387/how-to-test-django-form-validation
         """
+        # Source Link: https://stackoverflow.com/questions/21458387/how-to-test-django-form-validation
         form_data = {
             'username': 'testuser',
             'password1': 'TestPass123!',

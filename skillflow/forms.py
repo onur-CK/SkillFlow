@@ -71,7 +71,7 @@ class AvailabilityForm(forms.ModelForm):
         widget=forms.DateInput(attrs={
             'type': 'date',
             'class': 'form-control custom-input',
-            # Timezone Source Code: https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
+            # Source Linkf of Timezone: https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
             # Prevents past dates
             'min': timezone.now().date().isoformat()
         })
@@ -122,10 +122,12 @@ class AvailabilityForm(forms.ModelForm):
         return cleaned_data
 
 
+# Form for handling appointment creation and management.
+# Provides a simple interface for selecting available time slots.
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ['availability']
+        fields = ['availability'] # Only the availability field is exposed for selection
 
 
 class WeeklyScheduleForm(forms.ModelForm):
