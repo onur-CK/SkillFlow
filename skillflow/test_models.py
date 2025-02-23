@@ -295,30 +295,69 @@ class ViewsTestCase(TestCase):
         self.assertEqual(updated_appointment.status, 'confirmed')
 
     def test_service_detail_view(self):
+        """
+        Test service detail view functionality.
+        Verifies that:
+        1. Service detail page loads successfully (200 status code)
+        2. Correct template is used for rendering
+        3. Service object in context matches the requested service
+        """
         response = self.client.get(reverse('service_detail', args=[self.service.id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'skillflow/service_detail.html')
         self.assertEqual(response.context['service'], self.service)
 
     def test_category_services_view(self):
+        """
+        Test category filtering functionality.
+        Verifies that:
+        1. Category filter page loads successfully
+        2. Correct template is used for displaying filtered services
+        3. Only services from requested category are displayed
+        4. Services are properly passed to the template context
+        """
         response = self.client.get(reverse('category_services', args=['education']))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'skillflow/index.html')
         self.assertEqual(list(response.context['services']), [self.service])
 
     def test_delete_account(self):
+        """
+        Test account deletion functionality.
+        Verifies that:
+        1. User can successfully log in before deletion
+        2. Account deletion request is processed correctly
+        3. User is redirected to about page after deletion
+        4. User account is actually removed from the database
+        """
         self.client.login(username='testuser', password='12345')
         response = self.client.post(reverse('delete_account'))
         self.assertRedirects(response, reverse('about_us'))
         self.assertFalse(User.objects.filter(username='testuser').exists())
 
     def test_delete_service(self):
+        """
+        Test service deletion functionality.
+        Verifies that:
+        1. Service provider can log in
+        2. Service deletion request is processed correctly
+        3. Provider is redirected to their services page
+        4. Service is actually removed from the database
+        """
         self.client.login(username='provider', password='12345')
         response = self.client.post(reverse('delete_service', args=[self.service.id]))
         self.assertRedirects(response, reverse('my_services'))
         self.assertFalse(Service.objects.filter(id=self.service.id).exists())
 
     def test_delete_availability(self):
+        """
+        Test availability slot deletion functionality.
+        Verifies that:
+        1. Provider can log in to manage their schedule
+        2. Availability deletion request is processed
+        3. Provider is redirected to schedule management page
+        4. Availability slot is actually removed from the database
+        """
         self.client.login(username='provider', password='12345')
         response = self.client.post(reverse('delete_availability', args=[self.service.id, self.availability.id]))
         self.assertRedirects(response, reverse('manage_schedule', args=[self.service.id]))
