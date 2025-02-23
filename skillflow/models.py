@@ -6,13 +6,24 @@ from django.utils import timezone
 # Each class represents a database table and includes field definitions and methods.
 
 # Define the UserProfile model, extending the built-in User model with additional fields
+# Source Link for User Model: https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#extending-the-existing-user-model
 class UserProfile(models.Model):
-    # Extended user profile model that adds additional fields to Django's built-in User model.
-    # Links to User model through a one-to-one relationship.
+    """
+    Extended user profile model that adds additional fields to Django's built-in User model.
+    Uses OneToOneField for direct user association.
+    """
+    # Source Link: https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#extending-user.
+    # Link to the User model with CASCADE deletion to ensure profile is deleted when user is deleted
     user = models.OneToOneField(User, on_delete=models.CASCADE) # Link to the User model 
+    # TextField for longer form content with max_length validation
+    # Source: https://docs.djangoproject.com/en/5.1/ref/models/fields/#textfield
     bio = models.TextField(max_length=200, blank=True)  # Optional bio field with a max length of 200 characters
+    # CharField for shorter text content
+    # Source: https://docs.djangoproject.com/en/5.1/ref/models/fields/#charfield
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
+    # EmailField for validated email addresses
+    # Source: https://docs.djangoproject.com/en/5.1/ref/models/fields/#emailfield
     email = models.EmailField(blank=True)
     
     def __str__(self):
@@ -20,11 +31,14 @@ class UserProfile(models.Model):
         return self.user.username
     
 class Service(models.Model):
-    # Model for service listings.
-    # Contains all information about services offered by providers.
+    """
+    Model for service listings with categorization and provider association.
+    Includes price tracking and creation timestamp.
+    """
     title = models.CharField(max_length=100)
     description = models.TextField()
-    # Categories for services
+    # Predefined choices for service categories
+    # Source: https://docs.djangoproject.com/en/5.1/ref/models/fields/#field-choices
     CATEGORY_CHOICES = [
         ('home-care', 'Home Care'),
         ('education', 'Education'),
@@ -33,8 +47,13 @@ class Service(models.Model):
         ('events', 'Events'),
     ]
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
-    hourly_rate = models.DecimalField(max_digits=6, decimal_places=2) 
+    # DecimalField for precise monetary values
+    # Source: https://docs.djangoproject.com/en/5.1/ref/models/fields/#decimalfield
+    hourly_rate = models.DecimalField(max_digits=6, decimal_places=2)
+    # Link to service provider (User)
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Automatic timestamp for creation time
+    # Source: https://docs.djangoproject.com/en/5.1/ref/models/fields/#django.db.models.DateTimeField.auto_now_add
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -59,7 +78,7 @@ class Availability(models.Model):
         ordering = ['date', 'start_time']
         # Prevents duplicate time slots
         # Ensure no overlapping time slots for the same provider and service
-        # Source Link: https://docs.djangoproject.com/en/5.1/ref/models/constraints/
+        # Source Link: https://docs.djangoproject.com/en/5.1/ref/models/constraints/#uniqueconstraint
         constraints = [
             models.UniqueConstraint(
                 fields=['provider', 'service', 'date', 'start_time'],
@@ -85,10 +104,17 @@ class Availability(models.Model):
         if self.end_time <= self.start_time:
             raise ValidationError('End time must be after start time')
     
-
+# Source Link for Model Relationships: https://docs.djangoproject.com/en/5.1/topics/db/examples/one_to_one/
 class Appointment(models.Model):
+    """
+    Model for managing service appointments.
+    Links availability slots with clients and tracks appointment status.
+    """
+    # One-to-one relationship ensures each availability can only have one appointment
     availability = models.OneToOneField(Availability, on_delete=models.CASCADE)
     client = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Status choices for appointment tracking
+    # Source: https://docs.djangoproject.com/en/5.1/ref/models/fields/#choices
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('confirmed', 'Confirmed'),
@@ -100,10 +126,15 @@ class Appointment(models.Model):
     def __str__(self):
         return f"{self.client.username} with {self.availability.provider.username}"
     
-
+# Source Link for Model Inheritance: https://docs.djangoproject.com/en/5.1/topics/db/models/#model-inheritance
 class WeeklySchedule(models.Model):
+    """
+    Model for managing recurring weekly schedules.
+    Allows providers to set regular availability patterns.
+    """
     provider = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    # Days of week choices using integer values
     DAYS_OF_WEEK = [
         (0, 'Monday'),
         (1, 'Tuesday'),
@@ -120,6 +151,7 @@ class WeeklySchedule(models.Model):
     is_active = models.BooleanField(default=True)
 
     class Meta:
+        # Source Link: https://docs.djangoproject.com/en/5.1/ref/models/options/#unique-together
         unique_together = ['provider', 'service', 'day_of_week', 'start_time']
         ordering = ['day_of_week', 'start_time']
 
@@ -127,20 +159,22 @@ class WeeklySchedule(models.Model):
         return f"{self.get_day_of_week_display()} {self.start_time}-{self.end_time}"
     
     def create_availabilities(self):
-        
-        # Creates availability slots for the next 4 weeks based on the weekly schedule.
+        """
+        Creates availability slots for the next 4 weeks based on the weekly schedule.
+        Generates recurring slots while avoiding duplicates.
+        """
         from datetime import date, timedelta
         
         # Get today's date
         today = date.today()
         
-        # Find the next occurrence of this weekday
+        # Calculate next occurrence of scheduled weekday
         days_ahead = self.day_of_week - today.weekday()
         if days_ahead <= 0:  # Target day already happened this week
             days_ahead += 7
         next_date = today + timedelta(days=days_ahead)
         
-        # Create availabilities for the next 4 weeks
+        # Generate slots for next 4 weeks
         for week in range(4):
             availability_date = next_date + timedelta(weeks=week)
             
