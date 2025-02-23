@@ -7,6 +7,8 @@ from django.core.exceptions import ValidationError
 from django.urls import reverse
 
 class UserProfileTests(TestCase):
+    # Source Links: https://docs.djangoproject.com/en/5.0/topics/testing/overview/#testcase
+    # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.TestCase
     def setUp(self):
         # Create test user
         self.user = User.objects.create_user(
@@ -23,6 +25,7 @@ class UserProfileTests(TestCase):
 
     def test_profile_creation(self):
         # Test that profile is created correctly
+        # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.TestCase.assertEqual
         self.assertEqual(self.profile.user.username, 'testuser')
         self.assertEqual(self.profile.first_name, 'Test')
         self.assertEqual(self.profile.last_name, 'User')
@@ -91,6 +94,8 @@ class AvailabilityTests(TestCase):
         self.assertEqual(self.availability.location, 'Test Location')
         self.assertFalse(self.availability.is_booked)
 
+    # Source Link: https://docs.djangoproject.com/en/5.0/ref/validators/#modelvalidator-classes
+    # https://stackoverflow.com/questions/21458387/how-to-test-validation-errors-with-django-model-tests
     def test_invalid_dates(self):
         # Test that past dates are not allowed
         yesterday = timezone.now().date() - timedelta(days=1)
@@ -146,6 +151,7 @@ class AppointmentTests(TestCase):
         self.assertEqual(appointment.status, 'pending')
         self.assertEqual(appointment.availability, self.availability)
 
+    # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testing-database-state
     def test_appointment_status_changes(self):
         # Test appointment status transitions
         appointment = Appointment.objects.create(
@@ -166,6 +172,8 @@ class AppointmentTests(TestCase):
 
 
 class ViewsTestCase(TestCase):
+    # Source Links: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client
+    # https://stackoverflow.com/questions/2619102/djangos-self-client-login-does-not-work-in-unit-tests
     def setUp(self):
         # Create test users
         self.client = Client()
@@ -196,6 +204,8 @@ class ViewsTestCase(TestCase):
             location='Test Location'
         )
 
+    # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client.get
+    # https://stackoverflow.com/questions/16143149/django-testing-check-messages-for-a-view
     def test_home_view(self):
         # Test unauthenticated user
         response = self.client.get(reverse('home'))
@@ -207,6 +217,7 @@ class ViewsTestCase(TestCase):
         response = self.client.get(reverse('home'))
         self.assertRedirects(response, reverse('index'))
 
+    # Source Link: https://stackoverflow.com/questions/7304248/how-should-i-write-tests-for-forms-in-django
     def test_edit_profile_view(self):
         self.client.login(username='testuser', password='12345')
         
