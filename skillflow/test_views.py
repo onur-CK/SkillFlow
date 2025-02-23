@@ -425,6 +425,7 @@ class AdditionalViewTests(TestCase):
 
     def test_book_appointment_already_booked(self):
         # Test booking an already booked slot
+        
         # First booking
         self.client.login(username='testuser', password='12345')
         self.client.post(reverse('book_appointment', args=[self.service.id]), {

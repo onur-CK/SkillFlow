@@ -57,3 +57,6 @@ Desktop.ini
 env.py
 .github/
 
+
+*.pyc
+__pycache__/
