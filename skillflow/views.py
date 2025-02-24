@@ -31,6 +31,10 @@ def check_static_settings(request):
     return JsonResponse(config)
 
 def check_ssl_settings(request):
+    """
+    Diagnostic view to check SSL configuration settings.
+    Returns JSON response with current SSL-related settings.
+    """
     ssl_settings = {
         'SECURE_SSL_REDIRECT': getattr(settings, 'SECURE_SSL_REDIRECT', False),
         'SECURE_HSTS_SECONDS': getattr(settings, 'SECURE_HSTS_SECONDS', 0),
@@ -44,25 +48,36 @@ def check_ssl_settings(request):
     }
     return JsonResponse(ssl_settings)
 
+# Configure logging for the views module
 logger = logging.getLogger(__name__)
 
 # This module contains all view functions for the SkillFlow application.
 # Views handle HTTP requests and return appropriate responses.
 
 def about_us(request):
-    # Renders the about page
+    """
+    Renders the about page with platform information.
+    Simple view that returns the about_us.html template.
+    """
     return render(request, 'skillflow/about_us.html')
 
 def sign_up(request):
-    # Handles user registration.
-    # Creates new user account and associated profile.
+    """
+    Handles user registration process.
+    POST: Creates new user account and associated profile
+    GET: Displays registration form
+    Creates UserProfile for new users and logs them in automatically.
+    Redirects to index page on successful registration.
+    """
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        # Source Link: https://stackoverflow.com/questions/69280755/valueerror-at-the-view-leads-views-home-page-didnt-return-an-httpresponse-obj/69280887
         if form.is_valid():
             user = form.save()
             # Create UserProfile for the new user
             UserProfile.objects.create(user=user)
             auth_login(request, user)
+            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(request, f'Welcome, {user.username}! It`s great to have you here.')
             return redirect('index')
     else:
@@ -70,6 +85,14 @@ def sign_up(request):
     return render(request, 'skillflow/sign_up.html', {'form': form})
 
 def login(request):
+    """
+    Handles user authentication.
+    POST: Authenticates user credentials and creates session
+    GET: Displays login form
+    Provides different welcome messages for first-time vs returning users.
+    Redirects to index page on successful login.
+    """
+    # Source Link: https://docs.djangoproject.com/en/5.1/topics/auth/default/#auth-web-requests
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -78,6 +101,7 @@ def login(request):
             first_login = user.last_login is None  # Check if the user has logged in before
             auth_login(request, user)
             if first_login:
+                # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
                 messages.success(request, f'Welcome, {username}! It’s great to have you here.')
             else:
                 messages.success(request, f'Welcome back, {username}!')
@@ -89,6 +113,12 @@ def login(request):
         
 @login_required
 def index(request):
+    """
+    Main dashboard view showing service listings.
+    Requires authentication.
+    Displays services filtered by category if category parameter is provided.
+    Orders services by creation date.
+    """
     category = request.GET.get('category')
     if category:
         services = Service.objects.filter(category=category).order_by('created_at')
@@ -101,14 +131,20 @@ def index(request):
 
 @login_required
 def service(request):
-    # Handles creation of new service listings.
-    # Requires user authentication.
+    """
+    Handles creation of new service listings.
+    POST: Creates new service with current user as provider
+    GET: Displays service creation form
+    Requires authentication. Associates service with current user.
+    Redirects to index on successful creation.
+    """
     if request.method == 'POST':
         form = ServiceForm(request.POST)
         if form.is_valid():
             service = form.save(commit=False)
             service.provider = request.user
             service.save()
+            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(request, f'Your service "{service.title}" has been updated successfully.')
             return redirect('index')
         else:
@@ -119,12 +155,20 @@ def service(request):
 
 @login_required
 def edit_profile(request):
-    # Get the profile
+    """
+    Handles user profile editing.
+    POST: Updates user profile information
+    GET: Displays profile editing form
+    Creates profile if it doesn't exist.
+    Shows success/error messages for form submission.
+    """
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
+        # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
         if form.is_valid():
             form.save()
+            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(request, 'Profile updated successfully!')
             return redirect('edit_profile')
         else:
@@ -138,10 +182,21 @@ def edit_profile(request):
     
 @login_required
 def manage_account(request):
+    """
+    Displays account management page.
+    Simple view that renders the account management template.
+    Requires authentication.
+    """
     return render(request, 'skillflow/manage_account.html')\
 
 @login_required
 def delete_account(request):
+    """
+    Handles account deletion.
+    POST: Deletes user account and all associated data
+    Requires authentication.
+    Redirects to about page after deletion.
+    """
     if request.method == 'POST':
         user = request.user
         user.delete()
@@ -149,13 +204,26 @@ def delete_account(request):
     return redirect('manage_account')
 
 def logout_view(request):
+    """
+    Handles user logout.
+    POST: Logs out user and ends session
+    GET: Displays logout confirmation page
+    Shows success message after logout.
+    Redirects to about page.
+    """
     if request.method == 'POST':
         auth_logout(request)
+        # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
         messages.success(request, 'You have been logged out successfully.')
         return redirect('about_us')
     return render(request, 'skillflow/logout.html')
 
 def home(request):
+    """
+    Landing page view.
+    Redirects authenticated users to index.
+    Shows about page for non-authenticated users.
+    """
     if request.user.is_authenticated:
         return redirect('index')
     return render(request, 'skillflow/about_us.html')
@@ -164,10 +232,12 @@ def home(request):
 def service(request):
     if request.method == 'POST':
         form = ServiceForm(request.POST)
+        # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
         if form.is_valid():
             service = form.save(commit=False)
             service.provider = request.user
             service.save()
+            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(request, 'Service listed successfully!')
             return redirect('index')
         else:
@@ -177,6 +247,11 @@ def service(request):
     return render(request, 'skillflow/service.html', {'form': form})
 
 def category_services(request, category):
+    """
+    Displays services filtered by category.
+    Takes category parameter to filter services.
+    Orders services by creation date.
+    """
     services = Service.objects.filter(category=category).order_by('created_at')
     return render(request, 'skillflow/index.html', {
         'services': services,
@@ -185,6 +260,14 @@ def category_services(request, category):
 
 @login_required
 def edit_service(request, service_id):
+    """
+    Handles service editing.
+    POST: Updates service information
+    GET: Displays service editing form
+    Requires authentication and verifies user owns service.
+    Shows success/error messages for form submission.
+    """
+    # Source Link: https://docs.djangoproject.com/en/5.1/topics/http/shortcuts/#get-object-or-404
     service = get_object_or_404(Service, id=service_id)
     
     # Check if the current user is the service provider
@@ -209,6 +292,12 @@ def edit_service(request, service_id):
 
 @login_required
 def delete_service(request, service_id):
+    """
+    Handles service deletion.
+    POST: Deletes service if user is owner
+    Requires authentication and verifies user owns service.
+    Shows success/error messages and redirects to my_services.
+    """
     service = get_object_or_404(Service, id=service_id)
     if service.provider != request.user:
         messages.error(request, 'You do not have permission to delete this service.')
@@ -221,7 +310,13 @@ def delete_service(request, service_id):
     
 @login_required
 def my_services(request):
-    # Django date query from newest to oldest link source: https://stackoverflow.com/questions/30314741/django-date-query-from-newest-to-oldest
+    """
+    Displays user's service listings.
+    Shows services where current user is provider.
+    Orders services by creation date (newest first).
+    """
+    # Source Link of Django date query from newest to oldest: 
+    # https://stackoverflow.com/questions/30314741/django-date-query-from-newest-to-oldest
     user_services = Service.objects.filter(provider=request.user).order_by('-created_at')
     return render(request, 'skillflow/my_services.html', {
         'user_services': user_services
@@ -230,8 +325,19 @@ def my_services(request):
 
 @login_required
 def book_appointment(request, service_id):
-    # Handles appointment booking process.
-    # Includes validation and transaction management.
+    """
+    Handles appointment booking process.
+    POST: Creates new appointment for selected time slot
+    GET: Displays available time slots for booking
+    
+    Includes validation for:
+    - Past dates
+    - Already booked slots
+    - Booking own service
+    
+    Uses transaction.atomic() for database consistency.
+    Shows success/error messages and redirects appropriately.
+    """
     service = get_object_or_404(Service, id=service_id)
     
     if request.method == 'POST':
@@ -292,7 +398,15 @@ def book_appointment(request, service_id):
 
 @login_required
 def view_appointments(request):
-    # Check for appointment success message in session
+    """
+    Displays user's appointments.
+    Shows both:
+    - Appointments for services user provides
+    - Appointments user has booked as client
+    
+    Orders appointments by date and time.
+    Handles appointment success messages from session.
+    """
     if request.session.pop('appointment_success', False):
         service_title = request.session.pop('appointment_service', '')
         messages.success(request, f'Appointment for {service_title} booked successfully!')
@@ -314,6 +428,18 @@ def view_appointments(request):
 
 @login_required
 def manage_schedule(request, service_id):
+    """
+    Handles service provider schedule management.
+    POST: Creates new availability time slot
+    GET: Displays schedule management interface
+    
+    Includes validation for:
+    - Overlapping time slots
+    - Valid dates and times
+    
+    Shows both available time slots and upcoming appointments.
+    Uses transaction management for data consistency.
+    """
     service = get_object_or_404(Service, id=service_id, provider=request.user)
     
     if request.method == 'POST':
@@ -354,7 +480,9 @@ def manage_schedule(request, service_id):
     else:
         form = AvailabilityForm()
 
-    # Get active availabilities
+    # Source Links:
+    # https://forum.djangoproject.com/t/timezone-warning-from-date-filtering-via-the-orm/11776
+    # https://www.w3schools.com/django/ref_lookups_gte.php
     availabilities = Availability.objects.filter(
         service=service,
         date__gte=timezone.now().date()
@@ -377,6 +505,22 @@ def manage_schedule(request, service_id):
 
 @login_required
 def delete_availability(request, service_id, availability_id):
+    """
+    Deletes a specific availability time slot for a service.
+    
+    Args:
+        request: The HTTP request object
+        service_id: ID of the service the availability belongs to
+        availability_id: ID of the availability slot to delete
+    
+    Requirements:
+        - User must be authenticated (enforced by @login_required)
+        - User must be the provider of the service
+        - Availability slot must not be booked
+    
+    Returns:
+        Redirects to manage_schedule view after successful deletion or error
+    """
     availability = get_object_or_404(
         Availability, 
         id=availability_id, 
@@ -395,6 +539,28 @@ def delete_availability(request, service_id, availability_id):
 
 @login_required
 def update_appointment_status(request, appointment_id):
+    """
+    Updates the status of an appointment (confirm or cancel).
+    
+    Args:
+        request: The HTTP request object
+        appointment_id: ID of the appointment to update
+    
+    Requirements:
+        - User must be authenticated (enforced by @login_required)
+        - User must be either the provider or client of the appointment
+        - For cancellations within 24 hours, enforces cancellation policy
+    
+    Workflow:
+        1. Verifies user permissions
+        2. Checks cancellation time window if applicable
+        3. Updates appointment status using database transaction
+        4. Updates related availability booking status
+        5. Sends success/error message
+    
+    Returns:
+        Redirects to appointments view after status update
+    """
     appointment = get_object_or_404(Appointment, id=appointment_id)
 
     is_provider = appointment.availability.provider == request.user
@@ -409,6 +575,7 @@ def update_appointment_status(request, appointment_id):
             # Cancellation time window check
             if new_status == 'cancelled':
                 # Calculate time until appointment
+                # Source Link: https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
                 current_datetime = timezone.now()
                 appointment_datetime = timezone.make_aware(
                     datetime.combine(
@@ -447,6 +614,21 @@ def update_appointment_status(request, appointment_id):
     return redirect('appointments')
 
 def service_detail(request, service_id):
+    """
+    Displays detailed information about a specific service.
+    
+    Args:
+        request: The HTTP request object
+        service_id: ID of the service to display
+    
+    Context:
+        - service: Service object with full details
+        - provider_profile: UserProfile object of the service provider
+    
+    Returns:
+        Renders service_detail.html template with service information
+    """
+    # Source Link: https://docs.djangoproject.com/en/5.1/topics/http/shortcuts/#get-object-or-404
     service = get_object_or_404(Service, id=service_id)
     # Get the provider's service and profile
     provider_profile = UserProfile.objects.get(user=service.provider)
@@ -456,18 +638,55 @@ def service_detail(request, service_id):
     })
 
 def cancellation_policy(request):
+    """
+    Displays the platform's cancellation policy page.
+    
+    Returns:
+        Renders cancellation_policy.html template
+    """
     return render(request, 'skillflow/cancellation_policy.html')
 
 def how_it_works(request):
+    """
+    Displays the platform's how-to guide and information page.
+    
+    Returns:
+        Renders how_it_works.html template
+    """
     return render(request, 'skillflow/how_it_works.html')
 
 def help_center(request):
+    """
+    Displays the platform's help center and support information.
+    
+    Returns:
+        Renders help_center.html template
+    """
     return render(request, 'skillflow/help_center.html')
 
 def legal(request):
+    """
+    Displays the platform's legal information, terms of service, and privacy policy.
+    
+    Returns:
+        Renders legal.html template
+    """
     return render(request, 'skillflow/legal.html')
 
 def user_info(request, service_id):
+    """
+    Displays public profile information for a service provider.
+    
+    Args:
+        request: The HTTP request object
+        service_id: ID of the service to get provider information from
+    
+    Context:
+        - provider_profile: UserProfile object with provider's public information
+    
+    Returns:
+        Renders user_info.html template with provider information
+    """
     service = get_object_or_404(Service, id=service_id)
     provider_profile = get_object_or_404(UserProfile, user=service.provider)
     return render(request, 'skillflow/user_info.html', {
