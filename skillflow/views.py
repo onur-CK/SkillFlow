@@ -1,3 +1,5 @@
+# views.py - Main application views for SkillFlow
+# Contains view functions for handling HTTP requests and responses
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required

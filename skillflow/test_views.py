@@ -339,8 +339,8 @@ class ViewsTestCase(TestCase):
         1. Providers can delete their services
         2. Proper redirection occurs after deletion
         3. Service is actually removed from database
-        Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#assertredirects
         """
+        # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#assertredirects
         self.client.login(username='provider', password='12345')
         response = self.client.post(reverse('delete_service', args=[self.service.id]))
         self.assertRedirects(response, reverse('my_services'))

@@ -67,8 +67,8 @@ class UserProfileFormTests(TestCase):
         """
         Test that the profile form enforces maximum bio length.
         Ensures bio text cannot exceed 200 characters.
-        Source Link: https://docs.djangoproject.com/en/5.0/ref/validators/#maxlengthvalidator
         """
+        # Source Link: https://docs.djangoproject.com/en/5.0/ref/validators/#maxlengthvalidator
         long_bio = 'x' * 201  # Create bio text that exceeds max length
         form_data = {
             'first_name': 'Test',
@@ -90,8 +90,8 @@ class ServiceFormTests(TestCase):
         """
         Test that the service form rejects invalid hourly rates.
         Verifies negative hourly rates are not allowed.
-        Source Link: https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model
         """
+        # Source Link: https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model
         form_data = {
             'title': 'Test Service',
             'description': 'Test Description',
@@ -111,8 +111,8 @@ class AvailabilityFormTests(TestCase):
         """
         Test that the availability form rejects invalid dates.
         Ensures past dates cannot be used for scheduling.
-        Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.utils.timezone_override
         """
+        # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.utils.timezone_override
         yesterday = timezone.now().date() - timedelta(days=1)
         form_data = {
             'date': yesterday,
