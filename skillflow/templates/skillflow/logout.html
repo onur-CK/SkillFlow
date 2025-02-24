@@ -1,19 +1,41 @@
+<!-- Source Link: https://docs.djangoproject.com/en/5.1/ref/templates/language/#template-inheritance-->
 {% extends 'skillflow/base.html' %}
 {% block content %}
+<!-- Main container for the logout confirmation section -->
 <main class="signup-section">
+    <!-- Source Link for container, row and col-md: https://getbootstrap.com/docs/5.3/layout/grid/ -->
     <div class="container">
+        <!-- Centered row with responsive column sizing -->
         <div class="row justify-content-center">
+            <!-- Column width: full on mobile, half on medium screens and up -->
             <div class="col-md-6">
+                <!-- Card container for logout confirmation content -->
                 <div class="form-card">
+                    <!-- Card title -->
                     <h4 class="form-title">Signout Confirmation</h4>
+                    <!-- Centered confirmation message container -->
                     <div class="text-center mb-4">
+                        <!-- Logout icon with styling -->
+                        <!-- Source Link: https://docs.fontawesome.com/web/style/styling -->
                         <i class="fas fa-sign-out-alt fa-2x mb-5 text-white"></i>
+                        <!-- Confirmation message text -->
                         <p class="text-white mb-4">Are you sure you want to sign out? You will be redirected to the home page.</p>
                     </div>
+                    <!-- Logout form with POST method for secure logout -->
+                    <!-- {% url 'logout' %} Source Link: https://docs.djangoproject.com/en/5.1/topics/http/urls/#reverse-resolution-of-urls -->
+                    <!-- POST Method Implementation Source Link: https://www.w3schools.com/html/html_forms.asp -->
                     <form method="POST" action="{% url 'logout' %}">
+                        <!-- Django CSRF token for form security -->
+                        <!-- Source Link: https://docs.djangoproject.com/en/5.1/ref/csrf/ -->
                         {% csrf_token %}
+                        
+                        <!-- Button container with vertical spacing -->
                         <div class="d-grid gap-3">
+                            <!-- Confirm logout button -->
+                            <!-- btn, btn-primary, btn-outline-light usage Source Link: https://getbootstrap.com/docs/5.3/components/buttons/ -->
                             <button type="submit" class="btn btn-primary custom-submit">Yes, Sign Out</button>
+                            <!-- Cancel button that returns to index page -->
+                            <!-- {% url 'index' %} Source Link: https://docs.djangoproject.com/en/5.1/topics/http/urls/#reverse-resolution-of-urls -->
                             <a href="{% url 'index' %}" class="btn btn-outline-light w-100">No, Stay Logged In</a>
                         </div>
                     </form>
