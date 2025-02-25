@@ -14,6 +14,7 @@
                     <div class="mb-4">
                         <h5 class="text-white mb-3">Service Details</h5>
                         <!-- Table Section -->
+                        <!-- Source Link: https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
                         <div class="table-responsive">
                             <table class="table table-dark">
                                 <tr>
@@ -33,10 +34,12 @@
                     </div>
 
                     <!-- Availability Selection Section - Only shown if time slots exist -->
+                    <!-- Source Link: https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#if -->
                     {% if availabilities %}
                     <h5 class="text-white mb-3">Available Time Slots</h5>
                     <!-- POST form for submitting booking selection -->
                     <form method="POST">
+                        <!-- Source: https://docs.djangoproject.com/en/5.1/ref/csrf/ -->
                         {% csrf_token %}
                         <div class="table-responsive">
                             <!-- Table for available time slots -->
@@ -55,9 +58,11 @@
                                     <tr>
                                         <td>
                                             <!-- Radio button for slot selection -->
+                                            <!-- Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required --> 
                                             <input type="radio" name="availability" value="{{ slot.id }}"
                                                 class="form-check-input" required>
                                         </td>
+                                        <!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#date -->
                                         <td>{{ slot.date }}</td>
                                         <td>{{ slot.start_time }} - {{ slot.end_time }}</td>
                                         <td>{{ slot.location }}</td>
@@ -67,6 +72,7 @@
                             </table>
                         </div>
                         <!-- Action buttons container -->
+                        <!-- Source: https://getbootstrap.com/docs/5.3/utilities/spacing/#gap -->
                         <div class="d-grid gap-2 mt-4">
                             <!-- Submit button for booking confirmation -->
                             <button type="submit" class="btn btn-primary custom-submit">Book Appointment</button>
