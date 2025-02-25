@@ -1,20 +1,24 @@
 {% extends 'skillflow/base.html' %}
 {% block content %}
 <!-- Main Container for Appointments Page -->
+<!-- This section uses Bootstrap's container system for responsive layout -->
 <main class="sign-up section">
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <!-- Card Container for All Appointment Content -->
+                <!-- Uses custom form-card styling for dark theme consistency -->
                 <div class="form-card">
                     <h4 class="form-title">My Appointments</h4>
 
                     <!-- Provider Appointments Section -->
+                    <!-- Only displayed if the user has appointments as a service provider --> 
                     {% if provider_appointments %}
                     <div class="mb-4">
                         <h5 class="text-white mb-3">Appointments for Your Services</h5>
                         
                         <!-- Table Container -->
+                        <!-- Source: https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
                         <div class="table-responsive">
                             <table class="table table-dark">
                                 <thead>
@@ -25,8 +29,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <!-- Loop Through Provider's Appointments -->
                                     {% for appointment in provider_appointments %}
                                     <tr>
+                                        <!-- Service and Client Information Column -->
+                                        <!-- Source: https://getbootstrap.com/docs/5.3/utilities/flex/#direction --> 
                                         <td>
                                             <div class="d-flex flex-column">
                                                 <small class="text-white-50">{{ appointment.availability.service.title }}</small>
@@ -34,24 +41,32 @@
                                             </div>
                                         </td>
                                         <td>
+                                            <!-- Date, Time, and Location Column -->
                                             <div class="d-flex flex-column">
                                                 <small class="text-white-50">Date: {{ appointment.availability.date|date:"M d, Y" }}</small>
                                                 <small class="text-white-50">Time: {{ appointment.availability.start_time|time:"g:i A" }} - {{ appointment.availability.end_time|time:"g:i A" }}</small>
                                                 <small class="text-white-50">Location: {{ appointment.availability.location }}</small>
                                             </div>
                                         </td>
+                                        <!-- Status and Action Buttons Column -->
                                         <td>
-                                            
+                                            <!-- Conditional Display Based on Appointment Status -->
+                                            <!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#if --> 
                                             {% if appointment.status == 'pending' %}
+                                            <!-- Action Buttons for Pending Appointments -->
                                             <div class="d-flex flex-column flex-sm-row gap-1">
+                                                <!-- Confirm Appointment Form -->
+                                                <!-- Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm --> 
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline w-100">
                                                     {% csrf_token %}
                                                     <input type="hidden" name="status" value="confirmed">
+                                                    <!-- Source: https://getbootstrap.com/docs/5.3/components/buttons/#sizes -->
                                                     <button type="submit" class="btn btn-success w-100" style="font-size: 0.8rem; padding: 0.25rem 0.5rem;">
                                                         <i class="fas fa-check"></i>
                                                         <span class="d-none d-sm-inline">Confirm</span>
                                                     </button>
                                                 </form>
+                                                <!-- Cancel Appointment Form -->
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
                                                     class="d-inline w-100" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
                                                     {% csrf_token %}
@@ -63,8 +78,11 @@
                                                 </form>
                                             </div>
                                         {% elif appointment.status == 'confirmed' %}
+                                            <!-- Display for Confirmed Appointments -->
                                             <div class="d-flex gap-2 align-items-center">
+                                                <!-- Source: https://getbootstrap.com/docs/5.3/components/badge/ -->
                                                 <span class="badge bg-success">Confirmed</span>
+                                                <!-- Cancel Confirmed Appointment Form -->
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
                                                     class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this confirmed appointment?');">
                                                     {% csrf_token %}
@@ -75,6 +93,7 @@
                                                 </form>
                                             </div>
                                         {% else %}
+                                            <!-- Display for Cancelled Appointments -->
                                             <span class="badge bg-danger">{{ appointment.get_status_display }}</span>
                                         {% endif %}
                                     </td>
@@ -87,9 +106,11 @@
                     {% endif %}
 
                     <!-- Client Appointments Section -->
+                    <!-- Only displayed if the user has appointments as a client --> 
                     {% if client_appointments %}
                     <div>
                         <h5 class="text-white mb-3">Your Booked Appointments</h5>
+                        <!-- Source Link: https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
                         <div class="table-responsive">
                             <table class="table table-dark">
                                 <thead>
@@ -100,28 +121,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <!-- Loop Through Client's Appointments -->
                                     {% for appointment in client_appointments %}
                                     <tr>
                                         <td>
+                                            <!-- Service and Provider Information Column -->
                                             <div class="d-flex flex-column">
                                                 <small class="text-white-50">{{ appointment.availability.service.title }}</small>
                                                 <small class="text-white-50">Provider: {{ appointment.availability.provider.username }}</small>
                                             </div>
                                         </td>
                                         <td>
+                                            <!-- Appointment Details Column -->
                                             <div class="d-flex flex-column">
                                                 <small class="text-white-50">Date: {{ appointment.availability.date|date:"M d, Y" }}</small>
                                                 <small class="text-white-50">Time: {{ appointment.availability.start_time|time:"g:i A" }} - {{ appointment.availability.end_time|time:"g:i A" }}</small>
                                                 <small class="text-white-50">Location: {{ appointment.availability.location }}</small>
                                             </div>
                                         </td>
+                                        <!-- Status and Actions Column -->
                                         <td>
-
+                                            <!-- Conditional Display Based on Appointment Status -->
                                             {% if appointment.status == 'pending' or appointment.status == 'confirmed' %}
                                             <div class="d-flex gap-2 align-items-center">
+                                                <!-- Status Badge -->
                                                 <span class="badge {% if appointment.status == 'confirmed' %}bg-success{% else %}bg-warning{% endif %}">
                                                     {{ appointment.get_status_display }}
                                                 </span>
+                                                <!-- Cancel Appointment Form -->
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" 
                                                       class="d-inline" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
                                                     {% csrf_token %}
@@ -132,6 +159,7 @@
                                                 </form>
                                             </div>
                                         {% else %}
+                                            <!-- Display for Cancelled Appointments -->
                                             <span class="badge bg-danger">{{ appointment.get_status_display }}</span>
                                         {% endif %}
                                     </td>
@@ -144,6 +172,7 @@
                     {% endif %}
 
                     <!-- No Appointments Message -->
+                    <!-- Displayed when user has no appointments as either provider or client -->
                     {% if not provider_appointments and not client_appointments %}
                     <div class="text-center text-white">
                         <p>You don't have any appointments yet.</p>
