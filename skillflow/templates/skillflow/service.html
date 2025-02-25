@@ -1,13 +1,20 @@
 {% extends 'skillflow/base.html' %}
 {% block content %}
+<!-- Main container for service creation form -->
 <main class="signup-section">
     <div class="container">
+        <!-- Center-align the form in medium and larger screens -->
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <!-- Card container for the service creation form -->
                 <div class="form-card">
+                    <!-- Form title -->
                     <h4 class="form-title">Create Service Listing</h4>
+                    <!-- Service creation form -->
                     <form method="POST" action="{% url 'service' %}">
+                        <!-- CSRF token for form security -->
                         {% csrf_token %}
+                        <!-- Error message display section -->
                         {% if form.errors %}
                         <div class="alert alert-danger">
                             {% for field in form %}
@@ -16,31 +23,41 @@
                             {% endfor %}
                             {% endfor %}
                         </div>
+                        <!-- Source: https://docs.djangoproject.com/en/5.1/topics/forms/#rendering-form-error-messages -->
                         {% endif %}
 
+                        <!-- Category selection field -->
                         <div class="mb-3">
                             <label for="{{ form.category.id_for_label }}" class="form-label">Category</label>
                             {{ form.category }}
                         </div>
+                        <!-- Source: https://docs.djangoproject.com/en/5.1/ref/forms/api/#django.forms.BoundField.id_for_label -->
 
+                        <!-- Service title input field -->
                         <div class="mb-3">
                             <label for="{{ form.title.id_for_label }}" class="form-label">Service Title</label>
                             {{ form.title }}
                         </div>
 
+                        <!-- Hourly rate input field -->
                         <div class="mb-3">
                             <label for="{{ form.hourly_rate.id_for_label }}" class="form-label">Hourly Rate (€)</label>
                             {{ form.hourly_rate }}
                         </div>
 
+                        <!-- Service description textarea with character counter -->
                         <div class="mb-4">
                             <label for="{{ form.description.id_for_label }}" class="form-label">Service
                                 Description</label>
                             {{ form.description }}
+                            <!-- Character count display -->
                             <div class="form-text text-end" id="charCount">0/500 characters</div>
+                            <!-- Source: https://getbootstrap.com/docs/5.3/forms/form-control/#form-text -->
                         </div>
 
+                        <!-- Form submission button -->
                         <button type="submit" class="btn btn-primary custom-submit w-100">Create Listing</button>
+                        <!-- Source: https://getbootstrap.com/docs/5.3/components/buttons/#button-tags -->
                     </form>
                 </div>
             </div>
@@ -48,7 +65,7 @@
     </div>
 </main>
 
-
+<!-- JavaScript for character counting functionality -->
 <script>
     // Wait for the DOM to be fully loaded before executing any JavaScript
     document.addEventListener('DOMContentLoaded', function () {
@@ -62,6 +79,7 @@
             charCount.textContent = descriptionField.value.length + '/500 characters';
 
             // Add a real-time character counter that updates as the user types
+            // Source: https://stackoverflow.com/questions/5371089/count-characters-in-textarea
             descriptionField.addEventListener('input', function () {
                 // Update the character count display with the current length of the description
                 charCount.textContent = this.value.length + '/500 characters';
