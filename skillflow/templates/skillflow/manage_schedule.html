@@ -1,7 +1,10 @@
 {% extends 'skillflow/base.html' %}
+<!-- Django template language: https://docs.djangoproject.com/en/5.1/ref/templates/language/ -->
+<!-- Django for loop: https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#for -->
 {% block content %}
 <main class="signup-section">
     <div class="container">
+        <!-- Row and column layout Source Link: https://getbootstrap.com/docs/5.3/layout/grid/ -->
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="form-card">
@@ -9,6 +12,7 @@
 
                     
                     <!-- Time Slot Creation Form -->
+                    <!-- Source Link: https://getbootstrap.com/docs/5.3/forms/layout/ -->
                     <form method="POST" class="mb-5">
                         {% csrf_token %}
                         <div class="row g-3 align-items-end">
@@ -40,6 +44,8 @@
                     <div class="mb-4">
                         <h5 class="text-white text-center mb-3 mt-3">Available Time Slots</h5>
                         <div class="table-responsive">
+                            <!-- Table responsive design Source Link: https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
+                            <!-- Table styling: https://getbootstrap.com/docs/5.3/content/tables/#variants -->
                             <table class="table table-dark table-hover">
                                 <thead>
                                     <tr>
@@ -58,6 +64,7 @@
                                             <td>{{ slot.location }}</td>
                                             <td>
                                                 {% if slot.is_booked %}
+                                                    <!-- Source: https://getbootstrap.com/docs/5.3/components/badge/ -->
                                                     <span class="badge bg-warning">Booked</span>
                                                 {% else %}
                                                     <span class="badge bg-success">Available</span>
@@ -66,8 +73,10 @@
                                             <td>
                                                 {% if not slot.is_booked %}
                                                     <div class="btn-group">
+                                                        <!-- Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm -->
                                                         <form method="POST" action="{% url 'delete_availability' service.id slot.id %}" 
                                                               class="d-inline" onsubmit="return confirm('Delete this time slot?');">
+                                                            <!-- Django CSRF protection: https://docs.djangoproject.com/en/5.1/ref/csrf/ -->  
                                                             {% csrf_token %}
                                                             <button type="submit" class="btn btn-sm btn-outline-danger">
                                                                 <i class="fas fa-trash"></i>
@@ -90,6 +99,7 @@
                     <!-- Upcoming Appointments Section -->
                     <div>
                         <h5 class="text-white text-center mb-3">Upcoming Appointments</h5>
+                        <!-- Table responsive design: https://getbootstrap.com/docs/5.3/content/tables/#responsive-tables -->
                         <div class="table-responsive">
                             <table class="table table-dark table-hover">
                                 <thead>
@@ -104,6 +114,7 @@
                                 <tbody>
                                     {% for appointment in appointments %}
                                     <tr>
+                                        <!-- Django date filter: https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#date -->
                                         <td>{{ appointment.availability.date|date:"F j, Y" }}</td>
                                         <td>{{ appointment.availability.start_time }} - {{ appointment.availability.end_time }}</td>
                                         <td>{{ appointment.client.username }}</td>
