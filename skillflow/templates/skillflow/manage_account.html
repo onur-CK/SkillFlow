@@ -1,22 +1,35 @@
 {% extends 'skillflow/base.html' %}
+<!-- Bootstrap Modal Documentation: https://getbootstrap.com/docs/5.3/components/modal/ -->
+<!-- Bootstrap Card Documentation: https://getbootstrap.com/docs/5.3/components/card/ -->
 {% block content %}
+<!-- Main Account Management Section -->
 <main class="signup-section">
     <div class="container">
+        <!-- Responsive Row with Centered Content -->
         <div class="row justify-content-center">
+            <!-- Column with responsive breakpoints -->
             <div class="col-12 col-md-8 col-lg-6">
-                <!-- Main confirmation card -->
+                <!-- Primary Card Container for Account Deletion -->
                 <div class="form-card mb-4">
+                    <!-- Card Header -->
                     <h4 class="form-title">Delete Account</h4>
+                    <!-- Initial Warning Content -->
                     <div class="text-center mb-4">
+                        <!-- Warning Icon -->
                         <i class="fas fa-trash-alt fa-2x mb-4 text-danger"></i>
+                        <!-- Warning Message -->
                         <p class="text-white mb-4">
                             Are you sure you want to delete your account? This action is permanent and cannot be undone.
                         </p>
                     </div>
+
+                    <!-- Action Buttons Container -->
                     <div class="d-grid gap-3">
+                        <!-- Delete Button -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#finalWarningModal">
                             Delete My Account
                         </button>
+                         <!-- Cancel Button -->
                         <a href="{% url 'index' %}" class="btn btn-outline-light">Keep My Account</a>
                     </div>
                 </div>
@@ -26,20 +39,32 @@
 </main>
 
 <!-- Final Warning Modal -->
+<!-- Source: https://getbootstrap.com/docs/5.3/components/modal/#vertically-centered -->
 <div class="modal fade" id="finalWarningModal" tabindex="-1" aria-labelledby="finalWarningModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
+        <!-- Modal Content Container with Dark Theme -->
         <div class="modal-content bg-dark text-white">
+            <!-- Modal Header -->
             <div class="modal-header border-secondary">
                 <h5 class="modal-title" id="finalWarningModalLabel">
+                    <!-- Warning Icon and Title -->
                     <i class="fas fa-exclamation-triangle text-warning me-2"></i>
                     Final Warning
                 </h5>
+                <!-- Close Button -->
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
+            <!-- Modal Body -->
             <div class="modal-body">
+                <!-- Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                <!-- Font Awesome Icons: https://fontawesome.com/v5/docs/web/use-with/bootstrap -->
                 <div class="text-center">
+                    <!-- Large Warning Icon -->
                     <i class="fas fa-exclamation-circle text-warning fa-3x mb-3"></i>
+                    <!-- Final Warning Message -->
                     <p>This will permanently delete your account and all associated data. This action cannot be reversed.</p>
+                    <!-- List of Consequences -->
                     <ul class="text-start text-white-50 mb-0">
                         <li>All your service listings will be removed</li>
                         <li>Your scheduled appointments will be cancelled</li>
@@ -48,12 +73,18 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- Modal Footer with Action Buttons -->
             <div class="modal-footer border-secondary justify-content-center">
+                <!-- Cancel Button -->
                 <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">
                     <i class="fas fa-times"></i> Cancel
                 </button>
+                <!-- Final Delete Form -->
+                <!-- Django CSRF Protection: https://docs.djangoproject.com/en/5.1/ref/csrf/ --> 
                 <form method="POST" action="{% url 'delete_account' %}" class="d-inline">
                     {% csrf_token %}
+                    <!-- Permanent Delete Button -->
                     <button type="submit" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Permanently Delete Account
                     </button>
