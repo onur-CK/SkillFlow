@@ -1,29 +1,55 @@
-
+<!-- Extends the base template to maintain consistent site layout -->
+<!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/language/#template-inheritance -->
 {% extends 'skillflow/base.html' %}
+
+<!-- Start of content block that will be inserted into base template -->
 {% block content %}
 <main class="signup-section">
     <div class="container">
+        <!-- Center-aligned container for the login form -->
         <div class="row justify-content-center">
+            <!-- Responsive column that takes up half the width on medium screens and up -->
             <div class="col-md-6">
+                <!-- Card container for the login form with custom styling -->
                 <div class="form-card">
+                    <!-- Form title/header -->
                     <h4 class="form-title">Login to SkillFlow</h4>
+
+                    <!-- Login form with POST method -->
+                    <!-- Source: https://getbootstrap.com/docs/5.3/forms/overview/ -->
                     <form method="POST" action="{% url 'login' %}">
+                        <!-- Django CSRF protection token -->
+                        <!-- Source: https://docs.djangoproject.com/en/5.1/ref/csrf/ --> 
                         {% csrf_token %}
+
+                        <!-- Username input field -->
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
+                            <!-- Source: https://getbootstrap.com/docs/5.3/forms/form-control/ -->
                             <input type="text" class="form-control custom-input" id="username" name="username" required />
                         </div>
+
+                        <!-- Password input field with custom styling -->
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
+                            <!-- Source: https://getbootstrap.com/docs/5.3/forms/input-group/ -->
                             <div class="input-group">
                                 <input type="password" class="form-control custom-input" id="password" name="password" required />
                             </div>
                         </div>
+
+                        <!-- Remember me checkbox -->
+                        <!-- Source: https://getbootstrap.com/docs/5.3/forms/checks-radios/ --> 
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" id="rememberMe" name="remember">
                             <label class="form-check-label text-white" for="rememberMe">Remember me</label>
                         </div>
+
+                        <!-- Login button with custom styling -->
+                        <!-- Source: https://getbootstrap.com/docs/5.3/components/buttons/ -->
                         <button type="submit" class="btn btn-primary custom-submit w-100 mb-3">Login</button>
+
+                        <!-- Sign-up link for new users -->
                         <div class="text-center">
                             <p class="toggle-text">Don't have an account?<a href="{% url 'sign_up' %}" class="custom-link"> Sign-up</a></p>
                         </div>
