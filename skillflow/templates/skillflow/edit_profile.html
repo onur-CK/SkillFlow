@@ -10,8 +10,10 @@
                     <h4 class="form-title">Account Information</h4>
 
                     <!-- Display current profile information if it exists -->
+                    <!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/language/#if --> 
                     {% if profile.first_name or profile.last_name or profile.email or profile.bio %}
                     <div id="infoDisplay" class="current-info mb-4">
+                        <!-- Profile info display -->
                         <div class="text-white mb-3">
                             <strong>Name:</strong>
                             {{ profile.first_name }} {{ profile.last_name|default:"Not set" }}
@@ -32,6 +34,7 @@
                     {% endif %}
 
                     <!-- Profile editing form - hidden by default if profile info exists -->
+                    <!-- Source: https://docs.djangoproject.com/en/5.1/topics/forms/ --> 
                     <form method="POST" action="{% url 'edit_profile' %}" id="profileForm" {% if profile.first_name or profile.last_name or profile.email or profile.bio %}style="display: none;" {% endif %}>
                         {% csrf_token %}
                         <!-- Form input fields for profile information -->
@@ -55,6 +58,7 @@
                             <label for="bio" class="form-label">Bio</label>
                             <textarea class="form-control custom-input" id="bio" name="bio" rows="4"
                                 maxlength="200">{{ profile.bio }}</textarea>
+                            <!-- Source: https://stackoverflow.com/questions/5371089/count-characters-in-textarea -->    
                             <div class="form-text text-end" id="charCount">
                                 <span id="currentCount">{{ profile.bio|length }}</span>/200 characters
                             </div>
@@ -81,6 +85,7 @@
     };
 
     // Initialize event handlers and capture original form values when the DOM is fully loaded
+    // Source: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
     document.addEventListener('DOMContentLoaded', function () {
         // Store initial form values to enable form reset functionality
         originalValues.firstName = document.getElementById('firstName').value;
@@ -107,6 +112,7 @@
     /**
      * Shows the edit form and hides the proflie information display
      * Used when user clicks "Edit Profile" button
+     * Source Link: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
     */
     function showEditForm() {
         document.getElementById('profileForm').style.display = 'block';
