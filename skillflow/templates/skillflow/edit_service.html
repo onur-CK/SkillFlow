@@ -9,9 +9,11 @@
                 <div class="form-card">
                     <h4 class="form-title">Edit Service Listing</h4>
                     <!-- Form for editing service details -->
+                    <!-- Source: https://docs.djangoproject.com/en/5.1/topics/forms/ -->
                     <form method="POST" action="{% url 'edit_service' service.id %}">
                         {% csrf_token %}
                         <!-- Error messages display section -->
+                        <!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#for -->
                         {% if form.errors %}
                         <div class="alert alert-danger">
                             {% for field in form %}
@@ -23,6 +25,7 @@
                         {% endif %}
 
                         <!-- Category selection field -->
+                        <!-- Source: https://docs.djangoproject.com/en/5.1/topics/forms/#rendering-fields-manually -->
                         <div class="mb-3">
                             <label for="{{ form.category.id_for_label }}" class="form-label">Category</label>
                             {{ form.category }}
@@ -59,8 +62,10 @@
     </div>
 </main>
 
+<!-- Source: https://stackoverflow.com/questions/5371089/count-characters-in-textarea -->
 <script>
     // Wait for the DOM to be fully loaded before executing any JavaScript
+    // Source Link: https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
     document.addEventListener('DOMContentLoaded', function () {
         // Get references to the description textarea and character counter elements
         const descriptionField = document.getElementById('{{ form.description.id_for_label }}');
