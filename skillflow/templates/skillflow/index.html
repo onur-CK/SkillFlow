@@ -3,6 +3,7 @@
 {% block content %}
 <section class="category-section">
     <div class="container">
+        <!-- Source: https://getbootstrap.com/docs/5.3/layout/grid/#row-columns -->
         <div class="row justify-content-center text-center g-4">
             <!-- Home Care Category -->
             <div class="col">
@@ -57,8 +58,11 @@
 <main class="service-cards-section">
     <div class="container">
         <!-- Grid layout for service cards -->
+        <!-- Source: https://getbootstrap.com/docs/5.3/layout/grid/#grid-system -->
         <div class="row g-4">
+            <!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/language/#for -->
             {% for service in services %}
+            <!-- Source: https://getbootstrap.com/docs/5.3/components/card/ -->
             <!-- Individual Service Card -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
@@ -85,6 +89,7 @@
                             <a href="{% url 'service_detail' service.id %}" class="btn btn-sm btn-outline-light flex-grow-1">
                                 <i class="fas fa-eye"></i> View More
                             </a>
+                            <!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/language/#if-elif-else -->
                             {% if user != service.provider %}
                             <a href="{% url 'book_appointment' service.id %}" class="btn btn-sm btn-outline-light flex-grow-1">
                                 <i class="fas fa-calendar-plus"></i> Book
