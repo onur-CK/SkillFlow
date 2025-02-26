@@ -22,7 +22,7 @@ from .models import Service
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
-
+from django.conf import settings 
 
 # URL configuration for the SkillFlow project.
 # Defines URL patterns and maps them to corresponding views.
@@ -74,5 +74,5 @@ urlpatterns = [
     
     # Manifest and favicon
     path('site.webmanifest', views.manifest_view, name='manifest'),
-    path('favicon.ico', RedirectView.as_view(url='/static/img/favicon/favicon.ico')),
+   path('favicon.ico', RedirectView.as_view(url=f'{settings.STATIC_URL}img/favicon/favicon.ico')),
 ]
