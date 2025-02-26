@@ -52,7 +52,8 @@ class ServiceForm(forms.ModelForm):
             'hourly_rate': forms.NumberInput(attrs={
                 'class': 'form-control custom-input',
                 'placeholder': 'Enter your hourly rate',
-                'min': '1'
+                'min': '1',
+                'max': '9999.99'
             })
         }
 
