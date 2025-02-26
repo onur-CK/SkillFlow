@@ -16,6 +16,8 @@ from django.db import IntegrityError
 from datetime import datetime
 from django.http import JsonResponse
 from django.conf import settings
+from django.templatetags.static import static
+
 
 def check_static_settings(request):
    
@@ -693,3 +695,23 @@ def user_info(request, service_id):
         'provider_profile': provider_profile
     })
 
+def manifest_view(request):
+    manifest = {
+        "name": "SkillFlow",
+        "short_name": "SkillFlow",
+        "icons": [
+            {
+                "src": static('img/favicon/android-chrome-192x192.png'),
+                "sizes": "192x192",
+                "type": "image/png"
+            },
+            {
+                "src": static('img/favicon/android-chrome-512x512.png'),
+                "sizes": "512x512",
+                "type": "image/png"
+            }
+        ],
+        "theme_color": "#00beef",
+        "background_color": "#FFF",
+        "display": "standalone"
+    }

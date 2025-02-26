@@ -22,7 +22,7 @@ from .models import Service
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
-from django.conf import settings 
+
 
 # URL configuration for the SkillFlow project.
 # Defines URL patterns and maps them to corresponding views.
@@ -73,9 +73,6 @@ urlpatterns = [
     path('check-static/', views.check_static_settings, name='check_static'),
     
     # Manifest and favicon
-    path('site.webmanifest', TemplateView.as_view(
-        template_name='skillflow/manifest.json',
-        content_type='application/manifest+json'
-    ), name='manifest'),
-    path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'static/img/favicon/favicon.ico')),
+    path('site.webmanifest', views.manifest_view, name='manifest'),
+    path('favicon.ico', RedirectView.as_view(url='/static/img/favicon/favicon.ico')),
 ]

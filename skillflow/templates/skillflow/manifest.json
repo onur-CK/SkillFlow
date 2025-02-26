@@ -1,4 +1,3 @@
-{% load static %}
 {
     "name": "SkillFlow",
     "short_name": "SkillFlow",
@@ -17,4 +16,4 @@
     "theme_color": "#00beef",
     "background_color": "#FFF",
     "display": "standalone"
-  }
+}
