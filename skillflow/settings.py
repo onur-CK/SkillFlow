@@ -14,9 +14,6 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 import dj_database_url
-import django_heroku
-
-django_heroku.settings(locals())
 
 # Load environment variables from .env file
 # Source: https://pypi.org/project/python-dotenv/
