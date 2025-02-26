@@ -602,3 +602,18 @@ h1 {
         justify-content: flex-start;
     }
 }
+
+/* --------------------------------------------------------------------------- Date and time input icons */
+
+/* Style for date and time input icons */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);  /* Inverts the colors, making dark icons white */
+    cursor: pointer;    /* Changes cursor to pointer on hover */
+}
+
+/* For Firefox and other browsers that support color-scheme */
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;  /* Tells the browser to use the dark theme for these inputs */
+}
