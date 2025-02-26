@@ -17,7 +17,44 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.conf import settings
 from django.templatetags.static import static
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+
+def manifest_view(request):
+    """
+    Serves the web app manifest file.
+    This JSON file provides metadata for Progressive Web Apps.
+    """
+    manifest = {
+        "name": "SkillFlow",
+        "short_name": "SkillFlow",
+        "icons": [
+            {
+                "src": "/static/img/favicon/android-chrome-192x192.png",
+                "sizes": "192x192",
+                "type": "image/png"
+            },
+            {
+                "src": "/static/img/favicon/android-chrome-512x512.png",
+                "sizes": "512x512",
+                "type": "image/png"
+            },
+            {
+            "src": "/static/img/favicon/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+            },
+            {
+            "src": "/static/img/favicon/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+            }
+        ],
+        "theme_color": "#00beef",
+        "background_color": "#0D1014",
+        "display": "standalone"
+    }
+    return JsonResponse(manifest)
+
 
 
 def check_static_settings(request):

@@ -22,6 +22,7 @@ from .models import Service
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
+from django.conf import settings
 
 
 # URL configuration for the SkillFlow project.
@@ -72,4 +73,9 @@ urlpatterns = [
     path('check-ssl/', views.check_ssl_settings, name='check_ssl'),
     path('check-static/', views.check_static_settings, name='check_static'),
     
+    # Favicon redirect
+    path('favicon.ico', RedirectView.as_view(url=f'{settings.STATIC_URL}img/favicon/favicon.ico')),
+    
+    # Serve manifest.json
+    path('site.webmanifest', views.manifest_view, name='manifest'),
 ]
