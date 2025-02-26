@@ -17,6 +17,7 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.conf import settings
 from django.templatetags.static import static
+from django.http import HttpResponse
 
 
 def check_static_settings(request):
@@ -696,6 +697,16 @@ def user_info(request, service_id):
     })
 
 def manifest_view(request):
+    """
+    Generates and returns a web app manifest file as a JSON response.
+    This manifest provides metadata for web app installation on devices.
+    
+    Args:
+        request: The HTTP request object
+        
+    Returns:
+        JsonResponse containing the manifest data with appropriate content type
+    """
     manifest = {
         "name": "SkillFlow",
         "short_name": "SkillFlow",
@@ -715,3 +726,8 @@ def manifest_view(request):
         "background_color": "#FFF",
         "display": "standalone"
     }
+    
+    # Return the manifest as a JSON response with appropriate content type
+    response = JsonResponse(manifest)
+    response['Content-Type'] = 'application/manifest+json'
+    return response
