@@ -74,5 +74,5 @@ urlpatterns = [
     
     # Manifest and favicon
     path('site.webmanifest', views.manifest_view, name='manifest'),
-   path('favicon.ico', RedirectView.as_view(url=f'{settings.STATIC_URL}img/favicon/favicon.ico')),
+    path('favicon.ico', RedirectView.as_view(url=f'{settings.STATIC_URL}img/favicon/favicon.ico')),
 ]

@@ -696,38 +696,3 @@ def user_info(request, service_id):
         'provider_profile': provider_profile
     })
 
-def manifest_view(request):
-    """
-    Generates and returns a web app manifest file as a JSON response.
-    This manifest provides metadata for web app installation on devices.
-    
-    Args:
-        request: The HTTP request object
-        
-    Returns:
-        JsonResponse containing the manifest data with appropriate content type
-    """
-    manifest = {
-        "name": "SkillFlow",
-        "short_name": "SkillFlow",
-        "icons": [
-            {
-                "src": static('img/favicon/android-chrome-192x192.png'),
-                "sizes": "192x192",
-                "type": "image/png"
-            },
-            {
-                "src": static('img/favicon/android-chrome-512x512.png'),
-                "sizes": "512x512",
-                "type": "image/png"
-            }
-        ],
-        "theme_color": "#00beef",
-        "background_color": "#FFF",
-        "display": "standalone"
-    }
-    
-    # Return the manifest as a JSON response with appropriate content type
-    response = JsonResponse(manifest)
-    response['Content-Type'] = 'application/manifest+json'
-    return response
