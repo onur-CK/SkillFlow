@@ -77,5 +77,5 @@ urlpatterns = [
         template_name='skillflow/manifest.json',
         content_type='application/manifest+json'
     ), name='manifest'),
-    path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'img/favicon/favicon.ico')),
+    path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'static/img/favicon/favicon.ico')),
 ]
