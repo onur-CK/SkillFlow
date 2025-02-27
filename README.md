@@ -151,6 +151,112 @@ SkillFlow is designed to be:
 - Mobile-responsive design
 - Quick loading times and smooth performance
 
+## Planning Phase
+
+### Strategy
+
+During the planning phase for SkillFlow, we did a lot of research to understand the issues in the current service marketplace. What we found was a big gap between people with skills who want to offer their services and clients who are looking for affordable, quality options.
+
+**Strategic Priorities:**
+1. Create an intuitive platform that minimizes barriers to entry for service providers
+2. Develop a robust booking system that streamlines the appointment process
+3. Implement security features to protect user data and build trust
+4. Design a responsive interface that works seamlessly across all devices
+5. Establish a scalable architecture that can accommodate future growth
+
+### Scope
+
+Based on our strategic analysis, we defined the scope of SkillFlow to include essential features that deliver maximum value to users while maintaining a manageable development timeline. We utilized the MoSCoW method (Must have, Should have, Could have, Won't have) to prioritize features:
+
+**Must Have Features:**
+- User registration and authentication system
+- Service listing creation and management
+- Appointment booking functionality
+- User profiles for service providers and clients
+- Category-based service organization
+
+**Should Have Features:**
+- Availability management system
+- User-to-user messaging
+- Notification system for bookings and updates
+- Advanced search and filtering options
+- Responsive design for all device types
+
+**Could Have Features:**
+- Rating and review system
+- Payment integration
+- Featured listings for premium users
+- Social media sharing functionality
+- Advanced analytics for service providers
+
+**Won't Have (for initial release):**
+- Real-time video consultation
+- Subscription-based membership tiers
+- Mobile applications (focusing on responsive web design instead)
+- AI-powered service matching
+- Marketplace for physical products
+
+### Structure
+
+SkillFlow is built on a hierarchical structure designed to provide intuitive navigation and efficient access to information. The site architecture follows a logical flow that guides users through the service discovery and booking process:
+
+1. **Top Level:**
+   - Home page with platform introduction
+   - Category-based service navigation
+   - User authentication portal
+
+2. **Middle Level:**
+   - Service listings organized by category
+   - User dashboard with personalized content
+   - Booking management interface
+
+3. **Detail Level:**
+   - Individual service detail pages
+   - Appointment scheduling interface
+   - User profile management
+   - Communication tools
+
+The information architecture is designed to minimize the number of clicks required to complete key actions, ensuring a smooth user experience throughout the platform.
+
+### Skeleton
+
+The skeleton framework of SkillFlow was developed through wireframing and prototyping to visualize the interface before full-scale development. We focused on:
+
+1. **Navigation Design:**
+   - Consistent navigation bar with context-aware elements
+   - Intuitive category filtering system
+   - Breadcrumb navigation for deeper page levels
+
+2. **Interface Design:**
+   - Clean, card-based layout for service listings
+   - Form-based interfaces for data entry
+   - Modal dialogs for quick actions
+
+3. **Content Organization:**
+   - Hierarchical content structure
+   - Progressive disclosure of information
+   - Contextual help and guidance
+
+### Surface
+
+The visual design of SkillFlow is crafted to create a professional, trustworthy impression while maintaining an approachable and engaging user experience. Key design decisions include:
+
+1. **Color Scheme:**
+   - Primary: Turquoise Blue (#00beef) for branding and call-to-action elements
+   - Secondary: Orange Red (#FF4500) for highlighting and contrast
+   - Background: Dark theme (#0D1014, #161B22) for modern, professional appearance
+   - Text: White (#FFFFFF) for optimal readability against dark backgrounds
+
+2. **Typography:**
+   - System default sans-serif fonts for optimal loading performance
+   - Consistent text hierarchy with clear heading styles
+   - Appropriate font sizing for readability across devices
+
+3. **Visual Elements:**
+   - Subtle animations for interactive elements
+   - Icon-based category identification
+   - Consistent spacing and alignment throughout
+
 ## Database Design
 
 ### SkillFlow Database Schema
