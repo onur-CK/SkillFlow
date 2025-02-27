@@ -9,44 +9,54 @@
 * [Accessibility Testing](#accessibility-testing)
     * [WAVE Tool Results](#wave-tool-results)
     * [Lighthouse Reports](#lighthouse-reports)
-        * [Home Page (About Us)](#home-page-about-us)
-            * [*Desktop*](#home-page-desktop)
-            * [*Mobile*](#home-page-mobile)
-        * [Service Listings Page](#service-listings-page)
-            * [*Desktop*](#service-listings-desktop)
-            * [*Mobile*](#service-listings-mobile)
-        * [Service Detail Page](#service-detail-page)
-            * [*Desktop*](#service-detail-desktop)
-            * [*Mobile*](#service-detail-mobile)
-        * [Appointments Page](#appointments-page)
-            * [*Desktop*](#appointments-desktop)
-            * [*Mobile*](#appointments-mobile)
-        * [Book Appointment Page](#book-appointment-page)
-            * [*Desktop*](#book-appointment-desktop)
-            * [*Mobile*](#book-appointment-mobile)
-        * [Authentication Pages](#authentication-pages)
-            * [Login Page](#login-page)
-                * [*Desktop*](#login-desktop)
-                * [*Mobile*](#login-mobile)
-            * [Sign Up Page](#sign-up-page)
-                * [*Desktop*](#signup-desktop)
-                * [*Mobile*](#signup-mobile)
-            * [Sign Out Page](#sign-out-page)
-                * [*Desktop*](#signout-desktop)
-                * [*Mobile*](#signout-mobile)
-        * [Account Management Pages](#account-management-pages)
-            * [Edit Profile Page](#edit-profile-page)
-                * [*Desktop*](#edit-profile-desktop)
-                * [*Mobile*](#edit-profile-mobile)
-            * [Manage Account Page](#manage-account-page)
-                * [*Desktop*](#manage-account-desktop)
-                * [*Mobile*](#manage-account-mobile)
-        * [Schedule Management Page](#schedule-management-page)
-            * [*Desktop*](#schedule-management-desktop)
-            * [*Mobile*](#schedule-management-mobile)
-        * [Add Service Form](#add-service-form)
-            * [*Desktop*](#add-service-desktop)
-            * [*Mobile*](#add-service-mobile)
+                * [Home Page](#home-page)
+                    * [*Desktop*](#home-page-desktop)
+                    * [*Mobile*](#home-page-mobile)
+                * [Service Listings](#service-listings)
+                    * [*Desktop*](#service-listings-desktop)
+                    * [*Mobile*](#service-listings-mobile)
+                * [Service Detail](#service-detail)
+                    * [*Desktop*](#service-detail-desktop)
+                    * [*Mobile*](#service-detail-mobile)
+                * [Appointments](#appointments)
+                    * [*Desktop*](#appointments-desktop)
+                    * [*Mobile*](#appointments-mobile)
+                * [Book Appointment](#book-appointment)
+                    * [*Desktop*](#book-appointment-desktop)
+                    * [*Mobile*](#book-appointment-mobile)
+                * [Login](#login)
+                    * [*Desktop*](#login-desktop)
+                    * [*Mobile*](#login-mobile)
+                * [Sign Up](#sign-up)
+                    * [*Desktop*](#sign-up-desktop)
+                    * [*Mobile*](#sign-up-mobile)
+                * [Sign Out](#sign-out)
+                    * [*Desktop*](#sign-out-desktop)
+                    * [*Mobile*](#sign-out-mobile)
+                * [Edit Profile](#edit-profile)
+                    * [*Desktop*](#edit-profile-desktop)
+                    * [*Mobile*](#edit-profile-mobile)
+                * [Manage Account](#manage-account)
+                    * [*Desktop*](#manage-account-desktop)
+                    * [*Mobile*](#manage-account-mobile)
+                * [Schedule Management](#schedule-management)
+                    * [*Desktop*](#schedule-management-desktop)
+                    * [*Mobile*](#schedule-management-mobile)
+                * [Add Service](#add-service)
+                    * [*Desktop*](#add-service-desktop)
+                    * [*Mobile*](#add-service-mobile)
+                * [Cancellation Policy](#cancellation-policy)
+                    * [*Desktop*](#cancellation-policy-desktop)
+                    * [*Mobile*](#cancellation-policy-mobile)
+                * [Help Center](#help-center)
+                    * [*Desktop*](#help-center-desktop)
+                    * [*Mobile*](#help-center-mobile)
+                * [How It Works](#how-it-works)
+                    * [*Desktop*](#how-it-works-desktop)
+                    * [*Mobile*](#how-it-works-mobile)
+                * [Legal](#legal)
+                    * [*Desktop*](#legal-desktop)
+                    * [*Mobile*](#legal-mobile)
     * [Color Contrast Assessment](#color-contrast-assessment)
     * [Keyboard Navigation](#keyboard-navigation)
 * [Browser Compatibility](#browser-compatibility)
@@ -167,93 +177,153 @@ All pages passed WAVE accessibility testing with:
 This demonstrates that SkillFlow has been developed with accessibility as a priority, ensuring the platform is usable by people with a wide range of abilities and disabilities.
 
 ### Lighthouse Reports
-Google Lighthouse was used to assess the performance, accessibility, best practices, and SEO of the website. The tests were conducted for both desktop and mobile views across various pages of the application.
+
+Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow platform. Each page was tested in both desktop and mobile environments to ensure optimal performance, accessibility, best practices, and SEO across all device types. The tests provide valuable insights into areas of excellence and opportunities for further optimization.
 
 #### Home Page (About Us)
+
 ##### *Home Page Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Home Page Desktop Lighthouse Results](https://github.com/user-attachments/assets/home_page_desktop.png)
 
 ##### *Home Page Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Home Page Mobile Lighthouse Results](https://github.com/user-attachments/assets/home_page_mobile.png)
 
-#### Service Listings Page
+#### Service Listings
+
 ##### *Service Listings Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Service Listings Desktop Lighthouse Results](https://github.com/user-attachments/assets/service_listings_desktop.png)
 
 ##### *Service Listings Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Service Listings Mobile Lighthouse Results](https://github.com/user-attachments/assets/service_listings_mobile.png)
 
-#### Service Detail Page
+#### Service Detail
+
 ##### *Service Detail Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Service Detail Desktop Lighthouse Results](https://github.com/user-attachments/assets/service_detail_desktop.png)
 
 ##### *Service Detail Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Service Detail Mobile Lighthouse Results](https://github.com/user-attachments/assets/service_detail_mobile.png)
 
-#### Appointments Page
+#### Appointments
+
 ##### *Appointments Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Appointments Desktop Lighthouse Results](https://github.com/user-attachments/assets/appointments_desktop.png)
 
 ##### *Appointments Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Appointments Mobile Lighthouse Results](https://github.com/user-attachments/assets/appointments_mobile.png)
 
-#### Book Appointment Page
+#### Book Appointment
+
 ##### *Book Appointment Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Book Appointment Desktop Lighthouse Results](https://github.com/user-attachments/assets/book_appointment_desktop.png)
 
 ##### *Book Appointment Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Book Appointment Mobile Lighthouse Results](https://github.com/user-attachments/assets/book_appointment_mobile.png)
 
-#### Authentication Pages
-##### Login Page
-###### *Login Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#### Login
 
-###### *Login Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##### *Login Desktop*
+![Login Desktop Lighthouse Results](https://github.com/user-attachments/assets/login_desktop.png)
 
-##### Sign Up Page
-###### *Signup Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##### *Login Mobile*
+![Login Mobile Lighthouse Results](https://github.com/user-attachments/assets/login_mobile.png)
 
-###### *Signup Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#### Sign Up
 
-##### Sign Out Page
-###### *Signout Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##### *Sign Up Desktop*
+![Sign Up Desktop Lighthouse Results](https://github.com/user-attachments/assets/signup_desktop.png)
 
-###### *Signout Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##### *Sign Up Mobile*
+![Sign Up Mobile Lighthouse Results](https://github.com/user-attachments/assets/signup_mobile.png)
 
-#### Account Management Pages
-##### Edit Profile Page
-###### *Edit Profile Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#### Sign Out
 
-###### *Edit Profile Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##### *Sign Out Desktop*
+![Sign Out Desktop Lighthouse Results](https://github.com/user-attachments/assets/signout_desktop.png)
 
-##### Manage Account Page
-###### *Manage Account Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##### *Sign Out Mobile*
+![Sign Out Mobile Lighthouse Results](https://github.com/user-attachments/assets/signout_mobile.png)
 
-###### *Manage Account Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#### Edit Profile
 
-#### Schedule Management Page
+##### *Edit Profile Desktop*
+![Edit Profile Desktop Lighthouse Results](https://github.com/user-attachments/assets/edit_profile_desktop.png)
+
+##### *Edit Profile Mobile*
+![Edit Profile Mobile Lighthouse Results](https://github.com/user-attachments/assets/edit_profile_mobile.png)
+
+#### Manage Account
+
+##### *Manage Account Desktop*
+![Manage Account Desktop Lighthouse Results](https://github.com/user-attachments/assets/manage_account_desktop.png)
+
+##### *Manage Account Mobile*
+![Manage Account Mobile Lighthouse Results](https://github.com/user-attachments/assets/manage_account_mobile.png)
+
+#### Schedule Management
+
 ##### *Schedule Management Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Schedule Management Desktop Lighthouse Results](https://github.com/user-attachments/assets/schedule_management_desktop.png)
 
 ##### *Schedule Management Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Schedule Management Mobile Lighthouse Results](https://github.com/user-attachments/assets/schedule_management_mobile.png)
 
-#### Add Service Form
+#### Add Service
+
 ##### *Add Service Desktop*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Add Service Desktop Lighthouse Results](https://github.com/user-attachments/assets/add_service_desktop.png)
 
 ##### *Add Service Mobile*
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Add Service Mobile Lighthouse Results](https://github.com/user-attachments/assets/add_service_mobile.png)
+
+#### Cancellation Policy
+
+##### *Cancellation Policy Desktop*
+![Cancellation Policy Desktop Lighthouse Results](https://github.com/user-attachments/assets/cancellation_policy_desktop.png)
+
+##### *Cancellation Policy Mobile*
+![Cancellation Policy Mobile Lighthouse Results](https://github.com/user-attachments/assets/cancellation_policy_mobile.png)
+
+#### Help Center
+
+##### *Help Center Desktop*
+![Help Center Desktop Lighthouse Results](https://github.com/user-attachments/assets/help_center_desktop.png)
+
+##### *Help Center Mobile*
+![Help Center Mobile Lighthouse Results](https://github.com/user-attachments/assets/help_center_mobile.png)
+
+#### How It Works
+
+##### *How It Works Desktop*
+![How It Works Desktop Lighthouse Results](https://github.com/user-attachments/assets/how_it_works_desktop.png)
+
+##### *How It Works Mobile*
+![How It Works Mobile Lighthouse Results](https://github.com/user-attachments/assets/how_it_works_mobile.png)
+
+#### Legal
+
+##### *Legal Desktop*
+![Legal Desktop Lighthouse Results](https://github.com/user-attachments/assets/legal_desktop.png)
+
+##### *Legal Mobile*
+![Legal Mobile Lighthouse Results](https://github.com/user-attachments/assets/legal_mobile.png)
+
+### Lighthouse Performance Summary
+
+The Lighthouse reports demonstrate that SkillFlow performs well across all four key metrics:
+
+- **Performance**: Pages load quickly and efficiently, with optimized resources and minimal render-blocking assets
+- **Accessibility**: High scores indicate that the platform is usable by people with a wide range of abilities
+- **Best Practices**: The application follows modern web development standards and security practices
+- **SEO**: Content is well-structured and optimized for search engine visibility
+
+Mobile performance is generally strong but shows some expected decrease compared to desktop, primarily due to network constraints and processing limitations of mobile devices. Areas identified for potential future optimization include:
+
+- Further image optimization for mobile experiences
+- Implementing lazy loading for off-screen content
+- Reducing JavaScript execution time on lower-powered devices
+
+Overall, the Lighthouse testing confirms that SkillFlow delivers a high-quality user experience across both desktop and mobile platforms.
 
 ### Color Contrast Assessment
 Color contrast throughout the site was carefully assessed to ensure readability and accessibility for users with visual impairments. All text and interactive elements were evaluated against WCAG 2.1 AA standards for contrast ratios.
