@@ -119,7 +119,19 @@ Python code was validated against the PEP8 style guide using automated tools suc
 
 The validation process covered all Python files in the project, including models, views, forms, and utility modules. By maintaining consistent coding standards, we improved collaboration efficiency and code quality.
 
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+| File Name | Result | Screenshot |
+|-----------|--------|------------|
+| views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](https://github.com/user-attachments/assets/baf59a05-a9e8-4bab-bbf4-a9b996eacc43)</details> |
+| models.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![models validation](screenshot_url_here)</details> |
+| forms.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![forms validation](screenshot_url_here)</details> |
+| admin.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![admin validation](screenshot_url_here)</details> |
+| urls.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![urls validation](screenshot_url_here)</details> |
+| test_models.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_models validation](screenshot_url_here)</details> |
+| test_views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_views validation](screenshot_url_here)</details> |
+| test_forms.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_forms validation](screenshot_url_here)</details> |
+| views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](screenshot_url_here)</details> |
+| views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](screenshot_url_here)</details> |
+| views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](screenshot_url_here)</details> |
 
 ## Accessibility Testing
 
