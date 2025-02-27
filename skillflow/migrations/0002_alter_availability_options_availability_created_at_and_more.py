@@ -8,23 +8,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('skillflow', '0001_initial'),
+        ("skillflow", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='availability',
-            options={'ordering': ['date', 'start_time']},
+            name="availability",
+            options={"ordering": ["date", "start_time"]},
         ),
         migrations.AddField(
-            model_name='availability',
-            name='created_at',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="availability",
+            name="created_at",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AddConstraint(
-            model_name='availability',
-            constraint=models.UniqueConstraint(fields=('provider', 'service', 'date', 'start_time'), name='unique_availability'),
+            model_name="availability",
+            constraint=models.UniqueConstraint(
+                fields=("provider", "service", "date", "start_time"),
+                name="unique_availability",
+            ),
         ),
     ]

@@ -105,7 +105,7 @@ The CSS code was validated using the [W3C CSS Validation Service](https://jigsaw
 
 The CSS files were validated both by URL to ensure comprehensive validation. This validation process helped identify any potential issues that might be context-dependent.
 
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![css validation](https://github.com/user-attachments/assets/675554e7-3b9b-4bfe-ba9a-80c0bdbf8285)
 
 ### JavaScript Validation
 All JavaScript code was validated using [JSHint](https://jshint.com/), a static code analysis tool for JavaScript. This validation helped ensure that our JavaScript code is error-free, follows best practices, and maintains consistency.

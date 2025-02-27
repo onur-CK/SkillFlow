@@ -15,70 +15,192 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Availability',
+            name="Availability",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date', models.DateField()),
-                ('location', models.CharField(max_length=200)),
-                ('start_time', models.TimeField()),
-                ('end_time', models.TimeField()),
-                ('is_booked', models.BooleanField(default=False)),
-                ('provider', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date", models.DateField()),
+                ("location", models.CharField(max_length=200)),
+                ("start_time", models.TimeField()),
+                ("end_time", models.TimeField()),
+                ("is_booked", models.BooleanField(default=False)),
+                (
+                    "provider",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Appointment',
+            name="Appointment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('status', models.CharField(choices=[('pending', 'Pending'), ('confirmed', 'Confirmed'), ('cancelled', 'Cancelled')], default='pending', max_length=20)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('availability', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='skillflow.availability')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("pending", "Pending"),
+                            ("confirmed", "Confirmed"),
+                            ("cancelled", "Cancelled"),
+                        ],
+                        default="pending",
+                        max_length=20,
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "client",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "availability",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="skillflow.availability",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Service',
+            name="Service",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('description', models.TextField()),
-                ('category', models.CharField(choices=[('home-care', 'Home Care'), ('education', 'Education'), ('creative', 'Creative'), ('health', 'Health'), ('events', 'Events')], max_length=50)),
-                ('hourly_rate', models.DecimalField(decimal_places=2, max_digits=6)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('provider', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=100)),
+                ("description", models.TextField()),
+                (
+                    "category",
+                    models.CharField(
+                        choices=[
+                            ("home-care", "Home Care"),
+                            ("education", "Education"),
+                            ("creative", "Creative"),
+                            ("health", "Health"),
+                            ("events", "Events"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                ("hourly_rate", models.DecimalField(decimal_places=2, max_digits=6)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "provider",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='availability',
-            name='service',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='skillflow.service'),
+            model_name="availability",
+            name="service",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="skillflow.service"
+            ),
         ),
         migrations.CreateModel(
-            name='UserProfile',
+            name="UserProfile",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('bio', models.TextField(blank=True, max_length=200)),
-                ('first_name', models.CharField(blank=True, max_length=30)),
-                ('last_name', models.CharField(blank=True, max_length=30)),
-                ('email', models.EmailField(blank=True, max_length=254)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("bio", models.TextField(blank=True, max_length=200)),
+                ("first_name", models.CharField(blank=True, max_length=30)),
+                ("last_name", models.CharField(blank=True, max_length=30)),
+                ("email", models.EmailField(blank=True, max_length=254)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='WeeklySchedule',
+            name="WeeklySchedule",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('day_of_week', models.IntegerField(choices=[(0, 'Monday'), (1, 'Tuesday'), (2, 'Wednesday'), (3, 'Thursday'), (4, 'Friday'), (5, 'Saturday'), (6, 'Sunday')])),
-                ('start_time', models.TimeField()),
-                ('end_time', models.TimeField()),
-                ('location', models.CharField(max_length=200)),
-                ('is_active', models.BooleanField(default=True)),
-                ('provider', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('service', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='skillflow.service')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "day_of_week",
+                    models.IntegerField(
+                        choices=[
+                            (0, "Monday"),
+                            (1, "Tuesday"),
+                            (2, "Wednesday"),
+                            (3, "Thursday"),
+                            (4, "Friday"),
+                            (5, "Saturday"),
+                            (6, "Sunday"),
+                        ]
+                    ),
+                ),
+                ("start_time", models.TimeField()),
+                ("end_time", models.TimeField()),
+                ("location", models.CharField(max_length=200)),
+                ("is_active", models.BooleanField(default=True)),
+                (
+                    "provider",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "service",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="skillflow.service",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['day_of_week', 'start_time'],
-                'unique_together': {('provider', 'service', 'day_of_week', 'start_time')},
+                "ordering": ["day_of_week", "start_time"],
+                "unique_together": {
+                    ("provider", "service", "day_of_week", "start_time")
+                },
             },
         ),
     ]
