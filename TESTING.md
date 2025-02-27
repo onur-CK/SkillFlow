@@ -122,16 +122,16 @@ The validation process covered all Python files in the project, including models
 | File Name | Result | Screenshot |
 |-----------|--------|------------|
 | views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](https://github.com/user-attachments/assets/baf59a05-a9e8-4bab-bbf4-a9b996eacc43)</details> |
-| models.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![models validation](screenshot_url_here)</details> |
-| forms.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![forms validation](screenshot_url_here)</details> |
-| admin.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![admin validation](screenshot_url_here)</details> |
-| urls.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![urls validation](screenshot_url_here)</details> |
-| test_models.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_models validation](screenshot_url_here)</details> |
-| test_views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_views validation](screenshot_url_here)</details> |
-| test_forms.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_forms validation](screenshot_url_here)</details> |
-| views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](screenshot_url_here)</details> |
-| views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](screenshot_url_here)</details> |
-| views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](screenshot_url_here)</details> |
+| models.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![models validation](https://github.com/user-attachments/assets/687c6f2a-6623-4c11-9149-df33d7bc5879)</details> |
+| forms.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![forms validation](https://github.com/user-attachments/assets/e1d7011e-de87-4fc0-9b3e-82b449cef896)</details> |
+| admin.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![admin validation](https://github.com/user-attachments/assets/64912673-9b2b-4c31-abf1-832bb450f20d)</details> |
+| urls.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![urls validation](https://github.com/user-attachments/assets/301db561-af90-4686-8c6b-bf7e5123419b)</details> |
+| test_models.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_models validation](https://github.com/user-attachments/assets/ce7aa9dc-0de3-4b9c-bc72-60f45b6e1a02)</details> 
+| test_views.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_views validation](https://github.com/user-attachments/assets/66932cec-acc9-4c93-a497-26f78aa5662b)</details> |
+| test_forms.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![test_forms validation](https://github.com/user-attachments/assets/cac53df2-846a-41ee-810f-43e55acb4964)</details> |
+| settings.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![settings validation](https://github.com/user-attachments/assets/2a1de44a-292c-4938-8fd9-0ce476817910)</details> |
+| asgi.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](https://github.com/user-attachments/assets/7ad15bb0-a055-45db-844c-d0627b47e54c)</details> |
+| wsgi.py | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![views validation](https://github.com/user-attachments/assets/f4fe3083-360d-4c60-aeb0-b5c98e0d387f)</details> |
 
 ## Accessibility Testing
 
