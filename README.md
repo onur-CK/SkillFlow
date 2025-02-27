@@ -827,7 +827,8 @@ The tutorials were used for the purpose of learning and improving understanding,
 - [CRUD Mastery](https://www.youtube.com/watch?v=pqWyUAT38e0)
 - [How to CRUD in Django](https://www.youtube.com/watch?v=opjyyXoqrxg)
 - [Complete Django CRUD Operations](https://www.youtube.com/watch?v=N6jzspc2kds)
-- 
+- [Login, Logout, Signup](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
+- [Code Institute Readme Tutorial by Kasia Bogucka](https://www.youtube.com/watch?v=l1DE7L-4eKQ)
 
 ### Django Documentation
 - Django installation: pip install django
