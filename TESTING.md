@@ -77,104 +77,26 @@ The validation process was conducted across all template files in the project. T
 
 | File Name | Result | Screenshot |
 |-----------|--------|------------|
-| about_us.html | Pass - No errors or warnings | ![about-us](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3) |
-| appointments.html | Pass - No errors or warnings | [View Screenshot](#appointments) |
-| base.html | Pass - No errors or warnings | [View Screenshot](#base) |
-| book_appointment.html | Pass - No errors or warnings | [View Screenshot](#book_appointment) |
-| cancellation_policy.html | Pass - No errors or warnings | [View Screenshot](#cancellation_policy) |
-| edit_profile.html | Pass - No errors or warnings | [View Screenshot](#edit_profile) |
-| edit_service.html | Pass - No errors or warnings | [View Screenshot](#edit_service) |
-| help_center.html | Pass - No errors or warnings | [View Screenshot](#help_center) |
-| how_it_works.html | Pass - No errors or warnings | [View Screenshot](#how_it_works) |
-| index.html | Pass - No errors or warnings | [View Screenshot](#index) |
-| legal.html | Pass - No errors or warnings | [View Screenshot](#legal) |
-| login.html | Pass - No errors or warnings | [View Screenshot](#login) |
-| logout.html | Pass - No errors or warnings | [View Screenshot](#logout) |
-| manage_account.html | Pass - No errors or warnings | [View Screenshot](#manage_account) |
-| manage_schedule.html | Pass - No errors or warnings | [View Screenshot](#manage_schedule) |
-| my_services.html | Pass - No errors or warnings | [View Screenshot](#my_services) |
-| service.html | Pass - No errors or warnings | [View Screenshot](#service) |
-| service_detail.html | Pass - No errors or warnings | [View Screenshot](#service_detail) |
-| sign_up.html | Pass - No errors or warnings | [View Screenshot](#sign_up) |
-| user_info.html | Pass - No errors or warnings | [View Screenshot](#user_info) |
-
-### Screenshots
-
-<a id="about_us"></a>
-#### about_us.html
-![about_us.html validation screenshot](path/to/about_us_validation.png)
-
-<a id="appointments"></a>
-#### appointments.html
-![appointments.html validation screenshot](path/to/appointments_validation.png)
-
-<a id="book_appointment"></a>
-#### book_appointment.html
-![book_appointment.html validation screenshot](path/to/book_appointment_validation.png)
-
-<a id="cancellation_policy"></a>
-#### cancellation_policy.html
-![cancellation_policy.html validation screenshot](path/to/cancellation_policy_validation.png)
-
-<a id="edit_profile"></a>
-#### edit_profile.html
-![edit_profile.html validation screenshot](path/to/edit_profile_validation.png)
-
-<a id="edit_service"></a>
-#### edit_service.html
-![edit_service.html validation screenshot](path/to/edit_service_validation.png)
-
-<a id="help_center"></a>
-#### help_center.html
-![help_center.html validation screenshot](path/to/help_center_validation.png)
-
-<a id="how_it_works"></a>
-#### how_it_works.html
-![how_it_works.html validation screenshot](path/to/how_it_works_validation.png)
-
-<a id="index"></a>
-#### index.html
-![index.html validation screenshot](path/to/index_validation.png)
-
-<a id="legal"></a>
-#### legal.html
-![legal.html validation screenshot](path/to/legal_validation.png)
-
-<a id="login"></a>
-#### login.html
-![login.html validation screenshot](path/to/login_validation.png)
-
-<a id="logout"></a>
-#### logout.html
-![logout.html validation screenshot](path/to/logout_validation.png)
-
-<a id="manage_account"></a>
-#### manage_account.html
-![manage_account.html validation screenshot](path/to/manage_account_validation.png)
-
-<a id="manage_schedule"></a>
-#### manage_schedule.html
-![manage_schedule.html validation screenshot](path/to/manage_schedule_validation.png)
-
-<a id="my_services"></a>
-#### my_services.html
-![my_services.html validation screenshot](path/to/my_services_validation.png)
-
-<a id="service"></a>
-#### service.html
-![service.html validation screenshot](path/to/service_validation.png)
-
-<a id="service_detail"></a>
-#### service_detail.html
-![service_detail.html validation screenshot](path/to/service_detail_validation.png)
-
-<a id="sign_up"></a>
-#### sign_up.html
-![sign_up.html validation screenshot](path/to/sign_up_validation.png)
-
-<a id="user_info"></a>
-#### user_info.html
-![user_info.html validation screenshot](path/to/user_info_validation.png)
+| about_us.html | Pass - No errors or warnings | [![about_us validation](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3)](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3) |
+| appointments.html | Pass - No errors or warnings | [![appointments validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| base.html | Pass - No errors or warnings | [![base validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| book_appointment.html | Pass - No errors or warnings | [![book_appointment validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| cancellation_policy.html | Pass - No errors or warnings | [![cancellation_policy validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| edit_profile.html | Pass - No errors or warnings | [![edit_profile validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| edit_service.html | Pass - No errors or warnings | [![edit_service validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| help_center.html | Pass - No errors or warnings | [![help_center validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| how_it_works.html | Pass - No errors or warnings | [![how_it_works validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| index.html | Pass - No errors or warnings | [![index validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| legal.html | Pass - No errors or warnings | [![legal validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| login.html | Pass - No errors or warnings | [![login validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| logout.html | Pass - No errors or warnings | [![logout validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| manage_account.html | Pass - No errors or warnings | [![manage_account validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| manage_schedule.html | Pass - No errors or warnings | [![manage_schedule validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| my_services.html | Pass - No errors or warnings | [![my_services validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| service.html | Pass - No errors or warnings | [![service validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| service_detail.html | Pass - No errors or warnings | [![service_detail validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| sign_up.html | Pass - No errors or warnings | [![sign_up validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| user_info.html | Pass - No errors or warnings | [![user_info validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
 
 
 #### 
