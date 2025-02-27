@@ -77,7 +77,7 @@ The validation process was conducted across all template files in the project. T
 
 | File Name | Result | Screenshot |
 |-----------|--------|------------|
-| about_us.html | Pass - No errors or warnings | [View Screenshot](#about_us) |
+| about_us.html | Pass - No errors or warnings | ![about-us](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3) |
 | appointments.html | Pass - No errors or warnings | [View Screenshot](#appointments) |
 | base.html | Pass - No errors or warnings | [View Screenshot](#base) |
 | book_appointment.html | Pass - No errors or warnings | [View Screenshot](#book_appointment) |
