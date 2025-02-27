@@ -191,154 +191,122 @@ Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow
 #### Service Listings
 
 ##### *Service Listings Desktop*
-![Service Listings Desktop Lighthouse Results](https://github.com/user-attachments/assets/service_listings_desktop.png)
+![Service Listings Desktop](https://github.com/user-attachments/assets/c622a8e5-f734-40b0-8175-9eb599a7eb55)
 
 ##### *Service Listings Mobile*
-![Service Listings Mobile Lighthouse Results](https://github.com/user-attachments/assets/service_listings_mobile.png)
+![Service Listings Mobile](https://github.com/user-attachments/assets/11d468d5-73f7-4a71-9dcb-1f66789ccfb0)
 
 #### Service Detail
 
 ##### *Service Detail Desktop*
-![Service Detail Desktop Lighthouse Results](https://github.com/user-attachments/assets/service_detail_desktop.png)
+![Service Detail Desktop](https://github.com/user-attachments/assets/126eaff6-3f44-4b83-8b6b-0cd19ed0d2bf)
 
 ##### *Service Detail Mobile*
-![Service Detail Mobile Lighthouse Results](https://github.com/user-attachments/assets/service_detail_mobile.png)
+![Service Detail Mobile](https://github.com/user-attachments/assets/cd56ae79-a735-40ec-94b1-f54a40f45826)
 
 #### Appointments
 
 ##### *Appointments Desktop*
-![Appointments Desktop Lighthouse Results](https://github.com/user-attachments/assets/appointments_desktop.png)
+![Appointments Desktop](https://github.com/user-attachments/assets/09e9851e-a6d1-4451-be11-a7147ee37318)
 
 ##### *Appointments Mobile*
-![Appointments Mobile Lighthouse Results](https://github.com/user-attachments/assets/appointments_mobile.png)
+![Appointments Mobile](https://github.com/user-attachments/assets/ce439792-ee33-4a4a-b27b-cc245d091c33)
 
 #### Book Appointment
 
 ##### *Book Appointment Desktop*
-![Book Appointment Desktop Lighthouse Results](https://github.com/user-attachments/assets/book_appointment_desktop.png)
+![Book Appointment Desktop](https://github.com/user-attachments/assets/567d65fb-f917-4748-ac0f-4a7cbc62dbb3)
 
 ##### *Book Appointment Mobile*
-![Book Appointment Mobile Lighthouse Results](https://github.com/user-attachments/assets/book_appointment_mobile.png)
+![Book Appointment Mobile](https://github.com/user-attachments/assets/1d338f00-fe9f-4ad0-ade1-6d910b7da4b2)
 
 #### Login
 
 ##### *Login Desktop*
-![Login Desktop Lighthouse Results](https://github.com/user-attachments/assets/login_desktop.png)
+![Login Desktop](https://github.com/user-attachments/assets/login_desktop.png)
 
 ##### *Login Mobile*
-![Login Mobile Lighthouse Results](https://github.com/user-attachments/assets/login_mobile.png)
+![Login Mobile](https://github.com/user-attachments/assets/login_mobile.png)
 
 #### Sign Up
 
 ##### *Sign Up Desktop*
-![Sign Up Desktop Lighthouse Results](https://github.com/user-attachments/assets/signup_desktop.png)
+![Sign Up Desktop](https://github.com/user-attachments/assets/signup_desktop.png)
 
 ##### *Sign Up Mobile*
-![Sign Up Mobile Lighthouse Results](https://github.com/user-attachments/assets/signup_mobile.png)
+![Sign Up Mobile](https://github.com/user-attachments/assets/signup_mobile.png)
 
 #### Sign Out
 
 ##### *Sign Out Desktop*
-![Sign Out Desktop Lighthouse Results](https://github.com/user-attachments/assets/signout_desktop.png)
+![Sign Out Desktop](https://github.com/user-attachments/assets/signout_desktop.png)
 
 ##### *Sign Out Mobile*
-![Sign Out Mobile Lighthouse Results](https://github.com/user-attachments/assets/signout_mobile.png)
+![Sign Out Mobile](https://github.com/user-attachments/assets/signout_mobile.png)
 
 #### Edit Profile
 
 ##### *Edit Profile Desktop*
-![Edit Profile Desktop Lighthouse Results](https://github.com/user-attachments/assets/edit_profile_desktop.png)
+![Edit Profile Desktop](https://github.com/user-attachments/assets/fb285e41-59b0-428d-8207-9ca19bb8d619)
 
 ##### *Edit Profile Mobile*
-![Edit Profile Mobile Lighthouse Results](https://github.com/user-attachments/assets/edit_profile_mobile.png)
+![Edit Profile Mobile](https://github.com/user-attachments/assets/a1718c69-b599-4380-837d-e1c50e600e0f)
 
 #### Manage Account
 
 ##### *Manage Account Desktop*
-![Manage Account Desktop Lighthouse Results](https://github.com/user-attachments/assets/manage_account_desktop.png)
+![Manage Account Desktop](https://github.com/user-attachments/assets/55982a53-79ca-471b-97e9-290bbe3da30d)
 
 ##### *Manage Account Mobile*
-![Manage Account Mobile Lighthouse Results](https://github.com/user-attachments/assets/manage_account_mobile.png)
+![Manage Account Mobile](https://github.com/user-attachments/assets/c643e34b-c125-4d16-b747-8ce8eb645bca)
 
 #### Schedule Management
 
 ##### *Schedule Management Desktop*
-![Schedule Management Desktop Lighthouse Results](https://github.com/user-attachments/assets/schedule_management_desktop.png)
+![Schedule Management Desktop](https://github.com/user-attachments/assets/10c65a51-9876-4719-80f9-67422e57633d)
 
 ##### *Schedule Management Mobile*
-![Schedule Management Mobile Lighthouse Results](https://github.com/user-attachments/assets/schedule_management_mobile.png)
+![Schedule Management Mobile](https://github.com/user-attachments/assets/d984ef68-e9ba-4145-ae0b-a4b372f03035)
 
 #### Add Service
 
 ##### *Add Service Desktop*
-![Add Service Desktop Lighthouse Results](https://github.com/user-attachments/assets/add_service_desktop.png)
+![Add Service Desktop](https://github.com/user-attachments/assets/903db8a8-d765-44c1-98dc-63f6467b78be)
 
 ##### *Add Service Mobile*
-![Add Service Mobile Lighthouse Results](https://github.com/user-attachments/assets/add_service_mobile.png)
+![Add Service Mobile](https://github.com/user-attachments/assets/4d1ae451-dbb2-4c28-a60b-fab661856b65)
 
 #### Cancellation Policy
 
 ##### *Cancellation Policy Desktop*
-![Cancellation Policy Desktop Lighthouse Results](https://github.com/user-attachments/assets/cancellation_policy_desktop.png)
+![Cancellation Policy Desktop](https://github.com/user-attachments/assets/c683c27a-8a08-45db-89d4-ec230b2a1b75)
 
 ##### *Cancellation Policy Mobile*
-![Cancellation Policy Mobile Lighthouse Results](https://github.com/user-attachments/assets/cancellation_policy_mobile.png)
+![Cancellation Policy Mobile](https://github.com/user-attachments/assets/34c6f85f-7c28-4aab-a7a8-b1c6dbb220d9)
 
 #### Help Center
 
 ##### *Help Center Desktop*
-![Help Center Desktop Lighthouse Results](https://github.com/user-attachments/assets/help_center_desktop.png)
+![Help Center Desktop](https://github.com/user-attachments/assets/e8209c59-f6c2-4317-a91d-ec5744188445)
 
 ##### *Help Center Mobile*
-![Help Center Mobile Lighthouse Results](https://github.com/user-attachments/assets/help_center_mobile.png)
+![Help Center Mobile](https://github.com/user-attachments/assets/10ab8a6f-8d20-4084-a149-d4c0e67da829)
 
 #### How It Works
 
 ##### *How It Works Desktop*
-![How It Works Desktop Lighthouse Results](https://github.com/user-attachments/assets/how_it_works_desktop.png)
+![How It Works Desktop](https://github.com/user-attachments/assets/4e6dd68f-92e5-4520-946a-fca04901a81c)
 
 ##### *How It Works Mobile*
-![How It Works Mobile Lighthouse Results](https://github.com/user-attachments/assets/how_it_works_mobile.png)
+![How It Works Mobile](https://github.com/user-attachments/assets/77a8acb5-e9bf-487f-bf59-204f111d9f37)
 
 #### Legal
 
 ##### *Legal Desktop*
-![Legal Desktop Lighthouse Results](https://github.com/user-attachments/assets/legal_desktop.png)
+![Legal Desktop](https://github.com/user-attachments/assets/1b4b9a98-ec0e-4634-9bee-06a8a16ea783)
 
 ##### *Legal Mobile*
-![Legal Mobile Lighthouse Results](https://github.com/user-attachments/assets/legal_mobile.png)
-
-add the lings later: 
-![about-us-mobile](https://github.com/user-attachments/assets/22fe4713-044e-4afc-85d5-c597b5426f50)
-![about-us-desktop](https://github.com/user-attachments/assets/36f91b06-9b4c-4ca2-bddc-73a725ce6166)
-![user-info-mobile](https://github.com/user-attachments/assets/b3a99867-c681-4687-a5b8-8b6f52d39d8f)
-![user-info-desktop](https://github.com/user-attachments/assets/38ce610b-e64c-4e7d-ae13-3e9d4f95bab2)
-![service-detail-mobile](https://github.com/user-attachments/assets/cd56ae79-a735-40ec-94b1-f54a40f45826)
-![service-detail-desktop](https://github.com/user-attachments/assets/126eaff6-3f44-4b83-8b6b-0cd19ed0d2bf)
-![service-creation-form-mobile](https://github.com/user-attachments/assets/4d1ae451-dbb2-4c28-a60b-fab661856b65)
-![service-creation-form-desktop](https://github.com/user-attachments/assets/903db8a8-d765-44c1-98dc-63f6467b78be)
-![schedule-management-mobile](https://github.com/user-attachments/assets/d984ef68-e9ba-4145-ae0b-a4b372f03035)
-![schedule-management-desktop](https://github.com/user-attachments/assets/10c65a51-9876-4719-80f9-67422e57633d)
-![profile-manage-mobile](https://github.com/user-attachments/assets/c643e34b-c125-4d16-b747-8ce8eb645bca)
-![profile-manage-desktop](https://github.com/user-attachments/assets/55982a53-79ca-471b-97e9-290bbe3da30d)
-![my-services-mobile](https://github.com/user-attachments/assets/5c93fa31-d479-4966-8a61-44059a07bbb1)
-![my-services-desktop](https://github.com/user-attachments/assets/dfb52489-5764-4643-bc73-34b3aef92213)
-![legal-page-mobile](https://github.com/user-attachments/assets/70cd7788-44dd-4eef-b912-e20222a3fb2b)
-![legal-page-desktop](https://github.com/user-attachments/assets/1b4b9a98-ec0e-4634-9bee-06a8a16ea783)
-![how-it-works-mobile](https://github.com/user-attachments/assets/77a8acb5-e9bf-487f-bf59-204f111d9f37)
-![how-it-works-desktop](https://github.com/user-attachments/assets/4e6dd68f-92e5-4520-946a-fca04901a81c)
-![help-center-mobile](https://github.com/user-attachments/assets/10ab8a6f-8d20-4084-a149-d4c0e67da829)
-![help-center-desktop](https://github.com/user-attachments/assets/e8209c59-f6c2-4317-a91d-ec5744188445)
-![edit-service-mobile](https://github.com/user-attachments/assets/3a932be5-e9de-41d3-9274-a2eb7e0a4009)
-![edit-service-desktop](https://github.com/user-attachments/assets/a222ffee-4281-41d1-bc60-6e6d3e04e6fe)
-![edit-profile-mobile](https://github.com/user-attachments/assets/a1718c69-b599-4380-837d-e1c50e600e0f)
-![edit-profile-desktop](https://github.com/user-attachments/assets/fb285e41-59b0-428d-8207-9ca19bb8d619)
-![cancellation-policy-mobile](https://github.com/user-attachments/assets/34c6f85f-7c28-4aab-a7a8-b1c6dbb220d9)
-![cancellation-policy-desktop](https://github.com/user-attachments/assets/c683c27a-8a08-45db-89d4-ec230b2a1b75)
-![book-apppointment-mobile](https://github.com/user-attachments/assets/1d338f00-fe9f-4ad0-ade1-6d910b7da4b2)
-![book-appointment-desktop](https://github.com/user-attachments/assets/567d65fb-f917-4748-ac0f-4a7cbc62dbb3)
-![appointments-mobile](https://github.com/user-attachments/assets/ce439792-ee33-4a4a-b27b-cc245d091c33)
-![appointments-desktop](https://github.com/user-attachments/assets/09e9851e-a6d1-4451-be11-a7147ee37318)
+![Legal Mobile](https://github.com/user-attachments/assets/70cd7788-44dd-4eef-b912-e20222a3fb2b)
 
 ### Lighthouse Performance Summary
 
