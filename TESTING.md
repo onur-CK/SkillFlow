@@ -68,12 +68,296 @@
     * [Fixed Bugs](#fixed-bugs)
     * [Known Bugs](#known-bugs)
 
+## Code Validation
 
-Manual Testing
-Does the site work as intended? 
-Quality assurance: stpes taken to manually test the project, ensures it functions correctly, identifies potential bugs
-User exerperience assurance: ensures that the end-users have a smooth experience by addressing potential issues
--- final manual testing and write up
+### HTML Validation
+All HTML code was validated using the [W3C Markup Validation Service](https://validator.w3.org/). This thorough validation process helped ensure that the HTML structure is compliant with current web standards, enhancing cross-browser compatibility and accessibility.
+
+The validation process was conducted across all template files in the project. This meticulous approach allowed us to identify and address any structural issues that might impact user experience or device compatibility.
+
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+### CSS Validation
+The CSS code was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). This validation ensures that our stylesheets adhere to current CSS specifications and best practices.
+
+The CSS files were validated both by URL to ensure comprehensive validation. This validation process helped identify any potential issues that might be context-dependent.
+
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+### JavaScript Validation
+All JavaScript code was validated using [JSHint](https://jshint.com/), a static code analysis tool for JavaScript. This validation helped ensure that our JavaScript code is error-free, follows best practices, and maintains consistency.
+
+The validation process focused on identifying syntax errors, unused variables, and potential scope issues. By addressing these concerns, we improved the reliability and performance of our interactive features.
+
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+### Python Validation
+Python code was validated against the PEP8 style guide using automated tools such as pycodestyle and flake8. This validation ensures that our Python code adheres to the established style guidelines, enhancing readability and maintainability.
+
+The validation process covered all Python files in the project, including models, views, forms, and utility modules. By maintaining consistent coding standards, we improved collaboration efficiency and code quality.
+
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+## Accessibility Testing
+
+### WAVE Tool Results
+The Web Accessibility Evaluation Tool (WAVE) was used to identify accessibility issues across the site. This comprehensive evaluation helped ensure that our platform is accessible to users with various disabilities.
+
+There was also an accessibility issue related to the label for the appointment booking toggle. This was resolved by adding an aria-label to the toggle, which significantly improved the accessibility score.
+
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+### Lighthouse Reports
+Google Lighthouse was used to assess the performance, accessibility, best practices, and SEO of the website. The tests were conducted for both desktop and mobile views across various pages of the application.
+
+#### Home Page (About Us)
+##### *Home Page Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### *Home Page Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Service Listings Page
+##### *Service Listings Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### *Service Listings Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Service Detail Page
+##### *Service Detail Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### *Service Detail Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Appointments Page
+##### *Appointments Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### *Appointments Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Book Appointment Page
+##### *Book Appointment Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### *Book Appointment Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Authentication Pages
+##### Login Page
+###### *Login Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+###### *Login Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### Sign Up Page
+###### *Signup Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+###### *Signup Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### Sign Out Page
+###### *Signout Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+###### *Signout Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Account Management Pages
+##### Edit Profile Page
+###### *Edit Profile Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+###### *Edit Profile Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### Manage Account Page
+###### *Manage Account Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+###### *Manage Account Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Schedule Management Page
+##### *Schedule Management Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### *Schedule Management Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#### Add Service Form
+##### *Add Service Desktop*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##### *Add Service Mobile*
+Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+### Color Contrast Assessment
+Color contrast throughout the site was carefully assessed to ensure readability and accessibility for users with visual impairments. All text and interactive elements were evaluated against WCAG 2.1 AA standards for contrast ratios.
+
+The primary color scheme of dark backgrounds (#0D1014, #161B22) with light text (#FFFFFF) and accent colors (#00beef, #FF4500) was selected to provide optimal contrast while maintaining the modern aesthetic of the platform.
+
+Several adjustments were made during development to improve contrast ratios, particularly for interactive elements and status indicators. These improvements ensure that all users can effectively distinguish between different elements on the page.
+
+### Keyboard Navigation
+Comprehensive keyboard navigation testing was conducted to ensure that users who rely on keyboard input can effectively navigate and interact with the site. This testing verified that:
+
+- All interactive elements are accessible via keyboard
+- The tab order follows a logical sequence throughout each page
+- Focus states are clearly visible on all interactive elements
+- Modal dialogs trap focus appropriately
+- Form submission and navigation can be completed entirely with keyboard input
+
+These accessibility measures ensure that our platform is usable by individuals with motor disabilities or those who prefer keyboard navigation.
+
+## Browser Compatibility
+The website was thoroughly tested across multiple browsers to ensure consistent functionality and appearance. The testing process included:
+
+- **Google Chrome** (latest version): Full functionality and design integrity
+- **Mozilla Firefox** (latest version): Complete compatibility with all features
+- **Safari** (latest version): Fully functional with minor styling variations
+- **Microsoft Edge** (latest version): Complete compatibility
+- **Opera** (latest version): All features working as expected
+
+During testing, special attention was paid to:
+- JavaScript functionality
+- Form validation behavior
+- CSS rendering and animations
+- Responsive layout transitions
+- Font rendering and icon display
+
+This comprehensive browser testing ensures that users can access and use the platform effectively regardless of their preferred browser.
+
+## Device Compatibility
+To ensure a seamless user experience across different devices, extensive testing was conducted on various screen sizes and device types. The testing covered:
+
+- **Desktop computers**: Various screen sizes (24 inch-1920×1080, 27 inch-2560x1440, 38 inch-3840x1600)
+- **Laptops**: 13" to 17" screens with different resolutions
+- **Tablets**: iPad (various generations), Samsung Galaxy Tab, etc.
+- **Mobile phones**: iPhone (SE to 14 Pro Max), Samsung Galaxy series
+
+Testing on these devices confirmed that:
+- The responsive design adapts appropriately to different screen sizes
+- Touch interactions work correctly on touchscreen devices
+- Form elements are properly sized for touch input on smaller screens
+- Content remains readable and accessible across all device types
+- Navigation elements adjust appropriately for different input methods
+
+This device compatibility testing ensures that users can effectively access and use the platform regardless of their device type or screen size.
+
+## Manual Testing
+
+### User Story Testing
+Each user story was systematically tested to ensure that the implemented features meet the specified requirements. The manual testing process for user stories involved:
+
+1. Identifying the acceptance criteria for each user story
+2. Creating test cases based on these criteria
+3. Executing the test cases across different user roles (admin, service provider, client)
+4. Verifying that the behavior matches the expected outcomes
+5. Documenting any deviations or issues for resolution
+
+This structured approach to user story testing ensured that the platform delivers the functionality that users need and expect.
+
+### Feature Testing
+Comprehensive testing was conducted for all features implemented in the application. This testing verified that:
+
+- **Service Management**: Creating, editing, and deleting service listings works correctly
+- **Appointment Booking**: Users can successfully schedule, view, and manage appointments
+- **User Profiles**: Profile creation, editing, and management functions as expected
+- **Category Filtering**: Users can effectively filter services by category
+- **Schedule Management**: Service providers can set and manage availability
+- **Notifications**: Users receive appropriate notifications for relevant actions
+
+Each feature was tested in isolation and as part of integrated user flows to ensure robust functionality.
+
+### Form Testing
+All forms in the application underwent rigorous testing to verify their functionality, validation, and user feedback. The testing process included:
+
+- **Input Validation**: Verifying that form validation correctly identifies and reports invalid inputs
+- **Field Constraints**: Testing field constraints such as character limits and required fields
+- **Submission Handling**: Verifying that form submissions are processed correctly and result in appropriate database updates
+- **Error Handling**: Testing error scenarios and verifying that appropriate error messages are displayed
+- **User Feedback**: Confirming that users receive clear feedback after form submission
+
+This comprehensive form testing ensures that users can efficiently input data and receive appropriate feedback throughout their interactions with the platform.
+
+### Security Testing
+Security testing was conducted to identify and address potential vulnerabilities in the application. The testing process focused on:
+
+- **Authentication**: Verifying that authentication mechanisms effectively protect user accounts
+- **Authorization**: Testing that users can only access resources they are authorized to use
+- **Input Validation**: Checking for vulnerabilities related to inadequate input validation
+- **CSRF Protection**: Verifying that Cross-Site Request Forgery protections are in place
+- **Data Protection**: Verifying that sensitive data is appropriately protected
+
+This security testing helps ensure that user data is protected and that the application is resilient against common security threats.
+
+### Navigation Testing
+Navigation testing was conducted to verify that users can effectively move through the application and access all relevant features. The testing process included:
+
+- **Menu Functionality**: Verifying that navigation menus function correctly across all pages
+- **Link Integrity**: Testing all links to ensure they lead to the correct destinations
+- **User Flow**: Testing common user flows to ensure seamless navigation between related features
+- **Mobile Navigation**: Verifying that navigation elements function correctly on mobile devices
+
+This navigation testing ensures that users can intuitively find and access the features they need.
+
+## Automated Testing
+
+### Python Unit Tests
+Comprehensive unit tests were developed for the Django application to verify the functionality of individual components. These tests focus on:
+
+- **Model Tests**: Verifying that model behavior, validations, and relationships function correctly
+- **View Tests**: Testing that views return appropriate responses and handle different scenarios correctly
+- **Form Tests**: Verifying form validation and processing logic
+- **URL Tests**: Ensuring that URL patterns correctly resolve to the appropriate views
+
+These unit tests provide automated verification of core functionality and help prevent regressions during development.
+
+### Coverage Report
+Test coverage analysis was performed to assess the extent to which the codebase is covered by the test suite. This analysis helps identify areas that may require additional testing.
+
+The coverage report includes metrics for:
+- Statement coverage
+- Branch coverage
+- Function coverage
+- Line coverage
+
+This coverage analysis helps ensure that critical functionality is adequately tested and identifies potential gaps in test coverage.
+
+Screenshot and coverage test explanations !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+### Integration Tests
+Integration tests were developed to verify the interaction between different components of the application. These tests focus on:
+
+- **Component Interaction**: Testing that different components work together correctly
+- **Data Flow**: Verifying that data flows correctly between components
+- **End-to-End Scenarios**: Testing complete user workflows from start to finish
+
+These integration tests help ensure that the application functions correctly as a cohesive system.
+
+## Performance Testing
+
+### Page Load Times
+Performance testing was conducted to measure and optimize page load times across different parts of the application. The testing process included:
+
+- **Initial Load Time**: Measuring the time from request to initial content display
+- **Full Page Load**: Measuring the time until all page resources are loaded
+- **Time to Interactive**: Measuring when the page becomes fully interactive
+
+These measurements help identify performance bottlenecks and guide optimization efforts.
+
+### Database Query Optimization
+Database query performance was analyzed and optimized to ensure efficient data retrieval and manipulation. The optimization process included:
+
+- **Query Analysis**: Identifying inefficient or redundant queries
+- **Index Optimization**: Creating appropriate indexes to improve query performance
+- **Query Refinement**: Refactoring queries to reduce complexity and improve performance
+- **Caching Strategies**: Implementing caching where appropriate to reduce database load
 
 ## Bugs
 
