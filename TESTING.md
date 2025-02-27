@@ -75,7 +75,31 @@ All HTML code was validated using the [W3C Markup Validation Service](https://va
 
 The validation process was conducted across all template files in the project. This meticulous approach allowed us to identify and address any structural issues that might impact user experience or device compatibility.
 
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+| File Name | Result | See Image |
+|-----------|--------|-----------|
+| base.html | Pass - No errors or warnings | ![about-us](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3) |
+| about_us.html | Pass - No errors or warnings | [View Screenshot](#about-us-html) |
+| login.html | Pass - No errors or warnings | [View Screenshot](#login-html) |
+| sign_up.html | Pass - No errors or warnings | [View Screenshot](#sign-up-html) |
+| index.html | Pass - No errors or warnings | [View Screenshot](#index-html) |
+| service.html | Pass - No errors or warnings | [View Screenshot](#service-html) |
+| service_detail.html | Pass - No errors or warnings | [View Screenshot](#service-detail-html) |
+| edit_service.html | Pass - No errors or warnings | [View Screenshot](#edit-service-html) |
+| my_services.html | Pass - No errors or warnings | [View Screenshot](#my-services-html) |
+| book_appointment.html | Pass - No errors or warnings | [View Screenshot](#book-appointment-html) |
+| appointments.html | Pass - No errors or warnings | [View Screenshot](#appointments-html) |
+| manage_schedule.html | Pass - No errors or warnings | [View Screenshot](#manage-schedule-html) |
+| edit_profile.html | Pass - No errors or warnings | [View Screenshot](#edit-profile-html) |
+| manage_account.html | Pass - No errors or warnings | [View Screenshot](#manage-account-html) |
+| logout.html | Pass - No errors or warnings | [View Screenshot](#logout-html) |
+| user_info.html | Pass - No errors or warnings | [View Screenshot](#user-info-html) |
+| cancellation_policy.html | Pass - No errors or warnings | [View Screenshot](#cancellation-policy-html) |
+| how_it_works.html | Pass - No errors or warnings | [View Screenshot](#how-it-works-html) |
+| help_center.html | Pass - No errors or warnings | [View Screenshot](#help-center-html) |
+| legal.html | Pass - No errors or warnings | [View Screenshot](#legal-html) |
+
+
+#### 
 
 ### CSS Validation
 The CSS code was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). This validation ensures that our stylesheets adhere to current CSS specifications and best practices.
