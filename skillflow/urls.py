@@ -41,7 +41,7 @@ urlpatterns = [
     path("login/", views.login, name="login"),  # Login page
     path("logout/", views.logout_view, name="logout"),  # Logout handler
     # Profile Management URLs
-    path("profile/edit/", views.edit_profile, name="edit_profile"),  # Edit profile
+    path("profile/edit/", views.edit_profile, name="edit_profile"),
     path(
         "profile/manage/", views.manage_account, name="manage_account"
     ),  # Account management
@@ -51,16 +51,24 @@ urlpatterns = [
     # Service Management URLs
     path("service/", views.service, name="service"),  # Create service
     path(
-        "service/<int:service_id>/edit/", views.edit_service, name="edit_service"
+        "service/<int:service_id>/edit/",
+        views.edit_service,
+        name="edit_service"
     ),  # Edit service
     path(
-        "service/<int:service_id>/delete/", views.delete_service, name="delete_service"
+        "service/<int:service_id>/delete/",
+        views.delete_service,
+        name="delete_service"
     ),  # Delete service
     path(
         "profile-services", views.my_services, name="my_services"
     ),  # List user's services
     # Category filtering
-    path("category/<str:category>/", views.category_services, name="category_services"),
+    path(
+        "category/<str:category>/",
+        views.category_services,
+        name="category_services"
+    ),
     # Scheduling and appointment URLs
     path(
         "service/<int:service_id>/schedule/",
@@ -85,13 +93,23 @@ urlpatterns = [
     ),
     # Additional pages
     path(
-        "service/<int:service_id>/detail/", views.service_detail, name="service_detail"
+        "service/<int:service_id>/detail/",
+        views.service_detail,
+        name="service_detail"
     ),
-    path("cancellation-policy/", views.cancellation_policy, name="cancellation_policy"),
+    path(
+        "cancellation-policy/",
+        views.cancellation_policy,
+        name="cancellation_policy"
+    ),
     path("how-it-works/", views.how_it_works, name="how_it_works"),
     path("help-center/", views.help_center, name="help_center"),
     path("legal/", views.legal, name="legal"),
-    path("user/<int:service_id>/user-info/", views.user_info, name="user_info"),
+    path(
+        "user/<int:service_id>/user-info/",
+        views.user_info,
+        name="user_info"
+    ),
     path("check-ssl/", views.check_ssl_settings, name="check_ssl"),
     path("check-static/", views.check_static_settings, name="check_static"),
 ]

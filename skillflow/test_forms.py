@@ -6,9 +6,9 @@ from .forms import SignUpForm, UserProfileForm, ServiceForm, AvailabilityForm
 
 """
 Source Links for Django Form Testing:
-- https://docs.djangoproject.com/en/5.0/topics/testing/tools/#form-testing
-- https://docs.djangoproject.com/en/5.0/ref/forms/validation/
-- https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/#field-validation
+https://docs.djangoproject.com/en/5.0/topics/testing/tools/#form-testing
+https://docs.djangoproject.com/en/5.0/ref/forms/validation/
+https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/#field-validation
 """
 
 
@@ -21,7 +21,8 @@ class SignUpFormTests(TestCase):
     def test_signup_form_valid_data(self):
         """
         Test that the signup form accepts valid registration data.
-        Ensures form validates successfully with correct username and matching passwords.
+        Ensures form validates successfully with correct
+        username and matching passwords.
         """
         form_data = {
             "username": "testuser",
@@ -36,7 +37,7 @@ class SignUpFormTests(TestCase):
         Test that the signup form properly rejects invalid registration data.
         Specifically tests password mismatch scenario.
         """
-        # Source Link: https://stackoverflow.com/questions/21458387/how-to-test-django-form-validation
+        # https://stackoverflow.com/questions/21458387/how-to-test-django-form-validation
         form_data = {
             "username": "testuser",
             "password1": "TestPass123!",
@@ -74,7 +75,7 @@ class UserProfileFormTests(TestCase):
         Test that the profile form enforces maximum bio length.
         Ensures bio text cannot exceed 200 characters.
         """
-        # Source Link: https://docs.djangoproject.com/en/5.0/ref/validators/#maxlengthvalidator
+        # https://docs.djangoproject.com/en/5.0/ref/validators/#maxlengthvalidator
         long_bio = "x" * 201  # Create bio text that exceeds max length
         form_data = {
             "first_name": "Test",
@@ -84,7 +85,8 @@ class UserProfileFormTests(TestCase):
         }
         form = UserProfileForm(data=form_data)
         self.assertFalse(form.is_valid())
-        self.assertIn("bio", form.errors)  # Verifies error is related to bio field
+        # Verifies error is related to bio field
+        self.assertIn("bio", form.errors)
 
 
 class ServiceFormTests(TestCase):
@@ -98,7 +100,7 @@ class ServiceFormTests(TestCase):
         Test that the service form rejects invalid hourly rates.
         Verifies negative hourly rates are not allowed.
         """
-        # Source Link: https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model
+        # https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model
         form_data = {
             "title": "Test Service",
             "description": "Test Description",
@@ -123,7 +125,7 @@ class AvailabilityFormTests(TestCase):
         Test that the availability form rejects invalid dates.
         Ensures past dates cannot be used for scheduling.
         """
-        # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.utils.timezone_override
+        # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.utils.timezone_override
         yesterday = timezone.now().date() - timedelta(days=1)
         form_data = {
             "date": yesterday,

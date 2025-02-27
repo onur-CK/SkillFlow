@@ -1,7 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import UserProfile, Service, Availability, Appointment, WeeklySchedule
+from .models import (
+    UserProfile,
+    Service,
+    Availability,
+    Appointment,
+    WeeklySchedule
+)
 from django.utils import timezone
 
 # This module contains all form classes used in the SkillFlow application.
@@ -9,16 +15,22 @@ from django.utils import timezone
 
 
 class SignUpForm(UserCreationForm):
-    # Form for user registration.
-    # Inherits from Django's UserCreationForm to handle user creation with password validation.
+    """
+    Form for user registration.
+    Inherits from Django's UserCreationForm
+    to handle user creation with password validation.
+    """
     class Meta:
         model = User
         fields = ["username", "password1", "password2"]
 
 
 class UserProfileForm(forms.ModelForm):
-    # Form for managing user profile information.
-    # Allows users to update their personal information including name, email, and bio.
+    """
+    Form for managing user profile information.
+    Allows users to update their personal information including
+    name, email, and bio.
+    """
     class Meta:
         model = UserProfile
         fields = ["first_name", "last_name", "email", "bio"]
@@ -34,7 +46,7 @@ class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
         fields = ["title", "description", "category", "hourly_rate"]
-        # Django Html Attr Source: https://www.geeksforgeeks.org/how-to-add-html-attributes-to-input-fields-in-django-forms/
+        # https://www.geeksforgeeks.org/how-to-add-html-attributes-to-input-fields-in-django-forms/
         widgets = {
             # Custom styling and placeholders for each field
             "title": forms.TextInput(
@@ -43,21 +55,30 @@ class ServiceForm(forms.ModelForm):
                     "placeholder": "e.g, Professional Math Tutoring",
                 }
             ),
-            # Django Text-area Html Attr Source: https://stackoverflow.com/questions/66707030/django-textarea-form
+            # https://stackoverflow.com/questions/66707030/django-textarea-form
             "description": forms.Textarea(
                 attrs={
                     "class": "form-control custom-input",
                     "rows": 4,
                     "maxlength": 500,
-                    "placeholder": "Describe your service, experience, and expertise...",
+                    "placeholder": (
+                        "Describe your service, "
+                        "experience, and expertise..."
+                    ),
                 }
             ),
-            "category": forms.Select(attrs={"class": "form-control custom-input"}),
-            # Min Attr Source: https://stackoverflow.com/questions/37024650/specify-max-and-min-in-numberinput-widget
+            "category": forms.Select(
+                attrs={
+                    "class": "form-control custom-input"
+                }
+            ),
+            # https://stackoverflow.com/questions/37024650/specify-max-and-min-in-numberinput-widget
             "hourly_rate": forms.NumberInput(
                 attrs={
                     "class": "form-control custom-input",
-                    "placeholder": "Enter your hourly rate",
+                    "placeholder": (
+                        "Enter your hourly rate"
+                    ),
                     "min": "1",
                     "max": "9999.99",
                 }
@@ -72,8 +93,11 @@ class ServiceForm(forms.ModelForm):
 
 
 class AvailabilityForm(forms.ModelForm):
-    # Form for managing service provider availability.
-    # Includes custom field definitions and validation logic for dates and times.
+    """
+    Form for managing service provider availability.
+    Includes custom field definitions and
+    validation logic for dates and times.
+    """
 
     # Custom field definitions with specific widget configurations
     date = forms.DateField(
@@ -81,7 +105,7 @@ class AvailabilityForm(forms.ModelForm):
             attrs={
                 "type": "date",
                 "class": "form-control custom-input",
-                # Source Linkf of Timezone: https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
+                # https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
                 # Prevents past dates
                 "min": timezone.now().date().isoformat(),
             }
@@ -113,7 +137,7 @@ class AvailabilityForm(forms.ModelForm):
         model = Availability
         fields = ["date", "start_time", "end_time", "location"]
 
-    # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
+    # https://docs.djangoproject.com/en/5.1/ref/forms/validation/
     def clean(self):
         # Custom validation method to ensure:
         # 1. Date is not in the past
@@ -123,9 +147,11 @@ class AvailabilityForm(forms.ModelForm):
         start_time = cleaned_data.get("start_time")
         end_time = cleaned_data.get("end_time")
 
-        # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
+        # https://docs.djangoproject.com/en/5.1/ref/forms/validation/
         if date and date < timezone.now().date():
-            raise forms.ValidationError("Cannot create availability for past dates")
+            raise forms.ValidationError(
+                "Cannot create availability for past dates"
+                )
 
         if start_time and end_time and start_time >= end_time:
             raise forms.ValidationError("End time must be after start time")
@@ -146,9 +172,16 @@ class AppointmentForm(forms.ModelForm):
 class WeeklyScheduleForm(forms.ModelForm):
     class Meta:
         model = WeeklySchedule
-        fields = ["day_of_week", "start_time", "end_time", "location"]
+        fields = ["day_of_week",
+                  "start_time",
+                  "end_time",
+                  "location"]
         widgets = {
-            "day_of_week": forms.Select(attrs={"class": "form-control custom-input"}),
+            "day_of_week": forms.Select(
+                attrs={
+                    "class": "form-control custom-input"
+                }
+            ),
             "start_time": forms.TimeInput(
                 attrs={"type": "time", "class": "form-control custom-input"}
             ),

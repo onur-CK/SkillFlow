@@ -8,14 +8,18 @@ from django.contrib.messages import get_messages
 
 
 class AuthenticationViewTests(TestCase):
-    # Test suite for authentication-related views including signup and login functionality.
+    """
+    Test suite for authentication-related views
+    including signup and login functionality.
+    """
 
     def setUp(self):
         """
         Initialize test environment with client and test user.
-        Creates URLs for signup and login pages and a test user for authentication tests.
-        Source link: https://stackoverflow.com/questions/57337720/writing-django-signup-form-tests-for-checking-new-user-creation
+        Creates URLs for signup and login pages and a test user
+        for authentication tests.
         """
+        # https://stackoverflow.com/questions/57337720/writing-django-signup-form-tests-for-checking-new-user-creation
         self.client = Client()
         self.signup_url = reverse("sign_up")
         self.login_url = reverse("login")
@@ -26,19 +30,21 @@ class AuthenticationViewTests(TestCase):
     def test_signup_view_get(self):
         """
         Test GET request to signup page.
-        Verifies that the signup page loads correctly and uses the correct template.
-        Source Link: https://stackoverflow.com/questions/43501561/how-to-test-views-that-use-post-request-in-django
+        Verifies that the signup page loads correctly
+        and uses the correct template.
         """
+        # https://stackoverflow.com/questions/43501561/how-to-test-views-that-use-post-request-in-django
         response = self.client.get(self.signup_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "skillflow/sign_up.html")
 
     def test_signup_view_post(self):
+        # https://stackoverflow.com/questions/43501561/how-to-test-views-that-use-post-request-in-django
+        # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client.post
         """
         Test POST request for user registration.
-        Verifies that new users can be created successfully and are redirected properly.
-        Source Links: https://stackoverflow.com/questions/43501561/how-to-test-views-that-use-post-request-in-django
-        https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client.post
+        Verifies that new users can be created successfully and
+        are redirected properly.
         """
         # Shows how to test form submissions and check redirects
         response = self.client.post(
@@ -57,7 +63,8 @@ class AuthenticationViewTests(TestCase):
     def test_login_view(self):
         """
         Test user login functionality.
-        Verifies that users can log in successfully and are redirected appropriately.
+        Verifies that users can log in successfully and
+        are redirected appropriately.
         """
         response = self.client.post(
             self.login_url, {"username": "testuser", "password": "testpass123"}
@@ -71,10 +78,10 @@ class ServiceViewTests(TestCase):
     # Test suite for service-related views including creation and management.
 
     def setUp(self):
+        # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.TestCase
         """
         Initialize test environment for service-related tests.
         Creates a test user, user profile, and service instance.
-        Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.TestCase
         """
         self.client = Client()
         # Create test user
@@ -97,7 +104,10 @@ class ServiceViewTests(TestCase):
             provider=self.user,
         )
         self.create_service_url = reverse("service")
-        self.service_detail_url = reverse("service_detail", args=[self.service.id])
+        self.service_detail_url = reverse(
+            "service_detail",
+            args=[self.service.id]
+        )
 
 
 class AppointmentViewTests(TestCase):
@@ -132,13 +142,18 @@ class ViewsTestCase(TestCase):
 
     def setUp(self):
         """
-        Initialize test environment with users, profiles, service, and availability.
+        Initialize test environment with users,
+        profiles, service, and availability.
         Creates test data necessary for various view tests.
         """
         # Create test users
         self.client = Client()
-        self.user = User.objects.create_user(username="testuser", password="12345")
-        self.provider = User.objects.create_user(username="provider", password="12345")
+        self.user = User.objects.create_user(
+            username="testuser",
+            password="12345")
+        self.provider = User.objects.create_user(
+            username="provider",
+            password="12345")
 
         # Create profiles for test users
         self.user_profile = UserProfile.objects.create(user=self.user)
@@ -165,10 +180,11 @@ class ViewsTestCase(TestCase):
         )
 
     def test_home_view(self):
+        # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.SimpleTestCase.assertTemplateUsed
         """
         Test home page view functionality.
-        Verifies correct template rendering for both authenticated and unauthenticated users.
-        Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.SimpleTestCase.assertTemplateUsed
+        Verifies correct template rendering for
+        both authenticated and unauthenticated users.
         """
         # Test unauthenticated user access
         response = self.client.get(reverse("home"))
@@ -214,19 +230,25 @@ class ViewsTestCase(TestCase):
         1. Providers can access their schedule management page
         2. New availability slots can be created successfully
         3. The view handles GET and POST requests appropriately
-        4. Created availability slots are associated with correct provider and service
+        4. Created availability slots are associated with
+        correct provider and service
         """
         # Log in as the service provider
         self.client.login(username="provider", password="12345")
 
         # Test GET request - should return schedule management page
-        response = self.client.get(reverse("manage_schedule", args=[self.service.id]))
+        response = self.client.get(
+            reverse("manage_schedule", args=[self.service.id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "skillflow/manage_schedule.html")
 
         # Test POST request to create new availability slot
         data = {
-            "date": (timezone.now().date() + timedelta(days=2)).strftime("%Y-%m-%d"),
+            "date": (
+                (timezone.now().date() + timedelta(days=2))
+                .strftime("%Y-%m-%d")
+            ),
             "start_time": "14:00",
             "end_time": "15:00",
             "location": "Test Location",
@@ -239,7 +261,9 @@ class ViewsTestCase(TestCase):
         # Verify the availability slot was created with correct attributes
         self.assertTrue(
             Availability.objects.filter(
-                provider=self.provider, service=self.service, location="Test Location"
+                provider=self.provider,
+                service=self.service,
+                location="Test Location"
             ).exists()
         )
 
@@ -250,13 +274,16 @@ class ViewsTestCase(TestCase):
         1. Clients can access the booking page
         2. Appointments can be created successfully
         3. The view handles both GET and POST requests correctly
-        4. Created appointments are properly associated with client and availability
+        4. Created appointments are properly associated with
+        client and availability
         """
         # Log in as a client user
         self.client.login(username="testuser", password="12345")
 
         # Test GET request - should show booking page
-        response = self.client.get(reverse("book_appointment", args=[self.service.id]))
+        response = self.client.get(
+            reverse("book_appointment", args=[self.service.id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "skillflow/book_appointment.html")
 
@@ -310,7 +337,9 @@ class ViewsTestCase(TestCase):
         2. Correct template is used
         3. Service context is properly passed to template
         """
-        response = self.client.get(reverse("service_detail", args=[self.service.id]))
+        response = self.client.get(
+            reverse("service_detail", args=[self.service.id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "skillflow/service_detail.html")
         self.assertEqual(response.context["service"], self.service)
@@ -323,7 +352,9 @@ class ViewsTestCase(TestCase):
         2. Correct template is used
         3. Filtered services are passed to template context
         """
-        response = self.client.get(reverse("category_services", args=["education"]))
+        response = self.client.get(
+            reverse("category_services", args=["education"])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "skillflow/index.html")
         self.assertEqual(list(response.context["services"]), [self.service])
@@ -349,9 +380,11 @@ class ViewsTestCase(TestCase):
         2. Proper redirection occurs after deletion
         3. Service is actually removed from database
         """
-        # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#assertredirects
+        # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#assertredirects
         self.client.login(username="provider", password="12345")
-        response = self.client.post(reverse("delete_service", args=[self.service.id]))
+        response = self.client.post(
+            reverse("delete_service", args=[self.service.id])
+        )
         self.assertRedirects(response, reverse("my_services"))
         self.assertFalse(Service.objects.filter(id=self.service.id).exists())
 
@@ -365,12 +398,17 @@ class ViewsTestCase(TestCase):
         """
         self.client.login(username="provider", password="12345")
         response = self.client.post(
-            reverse("delete_availability", args=[self.service.id, self.availability.id])
+            reverse(
+                "delete_availability",
+                args=[self.service.id, self.availability.id]
+            )
         )
         self.assertRedirects(
             response, reverse("manage_schedule", args=[self.service.id])
         )
-        self.assertFalse(Availability.objects.filter(id=self.availability.id).exists())
+        self.assertFalse(
+            Availability.objects.filter(id=self.availability.id).exists()
+        )
 
 
 class AdditionalViewTests(TestCase):
@@ -379,8 +417,14 @@ class AdditionalViewTests(TestCase):
         self.client = Client()
 
         # Create test users
-        self.user = User.objects.create_user(username="testuser", password="12345")
-        self.provider = User.objects.create_user(username="provider", password="12345")
+        self.user = User.objects.create_user(
+            username="testuser",
+            password="12345"
+        )
+        self.provider = User.objects.create_user(
+            username="provider",
+            password="12345"
+        )
 
         # Create profiles
         self.user_profile = UserProfile.objects.create(user=self.user)
@@ -408,12 +452,16 @@ class AdditionalViewTests(TestCase):
 
     def test_login_view_invalid_credentials(self):
         # Test login view with invalid credentials
-        # Source Link: https://docs.djangoproject.com/en/5.0/ref/contrib/messages/#testing-messages
+        # https://docs.djangoproject.com/en/5.0/ref/contrib/messages/#testing-messages
         response = self.client.post(
-            reverse("login"), {"username": "testuser", "password": "wrongpassword"}
+            reverse("login"),
+            {"username": "testuser", "password": "wrongpassword"}
         )
         messages = list(get_messages(response.wsgi_request))
-        self.assertIn("Invalid username or password.", [m.message for m in messages])
+        self.assertIn(
+            "Invalid username or password.",
+            [m.message for m in messages]
+        )
 
     def test_service_creation_invalid_data(self):
         # Test service creation with invalid data
@@ -453,7 +501,10 @@ class AdditionalViewTests(TestCase):
         )
 
         # Create another user and attempt to book same slot
-        user2 = User.objects.create_user(username="testuser2", password="12345")
+        user2 = User.objects.create_user(
+            username="testuser2",
+            password="12345"
+        )
         self.client.login(username="testuser2", password="12345")
         response = self.client.post(
             reverse("book_appointment", args=[self.service.id]),
@@ -508,7 +559,13 @@ class AdditionalViewTests(TestCase):
         # Try to delete the booked slot
         self.client.login(username="provider", password="12345")
         response = self.client.post(
-            reverse("delete_availability", args=[self.service.id, self.availability.id])
+            reverse(
+                "delete_availability",
+                args=[
+                    self.service.id,
+                    self.availability.id
+                ]
+            )
         )
         messages = list(get_messages(response.wsgi_request))
         self.assertIn(
@@ -525,7 +582,7 @@ class AdditionalViewTests(TestCase):
         availability = Availability.objects.create(
             provider=self.provider,
             service=self.service,
-            # Source Link: https://docs.djangoproject.com/en/5.0/topics/testing/tools/#time-zones
+            # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#time-zones
             date=today.date(),
             start_time=(today + timedelta(hours=2)).time(),  # 2 hours from now
             end_time=(today + timedelta(hours=3)).time(),  # 3 hours from now
@@ -546,7 +603,8 @@ class AdditionalViewTests(TestCase):
         # Verify the error message
         messages = list(get_messages(response.wsgi_request))
         self.assertIn(
-            "Appointments must be cancelled at least 24 hours in advance as per our cancellation policy.",
+            "Appointments must be cancelled at least 24 hours in advance "
+            "as per our cancellation policy.",
             [m.message for m in messages],
         )
 
@@ -556,11 +614,13 @@ class AdditionalViewTests(TestCase):
 
     def test_edit_service_unauthorized(self):
         # Test editing service without authorization
-        # Source Link: https://docs.djangoproject.com/en/5.0/topics/auth/default/#authentication-in-web-requests
+        # https://docs.djangoproject.com/en/5.0/topics/auth/default/#authentication-in-web-requests
         self.client.login(
             username="testuser", password="12345"
         )  # Not the service provider
-        response = self.client.get(reverse("edit_service", args=[self.service.id]))
+        response = self.client.get(
+            reverse("edit_service", args=[self.service.id])
+        )
         self.assertEqual(response.status_code, 403)  # Should return Forbidden
 
     def test_edit_profile_form_validation(self):
@@ -568,7 +628,8 @@ class AdditionalViewTests(TestCase):
         self.client.login(username="testuser", password="12345")
         response = self.client.post(
             reverse("edit_profile"),
-            {"email": "invalid-email", "bio": "Test bio"},  # Invalid email format
+            # Invalid email format
+            {"email": "invalid-email", "bio": "Test bio"},
         )
         messages = list(get_messages(response.wsgi_request))
         self.assertIn(

@@ -46,7 +46,9 @@ def check_ssl_settings(request):
             settings, "SECURE_HSTS_INCLUDE_SUBDOMAINS", False
         ),
         "SECURE_HSTS_PRELOAD": getattr(settings, "SECURE_HSTS_PRELOAD", False),
-        "SESSION_COOKIE_SECURE": getattr(settings, "SESSION_COOKIE_SECURE", False),
+        "SESSION_COOKIE_SECURE": getattr(
+            settings, "SESSION_COOKIE_SECURE", False
+        ),
         "CSRF_COOKIE_SECURE": getattr(settings, "CSRF_COOKIE_SECURE", False),
         "SECURE_BROWSER_XSS_FILTER": getattr(
             settings, "SECURE_BROWSER_XSS_FILTER", False
@@ -82,15 +84,16 @@ def sign_up(request):
     """
     if request.method == "POST":
         form = SignUpForm(request.POST)
-        # Source Link: https://stackoverflow.com/questions/69280755/valueerror-at-the-view-leads-views-home-page-didnt-return-an-httpresponse-obj/69280887
+        # https://stackoverflow.com/questions/69280755/valueerror-at-the-view-leads-views-home-page-didnt-return-an-httpresponse-obj/69280887
         if form.is_valid():
             user = form.save()
             # Create UserProfile for the new user
             UserProfile.objects.create(user=user)
             auth_login(request, user)
-            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+            # https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(
-                request, f"Welcome, {user.username}! It`s great to have you here."
+                request,
+                f"Welcome, {user.username}! It`s great to have you here."
             )
             return redirect("index")
     else:
@@ -106,7 +109,7 @@ def login(request):
     Provides different welcome messages for first-time vs returning users.
     Redirects to index page on successful login.
     """
-    # Source Link: https://docs.djangoproject.com/en/5.1/topics/auth/default/#auth-web-requests
+    # https://docs.djangoproject.com/en/5.1/topics/auth/default/#auth-web-requests
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -117,9 +120,10 @@ def login(request):
             )  # Check if the user has logged in before
             auth_login(request, user)
             if first_login:
-                # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+                # https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
                 messages.success(
-                    request, f"Welcome, {username}! It’s great to have you here."
+                    request,
+                    f"Welcome, {username}! It’s great to have you here."
                 )
             else:
                 messages.success(request, f"Welcome back, {username}!")
@@ -140,7 +144,9 @@ def index(request):
     """
     category = request.GET.get("category")
     if category:
-        services = Service.objects.filter(category=category).order_by("created_at")
+        services = Service.objects.filter(
+            category=category
+        ).order_by("created_at")
     else:
         services = Service.objects.all().order_by("created_at")
     return render(
@@ -165,10 +171,11 @@ def service(request):
             service = form.save(commit=False)
             service.provider = request.user
             service.save()
-            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+            # https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(
                 request,
-                f'Your service "{service.title}" has been updated successfully.',
+                f'Your service "{service.title}" '
+                'has been updated successfully.'
             )
             return redirect("index")
         else:
@@ -190,18 +197,25 @@ def edit_profile(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     if request.method == "POST":
         form = UserProfileForm(request.POST, instance=profile)
-        # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
+        # https://docs.djangoproject.com/en/5.1/ref/forms/validation/
         if form.is_valid():
             form.save()
-            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+            # https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(request, "Profile updated successfully!")
             return redirect("edit_profile")
         else:
-            messages.error(request, "Please check all required fields and try again.")
+            messages.error(
+                request,
+                "Please check all required fields and try again.")
     else:
         form = UserProfileForm(instance=profile)
     return render(
-        request, "skillflow/edit_profile.html", {"form": form, "profile": profile}
+        request,
+        "skillflow/edit_profile.html",
+        {
+            "form": form,
+            "profile": profile
+        }
     )
 
 
@@ -240,7 +254,7 @@ def logout_view(request):
     """
     if request.method == "POST":
         auth_logout(request)
-        # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+        # https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
         messages.success(request, "You have been logged out successfully.")
         return redirect("about_us")
     return render(request, "skillflow/logout.html")
@@ -261,16 +275,19 @@ def home(request):
 def service(request):
     if request.method == "POST":
         form = ServiceForm(request.POST)
-        # Source Link: https://docs.djangoproject.com/en/5.1/ref/forms/validation/
+        # https://docs.djangoproject.com/en/5.1/ref/forms/validation/
         if form.is_valid():
             service = form.save(commit=False)
             service.provider = request.user
             service.save()
-            # Source Link: https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+            # https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
             messages.success(request, "Service listed successfully!")
             return redirect("index")
         else:
-            messages.error(request, "Please check all required fields and try again.")
+            messages.error(
+                request,
+                "Please check all required fields and try again."
+            )
     else:
         form = ServiceForm()
     return render(request, "skillflow/service.html", {"form": form})
@@ -299,7 +316,7 @@ def edit_service(request, service_id):
     Requires authentication and verifies user owns service.
     Shows success/error messages for form submission.
     """
-    # Source Link: https://docs.djangoproject.com/en/5.1/topics/http/shortcuts/#get-object-or-404
+    # https://docs.djangoproject.com/en/5.1/topics/http/shortcuts/#get-object-or-404
     service = get_object_or_404(Service, id=service_id)
 
     # Check if the current user is the service provider
@@ -313,12 +330,17 @@ def edit_service(request, service_id):
             messages.success(request, "Service updated successfully!")
             return redirect("index")
         else:
-            messages.error(request, "Please check all required fields and try again.")
+            messages.error(
+                request,
+                "Please check all required fields and try again."
+            )
     else:
         form = ServiceForm(instance=service)
 
     return render(
-        request, "skillflow/edit_service.html", {"form": form, "service": service}
+        request,
+        "skillflow/edit_service.html",
+        {"form": form, "service": service}
     )
 
 
@@ -332,7 +354,10 @@ def delete_service(request, service_id):
     """
     service = get_object_or_404(Service, id=service_id)
     if service.provider != request.user:
-        messages.error(request, "You do not have permission to delete this service.")
+        messages.error(
+            request,
+            "You do not have permission to delete this service."
+        )
         return redirect("my_services")
 
     if request.method == "POST":
@@ -386,7 +411,10 @@ def book_appointment(request, service_id):
 
         # Check if the availability is already booked
         if availability.is_booked:
-            messages.error(request, "Sorry, this time slot has already been booked.")
+            messages.error(
+                request,
+                "Sorry, this time slot has already been booked."
+            )
             return redirect("book_appointment", service_id=service_id)
 
         # Check if trying to book own service
@@ -396,17 +424,19 @@ def book_appointment(request, service_id):
 
         try:
             # Use transaction.atomic() to ensure database consistency
-            # Transaction source links: https://www.geeksforgeeks.org/transaction-atomic-with-django/
+            # https://www.geeksforgeeks.org/transaction-atomic-with-django/
             # https://docs.djangoproject.com/en/5.1/topics/db/transactions/
             with transaction.atomic():
                 # Create appointment and mark availability as booked
                 appointment = Appointment.objects.create(
-                    availability=availability, client=request.user, status="pending"
+                    availability=availability,
+                    client=request.user,
+                    status="pending"
                 )
                 availability.is_booked = True
                 availability.save()
 
-                # Store appointment success in session instead of using messages
+                # Store appointment success in session
                 request.session["appointment_success"] = True
                 request.session["appointment_service"] = service.title
 
@@ -414,7 +444,8 @@ def book_appointment(request, service_id):
 
         except Exception as e:
             messages.error(
-                request, "There was an error booking the appointment. Please try again."
+                request,
+                "There was an error booking the appointment. Please try again."
             )
             return redirect("book_appointment", service_id=service_id)
 
@@ -453,7 +484,9 @@ def view_appointments(request):
     ).order_by("availability__date", "availability__start_time")
 
     # Get client appointments
-    client_appointments = Appointment.objects.filter(client=request.user).order_by(
+    client_appointments = Appointment.objects.filter(
+        client=request.user
+    ).order_by(
         "availability__date", "availability__start_time"
     )
 
@@ -504,7 +537,8 @@ def manage_schedule(request, service_id):
 
                 if overlapping_slots.exists():
                     messages.error(
-                        request, "This time slot overlaps with an existing schedule."
+                        request,
+                        "This time slot overlaps with an existing schedule."
                     )
                 else:
                     availability.save()
@@ -531,8 +565,11 @@ def manage_schedule(request, service_id):
     ).order_by("date", "start_time")
 
     appointments = Appointment.objects.filter(
-        availability__service=service, availability__date__gte=timezone.now().date()
-    ).order_by("availability__date", "availability__start_time")
+        availability__service=service,
+        availability__date__gte=timezone.now().date()
+    ).order_by(
+        "availability__date", "availability__start_time"
+    )
 
     context = {
         "form": form,
@@ -564,7 +601,10 @@ def delete_availability(request, service_id, availability_id):
         Redirects to manage_schedule view after successful deletion or error
     """
     availability = get_object_or_404(
-        Availability, id=availability_id, service__id=service_id, provider=request.user
+        Availability,
+        id=availability_id,
+        service__id=service_id,
+        provider=request.user
     )
 
     if request.method == "POST":
@@ -615,7 +655,7 @@ def update_appointment_status(request, appointment_id):
             # Cancellation time window check
             if new_status == "cancelled":
                 # Calculate time until appointment
-                # Source Link: https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
+                # https://docs.djangoproject.com/en/5.1/topics/i18n/timezones/
                 current_datetime = timezone.now()
                 appointment_datetime = timezone.make_aware(
                     datetime.combine(
@@ -623,7 +663,9 @@ def update_appointment_status(request, appointment_id):
                         appointment.availability.start_time,
                     )
                 )
-                time_until_appointment = appointment_datetime - current_datetime
+                time_until_appointment = (
+                    appointment_datetime - current_datetime
+                )
 
                 # Check if less than 24 hours until appointment
                 if (
@@ -631,7 +673,8 @@ def update_appointment_status(request, appointment_id):
                 ):  # 24 hours in seconds
                     messages.error(
                         request,
-                        "Appointments must be cancelled at least 24 hours in advance as per our cancellation policy.",
+                        "Appointments must be cancelled at least 24 hours "
+                        "in advance as per our cancellation policy.",
                     )
                     return redirect("appointments")
 
@@ -640,7 +683,7 @@ def update_appointment_status(request, appointment_id):
                 appointment.status = new_status
                 appointment.save()
 
-                # If appointment is cancelled, make the time slot available again
+                # If appointment is cancelled, free the slot
                 if new_status == "cancelled":
                     availability = appointment.availability
                     availability.is_booked = False
@@ -671,7 +714,7 @@ def service_detail(request, service_id):
     Returns:
         Renders service_detail.html template with service information
     """
-    # Source Link: https://docs.djangoproject.com/en/5.1/topics/http/shortcuts/#get-object-or-404
+    # https://docs.djangoproject.com/en/5.1/topics/http/shortcuts/#get-object-or-404
     service = get_object_or_404(Service, id=service_id)
     # Get the provider's service and profile
     provider_profile = UserProfile.objects.get(user=service.provider)
@@ -714,7 +757,8 @@ def help_center(request):
 
 def legal(request):
     """
-    Displays the platform's legal information, terms of service, and privacy policy.
+    Displays the platform's legal information,
+    terms of service, and privacy policy.
 
     Returns:
         Renders legal.html template
@@ -731,7 +775,8 @@ def user_info(request, service_id):
         service_id: ID of the service to get provider information from
 
     Context:
-        - provider_profile: UserProfile object with provider's public information
+        - provider_profile: UserProfile object
+        with provider's public information
 
     Returns:
         Renders user_info.html template with provider information
@@ -739,5 +784,7 @@ def user_info(request, service_id):
     service = get_object_or_404(Service, id=service_id)
     provider_profile = get_object_or_404(UserProfile, user=service.provider)
     return render(
-        request, "skillflow/user_info.html", {"provider_profile": provider_profile}
+        request,
+        "skillflow/user_info.html",
+        {"provider_profile": provider_profile}
     )
