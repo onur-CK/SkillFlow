@@ -1,5 +1,9 @@
 # SkillFlow
 
+### What is SkillFlow?
+
+SkillFlow is a comprehensive web-based platform designed to bridge the gap between skilled individuals and those seeking affordable, local services. In today's gig economy, many talented individuals possess valuable skills but lack an efficient way to connect with potential clients, while others struggle to find reliable, affordable service providers in their community. SkillFlow addresses this challenge by providing a user-friendly marketplace where service providers can showcase their expertise and clients can easily find and book the services they need.
+
 ## Table of Contents
 1. [Project Overview](#project-overview)
    - [SkillFlow Goals](#skillflow-goals)
@@ -92,10 +96,6 @@ With additional features like profile pages to track both services offered and r
 - Maintain high user satisfaction and engagement
 - Expand the service provider network
 - Ensure platform security and reliability
-
-### What is SkillFlow?
-
-SkillFlow is a comprehensive web-based platform designed to bridge the gap between skilled individuals and those seeking affordable, local services. In today's gig economy, many talented individuals possess valuable skills but lack an efficient way to connect with potential clients, while others struggle to find reliable, affordable service providers in their community. SkillFlow addresses this challenge by providing a user-friendly marketplace where service providers can showcase their expertise and clients can easily find and book the services they need.
 
 ### Why Does SkillFlow Exist?
 
