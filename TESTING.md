@@ -308,6 +308,38 @@ Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow
 ##### *Legal Mobile*
 ![Legal Mobile Lighthouse Results](https://github.com/user-attachments/assets/legal_mobile.png)
 
+add the lings later: 
+![about-us-mobile](https://github.com/user-attachments/assets/22fe4713-044e-4afc-85d5-c597b5426f50)
+![about-us-desktop](https://github.com/user-attachments/assets/36f91b06-9b4c-4ca2-bddc-73a725ce6166)
+![user-info-mobile](https://github.com/user-attachments/assets/b3a99867-c681-4687-a5b8-8b6f52d39d8f)
+![user-info-desktop](https://github.com/user-attachments/assets/38ce610b-e64c-4e7d-ae13-3e9d4f95bab2)
+![service-detail-mobile](https://github.com/user-attachments/assets/cd56ae79-a735-40ec-94b1-f54a40f45826)
+![service-detail-desktop](https://github.com/user-attachments/assets/126eaff6-3f44-4b83-8b6b-0cd19ed0d2bf)
+![service-creation-form-mobile](https://github.com/user-attachments/assets/4d1ae451-dbb2-4c28-a60b-fab661856b65)
+![service-creation-form-desktop](https://github.com/user-attachments/assets/903db8a8-d765-44c1-98dc-63f6467b78be)
+![schedule-management-mobile](https://github.com/user-attachments/assets/d984ef68-e9ba-4145-ae0b-a4b372f03035)
+![schedule-management-desktop](https://github.com/user-attachments/assets/10c65a51-9876-4719-80f9-67422e57633d)
+![profile-manage-mobile](https://github.com/user-attachments/assets/c643e34b-c125-4d16-b747-8ce8eb645bca)
+![profile-manage-desktop](https://github.com/user-attachments/assets/55982a53-79ca-471b-97e9-290bbe3da30d)
+![my-services-mobile](https://github.com/user-attachments/assets/5c93fa31-d479-4966-8a61-44059a07bbb1)
+![my-services-desktop](https://github.com/user-attachments/assets/dfb52489-5764-4643-bc73-34b3aef92213)
+![legal-page-mobile](https://github.com/user-attachments/assets/70cd7788-44dd-4eef-b912-e20222a3fb2b)
+![legal-page-desktop](https://github.com/user-attachments/assets/1b4b9a98-ec0e-4634-9bee-06a8a16ea783)
+![how-it-works-mobile](https://github.com/user-attachments/assets/77a8acb5-e9bf-487f-bf59-204f111d9f37)
+![how-it-works-desktop](https://github.com/user-attachments/assets/4e6dd68f-92e5-4520-946a-fca04901a81c)
+![help-center-mobile](https://github.com/user-attachments/assets/10ab8a6f-8d20-4084-a149-d4c0e67da829)
+![help-center-desktop](https://github.com/user-attachments/assets/e8209c59-f6c2-4317-a91d-ec5744188445)
+![edit-service-mobile](https://github.com/user-attachments/assets/3a932be5-e9de-41d3-9274-a2eb7e0a4009)
+![edit-service-desktop](https://github.com/user-attachments/assets/a222ffee-4281-41d1-bc60-6e6d3e04e6fe)
+![edit-profile-mobile](https://github.com/user-attachments/assets/a1718c69-b599-4380-837d-e1c50e600e0f)
+![edit-profile-desktop](https://github.com/user-attachments/assets/fb285e41-59b0-428d-8207-9ca19bb8d619)
+![cancellation-policy-mobile](https://github.com/user-attachments/assets/34c6f85f-7c28-4aab-a7a8-b1c6dbb220d9)
+![cancellation-policy-desktop](https://github.com/user-attachments/assets/c683c27a-8a08-45db-89d4-ec230b2a1b75)
+![book-apppointment-mobile](https://github.com/user-attachments/assets/1d338f00-fe9f-4ad0-ade1-6d910b7da4b2)
+![book-appointment-desktop](https://github.com/user-attachments/assets/567d65fb-f917-4748-ac0f-4a7cbc62dbb3)
+![appointments-mobile](https://github.com/user-attachments/assets/ce439792-ee33-4a4a-b27b-cc245d091c33)
+![appointments-desktop](https://github.com/user-attachments/assets/09e9851e-a6d1-4451-be11-a7147ee37318)
+
 ### Lighthouse Performance Summary
 
 The Lighthouse reports demonstrate that SkillFlow performs well across all four key metrics:
