@@ -804,6 +804,9 @@ To create a local copy of the repository on your machine:
 ## Credits and Resources
 
 ### Tutorials
+
+The tutorials were used for the purpose of learning and improving understanding, and no use was made of the code content in the tutorials.
+
 - Developing with Django Course by Code Institute
 - Principle of Agile Development by Code Institute
 - Building with Bootstrap Course by Code Institute
@@ -818,9 +821,12 @@ To create a local copy of the repository on your machine:
 - 
 
 ### Guides and Tutorials
-- 
-- 
-- 
+
+The tutorials were used for the purpose of learning and improving understanding, and no use was made of the code content in the tutorials.
+
+- [CRUD Mastery](https://www.youtube.com/watch?v=pqWyUAT38e0)
+- [How to CRUD in Django](https://www.youtube.com/watch?v=opjyyXoqrxg)
+- [Complete Django CRUD Operations](https://www.youtube.com/watch?v=N6jzspc2kds)
 - 
 
 ### Django Documentation
