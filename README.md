@@ -665,5 +665,34 @@ The deployment section is structured to provide clear instructions for:
 - Git Workflow
 - Branch Management
 
+## Technologies Used
+
+### Programming Languages
+- Python 3.13.1
+- JavaScript
+- HTML5
+- CSS3
+
+### Frameworks
+- Django 5.1.4
+- Bootstrap 5.3.3
+- Font Awesome 6.4.2
+
+### Database Solutions
+- SQLite (Development)
+
+### Media Management Tools
+- Cloudinary
+
+### Supporting Libraries and Packages
+- Font Awesome
+- Django Forms
+- Whitenoise
+
+### Development Tools
+- Visual Studio Code
+- Git
+- GitHub
+- Chrome DevTools
 
 https://favicon.io/favicon-generator/ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
