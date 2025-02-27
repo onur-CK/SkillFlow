@@ -77,26 +77,9 @@ The validation process was conducted across all template files in the project. T
 
 | File Name | Result | Screenshot |
 |-----------|--------|------------|
-| about_us.html | Pass - No errors or warnings | [![about_us validation](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3)](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3) |
-| appointments.html | Pass - No errors or warnings | [![appointments validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| base.html | Pass - No errors or warnings | [![base validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| book_appointment.html | Pass - No errors or warnings | [![book_appointment validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| cancellation_policy.html | Pass - No errors or warnings | [![cancellation_policy validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| edit_profile.html | Pass - No errors or warnings | [![edit_profile validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| edit_service.html | Pass - No errors or warnings | [![edit_service validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| help_center.html | Pass - No errors or warnings | [![help_center validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| how_it_works.html | Pass - No errors or warnings | [![how_it_works validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| index.html | Pass - No errors or warnings | [![index validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| legal.html | Pass - No errors or warnings | [![legal validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| login.html | Pass - No errors or warnings | [![login validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| logout.html | Pass - No errors or warnings | [![logout validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| manage_account.html | Pass - No errors or warnings | [![manage_account validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| manage_schedule.html | Pass - No errors or warnings | [![manage_schedule validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| my_services.html | Pass - No errors or warnings | [![my_services validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| service.html | Pass - No errors or warnings | [![service validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| service_detail.html | Pass - No errors or warnings | [![service_detail validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| sign_up.html | Pass - No errors or warnings | [![sign_up validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
-| user_info.html | Pass - No errors or warnings | [![user_info validation](https://github.com/user-attachments/assets/IMAGE_ID_HERE)](https://github.com/user-attachments/assets/IMAGE_ID_HERE) |
+| about_us.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![about_us validation](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3)</details> |
+| appointments.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![appointments validation](https://github.com/user-attachments/assets/replacement_image_link)</details> |
+| base.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![base validation](https://github.com/user-attachments/assets/replacement_image_link)</details> |
 
 
 #### 
