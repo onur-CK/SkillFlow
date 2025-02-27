@@ -112,7 +112,7 @@ All JavaScript code was validated using [JSHint](https://jshint.com/), a static 
 
 The validation process focused on identifying syntax errors, unused variables, and potential scope issues. By addressing these concerns, we improved the reliability and performance of our interactive features.
 
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![js test](https://github.com/user-attachments/assets/0afff87b-5c16-47fc-9d3b-7600a3c04c87)
 
 ### Python Validation
 Python code was validated against the PEP8 style guide using automated tools such as pycodestyle and flake8. This validation ensures that our Python code adheres to the established style guidelines, enhancing readability and maintainability.
@@ -140,7 +140,31 @@ The Web Accessibility Evaluation Tool (WAVE) was used to identify accessibility 
 
 There was also an accessibility issue related to the label for the appointment booking toggle. This was resolved by adding an aria-label to the toggle, which significantly improved the accessibility score.
 
-Screenshot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+| Page Name | Errors | Alerts | Features | Contrast | Result | Screenshot |
+|-----------|--------|--------|----------|----------|--------|------------|
+| View More | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![view-more](https://github.com/user-attachments/assets/16ea0a1c-ba0d-4079-a832-d523cb3b1376)</details> |
+| User Info | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![user-info](https://github.com/user-attachments/assets/e8991346-5f1d-494b-8b82-797261f24db4)</details> |
+| Terms of Service & Privacy Policy | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![terms-of-service-and-privacy-policy](https://github.com/user-attachments/assets/6ea8dca5-9351-4fc4-a451-53a9a727a6a6)</details> |
+| Service Creation Form | 0 | 0 | 15 | 0 | Pass | <details><summary>View Screenshot</summary>![service-creation-form](https://github.com/user-attachments/assets/6388732c-e7b4-4282-810e-6499688c7e53)</details> |
+| My Services | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![my-services](https://github.com/user-attachments/assets/4911a56e-a0e6-459c-aed3-a67e2abf9979)</details> |
+| Manage Account | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![manage-acc](https://github.com/user-attachments/assets/113ee3ab-0d65-4dfa-84c9-a9e20b31d07a)</details> |
+| Index | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![index](https://github.com/user-attachments/assets/0a961473-cbb1-478a-9663-6d899749cca6)</details> |
+| How It Works | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![how-it-works](https://github.com/user-attachments/assets/8abec17e-ef3f-4378-98cf-3729075511b5)</details> |
+| Help Center | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![help-center](https://github.com/user-attachments/assets/7a5a9145-f6e9-4ca1-9a7c-8863ccea9bfa)</details> |
+| Edit Profile | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![edit_profile](https://github.com/user-attachments/assets/1b290a11-dec8-4328-bff8-cbd8c4fb54f0)</details> |
+| Cancellation Policies | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![cancellation-policies](https://github.com/user-attachments/assets/5a253169-b986-4280-bbfb-baee83608cf4)</details> |
+| Book Appointments | 0 | 0 | 15 | 0 | Pass | <details><summary>View Screenshot</summary>![book-appointments](https://github.com/user-attachments/assets/ebd2cafb-4630-4ce7-9cde-3908eef08032)</details> |
+| Appointments | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![appointments](https://github.com/user-attachments/assets/08707505-543f-4943-b5ce-29cb4e066292)</details> |
+| About Us | 0 | 0 | 14 | 0 | Pass | <details><summary>View Screenshot</summary>![about-us](https://github.com/user-attachments/assets/08cd68d5-0dba-441c-bdd3-558bf142e28c)</details> |
+
+### Summary
+All pages passed WAVE accessibility testing with:
+- No errors detected
+- No alerts identified
+- No contrast issues found
+- Proper accessibility features implemented (14-15 features per page)
+
+This demonstrates that SkillFlow has been developed with accessibility as a priority, ensuring the platform is usable by people with a wide range of abilities and disabilities.
 
 ### Lighthouse Reports
 Google Lighthouse was used to assess the performance, accessibility, best practices, and SEO of the website. The tests were conducted for both desktop and mobile views across various pages of the application.
