@@ -75,28 +75,106 @@ All HTML code was validated using the [W3C Markup Validation Service](https://va
 
 The validation process was conducted across all template files in the project. This meticulous approach allowed us to identify and address any structural issues that might impact user experience or device compatibility.
 
-| File Name | Result | See Image |
-|-----------|--------|-----------|
-| base.html | Pass - No errors or warnings | ![about-us](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3) |
-| about_us.html | Pass - No errors or warnings | [View Screenshot](#about-us-html) |
-| login.html | Pass - No errors or warnings | [View Screenshot](#login-html) |
-| sign_up.html | Pass - No errors or warnings | [View Screenshot](#sign-up-html) |
-| index.html | Pass - No errors or warnings | [View Screenshot](#index-html) |
-| service.html | Pass - No errors or warnings | [View Screenshot](#service-html) |
-| service_detail.html | Pass - No errors or warnings | [View Screenshot](#service-detail-html) |
-| edit_service.html | Pass - No errors or warnings | [View Screenshot](#edit-service-html) |
-| my_services.html | Pass - No errors or warnings | [View Screenshot](#my-services-html) |
-| book_appointment.html | Pass - No errors or warnings | [View Screenshot](#book-appointment-html) |
-| appointments.html | Pass - No errors or warnings | [View Screenshot](#appointments-html) |
-| manage_schedule.html | Pass - No errors or warnings | [View Screenshot](#manage-schedule-html) |
-| edit_profile.html | Pass - No errors or warnings | [View Screenshot](#edit-profile-html) |
-| manage_account.html | Pass - No errors or warnings | [View Screenshot](#manage-account-html) |
-| logout.html | Pass - No errors or warnings | [View Screenshot](#logout-html) |
-| user_info.html | Pass - No errors or warnings | [View Screenshot](#user-info-html) |
-| cancellation_policy.html | Pass - No errors or warnings | [View Screenshot](#cancellation-policy-html) |
-| how_it_works.html | Pass - No errors or warnings | [View Screenshot](#how-it-works-html) |
-| help_center.html | Pass - No errors or warnings | [View Screenshot](#help-center-html) |
-| legal.html | Pass - No errors or warnings | [View Screenshot](#legal-html) |
+| File Name | Result | Screenshot |
+|-----------|--------|------------|
+| about_us.html | Pass - No errors or warnings | [View Screenshot](#about_us) |
+| appointments.html | Pass - No errors or warnings | [View Screenshot](#appointments) |
+| base.html | Pass - No errors or warnings | [View Screenshot](#base) |
+| book_appointment.html | Pass - No errors or warnings | [View Screenshot](#book_appointment) |
+| cancellation_policy.html | Pass - No errors or warnings | [View Screenshot](#cancellation_policy) |
+| edit_profile.html | Pass - No errors or warnings | [View Screenshot](#edit_profile) |
+| edit_service.html | Pass - No errors or warnings | [View Screenshot](#edit_service) |
+| help_center.html | Pass - No errors or warnings | [View Screenshot](#help_center) |
+| how_it_works.html | Pass - No errors or warnings | [View Screenshot](#how_it_works) |
+| index.html | Pass - No errors or warnings | [View Screenshot](#index) |
+| legal.html | Pass - No errors or warnings | [View Screenshot](#legal) |
+| login.html | Pass - No errors or warnings | [View Screenshot](#login) |
+| logout.html | Pass - No errors or warnings | [View Screenshot](#logout) |
+| manage_account.html | Pass - No errors or warnings | [View Screenshot](#manage_account) |
+| manage_schedule.html | Pass - No errors or warnings | [View Screenshot](#manage_schedule) |
+| my_services.html | Pass - No errors or warnings | [View Screenshot](#my_services) |
+| service.html | Pass - No errors or warnings | [View Screenshot](#service) |
+| service_detail.html | Pass - No errors or warnings | [View Screenshot](#service_detail) |
+| sign_up.html | Pass - No errors or warnings | [View Screenshot](#sign_up) |
+| user_info.html | Pass - No errors or warnings | [View Screenshot](#user_info) |
+
+### Screenshots
+
+<a id="about_us"></a>
+#### about_us.html
+![about_us.html validation screenshot](path/to/about_us_validation.png)
+
+<a id="appointments"></a>
+#### appointments.html
+![appointments.html validation screenshot](path/to/appointments_validation.png)
+
+<a id="book_appointment"></a>
+#### book_appointment.html
+![book_appointment.html validation screenshot](path/to/book_appointment_validation.png)
+
+<a id="cancellation_policy"></a>
+#### cancellation_policy.html
+![cancellation_policy.html validation screenshot](path/to/cancellation_policy_validation.png)
+
+<a id="edit_profile"></a>
+#### edit_profile.html
+![edit_profile.html validation screenshot](path/to/edit_profile_validation.png)
+
+<a id="edit_service"></a>
+#### edit_service.html
+![edit_service.html validation screenshot](path/to/edit_service_validation.png)
+
+<a id="help_center"></a>
+#### help_center.html
+![help_center.html validation screenshot](path/to/help_center_validation.png)
+
+<a id="how_it_works"></a>
+#### how_it_works.html
+![how_it_works.html validation screenshot](path/to/how_it_works_validation.png)
+
+<a id="index"></a>
+#### index.html
+![index.html validation screenshot](path/to/index_validation.png)
+
+<a id="legal"></a>
+#### legal.html
+![legal.html validation screenshot](path/to/legal_validation.png)
+
+<a id="login"></a>
+#### login.html
+![login.html validation screenshot](path/to/login_validation.png)
+
+<a id="logout"></a>
+#### logout.html
+![logout.html validation screenshot](path/to/logout_validation.png)
+
+<a id="manage_account"></a>
+#### manage_account.html
+![manage_account.html validation screenshot](path/to/manage_account_validation.png)
+
+<a id="manage_schedule"></a>
+#### manage_schedule.html
+![manage_schedule.html validation screenshot](path/to/manage_schedule_validation.png)
+
+<a id="my_services"></a>
+#### my_services.html
+![my_services.html validation screenshot](path/to/my_services_validation.png)
+
+<a id="service"></a>
+#### service.html
+![service.html validation screenshot](path/to/service_validation.png)
+
+<a id="service_detail"></a>
+#### service_detail.html
+![service_detail.html validation screenshot](path/to/service_detail_validation.png)
+
+<a id="sign_up"></a>
+#### sign_up.html
+![sign_up.html validation screenshot](path/to/sign_up_validation.png)
+
+<a id="user_info"></a>
+#### user_info.html
+![user_info.html validation screenshot](path/to/user_info_validation.png)
 
 
 #### 
