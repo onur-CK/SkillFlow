@@ -78,8 +78,24 @@ The validation process was conducted across all template files in the project. T
 | File Name | Result | Screenshot |
 |-----------|--------|------------|
 | about_us.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![about_us validation](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3)</details> |
-| appointments.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![appointments validation](https://github.com/user-attachments/assets/replacement_image_link)</details> |
-| base.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![base validation](https://github.com/user-attachments/assets/replacement_image_link)</details> |
+| appointments.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![appointments validation](https://github.com/user-attachments/assets/placeholder_appointments)</details> | |
+| book_appointment.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![book_appointment validation](https://github.com/user-attachments/assets/placeholder_book_appointment)</details> |
+| cancellation_policy.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![cancellation_policy validation](https://github.com/user-attachments/assets/placeholder_cancellation_policy)</details> |
+| edit_profile.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![edit_profile validation](https://github.com/user-attachments/assets/placeholder_edit_profile)</details> |
+| edit_service.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![edit_service validation](https://github.com/user-attachments/assets/placeholder_edit_service)</details> |
+| help_center.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![help_center validation](https://github.com/user-attachments/assets/placeholder_help_center)</details> |
+| how_it_works.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![how_it_works validation](https://github.com/user-attachments/assets/placeholder_how_it_works)</details> |
+| index.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![index validation](https://github.com/user-attachments/assets/placeholder_index)</details> |
+| legal.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![legal validation](https://github.com/user-attachments/assets/placeholder_legal)</details> |
+| login.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![login validation](https://github.com/user-attachments/assets/placeholder_login)</details> |
+| logout.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![logout validation](https://github.com/user-attachments/assets/placeholder_logout)</details> |
+| manage_account.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_account validation](https://github.com/user-attachments/assets/placeholder_manage_account)</details> |
+| manage_schedule.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_schedule validation](https://github.com/user-attachments/assets/placeholder_manage_schedule)</details> |
+| my_services.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![my_services validation](https://github.com/user-attachments/assets/placeholder_my_services)</details> |
+| service.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service validation](https://github.com/user-attachments/assets/placeholder_service)</details> |
+| service_detail.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service_detail validation](https://github.com/user-attachments/assets/placeholder_service_detail)</details> |
+| sign_up.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![sign_up validation](https://github.com/user-attachments/assets/placeholder_sign_up)</details> |
+| user_info.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![user_info validation](https://github.com/user-attachments/assets/placeholder_user_info)</details> | |
 
 
 #### 
