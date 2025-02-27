@@ -359,6 +359,8 @@ Database query performance was analyzed and optimized to ensure efficient data r
 - **Query Refinement**: Refactoring queries to reduce complexity and improve performance
 - **Caching Strategies**: Implementing caching where appropriate to reduce database load
 
+These optimizations help ensure that the application remains responsive even as the dataset grows.
+
 ## Bugs
 
 ### Fixed Bugs
@@ -473,7 +475,7 @@ category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
 3. Navigation flow aligns with user expectations and improves overall UX
 4. Security is maintained through proper authentication checks
 
- #### Profile Column Bug
+#### Profile Column Bug
 
 - **Bug**: When accessing the edit profile page, users encountered a "OperationalError: no such column: skillflow_userprofile.first_name" error, preventing them from viewing or editing their profile information. This critical error occurred despite the UserProfile model being properly defined in the codebase.
 - **Cause**: The database schema was out of sync with the model definitions. While the UserProfile model included fields for first_name, last_name, email, and bio, these columns were not properly created in the database because migrations were either missing or not applied. This discrepancy between the model definition and the actual database structure led to the operational error when attempting to access these non-existent columns.
@@ -914,7 +916,7 @@ During the development process, several bugs were identified and fixed:
 
 ##### Service Model Category Bug
 - **Bug**: Initial confusion about why the Service model required two seemingly redundant category-related code blocks:
-```python
+--->python
 CATEGORY_CHOICES = [
     ('home-care', 'Home Care'),
     ('education', 'Education'),
@@ -923,7 +925,7 @@ CATEGORY_CHOICES = [
     ('events', 'Events'),
 ]
 category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
-```
+
 - **Cause**: The apparent redundancy is actually a required Django model pattern where each part serves a distinct purpose:
    - CATEGORY_CHOICES defines the available options and their display labels for the dropdown menu
    - category field creates the actual database column and constrains input to valid choices
@@ -935,3 +937,6 @@ category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
 
 #### Known Bugs
 
+Add the Screenshot from tutor support, and the tutor's explanation
+500 error code sign up/in log in/out
+bug shows the content for the auth users 
