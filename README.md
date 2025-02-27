@@ -38,6 +38,13 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
    - [User Journey](#user-journey)
    - [Wireframes](#wireframes)
 6. [Development Workflow](#development-workflow)
+   - [Agile Project Management](#agile-project-management)
+   - [GitHub Workflow](#github-workflow)
+   - [User Stories as Issues](#user-stories-as-issues)
+   - [Bug Tracking and Resolution](#bug-tracking-and-resolution)
+   - [Iterative Development Approach](#iterative-development-approach)
+   - [Backlog and Progress](#backlog-and-progress)
+   - [Modular Code Architecture](#modular-code-architecture)
 7. [Features](#features)
    - [Site Navigation](#site-navigation)
    - [User Authentication & Profiles](#user-authentication--profiles)
@@ -294,6 +301,43 @@ The database is designed to efficiently manage user profiles, services, bookings
    - Status (choices: pending, confirmed, cancelled)
    - Created Date
 
+### ServiceCategory Table
+Stores predefined service categories for consistent organization and filtering:
+- ID (Primary Key)
+- Name
+- Description
+- Icon Class (for frontend display)
+
+### UserProfile Table
+Extends the Django User model with additional profile information:
+- User (One-to-One relationship with Django User)
+- First Name
+- Last Name
+- Email
+- Bio (text field with 200 character limit)
+
+### User Table
+Utilizes Django's built-in User model for authentication with the following fields:
+- Username
+- Email
+- Password
+- Date Joined
+- Last Login
+- Is Active
+- Is Staff
+- Is Superuser
+
+### Post Table
+Manages service availability posts with the following structure:
+- ID (Primary Key)
+- Service (Foreign Key to Service model)
+- Title
+- Description
+- Category
+- Hourly Rate
+- Provider (Foreign Key to User)
+- Created Date
+
 ## Design and Layout
 
 ### Design Principles
@@ -340,41 +384,6 @@ The database is designed to efficiently manage user profiles, services, bookings
 ![login page wireframe](https://github.com/user-attachments/assets/ea3ab44b-2cfa-4149-a580-668de25ed0fc)
 ![Create Service Listing wireframe](https://github.com/user-attachments/assets/e2dda422-5a1e-427d-8e4f-b1d46f75885e)
 
-## Technologies Used
-
-### Programming Languages
-- Python 3.13.1
-- JavaScript
-- HTML5
-- CSS3
-
-### Frameworks
-- Django 5.1.4
-- Bootstrap 5.3.3
-- Font Awesome 6.4.2
-
-### Database Solutions
-- SQLite (Development)
-
-### Media Management Tools
-- Cloudinary
-
-### Supporting Libraries and Packages
-- Font Awesome
-- Django Forms
-- Whitenoise
-
-### Development Tools
-- Visual Studio Code
-- Git
-- GitHub
-- Chrome DevTools
-
-### Django Documentation
-- Django installation: pip install django
-- Django version control: python -m django --version
-- Creating the project structure: django-admin startproject skillflow .
-
 ## Development Workflow
 
 ### Modular Code Architecture
@@ -405,7 +414,7 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 • This document outlines our approach to creating the SkillFlow login form by leveraging existing Bootstrap classes and custom CSS from our signup form
 • This methodology demonstrates the efficiency of modular development and component reusability in modern web development
 
-#### Development Process
+##### Development Process
 
 1. Component Structure
    • Built the login form by reusing the following classes from our signup form:
@@ -800,5 +809,10 @@ The deployment section is structured to provide clear instructions for:
 - Git
 - GitHub
 - Chrome DevTools
+
+### Django Documentation
+- Django installation: pip install django
+- Django version control: python -m django --version
+- Creating the project structure: django-admin startproject skillflow .
 
 https://favicon.io/favicon-generator/ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

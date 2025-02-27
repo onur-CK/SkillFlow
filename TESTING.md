@@ -494,5 +494,117 @@ This fix ensures that:
 
 ![manage py tests](https://github.com/user-attachments/assets/433f9b45-cfca-4fb4-ae84-0d5628bd80d4)
 
-### Known Bugs
+
+
+----------------------------------------------------------------
+
+
+## Testing
+
+### Code Validation
+All code has been meticulously validated using industry-standard tools:
+- HTML validated through W3C HTML Validator
+- CSS validated through W3C CSS Validator
+- JavaScript validated through JSHint
+- Python code validated through PEP8 online checker
+
+### Accessibility Testing
+- WAVE Web Accessibility Evaluation Tool used to identify and fix accessibility issues
+- Keyboard navigation testing to ensure all functions are accessible without a mouse
+- Screen reader compatibility testing
+- Color contrast checked to meet WCAG 2.1 AA standards
+
+### Browser Compatibility
+The platform has been tested and optimized for all major browsers:
+- Google Chrome
+- Mozilla Firefox
+- Safari
+- Microsoft Edge
+- Opera
+
+### Device Compatibility
+Extensive testing has been conducted across multiple device types:
+- Desktop computers (various screen sizes)
+- Laptops (13" to 17" screens)
+- Tablets (iPad, Samsung Galaxy Tab)
+- Mobile phones (iPhone, Samsung, Google Pixel)
+
+### Manual Testing
+Comprehensive manual testing procedures have been implemented:
+- User flow testing for all primary pathways
+- Form validation testing
+- Cross-device functionality testing
+- Feature-by-feature verification
+
+### Automated Testing
+- Unit tests for critical functions and models
+- Integration tests for feature interactions
+- Performance testing for load handling capabilities
+- Security testing for vulnerability detection
+
+### Bugs
+#### Fixed Bugs
+
+During the development process, several bugs were identified and fixed:
+
+##### Navigation Display Bug
+- **Bug**: When the hamburger menu was opened on smaller screens, the "Login" button appeared misaligned, remaining at the bottom right corner of the screen instead of being centrally aligned beneath the dropdown menu.
+- **Cause**: The "Login" button was placed in a separate <li> element, which caused it to behave independently of the dropdown menu. This structure prevented the button from dynamically aligning with the dropdown when it was opened.
+- **Fix**: To resolve the issue, the HTML structure was modified to place the "Login" button as a sibling of the dropdown menu within the same parent container.
+
+##### Directory Listing Bug
+- **Bug**: Directory listing shown instead of index.html. When launching the project using Live Server, the browser displayed a "Listing Directory" page with all project files instead of automatically loading index.html.
+- **Cause**: This issue occurred because multiple .html files(to work on later) existed in the root directory. Although index.html was present, Live Server may have been unable to correctly prioritize it due to one or more of the following factors:
+  - File Priority Conflict: The presence of other .html files might have confused Live Server, especially if their names were similar to index.html or were empty files.
+  - Directory Scanning: Live Server may have scanned all files and, in the absence of a clear default, displayed the directory listing.
+  - Accidental Launch: An unintended file might have been selected(by live server) when starting Live Server, causing it to serve the directory or an unrelated file.
+- **Fix**: Remove unnecessary HTML files, ensure correct file namings, restart live server, have a simple file structure.
+
+##### Home Page Routing Bug
+- **Bug**: When launching the website, index.html was displaying as the homepage instead of the intended about_us.html landing page.
+- **Cause**: The URL pattern configuration had the index view mapped to the root URL ('/'), while about_us.html was not accessible through any URL pattern.
+- **Fix**: Modified urls.py to map the root URL ('/') to the about_us view and moved the index view to '/home/' and '/index/' paths. Additionally, added the necessary about_us view function in views.py to properly render the landing page.
+
+##### Sign-up View Bug
+- **Bug**: The sign_up view function failed to return an HttpResponse object for GET requests, resulting in a ValueError. As a consequence, users could not access the sign-up page.
+- **Cause**: The view was not properly handling GET requests, leading to the absence of a valid HTTP response. The function was missing the necessary return statement for rendering the sign-up form.
+- **Fix**: The issue was resolved by adding a return render(request, 'skillflow/sign_up.html') statement to ensure the proper rendering of the sign-up form for GET requests. This ensures the view returns an HTTP response with the necessary content for the user.
+
+##### User Authentication Bug
+- **Bug**: User signup process was not redirecting to index.html after successful registration, and initially it was unclear whether the issue was with account creation or page redirection.
+- **Cause**: Multiple issues diagnosed after debugging:
+  - Form validation errors weren't visible to users, making it impossible to determine if accounts were being created
+  - Redundant return statement in signup view
+  - Missing authentication handling in login view
+  - Incorrect form submission handling
+- **Fix**: Implemented several solutions:
+  - Added error display functionality to show validation messages, which revealed form submission issues
+  - Updated views.py to properly handle authentication
+  - Added POST request handling for login functionality
+  - Configured correct login and redirect URLs in settings.py
+  - Removed redundant code from signup view
+  - Added proper form debugging and logging to track the user creation process
+
+##### Service Model Category Bug
+- **Bug**: Initial confusion about why the Service model required two seemingly redundant category-related code blocks:
+```python
+CATEGORY_CHOICES = [
+    ('home-care', 'Home Care'),
+    ('education', 'Education'),
+    ('creative', 'Creative'),
+    ('health', 'Health'),
+    ('events', 'Events'),
+]
+category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+```
+- **Cause**: The apparent redundancy is actually a required Django model pattern where each part serves a distinct purpose:
+   - CATEGORY_CHOICES defines the available options and their display labels for the dropdown menu
+   - category field creates the actual database column and constrains input to valid choices
+- **Fix**: No changes were needed as this is the correct implementation. The dual declaration enables:
+   - Form dropdown population with predefined options
+   - Database-level validation of category values
+   - Proper display of human-readable category names in templates
+   - Data consistency throughout the application
+
+#### Known Bugs
 
