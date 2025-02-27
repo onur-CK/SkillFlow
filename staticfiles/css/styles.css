@@ -608,7 +608,7 @@ h1 {
 /* Style for date and time input icons */
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);  /* Inverts the colors, making dark icons white */
+    color: white;  /* Inverts the colors, making dark icons white */
     cursor: pointer;    /* Changes cursor to pointer on hover */
 }
 

@@ -44,8 +44,6 @@
                             <a class="nav-link custom-text" href="{% url 'service' %}">+New Post</a>
                         </li>
                         <!-- Profile dropdown menu -->
-                        <!-- Dropdown menu implementation Source Link: 
-                        https://getbootstrap.com/docs/5.3/components/dropdowns/#overview -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle custom-text" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -62,14 +60,18 @@
                                 <li><a class="dropdown-item" href="{% url 'appointments' %}">Appointments</a></li>
                             </ul>
                         </li>
-                        <!-- Logout button for authenticated users -->
-                        <a class="btn btn-primary login-btn" href="{% url 'logout' %}">Logout</a>
+                        <!-- Logout button - NOW WRAPPED IN LI TAG -->
+                        <li class="nav-item">
+                            <a class="btn btn-primary login-btn" href="{% url 'logout' %}">Logout</a>
+                        </li>
                     {% else %}
                         <!-- Authentication buttons for non-authenticated users -->
-                        <div>
-                            <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
-                            <a class="btn btn-primary login-btn" href="{% url 'sign_up' %}">Sign Up</a>
-                        </div>
+                        <li class="nav-item">
+                            <div>
+                                <a class="btn btn-primary login-btn" href="{% url 'login' %}">Login</a>
+                                <a class="btn btn-primary login-btn" href="{% url 'sign_up' %}">Sign Up</a>
+                            </div>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
