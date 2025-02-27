@@ -90,7 +90,7 @@ The validation process was conducted across all template files in the project. T
 | login.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![login validation](https://github.com/user-attachments/assets/placeholder_login)</details> |
 | logout.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![logout validation](https://github.com/user-attachments/assets/placeholder_logout)</details> |
 | manage_account.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_account validation](https://github.com/user-attachments/assets/placeholder_manage_account)</details> |
-| manage_schedule.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_schedule validation](https://github.com/user-attachments/assets/placeholder_manage_schedule)</details> |
+| manage_schedule.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_schedule validation](https://github.com/user-attachments/assets/a303213b-e619-4632-8822-49edb26e8f1b)</details> |
 | my_services.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![my_services validation](https://github.com/user-attachments/assets/placeholder_my_services)</details> |
 | service.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service validation](https://github.com/user-attachments/assets/placeholder_service)</details> |
 | service_detail.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service_detail validation](https://github.com/user-attachments/assets/placeholder_service_detail)</details> |
