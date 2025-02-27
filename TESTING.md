@@ -77,25 +77,25 @@ The validation process was conducted across all template files in the project. T
 
 | File Name | Result | Screenshot |
 |-----------|--------|------------|
-| about_us.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![about_us validation](https://github.com/user-attachments/assets/8d8bf08c-9423-4ca1-8e99-eac336f95ab3)</details> |
-| appointments.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![appointments validation](https://github.com/user-attachments/assets/placeholder_appointments)</details> | |
-| book_appointment.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![book_appointment validation](https://github.com/user-attachments/assets/placeholder_book_appointment)</details> |
-| cancellation_policy.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![cancellation_policy validation](https://github.com/user-attachments/assets/placeholder_cancellation_policy)</details> |
-| edit_profile.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![edit_profile validation](https://github.com/user-attachments/assets/placeholder_edit_profile)</details> |
-| edit_service.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![edit_service validation](https://github.com/user-attachments/assets/placeholder_edit_service)</details> |
-| help_center.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![help_center validation](https://github.com/user-attachments/assets/placeholder_help_center)</details> |
-| how_it_works.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![how_it_works validation](https://github.com/user-attachments/assets/placeholder_how_it_works)</details> |
-| index.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![index validation](https://github.com/user-attachments/assets/placeholder_index)</details> |
-| legal.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![legal validation](https://github.com/user-attachments/assets/placeholder_legal)</details> |
-| login.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![login validation](https://github.com/user-attachments/assets/placeholder_login)</details> |
-| logout.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![logout validation](https://github.com/user-attachments/assets/placeholder_logout)</details> |
-| manage_account.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_account validation](https://github.com/user-attachments/assets/placeholder_manage_account)</details> |
+| about_us.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![about_us validation](https://github.com/user-attachments/assets/b5bfcc39-6c16-477e-be0d-25d94aca0980)</details> |
+| appointments.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![appointments validation](https://github.com/user-attachments/assets/ee6299c4-299a-42c0-993e-7223aa95398d)</details> | |
+| book_appointment.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![book_appointment validation](https://github.com/user-attachments/assets/3615cd4f-1e38-414c-9fe8-9a6bc538c54c)</details> |
+| cancellation_policy.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![cancellation_policy validation](https://github.com/user-attachments/assets/cc0cc17d-99b7-4037-915e-158925fd7759)</details> |
+| edit_profile.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![edit_profile validation](https://github.com/user-attachments/assets/44d75173-d6ac-4b1b-8093-4dbf23981ede)</details> |
+| edit_service.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![edit_service validation](https://github.com/user-attachments/assets/79918e30-400b-4859-b851-a8f4b8d6654a)</details> |
+| help_center.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![help_center validation](https://github.com/user-attachments/assets/46ab7856-ea10-4d11-92fc-f9d59f123a2d)</details> |
+| how_it_works.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![how_it_works validation](https://github.com/user-attachments/assets/f83f7727-28a7-416c-bca8-2bacce621475)</details> |
+| index.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![index validation](https://github.com/user-attachments/assets/ce9a632f-50cb-46d1-a2ec-96bead7108cf)</details> |
+| legal.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![legal validation](https://github.com/user-attachments/assets/c1f3a343-03bd-424a-bcb5-2f417571bc49)</details> |
+| login.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![login validation](https://github.com/user-attachments/assets/2cebecb1-3784-43d6-8fd4-cdeffa95ef32)</details> |
+| logout.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![logout validation](https://github.com/user-attachments/assets/769218ad-0ae8-4a7e-92fc-3b0f52944a8b)</details> |
+| manage_account.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_account validation](https://github.com/user-attachments/assets/1911b88d-575c-43fe-a2f1-fdf02be4ece8)</details> |
 | manage_schedule.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![manage_schedule validation](https://github.com/user-attachments/assets/a303213b-e619-4632-8822-49edb26e8f1b)</details> |
-| my_services.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![my_services validation](https://github.com/user-attachments/assets/placeholder_my_services)</details> |
-| service.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service validation](https://github.com/user-attachments/assets/placeholder_service)</details> |
-| service_detail.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service_detail validation](https://github.com/user-attachments/assets/placeholder_service_detail)</details> |
-| sign_up.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![sign_up validation](https://github.com/user-attachments/assets/placeholder_sign_up)</details> |
-| user_info.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![user_info validation](https://github.com/user-attachments/assets/placeholder_user_info)</details> | |
+| my_services.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![my_services validation](https://github.com/user-attachments/assets/71f396a9-19d8-47d1-a879-ac5791ecf190)</details> |
+| service.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service validation](https://github.com/user-attachments/assets/954f73a2-e391-4d94-917f-1b9b183db0b5)</details> |
+| service_detail.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![service_detail validation](https://github.com/user-attachments/assets/820ef5f6-7289-43b7-b7b4-8239db924d25)</details> |
+| sign_up.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![sign_up validation](https://github.com/user-attachments/assets/36f91db2-6f4e-413b-8722-6e3807ce74d0)</details> |
+| user_info.html | Pass - No errors or warnings | <details><summary>View Screenshot</summary>![user_info validation](https://github.com/user-attachments/assets/6151ae51-9f17-46f6-84bc-9b52d098ed01)</details> | |
 
 
 #### 
