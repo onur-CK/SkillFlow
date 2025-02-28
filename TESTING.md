@@ -134,7 +134,7 @@ The validation process focused on identifying syntax errors, unused variables, a
 ![js test](https://github.com/user-attachments/assets/0afff87b-5c16-47fc-9d3b-7600a3c04c87)
 
 ### Python Validation
-Python code was validated against the PEP8 style guide using automated tools such as pycodestyle and flake8. This validation ensures that our Python code adheres to the established style guidelines, enhancing readability and maintainability.
+Python code was validated against the PEP8 style guide using automated tools such as python black package and flake8. This validation ensures that our Python code adheres to the established style guidelines, enhancing readability and maintainability.
 
 The validation process covered all Python files in the project, including models, views, forms, and utility modules. By maintaining consistent coding standards, we improved collaboration efficiency and code quality.
 
@@ -849,7 +849,7 @@ Accidental Launch: An unintended file might have been selected(by live server) w
 
 #### Service Model Category Bug
 
-(Django model with choices for field.)[https://stackoverflow.com/questions/18676156/how-to-properly-use-the-choices-field-option-in-django]
+[Django model with choices for field].(https://stackoverflow.com/questions/18676156/)how-to-properly-use-the-choices-field-option-in-django
 - **Bug**: Initial confusion about why the Service model required two seemingly redundant category-related code blocks:
 CATEGORY_CHOICES = [
     ('home-care', 'Home Care'),

@@ -945,6 +945,10 @@ To create a local copy of the repository on your machine:
 
 ## Credits and Resources
 
+The service card design was inspired by a design I found on - [Daily Dev](https://daily.dev/) 
+
+![daily-dev](https://github.com/user-attachments/assets/71b93924-3ce5-45ce-9195-06e71da0f79d)
+
 ### Tutorials
 
 The tutorials and the source code links provided in html and py files were used for the purpose of learning and improving understanding, and no use was made of the code content in the tutorials/source code links.
