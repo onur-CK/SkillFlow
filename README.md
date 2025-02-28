@@ -744,6 +744,10 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 
 ### Planned Future Features
 
+#### Light and Dark Mode Toggle
+
+ It’ll be super simple to switch between the two modes, depending on what we're feeling. Eventually, we might even make it auto-switch based on system settings or time of day. The idea is to make the app feel more personal and comfy to use no matter where we are. Plus, there could be some customization options in the future.
+
 #### Enhanced User Interaction
 - Rating and review system for services
   - Star ratings (1-5)
