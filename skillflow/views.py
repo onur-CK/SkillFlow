@@ -335,7 +335,7 @@ def edit_service(request, service_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Service updated successfully!")
-            return redirect("index")
+            return redirect("my_services")
         else:
             messages.error(
                 request,
