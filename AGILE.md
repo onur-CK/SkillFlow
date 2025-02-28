@@ -19,7 +19,7 @@
 
 SkillFlow's development follows a structured agile methodology, leveraging the MoSCoW prioritization framework to deliver maximum value efficiently. Our iterative approach ensures continuous delivery of functional increments while maintaining flexibility to adapt to changing requirements.
 
-GitHub Projects serves as our primary project management tool, providing a transparent Kanban board that visualizes workflow and progress. This approach enables stakeholders to track development status in real-time while facilitating collaboration among team members.
+GitHub Projects serves as our primary project management tool, providing a transparent Kanban board that visualizes workflow and progress.
 
 Key principles guiding our agile implementation include:
 
@@ -103,8 +103,6 @@ Features that have been considered but explicitly excluded from the current deve
 - Mobile application (focusing on responsive web first)
 - AI-powered service recommendations
 - Subscription-based premium features
-
-This prioritization framework enables efficient resource allocation while ensuring stakeholders have clear expectations regarding feature delivery timelines.
 
 ### Acceptance Criteria
 

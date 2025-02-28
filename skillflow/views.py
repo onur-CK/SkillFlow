@@ -788,3 +788,31 @@ def user_info(request, service_id):
         "skillflow/user_info.html",
         {"provider_profile": provider_profile}
     )
+
+
+def bad_request(request, exception=None):
+    """
+    Custom 400 error handler.
+    """
+    return render(request, 'skillflow/400.html', status=400)
+
+
+def permission_denied(request, exception=None):
+    """
+    Custom 403 error handler.
+    """
+    return render(request, 'skillflow/403.html', status=403)
+
+
+def page_not_found(request, exception=None):
+    """
+    Custom 404 error handler.
+    """
+    return render(request, 'skillflow/404.html', status=404)
+
+
+def server_error(request):
+    """
+    Custom 500 error handler.
+    """
+    return render(request, 'skillflow/500.html', status=500)

@@ -27,7 +27,7 @@
     * [Running the Application Locally](#running-the-application-locally)
   * [Continuous Deployment](#continuous-deployment)
     * [Automating Deployments with GitHub](#automating-deployments-with-github)
-    * [CI/CD Pipeline Configuration](#cicd-pipeline-configuration)
+
 
 ## Deployment
 

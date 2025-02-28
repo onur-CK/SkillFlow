@@ -969,6 +969,7 @@ The tutorials and the source code links provided in html and py files were used 
 - [Markdown Guide](https://hackernoon.com/a-beginners-guide-to-markdown-everything-you-need-to-know-to-get-started)
 
 Note: - [Chatgpt](https://chatgpt.com/) is used to have some opinions about the contents in our footer section by giving it the whole concept information about our skillflow project: how it works, help center, cancellation policy etc.
+Used for having specific error text generating.
 Also used for brainstorming about future enchancements and future feature developments.
 
 - [Grammarly](https://app.grammarly.com/),

@@ -1,0 +1,28 @@
+{% extends 'skillflow/base.html' %}
+
+{% block content %}
+<main class="signup-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-card text-center">
+                    <i class="fas fa-server fa-4x text-danger mb-4"></i>
+                    <h2 class="text-white mb-3">500 - Internal Server Error</h2>
+                    <p class="text-white-50 mb-4">
+                        Something went wrong on our end. Don't worry, our team has been automatically notified 
+                        and is working to resolve the issue. Please try again in a few moments.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="{% url 'home' %}" class="btn btn-primary custom-submit">
+                            <i class="fas fa-home me-2"></i>Return Home
+                        </a>
+                        <a href="{% url 'help_center' %}" class="btn btn-outline-light">
+                            <i class="fas fa-life-ring me-2"></i>Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
