@@ -601,7 +601,10 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 Form validation is a critical aspect of SkillFlow, ensuring data integrity and providing clear user feedback. Our validation system covers multiple scenarios:
 
 ### Invalid Username Handling
+
 ![invalid-username](https://github.com/user-attachments/assets/8496f7f2-c5e7-4136-9068-0ba1f562bc0d)
+
+![username-validation-max-length](https://github.com/user-attachments/assets/175d8d3b-c38a-40cf-aad2-f997f5b0ec5f)
 
 - **Real-time Username Validation**
   - Prevents duplicate usernames
