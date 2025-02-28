@@ -27,7 +27,7 @@ class SignUpForm(UserCreationForm):
     def clean_username(self):
         username = self.cleaned_data.get('username')
         if len(username) > 20:
-            raise ValidationError('Username must be 30 characters or fewer.')
+            raise forms.ValidationError('Username must be 20 characters or fewer.')
         return username
         
 
