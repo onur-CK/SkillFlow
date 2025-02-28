@@ -444,9 +444,8 @@ The model design includes several mechanisms to maintain data integrity:
 
 <details>
   <summary>See Screenshot **Create Account**</summary>
-  <img src="https://github.com/user-attachments/assets/97a923fa-d13f-4e3a-8b93-e2145cb527f6" alt="Create Account Wireframe">
+  ![Create account wireframe](https://github.com/user-attachments/assets/97a923fa-d13f-4e3a-8b93-e2145cb527f6)
 </details>
-
 
 ![Create account wireframe](https://github.com/user-attachments/assets/97a923fa-d13f-4e3a-8b93-e2145cb527f6)
 ![My Profile wireframe](https://github.com/user-attachments/assets/4985c489-6445-4da8-a343-e8f94227c715)
