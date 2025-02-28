@@ -20,7 +20,6 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
 2. [User Experience (UX)](#user-experience-ux)
    - [Target Audience](#target-audience)
    - [User Requirements and Expectations](#user-requirements-and-expectations)
-   - [User Stories](#user-stories)
 3. [Planning Phase](#planning-phase)
    - [Strategy](#strategy)
    - [Scope](#scope)
@@ -30,10 +29,8 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
 4. [Database Design](#database-design)
    - [SkillFlow Database Schema](#skillflow-database-schema)
    - [Models](#models)    
-   - [Post Table](#post-table)
 5. [Design and Layout](#design-and-layout)
    - [Design Principles](#design-principles)
-   - [Color Palette](#color-palette)
    - [Typography](#typography)
    - [Page Structure](#page-structure)
    - [User Journey](#user-journey)
@@ -56,7 +53,6 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
     - [Media and Assets](#media-and-assets)
     - [Django Documentation](#django-documentation)
     - [Bootstrap Documentation](#bootstrap-documentation)
-    - [Learning Platforms and Videos](#learning-platforms-and-videos)
     - [Acknowledgments](#acknowledgments)
 11. [Technologies Used](#technologies-used)
    - [Programming Languages](#programming-languages)
@@ -1040,11 +1036,55 @@ The deployment section is structured to provide clear instructions for:
 4. Static Files Configuration
 5. Security Settings
 
-### Cloudinary for Media
-- Account Setup
-- Integration Steps
-- Media Management
-- Performance Optimization
+### Static File Management with WhiteNoise
+
+SkillFlow uses WhiteNoise for efficient and secure static file serving in production. WhiteNoise is a Python library that simplifies the process of serving static files in Django applications, particularly when deployed on platforms like Heroku.
+
+#### Key Features
+- **Efficient Static File Serving**: Serves static files directly through Django, eliminating the need for separate static file hosting
+- **Compression**: Automatically compresses static files to reduce bandwidth and improve load times
+- **Caching**: Implements robust caching strategies for static assets
+- **Easy Deployment**: Seamless integration with Django and cloud platforms
+
+#### Implementation Details
+In `settings.py`, WhiteNoise is configured with the following key settings:
+
+```python
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Static file middleware
+    ...
+]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+```
+
+#### Benefits for SkillFlow
+- Simplified static file management
+- Improved performance through file compression
+- Reduced external dependencies
+- Enhanced security for static asset delivery
+
+#### Static File Directory Structure
+```
+skillflow/
+│
+├── static/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   └── images/
+└── staticfiles/  # Collected static files
+```
+
+#### Collecting Static Files
+Before deployment, static files are collected using:
+-python manage.py collectstatic
+after deployment:
+-heroku run python manage.py collectstatic
+
+
+This commands gather static files from all installed apps into the `staticfiles` directory, ready for efficient serving by WhiteNoise.
 
 ### Version Control Practices
 - Git Workflow
@@ -1075,7 +1115,7 @@ To create a local copy of the repository on your machine:
 
 The service card design was inspired by a design of - [Daily Dev](https://daily.dev/)
 
-![daily-dev](https://github.com/user-attachments/assets/71b93924-3ce5-45ce-9195-06e71da0f79d)
+![daily-dev](https://github.com/user-attachments/assets/71b93924-3ce5-45ce-9195-06e71da0f79d/)
 
 ### Tutorials
 

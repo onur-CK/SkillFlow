@@ -1301,3 +1301,8 @@ During testing, we encountered an intermittent issue where users would experienc
 
 ![tutor support screenshot signup](https://github.com/user-attachments/assets/5140a181-43cd-41af-ac1f-fe6b87ccb3bb)
 
+##### Status/Actions Button Responsiveness Issue
+
+The status/actions buttons in the appointment management interface have been identified as not fully responsive between medium-sized devices (approximately 768px-992px width). While these buttons display correctly on standard desktop and smaller mobile screens, they experience layout challenges on medium-sized tablets and smaller laptops, where they don't properly adapt to the available space. This issue has been documented and prioritized for correction in future development, where we plan to implement a more refined responsive approach with improved breakpoint handling for these specific device dimensions.
+
+![known-bug-responsiveness](https://github.com/user-attachments/assets/676ef7a9-f1df-4cbf-90e6-6b6e34653a59)
