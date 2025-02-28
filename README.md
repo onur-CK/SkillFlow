@@ -539,7 +539,71 @@ A modular architecture provides the flexibility to expand or refactor the platfo
    • Optimized class reuse
    • Reduced stylesheet size
 
+# SkillFlow
+
 ## Core Features
+
+### Site Navigation
+- **Responsive Navigation Bar**: Dynamically adjusts based on authentication status
+- **Dark-themed Modern Interface**: Consistent branding across all pages
+- **Mobile-responsive Design**: Ensures functionality across all devices
+
+[![Navbar Logged Out](https://github.com/user-attachments/assets/03b1522c-e5f2-46e6-ad8b-d1cd1160ed31)](#)
+[![Navbar Logged In](https://github.com/user-attachments/assets/navbar-logged-in.png)](#)
+
+### User Authentication & Profiles
+- **Secure Registration Process**: Easy account creation
+- **Customizable User Profiles**: Add personal information and bio
+- **Role-based Functionality**: Differentiate between service providers and clients
+
+[![Sign Up Page](https://github.com/user-attachments/assets/signup-page.png)](#)
+[![Edit Profile](https://github.com/user-attachments/assets/edit-profile.png)](#)
+
+### Service Management
+- **Service Creation & Editing**: Providers can create, edit, and manage service listings
+- **Category-based Organization**: Five main categories for easy browsing
+- **Detailed Listing Information**: Title, description, hourly rate, and provider details
+
+[![Service Creation](https://github.com/user-attachments/assets/service-creation.png)](#)
+[![Service Listings](https://github.com/user-attachments/assets/service-listings.png)](#)
+
+### Appointment Booking System
+- **Comprehensive Booking Management**: For both providers and clients
+- **Availability Slot Creation**: Providers set their available time slots
+- **Real-time Booking Status**: Track pending, confirmed, and cancelled appointments
+
+[![Book Appointment](https://github.com/user-attachments/assets/book-appointment.png)](#)
+[![Manage Schedule](https://github.com/user-attachments/assets/manage-schedule.png)](#)
+
+### Service Discovery
+- **Interactive Category Filtering**: Browse services by five main categories
+- **Detailed Service Cards**: Quick overview of service details
+- **Full Service View**: Comprehensive information and booking options
+
+[![Category Filtering](https://github.com/user-attachments/assets/category-filtering.png)](#)
+[![Service Details](https://github.com/user-attachments/assets/service-details.png)](#)
+
+### User Experience Features
+- **Toast Notifications**: Clear feedback for user actions
+- **Dynamic Form Handling**: Real-time character counting
+- **Responsive Design**: Optimal viewing on all devices
+
+[![Toast Notifications](https://github.com/user-attachments/assets/toast-notifications.png)](#)
+[![Responsive Design](https://github.com/user-attachments/assets/responsive-design.png)](#)
+
+## Key Categories
+- **Home Care**: Maintenance and organization services
+- **Education**: Tutoring and mentoring opportunities
+- **Creative**: Arts and design services
+- **Health**: Wellness and fitness support
+- **Events**: Planning and coordination assistance
+
+## Future Enhancements
+- Advanced search functionality
+- Enhanced user profiles
+- Expanded service categories
+- Integrated messaging system
+- Enhanced booking features
 
 ### Navigation & Layout
 - Responsive navigation bar with dynamic content based on authentication status
