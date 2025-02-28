@@ -4,6 +4,8 @@
 
 SkillFlow is a comprehensive web-based platform designed to bridge the gap between skilled individuals and those seeking affordable, local services. In today's gig economy, many talented individuals possess valuable skills but lack an efficient way to connect with potential clients, while others struggle to find reliable, affordable service providers in their community. SkillFlow addresses this challenge by providing a user-friendly marketplace where service providers can showcase their expertise and clients can easily find and book the services they need.
 
+![responsiveness](https://github.com/user-attachments/assets/d1a68a35-31d5-4bd2-9fa2-94301e881d90)
+
 ## Table of Contents
 1. [Project Overview](#project-overview)
    - [SkillFlow Goals](#skillflow-goals)
