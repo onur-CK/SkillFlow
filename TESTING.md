@@ -183,7 +183,7 @@ Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow
 #### Home Page (About Us)
 
 ##### *Home Page Desktop*
-- [Desktop Performance](documentation/testing/lighthouse/about-us-desktop.png)
+![Desktop Performance](documentation/testing/lighthouse/about-us-desktop.png)
 
 ##### *Home Page Mobile*
 - [Mobile Performance](documentation/testing/lighthouse/about-us-mobile.png)
