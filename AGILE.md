@@ -225,21 +225,16 @@ The following key features have been implemented and are available in the curren
 
 The following features have been prioritized for upcoming development cycles:
 
-**Near-Term:**
 - Enhanced search functionality
 - Email notifications for bookings
 - Provider verification system
 - User ratings and reviews
 - Advanced availability management
-
-**Medium-Term:**
 - Direct messaging between users
 - Service analytics for providers
 - Enhanced profile customization
 - Social sharing integration
 - Featured service listings
-
-**Long-Term:**
 - Payment integration
 - Mobile application
 - Advanced analytics

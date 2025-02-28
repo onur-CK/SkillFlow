@@ -257,8 +257,7 @@ For local development, SQLite provides a convenient, file-based database solutio
 
 For production, SkillFlow uses Heroku's PostgreSQL offering:
 
-1. The DATABASE_URL is automatically set by Heroku when the PostgreSQL add-on is provisioned
-
+1. The DATABASE_URL was provided by Code Institute, and we set it on Heroku.
 2. The dj_database_url package parses this URL and configures Django accordingly
 
 3. SSL is required for security in production:

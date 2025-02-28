@@ -1246,6 +1246,19 @@ This fix ensures that:
 ![manage py tests](https://github.com/user-attachments/assets/433f9b45-cfca-4fb4-ae84-0d5628bd80d4)
 
 
+#### Known Bugs
+
+##### Known Intermittent Authentication Error
+
+During testing, we encountered an intermittent issue where users would experience a 500 error when attempting to sign up or log in. After contacting tutor support, they mentioned that "it might be a temporary database issue," and confirmed that "it seems to be working now." They also noted that the issue is intermittent. During the occurrence of this bug, it was observed that users could see authenticated content even when they were not properly logged in. This behavior was limited to specific instances and is no longer replicable. As of now, the sign-up and login functionality works as expected. We have documented this issue as intermittent, and it no longer affects the system.
+
+![tutor support screenshot signup](https://github.com/user-attachments/assets/5140a181-43cd-41af-ac1f-fe6b87ccb3bb)
+
+##### Status/Actions Button Responsiveness Issue
+
+The status/actions buttons in the appointment management interface have been identified as not fully responsive between medium-sized devices (approximately 768px-992px width). While these buttons display correctly on standard desktop and smaller mobile screens, they experience layout challenges on medium-sized tablets and smaller laptops, where they don't properly adapt to the available space. This issue has been documented and prioritized for correction in future development, where we plan to implement a more refined responsive approach with improved breakpoint handling for these specific device dimensions.
+
+![known-bug-responsiveness](https://github.com/user-attachments/assets/676ef7a9-f1df-4cbf-90e6-6b6e34653a59)
 
 ----------------------------------------------------------------
 
@@ -1293,16 +1306,3 @@ Comprehensive manual testing procedures have been implemented:
 - Performance testing for load handling capabilities
 - Security testing for vulnerability detection
 
-#### Known Bugs
-
-##### Known Intermittent Authentication Error
-
-During testing, we encountered an intermittent issue where users would experience a 500 error when attempting to sign up or log in. After contacting tutor support, they mentioned that "it might be a temporary database issue," and confirmed that "it seems to be working now." They also noted that the issue is intermittent. During the occurrence of this bug, it was observed that users could see authenticated content even when they were not properly logged in. This behavior was limited to specific instances and is no longer replicable. As of now, the sign-up and login functionality works as expected. We have documented this issue as intermittent, and it no longer affects the system.
-
-![tutor support screenshot signup](https://github.com/user-attachments/assets/5140a181-43cd-41af-ac1f-fe6b87ccb3bb)
-
-##### Status/Actions Button Responsiveness Issue
-
-The status/actions buttons in the appointment management interface have been identified as not fully responsive between medium-sized devices (approximately 768px-992px width). While these buttons display correctly on standard desktop and smaller mobile screens, they experience layout challenges on medium-sized tablets and smaller laptops, where they don't properly adapt to the available space. This issue has been documented and prioritized for correction in future development, where we plan to implement a more refined responsive approach with improved breakpoint handling for these specific device dimensions.
-
-![known-bug-responsiveness](https://github.com/user-attachments/assets/676ef7a9-f1df-4cbf-90e6-6b6e34653a59)
