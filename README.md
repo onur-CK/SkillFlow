@@ -267,76 +267,138 @@ The visual design of SkillFlow is crafted to create a professional, trustworthy 
 ## Database Design
 
 ### SkillFlow Database Schema
-The database is designed to efficiently manage user profiles, services, bookings, and interactions:
+The database architecture for SkillFlow is designed to efficiently manage users, services, availabilities, and appointments through carefully structured relationships that support the platform's core functionality.
 
 ### Models
-1. UserProfile Model
-   - One-to-One relationship with User
-   - First Name
-   - Last Name
-   - Email
-   - Bio (max 200 characters)
 
-2. Service Model
-   - Title (max 100 characters)
-   - Description
-   - Category (choices: home-care, education, creative, health, events)
-   - Hourly Rate
-   - Provider (ForeignKey to User)
-   - Created Date
+#### UserProfile Model
+Extends Django's built-in User model to store additional user information.
 
-3. Availability Model
-   - Provider (ForeignKey to User)
-   - Service (ForeignKey to Service)
-   - Date
-   - Start Time
-   - End Time
-   - Location
-   - Is Booked Status
-   - Created Date
+- **Fields:**
+  - `user` (OneToOneField → User): Direct link to Django's User model with CASCADE deletion
+  - `first_name` (CharField): User's first name (max 30 characters)
+  - `last_name` (CharField): User's last name (max 30 characters)
+  - `email` (EmailField): Contact email address
+  - `bio` (TextField): User description/biography (max 200 characters)
 
-4. Appointment Model
-   - Availability (OneToOneField)
-   - Client (ForeignKey to User)
-   - Status (choices: pending, confirmed, cancelled)
-   - Created Date
+- **Relationships:**
+  - OneToOne with Django's User model
+  - Implicitly referenced by Service via User FK
+  - Implicitly referenced by Availability via User FK
+  - Implicitly referenced by Appointment via User FK
 
-### ServiceCategory Table
-Stores predefined service categories for consistent organization and filtering:
-- ID (Primary Key)
-- Name
-- Description
-- Icon Class (for frontend display)
+#### Service Model
+Stores details about services offered by providers.
 
-### UserProfile Table
-Extends the Django User model with additional profile information:
-- User (One-to-One relationship with Django User)
-- First Name
-- Last Name
-- Email
-- Bio (text field with 200 character limit)
+- **Fields:**
+  - `title` (CharField): Service title (max 100 characters)
+  - `description` (TextField): Detailed service description
+  - `category` (CharField): Service category from predefined choices
+  - `hourly_rate` (DecimalField): Service cost per hour
+  - `provider` (ForeignKey → User): User offering the service
+  - `created_at` (DateTimeField): Automatic timestamp of creation
 
-### User Table
-Utilizes Django's built-in User model for authentication with the following fields:
-- Username
-- Email
-- Password
-- Date Joined
-- Last Login
-- Is Active
-- Is Staff
-- Is Superuser
+- **Relationships:**
+  - ManyToOne with User (provider)
+  - OneToMany with Availability (service can have multiple availability slots)
+  - Indirectly linked to Appointments through Availability
 
-### Post Table
-Manages service availability posts with the following structure:
-- ID (Primary Key)
-- Service (Foreign Key to Service model)
-- Title
-- Description
-- Category
-- Hourly Rate
-- Provider (Foreign Key to User)
-- Created Date
+#### Availability Model
+Manages time slots when services are available for booking.
+
+- **Fields:**
+  - `provider` (ForeignKey → User): Service provider
+  - `service` (ForeignKey → Service): Associated service offering
+  - `date` (DateField): Date of availability
+  - `start_time` (TimeField): Start time of the slot
+  - `end_time` (TimeField): End time of the slot
+  - `location` (CharField): Meeting location (max 200 characters)
+  - `is_booked` (BooleanField): Flag indicating if slot is booked (default: False)
+  - `created_at` (DateTimeField): Automatic timestamp of creation
+
+- **Constraints:**
+  - UniqueConstraint on provider, service, date, and start_time to prevent duplicate slots
+  - Custom validation to ensure future dates and valid time ranges
+
+- **Relationships:**
+  - ManyToOne with User (provider)
+  - ManyToOne with Service
+  - OneToOne with Appointment (each availability can have at most one appointment)
+
+#### Appointment Model
+Tracks bookings made by clients for specific availability slots.
+
+- **Fields:**
+  - `availability` (OneToOneField → Availability): The booked time slot
+  - `client` (ForeignKey → User): User booking the service
+  - `status` (CharField): Current status from predefined choices (pending, confirmed, cancelled)
+  - `created_at` (DateTimeField): Automatic timestamp of creation
+
+- **Relationships:**
+  - OneToOne with Availability (ensures each slot can only be booked once)
+  - ManyToOne with User (client)
+  - Indirectly linked to Service via Availability
+
+### Relationship Diagram
+```
+User (Django built-in)
+  ↑ OneToOne
+  |
+UserProfile
+  |
+  |                         ┌── OneToOne ──────┐
+  |                         ↓                  |
+  └── via User FK → Service → Availability ←───┘
+                               ↑
+                               | OneToOne
+                               ↓
+                           Appointment ← via User FK
+```
+
+### Model Relationships Explained
+
+1. **User & UserProfile:**
+   - Each Django User has exactly one UserProfile via a OneToOne relationship
+   - When a User is deleted, their associated UserProfile is also deleted (CASCADE)
+
+2. **User & Service:**
+   - A User (as provider) can create multiple Service listings
+   - Each Service belongs to exactly one User (provider)
+   - Service deletion does not affect the User
+
+3. **Service & Availability:**
+   - A Service can have multiple Availability slots
+   - Each Availability slot is associated with exactly one Service
+   - When a Service is deleted, all its Availability slots are also deleted (CASCADE)
+
+4. **User & Availability:**
+   - A User (as provider) can create multiple Availability slots
+   - Each Availability belongs to exactly one User (provider)
+   - When a User is deleted, all their Availability slots are also deleted (CASCADE)
+
+5. **Availability & Appointment:**
+   - An Availability slot can have at most one Appointment (OneToOne)
+   - When an Availability is deleted, its associated Appointment is also deleted (CASCADE)
+   - The `is_booked` flag on Availability indicates whether an Appointment exists
+
+6. **User & Appointment:**
+   - A User (as client) can make multiple Appointments
+   - Each Appointment is associated with exactly one User (client)
+   - When a User is deleted, all their Appointments are also deleted (CASCADE)
+
+This relational design ensures data consistency while efficiently supporting key platform operations:
+- Service providers can create and manage multiple service listings
+- Each service can offer multiple availability slots
+- Clients can book available slots, creating appointments
+- The system prevents double-booking through the OneToOne relationship between Availability and Appointment
+- Appointment status can be tracked independently of availability status
+
+### Data Integrity Enforcement
+The model design includes several mechanisms to maintain data integrity:
+- Database-level constraints (OneToOne, ForeignKey relationships)
+- Model-level validation (clean method in Availability)
+- Form-level validation
+- Transaction management for critical operations (e.g., booking creation)
 
 ## Design and Layout
 
