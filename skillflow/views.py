@@ -239,7 +239,14 @@ def delete_account(request):
     """
     if request.method == "POST":
         user = request.user
+        username = user.username
         user.delete()
+        # Success message
+        messages.success(
+            request,
+            f"Account for {username} has been successfully deleted."
+            "We're sorry to see you go."
+        )
         return redirect("about_us")
     return redirect("manage_account")
 
