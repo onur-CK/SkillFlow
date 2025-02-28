@@ -326,11 +326,12 @@ main {
 }
 
 .custom-submit {
-    background-color: #00beef;
+    background-color: #005588;;
     border: none; /* Removes the border around the button */
     padding: 0.75rem; 
-    font-weight: 500; /* Makes the button text slightly bold */
+    font-weight: 600; /* Makes the button text slightly bold */
     transition: all 0.3s ease; /* Adds a smooth transition effect for all properties */
+    color: white;
 }
 
 .custom-submit:hover {
@@ -617,3 +618,4 @@ input[type="date"],
 input[type="time"] {
     color-scheme: dark;  /* Tells the browser to use the dark theme for these inputs */
 }
+
