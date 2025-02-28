@@ -271,6 +271,8 @@ The visual design of SkillFlow is crafted to create a professional, trustworthy 
 ### SkillFlow Database Schema
 The database architecture for SkillFlow is designed to efficiently manage users, services, availabilities, and appointments through carefully structured relationships that support the platform's core functionality.
 
+![database-diagram](https://github.com/user-attachments/assets/5143567d-a7a3-4b3a-9a8c-77b79b9284a0)
+
 ### Models
 
 #### UserProfile Model

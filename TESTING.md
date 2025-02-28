@@ -413,6 +413,153 @@ This device compatibility testing ensures that users can effectively access and 
 
 ## Manual Testing
 
+### As an **Admin** I can...
+
+| Checked | ...manage user accounts and services in the admin panel |
+|:-------:|:--------|
+| &check; | Can log into the Django admin panel |
+| &check; | Can view all registered users |
+| &check; | Can create new user accounts |
+| &check; | Can edit user account details |
+| &check; | Can delete user accounts |
+
+| Checked | ...manage service listings in the admin panel |
+|:-------:|:--------|
+| &check; | Can view all service listings |
+| &check; | Can create new service listings |
+| &check; | Can edit existing service listings |
+| &check; | Can delete service listings |
+| &check; | Can filter services by category |
+| &check; | Can filter services by provider |
+
+| Checked | ...manage appointments and availabilities |
+|:-------:|:--------|
+| &check; | Can view all appointments |
+| &check; | Can view all availability slots |
+| &check; | Can edit appointment statuses |
+| &check; | Can delete appointments |
+
+| Checked | ...monitor and manage user profiles |
+|:-------:|:--------|
+| &check; | Can view user profile details |
+| &check; | Can edit user profile information |
+| &check; | Can view users' service listings |
+| &check; | Can view users' appointment history |
+
+### As an **Unregistered User** I can...
+
+| Checked | ...view the landing page and understand the platform's purpose |
+|:-------:|:--------|
+| &check; | Can see platform introduction |
+| &check; | Can view service categories |
+| &check; | Can understand the platform's core functionality |
+
+| Checked | ...access basic information about the platform |
+|:-------:|:--------|
+| &check; | Can view "About Us" page |
+| &check; | Can access "How It Works" page |
+| &check; | Can view legal information |
+| &check; | Can access help center |
+
+| Checked | ...register for a new account |
+|:-------:|:--------|
+| &check; | Can access sign-up page |
+| &check; | Can create account with username and password |
+| &check; | Cannot register with existing username |
+| &check; | Password requirements are clearly displayed |
+| &check; | Redirected to index page after successful registration |
+
+| Checked | ...view limited service information |
+|:-------:|:--------|
+| &check; | Can see service category icons |
+| &check; | Can view service preview cards |
+| &check; | Cannot access full service details |
+| &check; | Prompted to sign up/login for more information |
+
+### As a **Registered User** I can...
+
+| Checked | ...manage my user profile |
+|:-------:|:--------|
+| &check; | Can access profile edit page |
+| &check; | Can update personal information |
+| &check; | Can add/edit bio |
+| &check; | Can update contact email |
+| &check; | Can delete account |
+
+| Checked | ...create and manage service listings |
+|:-------:|:--------|
+| &check; | Can create new service listing |
+| &check; | Can edit existing service listings |
+| &check; | Can delete own service listings |
+| &check; | Can set hourly rate |
+| &check; | Can choose service category |
+| &check; | Can provide detailed service description |
+
+| Checked | ...manage availability and appointments |
+|:-------:|:--------|
+| &check; | Can create availability time slots |
+| &check; | Can view own availability slots |
+| &check; | Can delete unbooked availability slots |
+| &check; | Can view booked appointments |
+| &check; | Can confirm or cancel appointments |
+| &check; | Cannot book own services |
+
+| Checked | ...browse and book services |
+|:-------:|:--------|
+| &check; | Can view full service details |
+| &check; | Can filter services by category |
+| &check; | Can view service provider information |
+| &check; | Can book available time slots |
+| &check; | Can see service provider's location |
+| &check; | Receive confirmation after booking |
+
+| Checked | ...interact with the platform |
+|:-------:|:--------|
+| &check; | Can navigate between pages easily |
+| &check; | Receive toast notifications for actions |
+| &check; | Can access all features after login |
+| &check; | Experience consistent design across pages |
+| &check; | Can use platform on different devices |
+
+### Responsiveness Testing
+
+| Device Type | Functionality Tested | Result |
+|-------------|----------------------|--------|
+| Mobile (320px) | Full site navigation | &check; |
+| Tablet | Service booking | &check; |
+| Desktop | All features | &check; |
+
+### Browser Compatibility
+
+| Browser | Compatibility Level |
+|---------|---------------------|
+| Chrome | Full (&check;) |
+| Firefox | Full (&check;) |
+| Safari | Full (&check;) |
+| Edge | Full (&check;) |
+
+### Security Testing
+
+| Security Aspect | Tested | Result |
+|----------------|--------|--------|
+| Authentication | &check; | Secure login process |
+| Authorization | &check; | Users can only access their own data |
+| Input Validation | &check; | Prevents malicious inputs |
+| Password Protection | &check; | Enforces strong password requirements |
+
+### Performance Considerations
+
+| Performance Metric | Tested | Acceptable Range |
+|-------------------|--------|-----------------|
+| Page Load Time | &check; | < 3 seconds |
+| Database Query Speed | &check; | Efficient |
+| Concurrent User Support | &check; | Stable |
+
+**Notes:**
+- All tests performed on development environment
+- Comprehensive testing across different scenarios
+- Continuous improvements based on test results
+
 ### User Story Testing
 Each user story was systematically tested to ensure that the implemented features meet the specified requirements. The manual testing process for user stories involved:
 
