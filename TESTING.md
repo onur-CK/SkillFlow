@@ -1221,6 +1221,9 @@ category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
 
 #### Known Bugs
 
-Add the Screenshot from tutor support, and the tutor's explanation
-500 error code sign up/in log in/out
-bug shows the content for the auth users 
+##### Known Intermittent Authentication Error
+
+During testing, we encountered an intermittent issue where users would experience a 500 error when attempting to sign up or log in. After contacting tutor support, they mentioned that "it might be a temporary database issue," and confirmed that "it seems to be working now." They also noted that the issue is intermittent. During the occurrence of this bug, it was observed that users could see authenticated content even when they were not properly logged in. This behavior was limited to specific instances and is no longer replicable. As of now, the sign-up and login functionality works as expected. We have documented this issue as intermittent, and it no longer affects the system.
+
+![tutor support screenshot signup](https://github.com/user-attachments/assets/5140a181-43cd-41af-ac1f-fe6b87ccb3bb)
+
