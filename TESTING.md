@@ -662,7 +662,7 @@ The `test_forms.py` file contains tests for our form validation and functionalit
 ---
 
 ### Model Tests
-The `test_models.py` file tests your data models, ensuring they store data correctly and perform their intended functions.
+The `test_models.py` file tests our data models, ensuring they store data correctly and perform their intended functions.
 
 #### UserProfile Model Tests
 - **Profile Creation:** Verifies that profiles are created with the correct user association and field values.
