@@ -54,7 +54,7 @@
                                             <!-- Source: https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#if --> 
                                             {% if appointment.status == 'pending' %}
                                             <!-- Action Buttons for Pending Appointments -->
-                                            <div class="d-flex flex-column flex-sm-row gap-1">
+                                            <div class="d-flex flex-column flex-sm-row gap-1 justify-content-center">
                                                 <!-- Confirm Appointment Form -->
                                                 <!-- Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm --> 
                                                 <form method="POST" action="{% url 'update_appointment_status' appointment.id %}" class="d-inline w-100">
@@ -88,7 +88,7 @@
                                                     {% csrf_token %}
                                                     <input type="hidden" name="status" value="cancelled">
                                                     <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                        <i class="fas fa-times"></i> Cancel
+                                                        <i class="fas fa-times"></i><span class="d-none d-sm-inline"> Cancel</span>
                                                     </button>
                                                 </form>
                                             </div>
@@ -154,7 +154,7 @@
                                                     {% csrf_token %}
                                                     <input type="hidden" name="status" value="cancelled">
                                                     <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                        <i class="fas fa-times"></i> Cancel
+                                                        <i class="fas fa-times"></i><span class="d-none d-sm-inline"> Cancel</span>
                                                     </button>
                                                 </form>
                                             </div>
