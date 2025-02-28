@@ -548,7 +548,8 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 - **Dark-themed Modern Interface**: Consistent branding across all pages
 - **Mobile-responsive Design**: Ensures functionality across all devices
 
-[![Navbar Logged Out](https://github.com/user-attachments/assets/03b1522c-e5f2-46e6-ad8b-d1cd1160ed31)](![navbar-logged-out](https://github.com/user-attachments/assets/edd2fbca-fe74-42b4-bc8c-70f088277013))
+[![Navbar Logged Out](https://github.com/user-attachments/assets/03b1522c-e5f2-46e6-ad8b-d1cd1160ed31)](https://github.com/user-attachments/assets/03b1522c-e5f2-46e6-ad8b-d1cd1160ed31)
+
 [![Navbar Logged In](https://github.com/user-attachments/assets/bf5690cd-a927-40e3-a3bc-e0f8bfadecc7)](#)
 
 ### User Authentication & Profiles
