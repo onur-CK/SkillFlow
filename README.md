@@ -549,47 +549,48 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 - **Mobile-responsive Design**: Ensures functionality across all devices
 
 [![Navbar Logged Out](https://github.com/user-attachments/assets/03b1522c-e5f2-46e6-ad8b-d1cd1160ed31)](#)
-[![Navbar Logged In](https://github.com/user-attachments/assets/navbar-logged-in.png)](#)
+[![Navbar Logged In](https://github.com/user-attachments/assets/bf5690cd-a927-40e3-a3bc-e0f8bfadecc7)](#)
 
 ### User Authentication & Profiles
 - **Secure Registration Process**: Easy account creation
 - **Customizable User Profiles**: Add personal information and bio
 - **Role-based Functionality**: Differentiate between service providers and clients
 
-[![Sign Up Page](https://github.com/user-attachments/assets/signup-page.png)](#)
-[![Edit Profile](https://github.com/user-attachments/assets/edit-profile.png)](#)
+[![Sign Up Page](https://github.com/user-attachments/assets/f3167f09-b6a5-404f-980b-13e5843586fc)](#)
+[![Edit Profile](https://github.com/user-attachments/assets/21b9ddfd-eb16-411c-a209-2534a89909f7)](#)
 
 ### Service Management
 - **Service Creation & Editing**: Providers can create, edit, and manage service listings
 - **Category-based Organization**: Five main categories for easy browsing
 - **Detailed Listing Information**: Title, description, hourly rate, and provider details
 
-[![Service Creation](https://github.com/user-attachments/assets/service-creation.png)](#)
-[![Service Listings](https://github.com/user-attachments/assets/service-listings.png)](#)
+[![Service Creation](https://github.com/user-attachments/assets/1b2402a6-827b-4a75-84f0-c4364f7993d5)](#)
+[![Service Listings](https://github.com/user-attachments/assets/cb89445e-0548-4a00-9019-b17a14de2794)](#)
 
 ### Appointment Booking System
 - **Comprehensive Booking Management**: For both providers and clients
 - **Availability Slot Creation**: Providers set their available time slots
 - **Real-time Booking Status**: Track pending, confirmed, and cancelled appointments
 
-[![Book Appointment](https://github.com/user-attachments/assets/book-appointment.png)](#)
-[![Manage Schedule](https://github.com/user-attachments/assets/manage-schedule.png)](#)
+[![Book Appointment](https://github.com/user-attachments/assets/3a3b8ec2-a793-402d-9b6e-b05e2b1a55bc)](#)
+[![Manage Schedule](https://github.com/user-attachments/assets/a683035a-8bcf-4e28-bd33-d2571cabecd3)](#)
 
 ### Service Discovery
 - **Interactive Category Filtering**: Browse services by five main categories
 - **Detailed Service Cards**: Quick overview of service details
 - **Full Service View**: Comprehensive information and booking options
 
-[![Category Filtering](https://github.com/user-attachments/assets/category-filtering.png)](#)
-[![Service Details](https://github.com/user-attachments/assets/service-details.png)](#)
+[![Category Filtering](https://github.com/user-attachments/assets/779ebe63-de96-427b-8f60-1e3ef735d0d2)](#)
+[![Service Details](https://github.com/user-attachments/assets/fca9971b-52e8-4547-a46a-14db29e7e2b0)](#)
 
 ### User Experience Features
 - **Toast Notifications**: Clear feedback for user actions
 - **Dynamic Form Handling**: Real-time character counting
 - **Responsive Design**: Optimal viewing on all devices
 
-[![Toast Notifications](https://github.com/user-attachments/assets/toast-notifications.png)](#)
-[![Responsive Design](https://github.com/user-attachments/assets/responsive-design.png)](#)
+[![Toast Notifications](https://github.com/user-attachments/assets/178d8715-cb57-4d89-b3d2-724825c5bd19)](#)
+[![Responsive Design](https://github.com/user-attachments/assets/85df84cd-4f43-45e5-8d89-5f0207183b55)](#)
+[![Responsive Design](https://github.com/user-attachments/assets/be1bfd9c-8d17-443f-b24c-62b165929214)](#)
 
 ## Key Categories
 - **Home Care**: Maintenance and organization services
