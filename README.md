@@ -57,7 +57,6 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
 10. [Credits and Resources](#credits-and-resources)
     - [Tutorials](#tutorials)
     - [Media and Assets](#media-and-assets)
-    - [Guides and Tutorials](#guides-and-tutorials)
     - [Django Documentation](#django-documentation)
     - [Bootstrap Documentation](#bootstrap-documentation)
     - [Learning Platforms and Videos](#learning-platforms-and-videos)
@@ -498,21 +497,25 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 ##### Benefits of This Approach
 
 1. Rapid Development
+
    • Reduced development time by reusing existing components
    • Minimized the need for new CSS writing
    • Quick implementation of consistent styling
 
 2. Maintainability
+
    • Centralized styling in one CSS file
    • Easy updates across multiple components
    • Reduced CSS redundancy
 
 3. Consistency
+
    • Identical styling between signup and login forms
    • Consistent user experience across components
    • Unified dark theme implementation
 
 4. Scalability
+
    • Easy to replicate pattern for future components
    • Modular structure allows for easy modifications
    • Reduced technical debt
@@ -520,16 +523,19 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 ##### Best Practices Implemented
 
 1. Component Reusability
+
    • Used existing class structures
    • Maintained consistent naming conventions
    • Leveraged Bootstrap's utility classes
 
 2. Code Organization
+
    • Clear separation of concerns
    • Modular CSS structure
    • Consistent class naming
 
 3. Performance
+
    • Minimal additional CSS
    • Optimized class reuse
    • Reduced stylesheet size
@@ -585,8 +591,10 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 - **Responsive Design**: Optimal viewing on all devices
 
 ![Toast Notifications](https://github.com/user-attachments/assets/178d8715-cb57-4d89-b3d2-724825c5bd19)
+
 ![Responsive Design](https://github.com/user-attachments/assets/85df84cd-4f43-45e5-8d89-5f0207183b55)
-![Responsive Design](https://github.com/user-attachments/assets/be1bfd9c-8d17-443f-b24c-62b165929214)
+
+![Responsive Design2](https://github.com/user-attachments/assets/be1bfd9c-8d17-443f-b24c-62b165929214)
 
 ## Key Categories
 - **Home Care**: Maintenance and organization services
@@ -939,28 +947,32 @@ To create a local copy of the repository on your machine:
 
 ### Tutorials
 
-The tutorials were used for the purpose of learning and improving understanding, and no use was made of the code content in the tutorials.
+The tutorials and the source code links provided in html and py files were used for the purpose of learning and improving understanding, and no use was made of the code content in the tutorials/source code links.
 
 - Developing with Django Course by Code Institute
 - Principle of Agile Development by Code Institute
 - Building with Bootstrap Course by Code Institute
 - Database Management Systems Course by Code Institute
+- [Code Institute Readme Tutorial by Kasia Bogucka](https://www.youtube.com/watch?v=l1DE7L-4eKQ)
 - [Bootstrap 5 Crash Course by Traversy Media](https://www.youtube.com/watch?v=4sosXZsdy-s&t=670s)
-- 
-
-### Media and Assets
-- [Favicon](https://favicon.io/favicon-generator/) 
-- [Icons](https://fontawesome.com/icons/moon?f=classic&s=solid)
-
-### Guides and Tutorials
-
-The tutorials were used for the purpose of learning and improving understanding, and no use was made of the code content in the tutorials.
-
+- [Web Dev Simplified](https://www.youtube.com/watch?v=Jyvffr3aCp0)
 - [CRUD Mastery](https://www.youtube.com/watch?v=pqWyUAT38e0)
 - [How to CRUD in Django](https://www.youtube.com/watch?v=opjyyXoqrxg)
 - [Complete Django CRUD Operations](https://www.youtube.com/watch?v=N6jzspc2kds)
 - [Login, Logout, Signup](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
-- [Code Institute Readme Tutorial by Kasia Bogucka](https://www.youtube.com/watch?v=l1DE7L-4eKQ)
+- [Django Documentations](https://docs.djangoproject.com/en/5.1/)
+
+Note: - [Chatgpt](https://chatgpt.com/) is used to have some opinions about the contents in our footer section by giving it the whole concept information about our skillflow project: how it works, help center, cancellation policy etc.
+
+- [Grammarly](https://app.grammarly.com/),
+- [Google Translate](https://translate.google.com/?sl=de&tl=tr&op=translate) and 
+- [Chatgpt](https://chatgpt.com/) 
+are used to correct grammar mistakes for README files.
+
+### Media and Assets
+- [Favicon](https://favicon.io/favicon-generator/) 
+- [Icons](https://fontawesome.com/icons/moon?f=classic&s=solid)
+- [dbdiagram.io](https://dbdiagram.io/home)
 
 ### Django Documentation
 - Django installation: pip install django
@@ -973,15 +985,9 @@ The tutorials were used for the purpose of learning and improving understanding,
 - Bootstrap Utilities
 - Bootstrap Form Controls
 
-### Learning Platforms and Videos
-- YouTube tutorials on Django and Bootstrap integration !!! add the links !!!!!!!!!!!!!!!!!!
-- Stack Overflow discussions on booking system implementation
-- CSS-Tricks articles on responsive design techniques
-
 ### Acknowledgments
 We would like to extend our sincere gratitude to:
-- My mentor(David Bowers) and my facilitator(Kay Welfare) for their contributions in the process of building my project.
-- The Django and Bootstrap development communities for their excellent documentation.
+- Code Institute mentor(David Bowers) and Code Institute facilitator(Kay Welfare) for their contributions in the process of building my project.
 - All contributors(students and tutors) who helped identify and fix bugs during development.
 
 ## Technologies Used
@@ -999,9 +1005,6 @@ We would like to extend our sincere gratitude to:
 
 ### Database Solutions
 - SQLite (Development)
-
-### Media Management Tools
-- Cloudinary
 
 ### Supporting Libraries and Packages
 - Font Awesome
