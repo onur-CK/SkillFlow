@@ -9,54 +9,63 @@
 * [Accessibility Testing](#accessibility-testing)
     * [WAVE Tool Results](#wave-tool-results)
     * [Lighthouse Reports](#lighthouse-reports)
-        * [Home Page](#home-page)
-            * [*Desktop*](#home-page-desktop)
-            * [*Mobile*](#home-page-mobile)
-        * [Service Listings](#service-listings)
-            * [*Desktop*](#service-listings-desktop)
-            * [*Mobile*](#service-listings-mobile)
-        * [Service Detail](#service-detail)
-            * [*Desktop*](#service-detail-desktop)
-            * [*Mobile*](#service-detail-mobile)
+        * [About Us](#about-us)
+            * [*Desktop*](#about-us-desktop)
+            * [*Mobile*](#about-us-mobile)
         * [Appointments](#appointments)
             * [*Desktop*](#appointments-desktop)
             * [*Mobile*](#appointments-mobile)
         * [Book Appointment](#book-appointment)
             * [*Desktop*](#book-appointment-desktop)
             * [*Mobile*](#book-appointment-mobile)
-        * [Login](#login)
-            * [*Desktop*](#login-desktop)
-            * [*Mobile*](#login-mobile)
-        * [Sign Up](#sign-up)
-            * [*Desktop*](#sign-up-desktop)
-            * [*Mobile*](#sign-up-mobile)
-        * [Sign Out](#sign-out)
-            * [*Desktop*](#sign-out-desktop)
-            * [*Mobile*](#sign-out-mobile)
-        * [Edit Profile](#edit-profile)
-            * [*Desktop*](#edit-profile-desktop)
-            * [*Mobile*](#edit-profile-mobile)
-        * [Manage Account](#manage-account)
-            * [*Desktop*](#manage-account-desktop)
-            * [*Mobile*](#manage-account-mobile)
-        * [Schedule Management](#schedule-management)
-            * [*Desktop*](#schedule-management-desktop)
-            * [*Mobile*](#schedule-management-mobile)
-        * [Add Service](#add-service)
-            * [*Desktop*](#add-service-desktop)
-            * [*Mobile*](#add-service-mobile)
         * [Cancellation Policy](#cancellation-policy)
             * [*Desktop*](#cancellation-policy-desktop)
             * [*Mobile*](#cancellation-policy-mobile)
+        * [Edit Profile](#edit-profile)
+            * [*Desktop*](#edit-profile-desktop)
+            * [*Mobile*](#edit-profile-mobile)
+        * [Edit Service](#edit-service)
+            * [*Desktop*](#edit-service-desktop)
+            * [*Mobile*](#edit-service-mobile)
         * [Help Center](#help-center)
             * [*Desktop*](#help-center-desktop)
             * [*Mobile*](#help-center-mobile)
         * [How It Works](#how-it-works)
             * [*Desktop*](#how-it-works-desktop)
             * [*Mobile*](#how-it-works-mobile)
-        * [Legal](#legal)
-            * [*Desktop*](#legal-desktop)
-            * [*Mobile*](#legal-mobile)
+        * [Index](#index)
+            * [*Desktop*](#index-desktop)
+            * [*Mobile*](#index-mobile)
+        * [Legal Page](#legal-page)
+            * [*Desktop*](#legal-page-desktop)
+            * [*Mobile*](#legal-page-mobile)
+        * [Login](#login)
+            * [*Desktop*](#login-desktop)
+            * [*Mobile*](#login-mobile)
+        * [My Services](#my-services)
+            * [*Desktop*](#my-services-desktop)
+            * [*Mobile*](#my-services-mobile)
+        * [Profile Management](#profile-management)
+            * [*Desktop*](#profile-management-desktop)
+            * [*Mobile*](#profile-management-mobile)
+        * [Schedule Management](#schedule-management)
+            * [*Desktop*](#schedule-management-desktop)
+            * [*Mobile*](#schedule-management-mobile)
+        * [Service Creation Form](#service-creation-form)
+            * [*Desktop*](#service-creation-form-desktop)
+            * [*Mobile*](#service-creation-form-mobile)
+        * [Service Detail](#service-detail)
+            * [*Desktop*](#service-detail-desktop)
+            * [*Mobile*](#service-detail-mobile)
+        * [Sign Out](#sign-out)
+            * [*Desktop*](#sign-out-desktop)
+            * [*Mobile*](#sign-out-mobile)
+        * [Sign Up](#sign-up)
+            * [*Desktop*](#sign-up-desktop)
+            * [*Mobile*](#sign-up-mobile)
+        * [User Info](#user-info)
+            * [*Desktop*](#user-info-desktop)
+            * [*Mobile*](#user-info-mobile)
     * [Color Contrast Assessment](#color-contrast-assessment)
     * [Keyboard Navigation](#keyboard-navigation)
 * [Browser Compatibility](#browser-compatibility)
@@ -178,137 +187,159 @@ This demonstrates that SkillFlow has been developed with accessibility as a prio
 
 ### Lighthouse Reports
 
-Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow platform. Each page was tested in both desktop and mobile environments to ensure optimal performance, accessibility, best practices, and SEO across all device types. The tests provide valuable insights into areas of excellence and opportunities for further optimization.
+Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow platform. Each page was tested in both desktop and mobile environments to ensure optimal performance, accessibility, best practices, and SEO across all device types.
 
-#### Home Page (About Us)
+#### About Us
 
-##### *Home Page Desktop*
+##### *About Us Desktop*
 ![Desktop Performance](documentation/testing/lighthouse/about-us-desktop.png)
 
-##### *Home Page Mobile*
-- [Mobile Performance](documentation/testing/lighthouse/about-us-mobile.png)
-
-#### Service Listings
-
-##### *Service Listings Desktop*
-![Service Listings Desktop](https://github.com/user-attachments/assets/c622a8e5-f734-40b0-8175-9eb599a7eb55)
-
-##### *Service Listings Mobile*
-![Service Listings Mobile](https://github.com/user-attachments/assets/11d468d5-73f7-4a71-9dcb-1f66789ccfb0)
-
-#### Service Detail
-
-##### *Service Detail Desktop*
-![Service Detail Desktop](https://github.com/user-attachments/assets/126eaff6-3f44-4b83-8b6b-0cd19ed0d2bf)
-
-##### *Service Detail Mobile*
-![Service Detail Mobile](https://github.com/user-attachments/assets/cd56ae79-a735-40ec-94b1-f54a40f45826)
+##### *About Us Mobile*
+![Mobile Performance](documentation/testing/lighthouse/about-us-mobile.png)
 
 #### Appointments
 
 ##### *Appointments Desktop*
-![Appointments Desktop](https://github.com/user-attachments/assets/09e9851e-a6d1-4451-be11-a7147ee37318)
+![Desktop Performance](documentation/testing/lighthouse/appointments-desktop.png)
 
 ##### *Appointments Mobile*
-![Appointments Mobile](https://github.com/user-attachments/assets/ce439792-ee33-4a4a-b27b-cc245d091c33)
+![Mobile Performance](documentation/testing/lighthouse/appointments-mobile.png)
 
 #### Book Appointment
 
 ##### *Book Appointment Desktop*
-![Book Appointment Desktop](https://github.com/user-attachments/assets/567d65fb-f917-4748-ac0f-4a7cbc62dbb3)
+![Desktop Performance](documentation/testing/lighthouse/book-appointment-desktop.png)
 
 ##### *Book Appointment Mobile*
-![Book Appointment Mobile](https://github.com/user-attachments/assets/1d338f00-fe9f-4ad0-ade1-6d910b7da4b2)
-
-#### Login
-
-##### *Login Desktop*
-![Login Desktop](https://github.com/user-attachments/assets/login_desktop.png)
-
-##### *Login Mobile*
-![Login Mobile](https://github.com/user-attachments/assets/login_mobile.png)
-
-#### Sign Up
-
-##### *Sign Up Desktop*
-![Sign Up Desktop](https://github.com/user-attachments/assets/signup_desktop.png)
-
-##### *Sign Up Mobile*
-![Sign Up Mobile](https://github.com/user-attachments/assets/signup_mobile.png)
-
-#### Sign Out
-
-##### *Sign Out Desktop*
-![Sign Out Desktop](https://github.com/user-attachments/assets/signout_desktop.png)
-
-##### *Sign Out Mobile*
-![Sign Out Mobile](https://github.com/user-attachments/assets/signout_mobile.png)
-
-#### Edit Profile
-
-##### *Edit Profile Desktop*
-![Edit Profile Desktop](https://github.com/user-attachments/assets/fb285e41-59b0-428d-8207-9ca19bb8d619)
-
-##### *Edit Profile Mobile*
-![Edit Profile Mobile](https://github.com/user-attachments/assets/a1718c69-b599-4380-837d-e1c50e600e0f)
-
-#### Manage Account
-
-##### *Manage Account Desktop*
-![Manage Account Desktop](https://github.com/user-attachments/assets/55982a53-79ca-471b-97e9-290bbe3da30d)
-
-##### *Manage Account Mobile*
-![Manage Account Mobile](https://github.com/user-attachments/assets/c643e34b-c125-4d16-b747-8ce8eb645bca)
-
-#### Schedule Management
-
-##### *Schedule Management Desktop*
-![Schedule Management Desktop](https://github.com/user-attachments/assets/10c65a51-9876-4719-80f9-67422e57633d)
-
-##### *Schedule Management Mobile*
-![Schedule Management Mobile](https://github.com/user-attachments/assets/d984ef68-e9ba-4145-ae0b-a4b372f03035)
-
-#### Add Service
-
-##### *Add Service Desktop*
-![Add Service Desktop](https://github.com/user-attachments/assets/903db8a8-d765-44c1-98dc-63f6467b78be)
-
-##### *Add Service Mobile*
-![Add Service Mobile](https://github.com/user-attachments/assets/4d1ae451-dbb2-4c28-a60b-fab661856b65)
+![Mobile Performance](documentation/testing/lighthouse/book-apppointment-mobile.png)
 
 #### Cancellation Policy
 
 ##### *Cancellation Policy Desktop*
-![Cancellation Policy Desktop](https://github.com/user-attachments/assets/c683c27a-8a08-45db-89d4-ec230b2a1b75)
+![Desktop Performance](documentation/testing/lighthouse/cancellation-policy-desktop.png)
 
 ##### *Cancellation Policy Mobile*
-![Cancellation Policy Mobile](https://github.com/user-attachments/assets/34c6f85f-7c28-4aab-a7a8-b1c6dbb220d9)
+![Mobile Performance](documentation/testing/lighthouse/cancellation-policy-mobile.png)
+
+#### Edit Profile
+
+##### *Edit Profile Desktop*
+![Desktop Performance](documentation/testing/lighthouse/edit-profile-desktop.png)
+
+##### *Edit Profile Mobile*
+![Mobile Performance](documentation/testing/lighthouse/edit-profile-mobile.png)
+
+#### Edit Service
+
+##### *Edit Service Desktop*
+![Desktop Performance](documentation/testing/lighthouse/edit-service-desktop.png)
+
+##### *Edit Service Mobile*
+![Mobile Performance](documentation/testing/lighthouse/edit-service-mobile.png)
 
 #### Help Center
 
 ##### *Help Center Desktop*
-![Help Center Desktop](https://github.com/user-attachments/assets/e8209c59-f6c2-4317-a91d-ec5744188445)
+![Desktop Performance](documentation/testing/lighthouse/help-center-desktop.png)
 
 ##### *Help Center Mobile*
-![Help Center Mobile](https://github.com/user-attachments/assets/10ab8a6f-8d20-4084-a149-d4c0e67da829)
+![Mobile Performance](documentation/testing/lighthouse/help-center-mobile.png)
 
 #### How It Works
 
 ##### *How It Works Desktop*
-![How It Works Desktop](https://github.com/user-attachments/assets/4e6dd68f-92e5-4520-946a-fca04901a81c)
+![Desktop Performance](documentation/testing/lighthouse/how-it-works-desktop.png)
 
 ##### *How It Works Mobile*
-![How It Works Mobile](https://github.com/user-attachments/assets/77a8acb5-e9bf-487f-bf59-204f111d9f37)
+![Mobile Performance](documentation/testing/lighthouse/how-it-works-mobile.png)
 
-#### Legal
+#### Index
 
-##### *Legal Desktop*
-![Legal Desktop](https://github.com/user-attachments/assets/1b4b9a98-ec0e-4634-9bee-06a8a16ea783)
+##### *Index Desktop*
+![Desktop Performance](documentation/testing/lighthouse/index-desktop.png)
 
-##### *Legal Mobile*
-![Legal Mobile](https://github.com/user-attachments/assets/70cd7788-44dd-4eef-b912-e20222a3fb2b)
+##### *Index Mobile*
+![Mobile Performance](documentation/testing/lighthouse/index-mobile.png)
 
+#### Legal Page
 
+##### *Legal Page Desktop*
+![Desktop Performance](documentation/testing/lighthouse/legal-page-desktop.png)
+
+##### *Legal Page Mobile*
+![Mobile Performance](documentation/testing/lighthouse/legal-page-mobile.png)
+
+#### Login
+
+##### *Login Desktop*
+![Desktop Performance](documentation/testing/lighthouse/login-desktop.png)
+
+##### *Login Mobile*
+![Mobile Performance](documentation/testing/lighthouse/login-mobile.png)
+
+#### My Services
+
+##### *My Services Desktop*
+![Desktop Performance](documentation/testing/lighthouse/my-services-desktop.png)
+
+##### *My Services Mobile*
+![Mobile Performance](documentation/testing/lighthouse/my-services-mobile.png)
+
+#### Profile Management
+
+##### *Profile Management Desktop*
+![Desktop Performance](documentation/testing/lighthouse/profile-manage-desktop.png)
+
+##### *Profile Management Mobile*
+![Mobile Performance](documentation/testing/lighthouse/profile-manage-mobile.png)
+
+#### Schedule Management
+
+##### *Schedule Management Desktop*
+![Desktop Performance](documentation/testing/lighthouse/schedule-management-desktop.png)
+
+##### *Schedule Management Mobile*
+![Mobile Performance](documentation/testing/lighthouse/schedule-management-mobile.png)
+
+#### Service Creation Form
+
+##### *Service Creation Form Desktop*
+![Desktop Performance](documentation/testing/lighthouse/service-creation-form-desktop.png)
+
+##### *Service Creation Form Mobile*
+![Mobile Performance](documentation/testing/lighthouse/service-creation-form-mobile.png)
+
+#### Service Detail
+
+##### *Service Detail Desktop*
+![Desktop Performance](documentation/testing/lighthouse/service-detail-desktop.png)
+
+##### *Service Detail Mobile*
+![Mobile Performance](documentation/testing/lighthouse/service-detail-mobile.png)
+
+#### Sign Out
+
+##### *Sign Out Desktop*
+![Desktop Performance](documentation/testing/lighthouse/sign-out-desktop.png)
+
+##### *Sign Out Mobile*
+![Mobile Performance](documentation/testing/lighthouse/sign-out-mobile.png)
+
+#### Sign Up
+
+##### *Sign Up Desktop*
+![Desktop Performance](documentation/testing/lighthouse/sign-up-desktop.png)
+
+##### *Sign Up Mobile*
+![Mobile Performance](documentation/testing/lighthouse/sign-up-mobile.png)
+
+#### User Info
+
+##### *User Info Desktop*
+![Desktop Performance](documentation/testing/lighthouse/user-info-desktop.png)
+
+##### *User Info Mobile*
+![Mobile Performance](documentation/testing/lighthouse/user-info-mobile.png)
 
 ### Lighthouse Performance Summary
 
