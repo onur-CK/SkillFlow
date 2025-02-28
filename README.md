@@ -957,6 +957,7 @@ The tutorials and the source code links provided in html and py files were used 
 - Principle of Agile Development by Code Institute
 - Building with Bootstrap Course by Code Institute
 - Database Management Systems Course by Code Institute
+- [Development Environment by Code Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2/courseware/dc049b343a9b474f8d75822c5fda1582/00bc94313a374f519dbec8dfb7ed0fbd/)
 - [Code Institute Readme Tutorial by Kasia Bogucka](https://www.youtube.com/watch?v=l1DE7L-4eKQ)
 - [Bootstrap 5 Crash Course by Traversy Media](https://www.youtube.com/watch?v=4sosXZsdy-s&t=670s)
 - [Web Dev Simplified](https://www.youtube.com/watch?v=Jyvffr3aCp0)
@@ -965,8 +966,10 @@ The tutorials and the source code links provided in html and py files were used 
 - [Complete Django CRUD Operations](https://www.youtube.com/watch?v=N6jzspc2kds)
 - [Login, Logout, Signup](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
 - [Django Documentations](https://docs.djangoproject.com/en/5.1/)
+- [Markdown Guide](https://hackernoon.com/a-beginners-guide-to-markdown-everything-you-need-to-know-to-get-started)
 
 Note: - [Chatgpt](https://chatgpt.com/) is used to have some opinions about the contents in our footer section by giving it the whole concept information about our skillflow project: how it works, help center, cancellation policy etc.
+Also used for brainstorming about future enchancements and future feature developments.
 
 - [Grammarly](https://app.grammarly.com/),
 - [Google Translate](https://translate.google.com/?sl=de&tl=tr&op=translate) and 
