@@ -441,6 +441,7 @@ The model design includes several mechanisms to maintain data integrity:
 6. Profile Management
 
 ### Wireframes
+<details><summary>See Screenshot **Test, large**</summary><img src="https://github.com/user-attachments/assets/97a923fa-d13f-4e3a-8b93-e2145cb527f6"></details>
 
 ![Create account wireframe](https://github.com/user-attachments/assets/97a923fa-d13f-4e3a-8b93-e2145cb527f6)
 ![My Profile wireframe](https://github.com/user-attachments/assets/4985c489-6445-4da8-a343-e8f94227c715)
