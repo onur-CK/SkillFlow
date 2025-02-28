@@ -1125,7 +1125,7 @@ The tutorials and the source code links provided in html and py files were used 
 - Principle of Agile Development by Code Institute
 - Building with Bootstrap Course by Code Institute
 - Database Management Systems Course by Code Institute
-- [Development Environment by Code Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2/courseware/dc049b343a9b474f8d75822c5fda1582/00bc94313a374f519dbec8dfb7ed0fbd/)
+- [Deployment Tutorials by Code Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2/courseware/dc049b343a9b474f8d75822c5fda1582/00bc94313a374f519dbec8dfb7ed0fbd/)
 - [Code Institute Readme Tutorial by Kasia Bogucka](https://www.youtube.com/watch?v=l1DE7L-4eKQ)
 - [Bootstrap 5 Crash Course by Traversy Media](https://www.youtube.com/watch?v=4sosXZsdy-s&t=670s)
 - [Web Dev Simplified](https://www.youtube.com/watch?v=Jyvffr3aCp0)
