@@ -443,7 +443,6 @@ The model design includes several mechanisms to maintain data integrity:
 ### Wireframes
 
 <details>
-<details>
   <summary>See Screenshot **Create Account**</summary>
   <img src="https://github.com/user-attachments/assets/97a923fa-d13f-4e3a-8b93-e2145cb527f6" alt="Create Account Wireframe">
 </details>
