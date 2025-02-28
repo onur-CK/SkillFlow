@@ -6,6 +6,8 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
 
 ![responsiveness](https://github.com/user-attachments/assets/d1a68a35-31d5-4bd2-9fa2-94301e881d90)
 
+[SkillFlow](https://skillflow-community-django-7358f56ac457.herokuapp.com/index/)
+
 ## Table of Contents
 1. [Project Overview](#project-overview)
    - [SkillFlow Goals](#skillflow-goals)
@@ -895,6 +897,10 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 - Multi-language support
 - Accessibility enhancements
 - API development for third-party integrations
+
+## Testing
+
+We have included all the testing details in a seperate document -> [TESTING.md](TESTING.md).
 
 ## Deployment
 The deployment section is structured to provide clear instructions for:
