@@ -183,10 +183,10 @@ Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow
 #### Home Page (About Us)
 
 ##### *Home Page Desktop*
-![index-desktop](https://github.com/user-attachments/assets/c622a8e5-f734-40b0-8175-9eb599a7eb55)
+- [Desktop Performance](documentation/testing/lighthouse/about-us-desktop.png)
 
 ##### *Home Page Mobile*
-![index-mobile](https://github.com/user-attachments/assets/11d468d5-73f7-4a71-9dcb-1f66789ccfb0)
+- [Mobile Performance](documentation/testing/lighthouse/about-us-mobile.png)
 
 #### Service Listings
 
@@ -307,6 +307,8 @@ Comprehensive Lighthouse testing was conducted on all key pages of the SkillFlow
 
 ##### *Legal Mobile*
 ![Legal Mobile](https://github.com/user-attachments/assets/70cd7788-44dd-4eef-b912-e20222a3fb2b)
+
+
 
 ### Lighthouse Performance Summary
 
