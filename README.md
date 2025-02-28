@@ -243,7 +243,7 @@ The visual design of SkillFlow is crafted to create a professional, trustworthy 
    - Background: Dark theme (#0D1014, #161B22) for modern, professional appearance
    - Text: White (#FFFFFF) for optimal readability against dark backgrounds
 
-![color-palette](https://github.com/user-attachments/assets/4958c199-a1cb-4d51-bef1-2b60320a8058)
+[color-palette](https://github.com/user-attachments/assets/4958c199-a1cb-4d51-bef1-2b60320a8058)
 
 Created with ![Coolors](https://coolors.co/)
 
