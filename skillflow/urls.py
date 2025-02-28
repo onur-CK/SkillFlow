@@ -113,3 +113,8 @@ urlpatterns = [
     path("check-ssl/", views.check_ssl_settings, name="check_ssl"),
     path("check-static/", views.check_static_settings, name="check_static"),
 ]
+
+handler400 = 'skillflow.views.bad_request'
+handler403 = 'skillflow.views.permission_denied'
+handler404 = 'skillflow.views.page_not_found'
+handler500 = 'skillflow.views.server_error'
