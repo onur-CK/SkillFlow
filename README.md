@@ -42,12 +42,6 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
    - [User Journey](#user-journey)
    - [Wireframes](#wireframes)
 6. [Development Workflow](#development-workflow)
-   - [Agile Project Management](#agile-project-management)
-   - [GitHub Workflow](#github-workflow)
-   - [User Stories as Issues](#user-stories-as-issues)
-   - [Bug Tracking and Resolution](#bug-tracking-and-resolution)
-   - [Iterative Development Approach](#iterative-development-approach)
-   - [Backlog and Progress](#backlog-and-progress)
    - [Modular Code Architecture](#modular-code-architecture)
 7. [Features](#features)
    - [Site Navigation](#site-navigation)
@@ -67,7 +61,6 @@ SkillFlow is a comprehensive web-based platform designed to bridge the gap betwe
     - [Django Documentation](#django-documentation)
     - [Bootstrap Documentation](#bootstrap-documentation)
     - [Learning Platforms and Videos](#learning-platforms-and-videos)
-    - [Contributors](#contributors)
     - [Acknowledgments](#acknowledgments)
 11. [Technologies Used](#technologies-used)
    - [Programming Languages](#programming-languages)
@@ -416,13 +409,6 @@ The model design includes several mechanisms to maintain data integrity:
 - Accessible color contrast
 - Intuitive navigation patterns
 
-### Color Palette
-- Primary: #00beef (Turquoise Blue)
-- Secondary: #FF4500 (Orange Red)
-- Background: #0D1014 (Dark)
-- Text: #FFFFFF (White)
-- Accent: #161B22 (Dark Gray)
-
 ### Typography
 - Primary Font: System default sans-serif
 - Secondary Font: Font Awesome for icons
@@ -485,6 +471,7 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 ##### Development Process
 
 1. Component Structure
+   
    • Built the login form by reusing the following classes from our signup form:
      - .form-card - Main container styling
      - .custom-input - Input field styling
@@ -492,6 +479,7 @@ A modular architecture provides the flexibility to expand or refactor the platfo
      - .custom-link - Link styling
 
 2. Bootstrap Integration
+   
    • Utilized Bootstrap's built-in classes:
      - .container and .row for layout
      - .col-md-6 for responsive column sizing
@@ -500,6 +488,7 @@ A modular architecture provides the flexibility to expand or refactor the platfo
      - .btn and .w-100 for button styling
 
 3. Custom Styling Reuse
+   
    • Maintained consistent branding by reusing our custom CSS:
      - Form card styling with dark theme (#161b22)
      - Custom input styling with dark background (#0d1014)
@@ -903,6 +892,9 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 We have included all the testing details in a seperate document -> [TESTING.md](TESTING.md).
 
 ## Deployment
+
+We have included a seperate file with all the details about deployment -> [DEPLOYMENT.md](DEPLOYMENT.md).
+
 The deployment section is structured to provide clear instructions for:
 
 ### SkillFlow Deployment
@@ -959,8 +951,6 @@ The tutorials were used for the purpose of learning and improving understanding,
 ### Media and Assets
 - [Favicon](https://favicon.io/favicon-generator/) 
 - [Icons](https://fontawesome.com/icons/moon?f=classic&s=solid)
-- 
-- 
 
 ### Guides and Tutorials
 
