@@ -680,14 +680,12 @@ Form validation is a critical aspect of SkillFlow, ensuring data integrity and p
 
 - **Intuitive Service Category Selection**
   - Clean, modern dropdown design
-  - Easy navigation between service types
   - Responsive across devices
 
 - **Dropdown Features**
   - Clear category labels
   - Hover and selection states
   - Consistent styling
-  - Accessibility considerations
 
 ## Appointment Management
 
