@@ -542,7 +542,7 @@ A modular architecture provides the flexibility to expand or refactor the platfo
 
 # SkillFlow
 
-## Core Features
+## Features
 
 ### Site Navigation
 - **Responsive Navigation Bar**: Dynamically adjusts based on authentication status
